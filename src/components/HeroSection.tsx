@@ -45,9 +45,6 @@ export function HeroSection() {
                 <ArrowRight className="w-5 h-5" />
               </a>
             </Button>
-            <Button variant="heroOutline" size="lg" asChild>
-              <a href="#preise">Preise ansehen</a>
-            </Button>
           </div>
 
           {/* Quick Stats */}
