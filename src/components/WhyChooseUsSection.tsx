@@ -30,7 +30,7 @@ const benefits = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="py-20 bg-background">
+    <section className="pt-20 pb-12 bg-background">
       <div className="container">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-12">
