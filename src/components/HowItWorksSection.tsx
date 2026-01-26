@@ -27,7 +27,7 @@ export function HowItWorksSection() {
       <div className="container">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+          <h2 className="text-xl md:text-3xl font-bold text-foreground whitespace-nowrap">
             So einfach funktioniert es
           </h2>
         </div>
