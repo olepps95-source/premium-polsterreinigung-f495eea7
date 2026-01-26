@@ -69,6 +69,60 @@ const BuerostuhlIcon = ({ className }: { className?: string; strokeWidth?: numbe
   <img src={buerostuhlIcon} alt="Bürostuhl" className={className} />
 );
 
+// Kleiner Hocker icon - custom SVG representing a small upholstered stool/pouf
+const HockerKleinIcon = ({ className }: { className?: string; strokeWidth?: number }) => (
+  <svg 
+    viewBox="0 0 48 48" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth={2}
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+    className={className}
+  >
+    {/* Cushion top - rounded rectangle */}
+    <path d="M8 18 C8 14 10 12 14 12 L34 12 C38 12 40 14 40 18 L40 24 C40 28 38 30 34 30 L14 30 C10 30 8 28 8 24 Z" />
+    {/* Cushion tufting detail */}
+    <path d="M24 12 L24 30" />
+    {/* Left leg */}
+    <path d="M12 30 L10 40" />
+    {/* Right leg */}
+    <path d="M36 30 L38 40" />
+    {/* Feet */}
+    <circle cx="10" cy="41" r="1.5" fill="currentColor" />
+    <circle cx="38" cy="41" r="1.5" fill="currentColor" />
+  </svg>
+);
+
+// Großer Hocker icon - custom SVG representing a larger upholstered stool/pouf
+const HockerGrossIcon = ({ className }: { className?: string; strokeWidth?: number }) => (
+  <svg 
+    viewBox="0 0 48 48" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth={2}
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+    className={className}
+  >
+    {/* Larger cushion top - rounded rectangle */}
+    <path d="M4 16 C4 12 6 10 10 10 L38 10 C42 10 44 12 44 16 L44 24 C44 28 42 30 38 30 L10 30 C6 30 4 28 4 24 Z" />
+    {/* Cushion tufting details */}
+    <path d="M16 10 L16 30" />
+    <path d="M32 10 L32 30" />
+    {/* Left leg */}
+    <path d="M10 30 L8 40" />
+    {/* Center legs */}
+    <path d="M24 30 L24 40" />
+    {/* Right leg */}
+    <path d="M38 30 L40 40" />
+    {/* Feet */}
+    <circle cx="8" cy="41" r="1.5" fill="currentColor" />
+    <circle cx="24" cy="41" r="1.5" fill="currentColor" />
+    <circle cx="40" cy="41" r="1.5" fill="currentColor" />
+  </svg>
+);
+
 // Icon mapping - using any for flexibility with different icon component types
 const iconMap: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number | string }>> = {
   'sessel': Armchair as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
@@ -82,6 +136,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string; strokeWi
   'autositz': AutositzIcon,
   'kuechenstuhl': KuechenstuhlIcon,
   'buerostuhl': BuerostuhlIcon,
+  'hocker-klein': HockerKleinIcon,
+  'hocker-gross': HockerGrossIcon,
   'teppich-klein': Square as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
   'teppich-gross': LayoutGrid as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
   'geruchsentfernung': Wind as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
