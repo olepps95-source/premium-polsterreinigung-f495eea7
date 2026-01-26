@@ -93,7 +93,7 @@ export function SelectedServicesProvider({ children }: { children: ReactNode }) 
   );
 }
 
-export function useSelectedServices() {
+export function useSelectedServices(): SelectedServicesContextType {
   const context = useContext(SelectedServicesContext);
   if (context === undefined) {
     throw new Error('useSelectedServices must be used within a SelectedServicesProvider');
