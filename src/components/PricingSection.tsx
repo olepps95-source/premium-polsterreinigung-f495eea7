@@ -113,10 +113,6 @@ export function PricingSection() {
             Transparente Preise
           </h2>
           <p className="text-lg text-muted-foreground">
-            Jede Reinigung ist individuell.
-            <br />
-            Der Preis richtet sich nach Größe, Material und Verschmutzungsgrad.
-            <br /><br />
             Kostenlose Beratung vorab.
             <br />
             Transparenter Preis – ohne Überraschungen.
