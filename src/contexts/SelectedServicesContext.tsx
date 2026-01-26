@@ -31,17 +31,17 @@ const parsePrice = (priceStr: string): number => {
 
 // All price items with numeric prices
 export const priceItemsData: PriceItem[] = [
-  { id: 'sessel', title: 'Sessel', price: 'ab 40 €', numericPrice: 40 },
-  { id: 'sofa-2', title: 'Sofa 2-Sitzer', price: 'ab 90 €', numericPrice: 90 },
-  { id: 'sofa-3', title: 'Sofa 3-Sitzer', price: 'ab 110 €', numericPrice: 110 },
-  { id: 'ecksofa', title: 'ECKCOUCH', price: 'ab 130 €', numericPrice: 130 },
-  { id: 'ecksofa-gross', title: 'ECKCOUCH, groß', price: 'ab 160 €', numericPrice: 160 },
-  { id: 'matratze-90', title: 'Matratze 90 cm', price: 'ab 60 €', numericPrice: 60 },
-  { id: 'matratze-140', title: 'Matratze 140 cm', price: 'ab 80 €', numericPrice: 80 },
-  { id: 'matratze-180', title: 'Matratze 180 cm', price: 'ab 100 €', numericPrice: 100 },
-  { id: 'autositz', title: 'Autositz', price: 'ab 20 €', numericPrice: 20 },
-  { id: 'kuechenstuhl', title: 'Küchenstuhl', price: 'ab 10 €', numericPrice: 10 },
-  { id: 'buerostuhl', title: 'Bürostuhl', price: 'ab 15 €', numericPrice: 15 },
+  { id: 'sessel', title: 'Sessel', price: '40 €', numericPrice: 40 },
+  { id: 'sofa-2', title: 'Sofa 2-Sitzer', price: '90 €', numericPrice: 90 },
+  { id: 'sofa-3', title: 'Sofa 3-Sitzer', price: '110 €', numericPrice: 110 },
+  { id: 'ecksofa', title: 'ECKCOUCH', price: '130 €', numericPrice: 130 },
+  { id: 'ecksofa-gross', title: 'ECKCOUCH, groß', price: '160 €', numericPrice: 160 },
+  { id: 'matratze-90', title: 'Matratze 90 cm', price: '60 €', numericPrice: 60 },
+  { id: 'matratze-140', title: 'Matratze 140 cm', price: '80 €', numericPrice: 80 },
+  { id: 'matratze-180', title: 'Matratze 180 cm', price: '100 €', numericPrice: 100 },
+  { id: 'autositz', title: 'Autositz', price: '20 €', numericPrice: 20 },
+  { id: 'kuechenstuhl', title: 'Küchenstuhl', price: '10 €', numericPrice: 10 },
+  { id: 'buerostuhl', title: 'Bürostuhl', price: '15 €', numericPrice: 15 },
   { id: 'teppich-klein', title: 'Teppich (bis 10 m²)', price: '10 € pro m²', numericPrice: 10 },
   { id: 'teppich-gross', title: 'Teppich (über 10 m²)', price: 'Preis nach Absprache', numericPrice: 0 },
 ];
