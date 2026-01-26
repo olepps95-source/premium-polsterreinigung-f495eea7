@@ -160,7 +160,7 @@ export function PricingSection() {
   const totalQuantity = getTotalQuantity();
 
   return (
-    <section id="preise" className="py-24 bg-secondary/30">
+    <section id="preise" className="pt-24 pb-12 bg-secondary/30">
       <div className="container">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-12">
