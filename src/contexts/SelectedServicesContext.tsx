@@ -39,6 +39,7 @@ export const priceItemsData: PriceItem[] = [
   { id: 'matratze-90', title: 'Matratze 90 cm', price: '60 €', numericPrice: 60 },
   { id: 'matratze-140', title: 'Matratze 140 cm', price: '90 €', numericPrice: 90 },
   { id: 'matratze-180', title: 'Matratze 180 cm', price: '120 €', numericPrice: 120 },
+  { id: 'bettrahmen', title: 'Bettrahmen / Bettpolster', price: '70 €', numericPrice: 70 },
   { id: 'autositz', title: 'Autositz', price: '20 €', numericPrice: 20 },
   { id: 'kuechenstuhl', title: 'Küchenstuhl', price: '10 €', numericPrice: 10 },
   { id: 'buerostuhl', title: 'Bürostuhl', price: '15 €', numericPrice: 15 },
@@ -46,7 +47,6 @@ export const priceItemsData: PriceItem[] = [
   { id: 'teppich-gross', title: 'Teppich (über 10 m²)', price: 'Preis nach Absprache', numericPrice: 0 },
   { id: 'geruchsentfernung', title: 'Geruchsentfernung', price: '30 € pro m²', numericPrice: 30 },
   { id: 'trocknung', title: 'Vollständige Trocknung', price: '+30 %', numericPrice: 0 },
-  { id: 'bettrahmen', title: 'Bettrahmen / Bettpolster', price: '70 €', numericPrice: 70 },
 ];
 
 export function SelectedServicesProvider({ children }: { children: ReactNode }) {
