@@ -160,10 +160,10 @@ export function PricingSection() {
   const totalQuantity = getTotalQuantity();
 
   return (
-    <section id="preise" className="pt-24 pb-12 bg-secondary/30">
+    <section id="preise" className="pt-16 pb-10 bg-secondary/30">
       <div className="container">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-3xl mx-auto text-center mb-8">
           <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Preisliste</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Transparente Preise

@@ -38,9 +38,9 @@ const reviews = [
 
 export function ReviewsSection() {
   return (
-    <section id="bewertungen" className="py-24 bg-secondary/50">
+    <section id="bewertungen" className="py-16 bg-secondary/50">
       <div className="container">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-10">
           <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Kundenbewertungen</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Das sagen unsere Kunden

@@ -22,9 +22,9 @@ const gallery = [
 
 export function BeforeAfterSection() {
   return (
-    <section id="vorher-nachher" className="pt-12 pb-24">
+    <section id="vorher-nachher" className="py-16">
       <div className="container">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-10">
           <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Vorher – Nachher</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Überzeugen Sie sich selbst
