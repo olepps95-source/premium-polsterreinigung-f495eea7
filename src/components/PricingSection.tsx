@@ -1,4 +1,4 @@
-import { Armchair, Sofa, BedDouble, Square, LayoutGrid, Minus, Plus, ArrowRight, Wind, Zap, Bed } from 'lucide-react';
+import { Armchair, Sofa, BedDouble, Square, LayoutGrid, Minus, Plus, ArrowRight, Wind, Fan, Bed } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { trackContact } from '@/lib/meta-pixel';
 
@@ -85,7 +85,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string; strokeWi
   'teppich-klein': Square as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
   'teppich-gross': LayoutGrid as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
   'geruchsentfernung': Wind as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
-  'trocknung': Zap as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
+  'trocknung': Fan as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
   'bettrahmen': Bed as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
 };
 
