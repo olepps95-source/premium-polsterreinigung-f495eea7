@@ -40,6 +40,8 @@ export const priceItemsData: PriceItem[] = [
   { id: 'matratze-140', title: 'Matratze 140 cm', price: '90 €', numericPrice: 90 },
   { id: 'matratze-180', title: 'Matratze 180 cm', price: '120 €', numericPrice: 120 },
   { id: 'bettrahmen', title: 'Bettrahmen / Bettpolster', price: '70 €', numericPrice: 70 },
+  { id: 'hocker-klein', title: 'Kleiner Hocker', price: '30 €', numericPrice: 30 },
+  { id: 'hocker-gross', title: 'Großer Hocker', price: '40 €', numericPrice: 40 },
   { id: 'autositz', title: 'Autositz', price: '20 €', numericPrice: 20 },
   { id: 'kuechenstuhl', title: 'Küchenstuhl', price: '10 €', numericPrice: 10 },
   { id: 'buerostuhl', title: 'Bürostuhl', price: '15 €', numericPrice: 15 },
