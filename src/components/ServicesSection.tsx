@@ -25,9 +25,9 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="leistungen" className="py-24">
+    <section id="leistungen" className="py-16">
       <div className="container">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-10">
           <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Unsere Leistungen</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Was wir für Sie tun können

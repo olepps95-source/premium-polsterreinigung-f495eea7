@@ -137,19 +137,19 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
   };
 
   return (
-    <section id="kontakt" className="py-24 bg-foreground text-primary-foreground">
+    <section id="kontakt" className="py-16 bg-foreground text-primary-foreground">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Bereit für saubere Polster?
           </h2>
-          <p className="text-lg text-primary-foreground/80 mb-12 max-w-xl mx-auto">
+          <p className="text-lg text-primary-foreground/80 mb-8 max-w-xl mx-auto">
             Kontaktieren Sie uns noch heute und sichern Sie sich Ihren Wunschtermin. 
             Wir beraten Sie gerne unverbindlich.
           </p>
 
           {/* Contact Form */}
-          <div id="kontaktformular" className="bg-background rounded-2xl p-8 md:p-10 mb-12 text-left">
+          <div id="kontaktformular" className="bg-background rounded-2xl p-8 md:p-10 mb-8 text-left">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-foreground mb-2">
                 Kontaktdaten
@@ -297,7 +297,7 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
           </div>
 
           {/* WhatsApp Button */}
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-8">
             <Button variant="hero" size="xl" className="bg-[#25D366] text-white hover:bg-[#25D366]" asChild>
               <a 
                 href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0" 

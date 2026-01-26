@@ -30,10 +30,10 @@ const benefits = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="pt-20 pb-12 bg-background">
+    <section className="py-12 bg-background">
       <div className="container">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-3xl mx-auto text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             Warum Kunden unseren Polsterservice wählen
           </h2>

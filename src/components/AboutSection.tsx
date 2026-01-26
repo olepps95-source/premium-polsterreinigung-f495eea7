@@ -25,9 +25,9 @@ const benefits = [
 
 export function AboutSection() {
   return (
-    <section id="ueber-uns" className="py-24 bg-secondary/50">
+    <section id="ueber-uns" className="py-16 bg-secondary/50">
       <div className="container">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-10">
           <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Über uns</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Ihr Partner für saubere Polster

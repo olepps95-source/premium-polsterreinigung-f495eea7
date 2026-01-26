@@ -23,10 +23,10 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="pt-12 pb-20 bg-muted/30">
+    <section className="py-12 bg-muted/30">
       <div className="container">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-3xl mx-auto text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             So einfach funktioniert es
           </h2>
