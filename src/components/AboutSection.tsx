@@ -35,12 +35,19 @@ export function AboutSection() {
           </h2>
           
           {/* Team member image */}
-          <div className="flex justify-center mb-8">
-            <img 
-              src={teamMemberImage} 
-              alt="ReinWerk Teammitglied" 
-              className="w-48 md:w-64 lg:w-72 h-auto object-contain drop-shadow-lg"
-            />
+          <div className="flex justify-center my-8">
+            <div className="relative">
+              {/* Subtle glow effect behind image */}
+              <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent blur-2xl scale-110 -z-10" />
+              <img 
+                src={teamMemberImage} 
+                alt="ReinWerk Teammitglied" 
+                className="w-40 sm:w-48 md:w-56 lg:w-64 h-auto object-contain"
+                style={{
+                  filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08))'
+                }}
+              />
+            </div>
           </div>
           
           <p className="text-lg text-muted-foreground">
