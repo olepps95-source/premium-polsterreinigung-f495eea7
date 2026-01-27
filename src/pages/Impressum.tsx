@@ -11,9 +11,9 @@ export default function Impressum() {
           
           <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
             <section>
+              <h2 className="text-xl font-semibold text-foreground mb-3">Angaben gemäß § 5 TMG:</h2>
               <p className="text-lg">
                 <strong className="text-foreground">ReinWerk</strong><br />
-                Inhaber: Pshenychnyi Oleh<br />
                 Matthesstraße 48<br />
                 09113 Chemnitz<br />
                 Deutschland
@@ -21,25 +21,46 @@ export default function Impressum() {
             </section>
 
             <section>
+              <h2 className="text-xl font-semibold text-foreground mb-3">Kontakt:</h2>
               <p>
-                <strong className="text-foreground">Telefon:</strong> 01636986317<br />
+                <strong className="text-foreground">Telefon:</strong> +491636986317<br />
                 <strong className="text-foreground">E-Mail:</strong>{' '}
                 <a href="mailto:info@reinwerk-service.de" className="text-primary hover:underline">
                   info@reinwerk-service.de
+                </a><br />
+                <strong className="text-foreground">Website:</strong>{' '}
+                <a href="https://www.reinwerk-service.de/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  www.reinwerk-service.de/
                 </a>
               </p>
             </section>
 
             <section>
-              <p>
-                <strong className="text-foreground">Umsatzsteuer-ID:</strong> nicht vorhanden
-              </p>
+              <h2 className="text-xl font-semibold text-foreground mb-3">Vertreten durch:</h2>
+              <p>Oleh Pshenychnyi</p>
             </section>
 
             <section>
+              <h2 className="text-xl font-semibold text-foreground mb-3">Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</h2>
+              <p>Entfällt, da Kleinunternehmer gemäß § 19 UStG</p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold text-foreground mb-3">EU-Streitschlichtung:</h2>
               <p>
-                <strong className="text-foreground">Verantwortlich gemäß § 55 RStV:</strong><br />
-                Pshenychnyi Oleh
+                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:<br />
+                <a href="https://ec.europa.eu/consumers/odr/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  https://ec.europa.eu/consumers/odr/
+                </a>
+              </p>
+              <p>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold text-foreground mb-3">Verbraucherstreitbeilegung/Universalschlichtungsstelle:</h2>
+              <p>
+                Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren
+                vor einer Verbraucherschlichtungsstelle teilzunehmen.
               </p>
             </section>
           </div>
