@@ -1,5 +1,4 @@
-import { Sparkles, Leaf, Shield, Clock } from 'lucide-react';
-import teamMemberImage from '@/assets/team-member.png';
+import { Check, Heart, Leaf, Sparkles, Clock, Shield } from 'lucide-react';
 
 const benefits = [
   {
@@ -28,29 +27,16 @@ export function AboutSection() {
   return (
     <section id="ueber-uns" className="py-16 bg-secondary/50">
       <div className="container">
-        {/* About intro with image */}
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-12">
-          {/* Text content */}
-          <div className="flex-1 text-center lg:text-left">
-            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Über uns</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Ihr Partner für saubere Polster
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel 
-              wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer 
-              Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.
-            </p>
-          </div>
-          
-          {/* Team member image */}
-          <div className="flex-shrink-0">
-            <img
-              src={teamMemberImage}
-              alt="ReinWerk Teammitglied"
-              className="w-64 md:w-80 lg:w-96 h-auto rounded-2xl object-contain"
-            />
-          </div>
+        <div className="max-w-3xl mx-auto text-center mb-10">
+          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Über uns</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+            Ihr Partner für saubere Polster
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel 
+            wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer 
+            Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
