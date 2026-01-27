@@ -16,7 +16,7 @@ const gallery = [
   {
     image: beforeAfterSessel,
     caption: 'Sofa Auffrischung',
-    description: 'Gründliche Entfernung von über Jahre angesammeltem Schmutz und Staub sowie sorgfältige Beseitigung von Fusseln und Knötchen auf dem Sofa. Der ursprüngliche Farbton konnte zwar nicht vollständig erhalten werden, dennoch wirkt das Sofa insgesamt deutlich frischer, gepflegt und nahezu wie neu.',
+    description: 'Entfernung von jahrelangem Schmutz, Staub sowie Fusseln und Knötchen. Der Farbton konnte nicht vollständig erhalten werden, dennoch wirkt das Sofa deutlich frischer und gepflegt.',
   },
 ];
 
