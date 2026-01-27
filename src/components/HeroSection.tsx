@@ -57,8 +57,8 @@ export function HeroSection() {
               <p className="text-sm text-muted-foreground">Zufriedene Kunden</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary">4.8/5</p>
-              <p className="text-sm text-muted-foreground">Google Bewertung</p>
+              <p className="text-3xl font-bold text-primary">0 €</p>
+              <p className="text-sm text-muted-foreground">Keine versteckten Gebühren</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-primary whitespace-nowrap text-xl md:text-3xl">Gratis</p>
