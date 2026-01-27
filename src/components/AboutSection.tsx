@@ -1,4 +1,5 @@
 import { Check, Heart, Leaf, Sparkles, Clock, Shield } from 'lucide-react';
+import teamMemberImage from '@/assets/team-member.png';
 
 const benefits = [
   {
@@ -32,6 +33,16 @@ export function AboutSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Ihr Partner für saubere Polster
           </h2>
+          
+          {/* Team member image */}
+          <div className="flex justify-center mb-8">
+            <img 
+              src={teamMemberImage} 
+              alt="ReinWerk Teammitglied" 
+              className="w-48 md:w-64 lg:w-72 h-auto object-contain drop-shadow-lg"
+            />
+          </div>
+          
           <p className="text-lg text-muted-foreground">
             Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel 
             wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer 
