@@ -1,6 +1,6 @@
 import beforeAfter1 from '@/assets/before-after-1.jpg';
 import beforeAfter2 from '@/assets/before-after-2.jpg';
-import beforeAfter3 from '@/assets/before-after-3.jpg';
+import beforeAfterSessel from '@/assets/before-after-sessel.png';
 
 const gallery = [
   {
@@ -14,7 +14,7 @@ const gallery = [
     description: 'Entfernung von gelben Verfärbungen sowie eine umfassende hygienische Tiefenreinigung der Matratze für spürbare Frische und Sauberkeit.',
   },
   {
-    image: beforeAfter3,
+    image: beforeAfterSessel,
     caption: 'Sessel Auffrischung',
     description: 'Intensive Reinigung eines hellen Sessels – Entfernung von tiefem Schmutz und Staub für ein frisches, sauberes Erscheinungsbild.',
   },
