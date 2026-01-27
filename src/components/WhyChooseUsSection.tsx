@@ -1,4 +1,4 @@
-import { Home, ShieldCheck, Sparkles, Euro, CalendarDays } from 'lucide-react';
+import { Home, ShieldCheck, Sparkles, Euro, CalendarDays, HeartHandshake } from 'lucide-react';
 
 const benefits = [
   {
@@ -15,6 +15,11 @@ const benefits = [
     icon: Sparkles,
     title: 'Gründliche Tiefenreinigung',
     description: 'Auch bei starken Verschmutzungen wie Gerüchen, Urin oder anderen hartnäckigen Rückständen sorgen wir für hygienische Sauberkeit.',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Schonend & sicher',
+    description: 'Wir verwenden geprüfte Reinigungsmittel, die materialschonend und unbedenklich für Kinder und Haustiere sind.',
   },
   {
     icon: Euro,
