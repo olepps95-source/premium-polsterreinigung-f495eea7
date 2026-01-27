@@ -15,8 +15,8 @@ const gallery = [
   },
   {
     image: beforeAfterSessel,
-    caption: 'Sessel Auffrischung',
-    description: 'Intensive Reinigung eines hellen Sessels – Entfernung von tiefem Schmutz und Staub für ein frisches, sauberes Erscheinungsbild.',
+    caption: 'Sofa Auffrischung',
+    description: 'Gründliche Entfernung von über Jahre angesammeltem Schmutz und Staub sowie sorgfältige Beseitigung von Fusseln und Knötchen auf dem Sofa. Der ursprüngliche Farbton konnte zwar nicht vollständig erhalten werden, dennoch wirkt das Sofa insgesamt deutlich frischer, gepflegt und nahezu wie neu.',
   },
 ];
 
