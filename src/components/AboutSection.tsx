@@ -42,7 +42,7 @@ export function AboutSection() {
               <img 
                 src={teamMemberImage} 
                 alt="ReinWerk Teammitglied" 
-                className="w-40 sm:w-48 md:w-56 lg:w-64 h-auto object-contain"
+                className="w-72 sm:w-48 md:w-56 lg:w-64 h-auto object-contain"
                 style={{
                   filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08))'
                 }}
