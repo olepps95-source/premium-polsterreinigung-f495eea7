@@ -21,15 +21,14 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <AboutSection />
+        <WhyChooseUsSection />
+        <BeforeAfterSection />
         <ServicesSection />
         <PricingSection />
         <HowItWorksSection />
-        <WhyChooseUsSection />
-        
-        <BeforeAfterSection />
         <ReviewsSection />
         <ServiceAreaSection />
+        <AboutSection />
         <CTASection ref={ctaFormRef} />
       </main>
       <Footer />
