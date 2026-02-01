@@ -156,6 +156,19 @@ export function PricingSection() {
     });
   };
 
+  const handleCardClick = (itemId: string) => {
+    // Increment quantity by 1
+    handleQuantityChange(itemId, 1);
+    
+    // Smooth scroll to contact form
+    setTimeout(() => {
+      const contactSection = document.getElementById('kontakt');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 150);
+  };
+
 
   const totalQuantity = getTotalQuantity();
 
@@ -180,14 +193,22 @@ export function PricingSection() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {priceItems.map((item) => {
               const quantity = quantities[item.id] || 0;
+              const isSelected = quantity > 0;
               const IconComponent = iconMap[item.id];
               return (
                 <div
                   key={item.id}
-                  className="bg-card rounded-2xl p-4 md:p-6 shadow-soft border border-border/50 flex flex-col items-center text-center"
+                  onClick={() => handleCardClick(item.id)}
+                  className={`bg-card rounded-2xl p-4 md:p-6 shadow-soft border-2 flex flex-col items-center text-center cursor-pointer transition-all duration-200 hover:shadow-md ${
+                    isSelected 
+                      ? 'border-primary bg-primary/5 ring-1 ring-primary/20' 
+                      : 'border-border/50 hover:border-primary/30'
+                  }`}
                 >
                   {/* Icon */}
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-accent/50 flex items-center justify-center mb-4">
+                  <div className={`w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center mb-4 transition-colors duration-200 ${
+                    isSelected ? 'bg-primary/10' : 'bg-accent/50'
+                  }`}>
                     {IconComponent && (
                       <IconComponent 
                         className={`text-primary ${
@@ -215,7 +236,7 @@ export function PricingSection() {
                   </p>
 
                   {/* Quantity Selector */}
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
                     <button
                       onClick={() => handleQuantityChange(item.id, -1)}
                       className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-accent/70 hover:bg-accent flex items-center justify-center transition-colors duration-200"
