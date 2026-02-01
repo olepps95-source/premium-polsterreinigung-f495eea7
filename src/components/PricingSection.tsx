@@ -157,16 +157,8 @@ export function PricingSection() {
   };
 
   const handleCardClick = (itemId: string) => {
-    // Increment quantity by 1
+    // Increment quantity by 1 (no scroll - user stays in price list)
     handleQuantityChange(itemId, 1);
-    
-    // Smooth scroll to contact form
-    setTimeout(() => {
-      const contactSection = document.getElementById('kontakt');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 150);
   };
 
 
