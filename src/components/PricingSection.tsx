@@ -231,10 +231,10 @@ export function PricingSection() {
                   <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
                     <button
                       onClick={() => handleQuantityChange(item.id, -1)}
-                      className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-accent/70 hover:bg-accent flex items-center justify-center transition-colors duration-200"
+                      className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-muted border border-border hover:bg-accent hover:border-primary/30 flex items-center justify-center transition-colors duration-200"
                       aria-label="Menge verringern"
                     >
-                      <Minus className="w-4 h-4 md:w-5 md:h-5 text-foreground" strokeWidth={2} />
+                      <Minus className="w-4 h-4 md:w-5 md:h-5 text-foreground" strokeWidth={2.5} />
                     </button>
                     <span className="w-8 text-center text-lg md:text-xl font-semibold text-foreground">
                       {quantity}
