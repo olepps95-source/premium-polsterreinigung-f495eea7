@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { MessageCircle, Send, Info } from 'lucide-react';
+import { MessageCircle, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { trackLead, trackContact } from '@/lib/meta-pixel';
 import { useSelectedServices } from '@/contexts/SelectedServicesContext';
@@ -198,15 +198,6 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
                   </TableFooter>
                 </Table>
 
-                {/* Price Info Hint */}
-                <div className="flex items-start gap-2 mt-3 px-3 py-2 bg-muted/40 rounded-md border border-border/30">
-                  <Info className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    <span className="font-medium text-foreground">Hinweis:</span>{' '}
-                    Der finale Preis richtet sich nach Größe, Material und Verschmutzungsgrad. 
-                    Alle Details besprechen wir transparent vorab – unsere Beratung ist kostenfrei.
-                  </p>
-                </div>
               </div>
             )}
 
