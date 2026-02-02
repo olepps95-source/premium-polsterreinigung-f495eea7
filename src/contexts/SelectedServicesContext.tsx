@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 export interface PriceItem {
   id: string;
@@ -23,13 +23,7 @@ interface SelectedServicesContextType {
 
 const SelectedServicesContext = createContext<SelectedServicesContextType | undefined>(undefined);
 
-// Parse price string to numeric value (e.g., "ab 40 €" -> 40)
-const parsePrice = (priceStr: string): number => {
-  const match = priceStr.match(/(\d+)/);
-  return match ? parseInt(match[1], 10) : 0;
-};
-
-// All price items with numeric prices
+// Default price items - base values
 export const priceItemsData: PriceItem[] = [
   { id: 'sessel', title: 'Sessel', price: '40 €', numericPrice: 40 },
   { id: 'sofa-2', title: 'Sofa 2-Sitzer', price: '90 €', numericPrice: 90 },
@@ -51,11 +45,58 @@ export const priceItemsData: PriceItem[] = [
   { id: 'trocknung', title: 'Vollständige Trocknung', price: '+30 %', numericPrice: 0 },
 ];
 
+const STORAGE_KEY = 'reinwerk_editable_prices';
+
 export function SelectedServicesProvider({ children }: { children: ReactNode }) {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
+  const [priceItems, setPriceItems] = useState<PriceItem[]>(priceItemsData);
+
+  // Load editable prices from localStorage
+  useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        setPriceItems(parsed);
+      } catch {
+        // Use defaults
+      }
+    }
+
+    // Listen for storage changes (for real-time updates from admin)
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === STORAGE_KEY && e.newValue) {
+        try {
+          setPriceItems(JSON.parse(e.newValue));
+        } catch {
+          // Ignore parse errors
+        }
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  // Also check for updates periodically (for same-tab updates)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          setPriceItems(parsed);
+        } catch {
+          // Ignore
+        }
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const getSelectedServices = (): SelectedService[] => {
-    return priceItemsData
+    return priceItems
       .filter(item => (quantities[item.id] || 0) > 0)
       .map(item => ({
         ...item,
@@ -68,7 +109,7 @@ export function SelectedServicesProvider({ children }: { children: ReactNode }) 
   };
 
   const getTotalPrice = (): number => {
-    return priceItemsData.reduce((sum, item) => {
+    return priceItems.reduce((sum, item) => {
       const qty = quantities[item.id] || 0;
       return sum + (qty * item.numericPrice);
     }, 0);
@@ -83,7 +124,7 @@ export function SelectedServicesProvider({ children }: { children: ReactNode }) 
       value={{ 
         quantities, 
         setQuantities, 
-        priceItems: priceItemsData,
+        priceItems,
         getSelectedServices, 
         getTotalQuantity, 
         getTotalPrice,
