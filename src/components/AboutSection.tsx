@@ -1,5 +1,7 @@
-import { Check, Heart, Leaf, Sparkles, Clock, Shield } from 'lucide-react';
+import { useState } from 'react';
+import { Leaf, Sparkles, Clock, Shield, ChevronDown } from 'lucide-react';
 import teamMemberImage from '@/assets/team-member.png';
+import { cn } from '@/lib/utils';
 
 const benefits = [
   {
@@ -25,9 +27,16 @@ const benefits = [
 ];
 
 export function AboutSection() {
+  // First card open by default
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
+
+  const handleCardClick = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   return (
     <section id="ueber-uns" className="py-16 bg-secondary/50">
-      <div className="container">
+      <div className="container px-3 md:px-4">
         <div className="max-w-3xl mx-auto text-center mb-10">
           <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Über uns</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
@@ -57,19 +66,65 @@ export function AboutSection() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {benefits.map((benefit) => (
-            <div
-              key={benefit.title}
-              className="bg-card p-8 rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-300"
-            >
-              <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-6">
-                <benefit.icon className="w-7 h-7 text-primary" />
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-8 max-w-5xl mx-auto">
+          {benefits.map((benefit, index) => {
+            const isExpanded = expandedIndex === index;
+            
+            return (
+              <div
+                key={benefit.title}
+                onClick={() => handleCardClick(index)}
+                className={cn(
+                  "bg-card p-3 md:p-8 rounded-xl md:rounded-2xl border cursor-pointer select-none",
+                  "transition-all duration-300 ease-out",
+                  "active:scale-[0.98]",
+                  isExpanded 
+                    ? "col-span-2 lg:col-span-1 border-primary shadow-medium bg-accent/20" 
+                    : "border-border/50 shadow-soft hover:shadow-medium hover:border-border"
+                )}
+              >
+                <div className="flex flex-col">
+                  <div className="w-full flex items-start justify-between mb-2 md:mb-6">
+                    <div className={cn(
+                      "w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-accent flex items-center justify-center",
+                      "transition-colors duration-300",
+                      isExpanded && "bg-primary/10"
+                    )}>
+                      <benefit.icon className="w-5 h-5 md:w-7 md:h-7 text-primary" />
+                    </div>
+                    
+                    {/* Chevron indicator */}
+                    <div className={cn(
+                      "w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center",
+                      "transition-all duration-300",
+                      isExpanded ? "bg-primary/10" : "bg-muted/50"
+                    )}>
+                      <ChevronDown className={cn(
+                        "w-4 h-4 md:w-5 md:h-5 text-muted-foreground transition-transform duration-300",
+                        isExpanded && "rotate-180 text-primary"
+                      )} />
+                    </div>
+                  </div>
+                  
+                  <h3 className={cn(
+                    "font-semibold text-foreground mb-1 md:mb-3 leading-tight",
+                    isExpanded ? "text-sm md:text-lg" : "text-xs md:text-lg"
+                  )}>
+                    {benefit.title}
+                  </h3>
+                  
+                  <p className={cn(
+                    "text-muted-foreground transition-all duration-300",
+                    isExpanded 
+                      ? "text-sm md:text-sm leading-relaxed opacity-100 max-h-40" 
+                      : "text-[11px] md:text-sm leading-snug md:leading-relaxed line-clamp-2 md:line-clamp-none"
+                  )}>
+                    {benefit.description}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-3">{benefit.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
