@@ -33,7 +33,7 @@ export const FloatingWhatsApp = () => {
       
       {/* Button */}
       <a
-        href="https://wa.me/491636986317?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20eine%20Reinigung%20und%20sende%20Ihnen%20gleich%20Fotos."
+        href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0"
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setShowTooltip(true)}

@@ -9,7 +9,7 @@ import autositzIcon from '@/assets/autositz-icon.svg';
 import kuechenstuhlIcon from '@/assets/kuechenstuhl-icon.svg';
 import buerostuhlIcon from '@/assets/buerostuhl-icon.svg';
 
-const WHATSAPP_URL = 'https://wa.me/491636986317?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20eine%20Reinigung%20und%20sende%20Ihnen%20gleich%20Fotos.';
+const WHATSAPP_URL = 'https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0';
 
 // Sofa 3-Sitzer icon - using imported SVG
 const Sofa3SitzerIcon = ({ className }: { className?: string; strokeWidth?: number }) => (
