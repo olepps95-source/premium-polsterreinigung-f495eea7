@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Leaf, Sparkles, Clock, Shield, ChevronDown } from 'lucide-react';
 import teamMemberImage from '@/assets/team-member.png';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const benefits = [
   {
@@ -27,11 +28,14 @@ const benefits = [
 ];
 
 export function AboutSection() {
-  // First card open by default
+  // First card open by default on mobile
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
+  const isMobile = useIsMobile();
 
   const handleCardClick = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
+    if (isMobile) {
+      setExpandedIndex(expandedIndex === index ? null : index);
+    }
   };
 
   return (
@@ -69,18 +73,23 @@ export function AboutSection() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-8 max-w-5xl mx-auto">
           {benefits.map((benefit, index) => {
             const isExpanded = expandedIndex === index;
+            const showExpanded = isMobile ? isExpanded : true; // Desktop always shows full content
             
             return (
               <div
                 key={benefit.title}
                 onClick={() => handleCardClick(index)}
                 className={cn(
-                  "bg-card p-3 md:p-8 rounded-xl md:rounded-2xl border cursor-pointer select-none",
+                  "bg-card p-3 md:p-8 rounded-xl md:rounded-2xl border",
                   "transition-all duration-300 ease-out",
-                  "active:scale-[0.98]",
-                  isExpanded 
-                    ? "col-span-2 lg:col-span-1 border-primary shadow-medium bg-accent/20" 
-                    : "border-border/50 shadow-soft hover:shadow-medium hover:border-border"
+                  // Only interactive on mobile
+                  isMobile && "cursor-pointer select-none active:scale-[0.98]",
+                  // Expanded state styling (mobile only)
+                  isMobile && isExpanded 
+                    ? "col-span-2 border-primary shadow-medium bg-accent/20" 
+                    : "border-border/50 shadow-soft",
+                  // Hover effects only on mobile
+                  isMobile && !isExpanded && "hover:shadow-medium hover:border-border"
                 )}
               >
                 <div className="flex flex-col">
@@ -88,36 +97,38 @@ export function AboutSection() {
                     <div className={cn(
                       "w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-accent flex items-center justify-center",
                       "transition-colors duration-300",
-                      isExpanded && "bg-primary/10"
+                      isMobile && isExpanded && "bg-primary/10"
                     )}>
                       <benefit.icon className="w-5 h-5 md:w-7 md:h-7 text-primary" />
                     </div>
                     
-                    {/* Chevron indicator */}
-                    <div className={cn(
-                      "w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center",
-                      "transition-all duration-300",
-                      isExpanded ? "bg-primary/10" : "bg-muted/50"
-                    )}>
-                      <ChevronDown className={cn(
-                        "w-4 h-4 md:w-5 md:h-5 text-muted-foreground transition-transform duration-300",
-                        isExpanded && "rotate-180 text-primary"
-                      )} />
-                    </div>
+                    {/* Chevron indicator - only visible on mobile */}
+                    {isMobile && (
+                      <div className={cn(
+                        "w-6 h-6 rounded-full flex items-center justify-center",
+                        "transition-all duration-300",
+                        isExpanded ? "bg-primary/10" : "bg-muted/50"
+                      )}>
+                        <ChevronDown className={cn(
+                          "w-4 h-4 text-muted-foreground transition-transform duration-300",
+                          isExpanded && "rotate-180 text-primary"
+                        )} />
+                      </div>
+                    )}
                   </div>
                   
                   <h3 className={cn(
                     "font-semibold text-foreground mb-1 md:mb-3 leading-tight",
-                    isExpanded ? "text-sm md:text-lg" : "text-xs md:text-lg"
+                    isMobile && !isExpanded ? "text-xs" : "text-sm md:text-lg"
                   )}>
                     {benefit.title}
                   </h3>
                   
                   <p className={cn(
                     "text-muted-foreground transition-all duration-300",
-                    isExpanded 
-                      ? "text-sm md:text-sm leading-relaxed opacity-100 max-h-40" 
-                      : "text-[11px] md:text-sm leading-snug md:leading-relaxed line-clamp-2 md:line-clamp-none"
+                    showExpanded 
+                      ? "text-sm md:text-sm leading-relaxed opacity-100" 
+                      : "text-[11px] leading-snug line-clamp-2"
                   )}>
                     {benefit.description}
                   </p>
