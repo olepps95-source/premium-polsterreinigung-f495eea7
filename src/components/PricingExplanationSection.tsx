@@ -28,10 +28,6 @@ const factors = [
 const WHATSAPP_URL = 'https://wa.me/491636986317?text=Hallo%21%20Ich%20habe%20Ihre%20Website%20besucht%20und%20interessiere%20mich%20f%C3%BCr%20eine%20Polsterreinigung.%20Gerne%20sende%20ich%20Ihnen%20Fotos%20zur%20Einsch%C3%A4tzung.';
 
 export function PricingExplanationSection() {
-  const handleWhatsAppClick = () => {
-    trackContact();
-    window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer');
-  };
 
   return (
     <section className="py-16 md:py-24 bg-muted/30">
@@ -87,10 +83,17 @@ export function PricingExplanationSection() {
                   Senden Sie uns einfach ein Foto Ihrer Möbel per WhatsApp. Wir analysieren den Zustand und nennen Ihnen einen verbindlichen Festpreis. So wissen Sie genau, was es kostet, bevor wir kommen – ohne böse Überraschungen!
                 </p>
                 <Button 
-                  onClick={handleWhatsAppClick}
+                  asChild
                   className="bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold px-6 py-3 h-auto text-base"
                 >
-                  Jetzt Foto senden & Preis erhalten
+                  <a 
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackContact()}
+                  >
+                    Jetzt Foto senden & Preis erhalten
+                  </a>
                 </Button>
               </div>
             </CardContent>
