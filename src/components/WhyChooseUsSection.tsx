@@ -35,30 +35,30 @@ const benefits = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="py-12 bg-background">
-      <div className="container">
+    <section className="py-8 md:py-12 bg-background">
+      <div className="container px-3 md:px-4">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+        <div className="max-w-3xl mx-auto text-center mb-4 md:mb-8">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground">
             Warum Kunden unseren Polsterservice wählen
           </h2>
         </div>
 
         {/* Benefits Grid */}
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6">
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="bg-card p-6 rounded-2xl shadow-soft border border-border/50 flex flex-col items-center text-center"
+                className="bg-card p-3 md:p-6 rounded-xl md:rounded-2xl shadow-soft border border-border/50 flex flex-col items-center text-center"
               >
-                <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-4">
-                  <benefit.icon className="w-7 h-7 text-primary" />
+                <div className="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-accent flex items-center justify-center mb-2 md:mb-4">
+                  <benefit.icon className="w-5 h-5 md:w-7 md:h-7 text-primary" />
                 </div>
-                <h3 className="text-base md:text-lg font-semibold text-foreground mb-2">
+                <h3 className="text-xs md:text-base lg:text-lg font-semibold text-foreground mb-1 md:mb-2 leading-tight">
                   {benefit.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-[11px] md:text-sm text-muted-foreground leading-snug md:leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
