@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Home, ShieldCheck, Sparkles, Euro, CalendarDays, HeartHandshake, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Home, ShieldCheck, Sparkles, Euro, CalendarDays, HeartHandshake, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const benefits = [
@@ -37,6 +37,13 @@ const benefits = [
 
 export function WhyChooseUsSection() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    // Trigger pulse animation once after mount
+    const timer = setTimeout(() => setHasAnimated(true), 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleCardClick = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -63,15 +70,18 @@ export function WhyChooseUsSection() {
                   key={benefit.title}
                   onClick={() => handleCardClick(index)}
                   className={cn(
-                    "bg-card p-3 md:p-6 rounded-xl md:rounded-2xl shadow-soft border cursor-pointer",
+                    "bg-card p-3 md:p-6 rounded-xl md:rounded-2xl border cursor-pointer select-none",
                     "flex flex-col items-center text-center",
                     "transition-all duration-300 ease-out",
+                    "active:scale-[0.98]",
                     isExpanded 
-                      ? "col-span-2 lg:col-span-1 border-primary bg-accent/30 scale-[1.02]" 
-                      : "border-border/50"
+                      ? "col-span-2 lg:col-span-1 border-primary shadow-medium bg-accent/30" 
+                      : "border-border/50 shadow-soft hover:shadow-medium hover:border-border",
+                    // One-time pulse animation
+                    !hasAnimated && index === 0 && "animate-[pulse_1s_ease-in-out_1]"
                   )}
                 >
-                  <div className="w-full flex items-center justify-between mb-2 md:mb-4">
+                  <div className="w-full flex items-start justify-between mb-2 md:mb-4">
                     <div className={cn(
                       "w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-accent flex items-center justify-center",
                       "transition-colors duration-300",
@@ -79,18 +89,18 @@ export function WhyChooseUsSection() {
                     )}>
                       <benefit.icon className="w-5 h-5 md:w-7 md:h-7 text-primary" />
                     </div>
-                    {isExpanded && (
-                      <button 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setExpandedIndex(null);
-                        }}
-                        className="w-6 h-6 rounded-full bg-muted flex items-center justify-center text-muted-foreground"
-                        aria-label="Schließen"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
-                    )}
+                    
+                    {/* Chevron indicator */}
+                    <div className={cn(
+                      "w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center",
+                      "transition-all duration-300",
+                      isExpanded ? "bg-primary/10" : "bg-muted/50"
+                    )}>
+                      <ChevronDown className={cn(
+                        "w-4 h-4 md:w-5 md:h-5 text-muted-foreground transition-transform duration-300",
+                        isExpanded && "rotate-180 text-primary"
+                      )} />
+                    </div>
                   </div>
                   
                   <h3 className={cn(
