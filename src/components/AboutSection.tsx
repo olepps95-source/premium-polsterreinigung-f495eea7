@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Leaf, Sparkles, Clock, Shield, ChevronDown } from 'lucide-react';
 import teamMemberImage from '@/assets/team-member.png';
 import { cn } from '@/lib/utils';
@@ -29,6 +29,13 @@ const benefits = [
 export function AboutSection() {
   // First card open by default
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    // Trigger pulse animation once after mount
+    const timer = setTimeout(() => setHasAnimated(true), 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleCardClick = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -76,11 +83,13 @@ export function AboutSection() {
                 onClick={() => handleCardClick(index)}
                 className={cn(
                   "bg-card p-3 md:p-8 rounded-xl md:rounded-2xl border cursor-pointer select-none",
-                  "transition-all duration-300 ease-out",
+                  "transition-all duration-200 ease-out",
                   "active:scale-[0.98]",
                   isExpanded 
                     ? "col-span-2 lg:col-span-1 border-primary shadow-medium bg-accent/20" 
-                    : "border-border/50 shadow-soft hover:shadow-medium hover:border-border"
+                    : "border-border/50 shadow-soft hover:shadow-medium hover:border-border",
+                  // One-time pulse animation on first card
+                  !hasAnimated && index === 0 && "animate-[pulse_1s_ease-in-out_1]"
                 )}
               >
                 <div className="flex flex-col">
@@ -100,7 +109,7 @@ export function AboutSection() {
                       isExpanded ? "bg-primary/10" : "bg-muted/50"
                     )}>
                       <ChevronDown className={cn(
-                        "w-4 h-4 md:w-5 md:h-5 text-muted-foreground transition-transform duration-300",
+                        "w-4 h-4 md:w-5 md:h-5 text-muted-foreground transition-transform duration-200",
                         isExpanded && "rotate-180 text-primary"
                       )} />
                     </div>
