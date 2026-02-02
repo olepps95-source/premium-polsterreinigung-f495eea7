@@ -291,7 +291,7 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
           <div className="flex justify-center mb-8">
             <Button variant="hero" size="xl" className="bg-[#25D366] text-white hover:bg-[#25D366]" asChild>
               <a 
-                href="https://wa.me/message/5SVXIYHUNM7LN1" 
+                href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={() => trackContact()}

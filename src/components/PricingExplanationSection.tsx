@@ -25,9 +25,13 @@ const factors = [
   },
 ];
 
-const WHATSAPP_URL = 'https://wa.me/message/5SVXIYHUNM7LN1';
+const WHATSAPP_URL = 'https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0';
 
 export function PricingExplanationSection() {
+  const handleWhatsAppClick = () => {
+    trackContact();
+    window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <section className="py-16 md:py-24 bg-muted/30">
@@ -83,17 +87,10 @@ export function PricingExplanationSection() {
                   Senden Sie uns einfach ein Foto Ihrer Möbel per WhatsApp. Wir analysieren den Zustand und nennen Ihnen einen verbindlichen Festpreis. So wissen Sie genau, was es kostet, bevor wir kommen – ohne böse Überraschungen!
                 </p>
                 <Button 
-                  asChild
+                  onClick={handleWhatsAppClick}
                   className="bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold px-6 py-3 h-auto text-base"
                 >
-                  <a 
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackContact()}
-                  >
-                    Jetzt Foto senden & Preis erhalten
-                  </a>
+                  Jetzt Foto senden & Preis erhalten
                 </Button>
               </div>
             </CardContent>
