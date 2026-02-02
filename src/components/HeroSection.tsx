@@ -26,19 +26,20 @@ export function HeroSection() {
       <div className="container relative z-10 py-8 pt-16 md:py-32">
         <div className="max-w-2xl">
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 md:mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
             Premium{' '}
             <span className="text-primary">Polsterreinigung</span>{' '}
             direkt bei Ihnen vor Ort
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-base md:text-xl text-muted-foreground mb-8 md:mb-10 max-w-xl animate-fade-up" style={{ animationDelay: '0.2s' }}>
             Hygienisch sauber, schonend gereinigt und unbedenklich für Kinder & Haustiere.
-            <br />
+            <span className="hidden md:inline"><br /></span>
+            <span className="md:hidden"> </span>
             Dank Express-Trocknung noch am selben Tag wieder nutzbar.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
             <Button variant="hero" size="lg" asChild>
               <a href="#kontakt">
                 Jetzt unverbindlich anfragen
@@ -51,18 +52,18 @@ export function HeroSection() {
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-border/50 animate-fade-up" style={{ animationDelay: '0.4s' }}>
+          <div className="grid grid-cols-3 gap-4 md:gap-6 mt-10 md:mt-16 pt-6 md:pt-8 border-t border-border/50 animate-fade-up" style={{ animationDelay: '0.4s' }}>
             <div>
-              <p className="text-3xl font-bold text-primary">500+</p>
-              <p className="text-sm text-muted-foreground">Zufriedene Kunden</p>
+              <p className="text-2xl md:text-3xl font-bold text-primary">500+</p>
+              <p className="text-xs md:text-sm text-muted-foreground">Zufriedene Kunden</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary">0 €</p>
-              <p className="text-sm text-muted-foreground">Keine versteckten Gebühren</p>
+              <p className="text-2xl md:text-3xl font-bold text-primary">0 €</p>
+              <p className="text-xs md:text-sm text-muted-foreground">Keine Gebühren</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary whitespace-nowrap text-xl md:text-3xl">Gratis</p>
-              <p className="text-sm text-muted-foreground">Kostenlose Express-Trocknung</p>
+              <p className="text-2xl md:text-3xl font-bold text-primary">Gratis</p>
+              <p className="text-xs md:text-sm text-muted-foreground">Express-Trocknung</p>
             </div>
           </div>
         </div>
