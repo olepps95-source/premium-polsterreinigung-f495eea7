@@ -303,7 +303,7 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
           </div>
 
           <p className="text-sm text-primary-foreground/60">
-            Schnelle Antwort garantiert – meist innerhalb von 30 Minuten
+            Einfach Foto per WhatsApp schicken – wir nennen Ihnen den Preis innerhalb von 5 Minuten
           </p>
         </div>
       </div>
