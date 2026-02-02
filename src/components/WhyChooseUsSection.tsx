@@ -2,6 +2,16 @@ import { Home, ShieldCheck, Sparkles, Euro, CalendarDays, HeartHandshake } from 
 
 const benefits = [
   {
+    icon: Euro,
+    title: 'Faire Preise ohne Anfahrtkosten',
+    description: 'Keine versteckten Kosten – die Anfahrt innerhalb unseres Einsatzgebietes ist für Sie kostenlos.',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Schonend & sicher',
+    description: 'Wir verwenden geprüfte Reinigungsmittel, die materialschonend und unbedenklich für Kinder und Haustiere sind.',
+  },
+  {
     icon: Home,
     title: 'Vor-Ort-Reinigung',
     description: 'Wir kommen direkt zu Ihnen nach Hause. Die Reinigung erfolgt flexibel und mobil – ohne Abtransport Ihrer Möbel.',
@@ -15,16 +25,6 @@ const benefits = [
     icon: Sparkles,
     title: 'Gründliche Tiefenreinigung',
     description: 'Auch bei starken Verschmutzungen wie Gerüchen, Urin oder anderen hartnäckigen Rückständen sorgen wir für hygienische Sauberkeit.',
-  },
-  {
-    icon: HeartHandshake,
-    title: 'Schonend & sicher',
-    description: 'Wir verwenden geprüfte Reinigungsmittel, die materialschonend und unbedenklich für Kinder und Haustiere sind.',
-  },
-  {
-    icon: Euro,
-    title: 'Faire Preise ohne Anfahrtkosten',
-    description: 'Keine versteckten Kosten – die Anfahrt innerhalb unseres Einsatzgebietes ist für Sie kostenlos.',
   },
   {
     icon: CalendarDays,
