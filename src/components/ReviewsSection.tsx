@@ -38,41 +38,41 @@ const reviews = [
 
 export function ReviewsSection() {
   return (
-    <section id="bewertungen" className="py-16 bg-secondary/50">
+    <section id="bewertungen" className="py-10 md:py-16 bg-secondary/50">
       <div className="container">
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Kundenbewertungen</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+        <div className="max-w-3xl mx-auto text-center mb-6 md:mb-10">
+          <p className="text-primary font-semibold text-xs md:text-sm uppercase tracking-wider mb-2 md:mb-4">Kundenbewertungen</p>
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 md:mb-6">
             Das sagen unsere Kunden
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-8 max-w-5xl mx-auto">
           {reviews.map((review) => (
             <div
               key={review.name}
-              className="bg-card p-8 rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-300 relative"
+              className="bg-card p-5 md:p-8 rounded-xl md:rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-300 relative"
             >
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-accent opacity-50" />
+              <Quote className="absolute top-4 right-4 md:top-6 md:right-6 w-7 h-7 md:w-10 md:h-10 text-accent opacity-50" />
               
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-0.5 md:gap-1 mb-3 md:mb-4">
                 {Array.from({ length: review.rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                  <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-primary text-primary" />
                 ))}
               </div>
               
-              <p className="text-foreground mb-6 leading-relaxed">"{review.text}"</p>
+              <p className="text-foreground mb-4 md:mb-6 leading-relaxed text-sm md:text-base">"{review.text}"</p>
               
-              <div className="flex items-center gap-3">
-                <Avatar className="w-12 h-12">
+              <div className="flex items-center gap-2.5 md:gap-3">
+                <Avatar className="w-10 h-10 md:w-12 md:h-12">
                   <AvatarImage src={review.avatar} alt={review.name} className="object-cover" />
-                  <AvatarFallback className="bg-accent text-primary text-lg font-semibold">
+                  <AvatarFallback className="bg-accent text-primary text-base md:text-lg font-semibold">
                     {review.name.charAt(0)}
                   </AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="font-semibold text-foreground">{review.name}</p>
-                  <p className="text-sm text-muted-foreground">{review.location}</p>
+                  <p className="font-semibold text-foreground text-sm md:text-base">{review.name}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground">{review.location}</p>
                 </div>
               </div>
             </div>

@@ -23,40 +23,40 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="py-12 bg-muted/30">
+    <section className="py-10 md:py-12 bg-muted/30">
       <div className="container">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-8">
-          <h2 className="text-xl md:text-3xl font-bold text-foreground whitespace-nowrap">
+        <div className="max-w-3xl mx-auto text-center mb-6 md:mb-8">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground">
             So einfach funktioniert es
           </h2>
         </div>
 
         {/* Steps Grid */}
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {steps.map((item) => (
               <div
                 key={item.step}
                 className="flex flex-col items-center text-center"
               >
                 {/* Icon with step number */}
-                <div className="relative mb-6">
-                  <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <item.icon className="w-10 h-10 text-primary" />
+                <div className="relative mb-4 md:mb-6">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center">
+                    <item.icon className="w-8 h-8 md:w-10 md:h-10 text-primary" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-md">
+                  <div className="absolute -top-2 -right-2 w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs md:text-sm font-bold shadow-md">
                     {item.step}
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3">
+                <h3 className="text-base md:text-xl font-semibold text-foreground mb-2 md:mb-3">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-xs">
+                <p className="text-xs md:text-base text-muted-foreground leading-relaxed max-w-xs">
                   {item.description}
                 </p>
               </div>
