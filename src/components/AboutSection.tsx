@@ -34,8 +34,14 @@ export function AboutSection() {
             Ihr Partner für saubere Polster
           </h2>
           
+          <p className="text-lg text-muted-foreground">
+            Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel 
+            wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer 
+            Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.
+          </p>
+          
           {/* Team member image */}
-          <div className="flex justify-center my-8">
+          <div className="flex justify-center mt-8">
             <div className="relative">
               {/* Subtle glow effect behind image */}
               <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent blur-2xl scale-110 -z-10" />
@@ -49,12 +55,6 @@ export function AboutSection() {
               />
             </div>
           </div>
-          
-          <p className="text-lg text-muted-foreground">
-            Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel 
-            wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer 
-            Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.
-          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
