@@ -1,4 +1,6 @@
-import { Sofa, BedDouble, Droplets, Wind } from 'lucide-react';
+import { useState } from 'react';
+import { Sofa, BedDouble, Droplets, Wind, X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const services = [
   {
@@ -24,6 +26,12 @@ const services = [
 ];
 
 export function ServicesSection() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const handleCardClick = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   return (
     <section id="leistungen" className="py-10 md:py-16">
       <div className="container px-3 md:px-4">
@@ -38,22 +46,63 @@ export function ServicesSection() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-8 max-w-4xl mx-auto">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="group relative p-3 md:p-8 rounded-xl md:rounded-2xl border border-border bg-card hover:border-primary/30 transition-all duration-300 hover:shadow-medium"
-            >
-              <div className="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-2 md:gap-5">
-                <div className="w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-2xl bg-accent group-hover:bg-primary/10 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
-                  <service.icon className="w-5 h-5 md:w-8 md:h-8 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-xs md:text-xl font-semibold text-foreground mb-1 md:mb-3 leading-tight">{service.title}</h3>
-                  <p className="text-[11px] md:text-base text-muted-foreground leading-snug md:leading-relaxed">{service.description}</p>
+          {services.map((service, index) => {
+            const isExpanded = expandedIndex === index;
+            
+            return (
+              <div
+                key={service.title}
+                onClick={() => handleCardClick(index)}
+                className={cn(
+                  "group relative p-3 md:p-8 rounded-xl md:rounded-2xl border bg-card cursor-pointer",
+                  "transition-all duration-300 ease-out",
+                  isExpanded 
+                    ? "col-span-2 md:col-span-1 border-primary/50 bg-accent/20 shadow-medium scale-[1.02]" 
+                    : "border-border"
+                )}
+              >
+                <div className="flex flex-col">
+                  <div className="w-full flex items-center justify-between mb-2 md:mb-4">
+                    <div className={cn(
+                      "w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-2xl bg-accent flex items-center justify-center flex-shrink-0",
+                      "transition-colors duration-300",
+                      isExpanded && "bg-primary/10"
+                    )}>
+                      <service.icon className="w-5 h-5 md:w-8 md:h-8 text-primary" />
+                    </div>
+                    {isExpanded && (
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setExpandedIndex(null);
+                        }}
+                        className="w-6 h-6 rounded-full bg-muted flex items-center justify-center text-muted-foreground"
+                        aria-label="Schließen"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    )}
+                  </div>
+                  
+                  <h3 className={cn(
+                    "font-semibold text-foreground mb-1 md:mb-3 leading-tight",
+                    isExpanded ? "text-sm md:text-xl" : "text-xs md:text-xl"
+                  )}>
+                    {service.title}
+                  </h3>
+                  
+                  <p className={cn(
+                    "text-muted-foreground transition-all duration-300",
+                    isExpanded 
+                      ? "text-sm md:text-base leading-relaxed opacity-100 max-h-40" 
+                      : "text-[11px] md:text-base leading-snug md:leading-relaxed line-clamp-2 md:line-clamp-none"
+                  )}>
+                    {service.description}
+                  </p>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
