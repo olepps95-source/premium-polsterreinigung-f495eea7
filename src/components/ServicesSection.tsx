@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Sofa, BedDouble, Droplets, Wind, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const services = [
   {
@@ -28,15 +29,20 @@ const services = [
 export function ServicesSection() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
-    // Trigger pulse animation once after mount
-    const timer = setTimeout(() => setHasAnimated(true), 1500);
-    return () => clearTimeout(timer);
-  }, []);
+    // Trigger pulse animation once after mount (only on mobile)
+    if (isMobile) {
+      const timer = setTimeout(() => setHasAnimated(true), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile]);
 
   const handleCardClick = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
+    if (isMobile) {
+      setExpandedIndex(expandedIndex === index ? null : index);
+    }
   };
 
   return (
@@ -53,22 +59,27 @@ export function ServicesSection() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-8 max-w-4xl mx-auto">
-          {services.map((service, index) => {
+        {services.map((service, index) => {
             const isExpanded = expandedIndex === index;
+            const showExpanded = isMobile ? isExpanded : true; // Desktop always shows full content
             
             return (
               <div
                 key={service.title}
                 onClick={() => handleCardClick(index)}
                 className={cn(
-                  "group relative p-3 md:p-8 rounded-xl md:rounded-2xl border bg-card cursor-pointer select-none",
+                  "group relative p-3 md:p-8 rounded-xl md:rounded-2xl border bg-card",
                   "transition-all duration-300 ease-out",
-                  "active:scale-[0.98]",
-                  isExpanded 
-                    ? "col-span-2 md:col-span-1 border-primary shadow-medium bg-accent/20" 
-                    : "border-border shadow-soft hover:shadow-medium hover:border-border/80",
-                  // One-time pulse animation
-                  !hasAnimated && index === 0 && "animate-[pulse_1s_ease-in-out_1]"
+                  // Only interactive on mobile
+                  isMobile && "cursor-pointer select-none active:scale-[0.98]",
+                  // Expanded state styling (mobile only)
+                  isMobile && isExpanded 
+                    ? "col-span-2 border-primary shadow-medium bg-accent/20" 
+                    : "border-border shadow-soft",
+                  // Hover effects only on mobile
+                  isMobile && !isExpanded && "hover:shadow-medium hover:border-border/80",
+                  // One-time pulse animation (mobile only)
+                  isMobile && !hasAnimated && index === 0 && "animate-[pulse_1s_ease-in-out_1]"
                 )}
               >
                 <div className="flex flex-col">
@@ -76,36 +87,38 @@ export function ServicesSection() {
                     <div className={cn(
                       "w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-2xl bg-accent flex items-center justify-center flex-shrink-0",
                       "transition-colors duration-300",
-                      isExpanded && "bg-primary/10"
+                      isMobile && isExpanded && "bg-primary/10"
                     )}>
                       <service.icon className="w-5 h-5 md:w-8 md:h-8 text-primary" />
                     </div>
                     
-                    {/* Chevron indicator */}
-                    <div className={cn(
-                      "w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center",
-                      "transition-all duration-300",
-                      isExpanded ? "bg-primary/10" : "bg-muted/50"
-                    )}>
-                      <ChevronDown className={cn(
-                        "w-4 h-4 md:w-5 md:h-5 text-muted-foreground transition-transform duration-300",
-                        isExpanded && "rotate-180 text-primary"
-                      )} />
-                    </div>
+                    {/* Chevron indicator - only visible on mobile */}
+                    {isMobile && (
+                      <div className={cn(
+                        "w-6 h-6 rounded-full flex items-center justify-center",
+                        "transition-all duration-300",
+                        isExpanded ? "bg-primary/10" : "bg-muted/50"
+                      )}>
+                        <ChevronDown className={cn(
+                          "w-4 h-4 text-muted-foreground transition-transform duration-300",
+                          isExpanded && "rotate-180 text-primary"
+                        )} />
+                      </div>
+                    )}
                   </div>
                   
                   <h3 className={cn(
                     "font-semibold text-foreground mb-1 md:mb-3 leading-tight",
-                    isExpanded ? "text-sm md:text-xl" : "text-xs md:text-xl"
+                    isMobile && !isExpanded ? "text-xs" : "text-sm md:text-xl"
                   )}>
                     {service.title}
                   </h3>
                   
                   <p className={cn(
                     "text-muted-foreground transition-all duration-300",
-                    isExpanded 
-                      ? "text-sm md:text-base leading-relaxed opacity-100 max-h-40" 
-                      : "text-[11px] md:text-base leading-snug md:leading-relaxed line-clamp-2 md:line-clamp-none"
+                    showExpanded 
+                      ? "text-sm md:text-base leading-relaxed opacity-100" 
+                      : "text-[11px] leading-snug line-clamp-2"
                   )}>
                     {service.description}
                   </p>
