@@ -33,7 +33,7 @@ export const FloatingWhatsApp = () => {
       
       {/* Button */}
       <a
-        href="https://api.whatsapp.com/send/?phone=491636986317&text=Hallo%21%0AIch+habe+Ihre+Website+besucht+und+interessiere+mich+f%C3%BCr+eine+Polsterreinigung.%0AGerne+sende+ich+Ihnen+Fotos+zur+Einsch%C3%A4tzung.&type=phone_number&app_absent=0"
+        href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0"
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setShowTooltip(true)}
