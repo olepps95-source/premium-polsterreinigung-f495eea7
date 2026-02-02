@@ -1,5 +1,8 @@
-import { Star, Quote } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Star, ChevronDown } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 import avatarMaria from '@/assets/avatar-maria.jpg';
 import avatarThomas from '@/assets/avatar-thomas.jpg';
 import avatarAnna from '@/assets/avatar-anna.jpg';
@@ -37,46 +40,106 @@ const reviews = [
 ];
 
 export function ReviewsSection() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const isMobile = useIsMobile();
+
+  useEffect(() => {
+    if (isMobile) {
+      const timer = setTimeout(() => setHasAnimated(true), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile]);
+
+  const handleCardClick = (index: number) => {
+    if (isMobile) {
+      setExpandedIndex(expandedIndex === index ? null : index);
+    }
+  };
+
   return (
-    <section id="bewertungen" className="py-16 bg-secondary/50">
-      <div className="container">
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Kundenbewertungen</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+    <section id="bewertungen" className="py-10 md:py-16 bg-secondary/50">
+      <div className="container px-3 md:px-4">
+        <div className="max-w-3xl mx-auto text-center mb-4 md:mb-8">
+          <p className="text-primary font-semibold text-xs md:text-sm uppercase tracking-wider mb-2 md:mb-4">Kundenbewertungen</p>
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-foreground">
             Das sagen unsere Kunden
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {reviews.map((review) => (
-            <div
-              key={review.name}
-              className="bg-card p-8 rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-300 relative"
-            >
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-accent opacity-50" />
-              
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: review.rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                ))}
-              </div>
-              
-              <p className="text-foreground mb-6 leading-relaxed">"{review.text}"</p>
-              
-              <div className="flex items-center gap-3">
-                <Avatar className="w-12 h-12">
-                  <AvatarImage src={review.avatar} alt={review.name} className="object-cover" />
-                  <AvatarFallback className="bg-accent text-primary text-lg font-semibold">
-                    {review.name.charAt(0)}
-                  </AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="font-semibold text-foreground">{review.name}</p>
-                  <p className="text-sm text-muted-foreground">{review.location}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 max-w-4xl mx-auto">
+          {reviews.map((review, index) => {
+            const isExpanded = expandedIndex === index;
+            const showExpanded = isMobile ? isExpanded : true;
+            
+            return (
+              <div
+                key={review.name}
+                onClick={() => handleCardClick(index)}
+                className={cn(
+                  "bg-card p-4 md:p-6 rounded-xl md:rounded-2xl border",
+                  "transition-all duration-300 ease-out",
+                  // Only interactive on mobile
+                  isMobile && "cursor-pointer select-none active:scale-[0.98]",
+                  // Expanded state styling (mobile only)
+                  isMobile && isExpanded 
+                    ? "border-primary shadow-medium bg-accent/20" 
+                    : "border-border/50 shadow-soft",
+                  // Hover effects only on mobile
+                  isMobile && !isExpanded && "hover:shadow-medium hover:border-border",
+                  // One-time pulse animation (mobile only)
+                  isMobile && !hasAnimated && index === 0 && "animate-[pulse_1s_ease-in-out_1]"
+                )}
+              >
+                {/* Header: Avatar, Name, Location, Stars */}
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <div className="flex items-center gap-3">
+                    <Avatar className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0">
+                      <AvatarImage src={review.avatar} alt={review.name} className="object-cover" />
+                      <AvatarFallback className="bg-accent text-primary text-sm font-semibold">
+                        {review.name.charAt(0)}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="min-w-0">
+                      <p className="font-semibold text-foreground text-sm md:text-base leading-tight">{review.name}</p>
+                      <p className="text-xs text-muted-foreground">{review.location}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Chevron indicator - only visible on mobile */}
+                  {isMobile && (
+                    <div className={cn(
+                      "w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0",
+                      "transition-all duration-300",
+                      isExpanded ? "bg-primary/10" : "bg-muted/50"
+                    )}>
+                      <ChevronDown className={cn(
+                        "w-4 h-4 text-muted-foreground transition-transform duration-300",
+                        isExpanded && "rotate-180 text-primary"
+                      )} />
+                    </div>
+                  )}
                 </div>
+                
+                {/* Star Rating */}
+                <div className="flex gap-0.5 mb-2">
+                  {Array.from({ length: review.rating }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                  ))}
+                </div>
+                
+                {/* Review Text */}
+                <p className={cn(
+                  "text-muted-foreground leading-relaxed transition-all duration-300",
+                  showExpanded 
+                    ? "text-sm md:text-base" 
+                    : "text-sm line-clamp-2"
+                )}>
+                  "{review.text}"
+                </p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
