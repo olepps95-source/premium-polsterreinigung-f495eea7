@@ -123,27 +123,51 @@ const HockerGrossIcon = ({ className }: { className?: string; strokeWidth?: numb
   </svg>
 );
 
-// Icon mapping - using any for flexibility with different icon component types
+// Icon mapping - maps database IDs to icon components
+// IMPORTANT: Keys must match exact IDs from public.prices table
 const iconMap: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number | string }>> = {
+  // Sofas & Seating
   'sessel': Armchair as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
-  'sofa-2': Sofa as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
-  'sofa-3': Sofa3SitzerIcon,
-  'ecksofa': EcksofaIcon,
-  'ecksofa-gross': EcksofaGrossIcon,
+  'sofa-2-sitzer': Sofa as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
+  'sofa-3-sitzer': Sofa3SitzerIcon,
+  'eckcouch': EcksofaIcon,
+  'eckcouch-gross': EcksofaGrossIcon,
+  // Mattresses & Beds
   'matratze-90': BedDouble as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
   'matratze-140': BedDouble as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
   'matratze-180': BedDouble as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
+  'bettrahmen': Bed as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
+  // Stools
+  'hocker-klein': HockerKleinIcon,
+  'hocker-gross': HockerGrossIcon,
+  // Chairs
   'autositz': AutositzIcon,
   'kuechenstuhl': KuechenstuhlIcon,
   'buerostuhl': BuerostuhlIcon,
-  'hocker-klein': HockerKleinIcon,
-  'hocker-gross': HockerGrossIcon,
-  'teppich-klein': Square as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
-  'teppich-gross': LayoutGrid as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
+  // Carpet cleaning
+  'teppich-bis-10': Square as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
+  'teppich-ueber-10': LayoutGrid as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
+  // Additional services
   'geruchsentfernung': Wind as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
   'trocknung': Fan as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
-  'bettrahmen': Bed as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
 };
+
+// Fallback icon for any unmapped items
+const FallbackIcon = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth={1.5}
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+    <path d="M2 17l10 5 10-5" />
+    <path d="M2 12l10 5 10-5" />
+  </svg>
+);
 
 export function PricingSection() {
   const { quantities, setQuantities, priceItems, getTotalQuantity } = useSelectedServices();
@@ -197,24 +221,28 @@ export function PricingSection() {
                       : 'border-border/50 hover:border-primary/30'
                   }`}
                 >
-                  {/* Icon */}
+                  {/* Icon - uses ID-based mapping with fallback */}
                   <div className={`w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center mb-4 transition-colors duration-200 ${
                     isSelected ? 'bg-primary/10' : 'bg-accent/50'
                   }`}>
-                    {IconComponent && (
-                      <IconComponent 
-                        className={`text-primary ${
-                          item.id === 'sofa-3'
-                            ? 'w-[6.75rem] h-[6.75rem] md:w-[7.875rem] md:h-[7.875rem]'
-                            : item.id === 'ecksofa-gross' 
-                              ? 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]' 
-                              : ['autositz', 'kuechenstuhl', 'buerostuhl'].includes(item.id)
-                                ? 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]'
-                                : 'w-12 h-12 md:w-14 md:h-14'
-                        }`} 
-                        strokeWidth={1.5} 
-                      />
-                    )}
+                    {(() => {
+                      const Icon = IconComponent || FallbackIcon;
+                      // Determine icon size based on item ID
+                      const iconSizeClass = 
+                        item.id === 'sofa-3-sitzer'
+                          ? 'w-[6.75rem] h-[6.75rem] md:w-[7.875rem] md:h-[7.875rem]'
+                          : item.id === 'eckcouch-gross' 
+                            ? 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]' 
+                            : ['autositz', 'kuechenstuhl', 'buerostuhl'].includes(item.id)
+                              ? 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]'
+                              : 'w-12 h-12 md:w-14 md:h-14';
+                      return (
+                        <Icon 
+                          className={`text-primary ${iconSizeClass}`} 
+                          strokeWidth={1.5} 
+                        />
+                      );
+                    })()}
                   </div>
                   
                   {/* Title */}

@@ -39,6 +39,8 @@ const fallbackPriceItems: PriceItem[] = [
   { id: 'autositz', title: 'Autositz', price: '20 €' },
   { id: 'kuechenstuhl', title: 'Küchenstuhl', price: '15 €' },
   { id: 'buerostuhl', title: 'Bürostuhl', price: '20 €' },
+  { id: 'teppich-bis-10', title: 'Teppichreinigung bis 10 m²', price: '10 € pro m²' },
+  { id: 'teppich-ueber-10', title: 'Teppichreinigung über 10 m²', price: 'Preis nach Absprache' },
   { id: 'geruchsentfernung', title: 'Geruchsentfernung', price: '30 € pro m²' },
   { id: 'trocknung', title: 'Vollständige Trocknung', price: '+30 %' },
 ];
