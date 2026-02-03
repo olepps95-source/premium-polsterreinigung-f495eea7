@@ -1,5 +1,5 @@
-// SelectedServicesContext - provides global service selection state (v2)
-import { createContext, useContext, useState, ReactNode } from 'react';
+// SelectedServicesContext - provides global service selection state
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { usePrices, Price } from '@/hooks/usePrices';
 
 export interface PriceItem {
