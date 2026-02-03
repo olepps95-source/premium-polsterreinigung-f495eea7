@@ -1,11 +1,11 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
 import { useAuth } from '@/hooks/useAuth';
 import { useAllPrices, useUpdatePrice } from '@/hooks/usePrices';
-import { LogOut, Save, Loader2, ShieldX, ChevronUp, ChevronDown } from 'lucide-react';
+import { LogOut, Save, Loader2, ShieldX } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import {
   Table,
@@ -20,7 +20,6 @@ interface EditedPrice {
   title: string;
   price: string;
   numeric_price: number;
-  sort_order: number;
   is_active: boolean;
 }
 
@@ -49,24 +48,12 @@ export default function Admin() {
           title: p.title,
           price: p.price,
           numeric_price: p.numeric_price,
-          sort_order: p.sort_order,
           is_active: p.is_active,
         };
       });
       setEditedPrices(initial);
       setHasUnsavedChanges(false);
     }
-  }, [prices]);
-
-  // Sort prices safely with fallback
-  const sortedPrices = useMemo(() => {
-    if (!prices) return [];
-    return [...prices].sort((a, b) => {
-      const aOrder = a.sort_order ?? Number.MAX_SAFE_INTEGER;
-      const bOrder = b.sort_order ?? Number.MAX_SAFE_INTEGER;
-      if (aOrder !== bOrder) return aOrder - bOrder;
-      return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
-    });
   }, [prices]);
 
   const handleChange = (id: string, field: keyof EditedPrice, value: string | number | boolean) => {
@@ -77,43 +64,11 @@ export default function Admin() {
     setHasUnsavedChanges(true);
   };
 
-  const handleMoveUp = (index: number) => {
-    if (index <= 0) return;
-    const currentItem = sortedPrices[index];
-    const prevItem = sortedPrices[index - 1];
-    
-    const currentOrder = editedPrices[currentItem.id]?.sort_order ?? currentItem.sort_order ?? index;
-    const prevOrder = editedPrices[prevItem.id]?.sort_order ?? prevItem.sort_order ?? (index - 1);
-    
-    setEditedPrices(prev => ({
-      ...prev,
-      [currentItem.id]: { ...prev[currentItem.id], sort_order: prevOrder },
-      [prevItem.id]: { ...prev[prevItem.id], sort_order: currentOrder },
-    }));
-    setHasUnsavedChanges(true);
-  };
-
-  const handleMoveDown = (index: number) => {
-    if (index >= sortedPrices.length - 1) return;
-    const currentItem = sortedPrices[index];
-    const nextItem = sortedPrices[index + 1];
-    
-    const currentOrder = editedPrices[currentItem.id]?.sort_order ?? currentItem.sort_order ?? index;
-    const nextOrder = editedPrices[nextItem.id]?.sort_order ?? nextItem.sort_order ?? (index + 1);
-    
-    setEditedPrices(prev => ({
-      ...prev,
-      [currentItem.id]: { ...prev[currentItem.id], sort_order: nextOrder },
-      [nextItem.id]: { ...prev[nextItem.id], sort_order: currentOrder },
-    }));
-    setHasUnsavedChanges(true);
-  };
-
   const handleSaveAll = async () => {
     if (!prices) return;
     
     setIsSaving(true);
-    const changedItems: { id: string; data: EditedPrice }[] = [];
+    const changedItems: { id: string; data: EditedPrice; sort_order: number }[] = [];
     
     prices.forEach(item => {
       const edited = editedPrices[item.id];
@@ -123,11 +78,10 @@ export default function Admin() {
         edited.title !== item.title || 
         edited.price !== item.price ||
         edited.numeric_price !== item.numeric_price ||
-        edited.sort_order !== item.sort_order ||
         edited.is_active !== item.is_active;
       
       if (hasChanges) {
-        changedItems.push({ id: item.id, data: edited });
+        changedItems.push({ id: item.id, data: edited, sort_order: item.sort_order });
       }
     });
 
@@ -138,7 +92,7 @@ export default function Admin() {
           title: item.data.title,
           price: item.data.price,
           numeric_price: item.data.numeric_price,
-          sort_order: item.data.sort_order,
+          sort_order: item.sort_order,
           is_active: item.data.is_active,
         });
       }
@@ -234,7 +188,6 @@ export default function Admin() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[80px]">Position</TableHead>
                 <TableHead className="w-[250px]">Bezeichnung</TableHead>
                 <TableHead className="w-[150px]">Preis (Anzeige)</TableHead>
                 <TableHead className="w-[120px]">Zahlenwert (€)</TableHead>
@@ -242,34 +195,12 @@ export default function Admin() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {sortedPrices.map((item, index) => {
+              {prices?.map((item) => {
                 const edited = editedPrices[item.id];
                 if (!edited) return null;
 
                 return (
                   <TableRow key={item.id}>
-                    <TableCell>
-                      <div className="flex items-center gap-1">
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="h-8 w-8"
-                          onClick={() => handleMoveUp(index)}
-                          disabled={index === 0}
-                        >
-                          <ChevronUp className="h-4 w-4" />
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="h-8 w-8"
-                          onClick={() => handleMoveDown(index)}
-                          disabled={index === sortedPrices.length - 1}
-                        >
-                          <ChevronDown className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
                     <TableCell>
                       <Input
                         value={edited.title}
