@@ -67,7 +67,10 @@ export function useUpdatePrice() {
       if (error) throw error;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['prices'] });
+      queryClient.invalidateQueries({ 
+        queryKey: ['prices'],
+        refetchType: 'active'
+      });
     },
   });
 }
