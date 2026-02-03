@@ -48,15 +48,17 @@ export function useUpdatePrice() {
   const queryClient = useQueryClient();
   
   return useMutation({
-    mutationFn: async ({ id, title, price, numeric_price }: { 
+    mutationFn: async ({ id, title, price, numeric_price, sort_order, is_active }: { 
       id: string; 
       title: string; 
       price: string;
       numeric_price: number;
+      sort_order: number;
+      is_active: boolean;
     }) => {
       const { error } = await supabase
         .from('prices')
-        .update({ title, price, numeric_price })
+        .update({ title, price, numeric_price, sort_order, is_active })
         .eq('id', id);
       
       if (error) throw error;
