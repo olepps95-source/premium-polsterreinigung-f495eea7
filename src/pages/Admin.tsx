@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,6 +7,12 @@ import { useAllPrices, useUpdatePrice } from '@/hooks/usePrices';
 import { LogOut, Save, Check, AlertCircle, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
+interface EditedPrice {
+  title: string;
+  price: string;
+  numeric_price: number;
+}
+
 export default function Admin() {
   const { user, isAdmin, loading, signOut } = useAuth();
   const navigate = useNavigate();
@@ -14,8 +20,10 @@ export default function Admin() {
   const updatePrice = useUpdatePrice();
   const { toast } = useToast();
   
-  const [editedPrices, setEditedPrices] = useState<Record<string, { title: string; price: string; numeric_price: number }>>({});
+  const [editedPrices, setEditedPrices] = useState<Record<string, EditedPrice>>({});
   const [savedItems, setSavedItems] = useState<Set<string>>(new Set());
+  const [savingItems, setSavingItems] = useState<Set<string>>(new Set());
+  const hasInitialized = useRef(false);
 
   useEffect(() => {
     if (!loading && (!user || !isAdmin)) {
@@ -23,19 +31,23 @@ export default function Admin() {
     }
   }, [user, isAdmin, loading, navigate]);
 
+  // Only initialize editedPrices ONCE when prices first load
   useEffect(() => {
-    if (prices) {
-      const initial: Record<string, { title: string; price: string; numeric_price: number }> = {};
+    if (prices && prices.length > 0 && !hasInitialized.current) {
+      const initial: Record<string, EditedPrice> = {};
       prices.forEach(p => {
         initial[p.id] = { title: p.title, price: p.price, numeric_price: p.numeric_price };
       });
       setEditedPrices(initial);
+      hasInitialized.current = true;
     }
   }, [prices]);
 
-  const handleSave = async (id: string) => {
+  const handleSave = useCallback(async (id: string) => {
     const edited = editedPrices[id];
-    if (!edited) return;
+    if (!edited || savingItems.has(id)) return;
+
+    setSavingItems(prev => new Set(prev).add(id));
 
     try {
       await updatePrice.mutateAsync({
@@ -59,13 +71,20 @@ export default function Admin() {
         description: `${edited.title} wurde aktualisiert.`,
       });
     } catch (error) {
+      console.error('Save error:', error);
       toast({
         title: 'Fehler',
         description: 'Preis konnte nicht gespeichert werden.',
         variant: 'destructive',
       });
+    } finally {
+      setSavingItems(prev => {
+        const next = new Set(prev);
+        next.delete(id);
+        return next;
+      });
     }
-  };
+  }, [editedPrices, savingItems, updatePrice, toast]);
 
   const handleLogout = async () => {
     await signOut();
@@ -117,6 +136,7 @@ export default function Admin() {
               {prices?.map((item) => {
                 const edited = editedPrices[item.id] || { title: item.title, price: item.price, numeric_price: item.numeric_price };
                 const isSaved = savedItems.has(item.id);
+                const isSaving = savingItems.has(item.id);
                 const hasChanges = 
                   edited.title !== item.title || 
                   edited.price !== item.price ||
@@ -134,8 +154,9 @@ export default function Admin() {
                           value={edited.title}
                           onChange={(e) => setEditedPrices(prev => ({
                             ...prev,
-                            [item.id]: { ...edited, title: e.target.value }
+                            [item.id]: { ...prev[item.id] || edited, title: e.target.value }
                           }))}
+                          disabled={isSaving}
                         />
                       </div>
 
@@ -148,9 +169,10 @@ export default function Admin() {
                           value={edited.price}
                           onChange={(e) => setEditedPrices(prev => ({
                             ...prev,
-                            [item.id]: { ...edited, price: e.target.value }
+                            [item.id]: { ...prev[item.id] || edited, price: e.target.value }
                           }))}
                           placeholder="z.B. 40 €"
+                          disabled={isSaving}
                         />
                       </div>
 
@@ -164,8 +186,9 @@ export default function Admin() {
                           value={edited.numeric_price}
                           onChange={(e) => setEditedPrices(prev => ({
                             ...prev,
-                            [item.id]: { ...edited, numeric_price: parseFloat(e.target.value) || 0 }
+                            [item.id]: { ...prev[item.id] || edited, numeric_price: parseFloat(e.target.value) || 0 }
                           }))}
+                          disabled={isSaving}
                         />
                       </div>
 
@@ -173,7 +196,7 @@ export default function Admin() {
                       <div className="md:col-span-2">
                         <Button
                           onClick={() => handleSave(item.id)}
-                          disabled={!hasChanges || updatePrice.isPending}
+                          disabled={!hasChanges || isSaving}
                           className={`w-full transition-all ${
                             isSaved 
                               ? 'bg-green-500 hover:bg-green-600' 
@@ -187,7 +210,7 @@ export default function Admin() {
                               <Check className="w-4 h-4 mr-1" />
                               Gespeichert
                             </>
-                          ) : updatePrice.isPending ? (
+                          ) : isSaving ? (
                             <Loader2 className="w-4 h-4 animate-spin" />
                           ) : (
                             <>
