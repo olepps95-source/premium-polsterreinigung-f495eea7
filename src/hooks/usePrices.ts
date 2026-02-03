@@ -5,13 +5,11 @@ export interface Price {
   id: string;
   title: string;
   price: string;
-  numeric_price: number;
   sort_order: number;
   is_active: boolean;
-  created_at: string;
-  updated_at: string;
 }
 
+// Fetch only active prices (for public display)
 export function usePrices() {
   return useQuery({
     queryKey: ['prices'],
@@ -29,6 +27,7 @@ export function usePrices() {
   });
 }
 
+// Fetch all prices (for admin)
 export function useAllPrices() {
   return useQuery({
     queryKey: ['prices', 'all'],
@@ -41,41 +40,30 @@ export function useAllPrices() {
       if (error) throw error;
       return data || [];
     },
-    staleTime: 1000 * 60 * 5, // 5 minutes - prevent refetching too often
-    refetchOnWindowFocus: false, // Don't refetch when window regains focus
+    staleTime: 1000 * 60 * 5,
+    refetchOnWindowFocus: false,
   });
 }
 
+// Update a single price
 export function useUpdatePrice() {
   const queryClient = useQueryClient();
   
   return useMutation({
-    mutationFn: async ({ id, title, price, numeric_price }: { 
-      id: string; 
-      title: string; 
-      price: string;
-      numeric_price: number;
-    }) => {
+    mutationFn: async (price: Partial<Price> & { id: string }) => {
       const { data, error } = await supabase
         .from('prices')
-        .update({ title, price, numeric_price })
-        .eq('id', id)
+        .update(price)
+        .eq('id', price.id)
         .select()
         .single();
       
       if (error) throw error;
       return data;
     },
-    onSuccess: (updatedPrice) => {
-      // Update the cache optimistically instead of invalidating
-      queryClient.setQueryData(['prices', 'all'], (old: Price[] | undefined) => {
-        if (!old) return old;
-        return old.map(p => p.id === updatedPrice.id ? updatedPrice : p);
-      });
-      queryClient.setQueryData(['prices'], (old: Price[] | undefined) => {
-        if (!old) return old;
-        return old.map(p => p.id === updatedPrice.id ? updatedPrice : p);
-      });
+    onSuccess: () => {
+      // Invalidate and refetch after successful update
+      queryClient.invalidateQueries({ queryKey: ['prices'] });
     },
   });
 }

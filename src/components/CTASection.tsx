@@ -21,6 +21,13 @@ export interface CTAFormHandle {
   setSelectedProduct: (product: string) => void;
 }
 
+// Helper function to parse numeric price from display string
+const parseNumericPrice = (priceString: string): number => {
+  // Extract first number from string like "40 €", "30 € pro m²", "+30 %"
+  const match = priceString.match(/(\d+)/);
+  return match ? parseInt(match[1], 10) : 0;
+};
+
 export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -30,11 +37,16 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
   });
   const [validationError, setValidationError] = useState<string | null>(null);
   const { toast } = useToast();
-  const { getSelectedServices, getTotalQuantity, getTotalPrice, clearSelections } = useSelectedServices();
+  const { getSelectedServices, getTotalQuantity, clearSelections } = useSelectedServices();
 
   const selectedServices = getSelectedServices();
   const totalQuantity = getTotalQuantity();
-  const totalPrice = getTotalPrice();
+  
+  // Calculate total price from selected services
+  const totalPrice = selectedServices.reduce((sum, service) => {
+    const numericPrice = parseNumericPrice(service.price);
+    return sum + (numericPrice * service.quantity);
+  }, 0);
 
   useImperativeHandle(ref, () => ({
     setSelectedProduct: (_product: string) => {
@@ -52,7 +64,8 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
     if (selectedServices.length === 0) return '';
     
     return selectedServices.map(service => {
-      const rowTotal = service.quantity * service.numericPrice;
+      const numericPrice = parseNumericPrice(service.price);
+      const rowTotal = service.quantity * numericPrice;
       const priceText = rowTotal > 0 ? `${rowTotal} €` : 'Preis nach Absprache';
       return `${service.title} ×${service.quantity} – ${priceText}`;
     }).join('\n');
@@ -83,13 +96,16 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
       phone: formData.phone,
       message: formData.message,
       selected_services: selectedServicesText,
-      services: selectedServices.map(service => ({
-        title: service.title,
-        quantity: service.quantity,
-        price: service.price,
-        numericPrice: service.numericPrice,
-        rowTotal: service.quantity * service.numericPrice,
-      })),
+      services: selectedServices.map(service => {
+        const numericPrice = parseNumericPrice(service.price);
+        return {
+          title: service.title,
+          quantity: service.quantity,
+          price: service.price,
+          numericPrice: numericPrice,
+          rowTotal: service.quantity * numericPrice,
+        };
+      }),
       totalQuantity,
       totalPrice,
     };
@@ -173,7 +189,8 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
                   </TableHeader>
                   <TableBody>
                     {selectedServices.map((service) => {
-                      const rowTotal = service.quantity * service.numericPrice;
+                      const numericPrice = parseNumericPrice(service.price);
+                      const rowTotal = service.quantity * numericPrice;
                       return (
                         <TableRow key={service.id} className="border-border/50">
                           <TableCell className="text-foreground font-medium">{service.title}</TableCell>
