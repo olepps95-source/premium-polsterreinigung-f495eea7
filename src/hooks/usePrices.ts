@@ -41,6 +41,8 @@ export function useAllPrices() {
       if (error) throw error;
       return data || [];
     },
+    staleTime: 1000 * 60 * 5, // 5 minutes - prevent refetching too often
+    refetchOnWindowFocus: false, // Don't refetch when window regains focus
   });
 }
 
@@ -54,15 +56,26 @@ export function useUpdatePrice() {
       price: string;
       numeric_price: number;
     }) => {
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('prices')
         .update({ title, price, numeric_price })
-        .eq('id', id);
+        .eq('id', id)
+        .select()
+        .single();
       
       if (error) throw error;
+      return data;
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['prices'] });
+    onSuccess: (updatedPrice) => {
+      // Update the cache optimistically instead of invalidating
+      queryClient.setQueryData(['prices', 'all'], (old: Price[] | undefined) => {
+        if (!old) return old;
+        return old.map(p => p.id === updatedPrice.id ? updatedPrice : p);
+      });
+      queryClient.setQueryData(['prices'], (old: Price[] | undefined) => {
+        if (!old) return old;
+        return old.map(p => p.id === updatedPrice.id ? updatedPrice : p);
+      });
     },
   });
 }
