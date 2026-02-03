@@ -66,7 +66,41 @@ export function useUpdatePrice() {
       
       if (error) throw error;
     },
+    // Don't invalidate on individual mutations - let the caller handle batch invalidation
+  });
+}
+
+// Batch update function that invalidates cache only once after all updates
+export function useBatchUpdatePrices() {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: async (updates: Array<{ 
+      id: string; 
+      title: string; 
+      price: string;
+      numeric_price: number;
+      sort_order: number;
+      is_active: boolean;
+    }>) => {
+      // Execute all updates in parallel
+      const results = await Promise.all(
+        updates.map(({ id, title, price, numeric_price, sort_order, is_active }) =>
+          supabase
+            .from('prices')
+            .update({ title, price, numeric_price, sort_order, is_active })
+            .eq('id', id)
+        )
+      );
+      
+      // Check for any errors
+      const errors = results.filter(r => r.error);
+      if (errors.length > 0) {
+        throw new Error(`${errors.length} update(s) failed`);
+      }
+    },
     onSuccess: () => {
+      // Invalidate cache only once after all updates complete
       queryClient.invalidateQueries({ 
         queryKey: ['prices'],
         refetchType: 'active'
