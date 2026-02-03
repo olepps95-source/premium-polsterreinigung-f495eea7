@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
 import { useAuth } from '@/hooks/useAuth';
-import { useAllPrices, useUpdatePrice } from '@/hooks/usePrices';
+import { useAllPrices, useBatchUpdatePrices } from '@/hooks/usePrices';
 import { LogOut, Save, Loader2, ShieldX } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import {
@@ -27,12 +27,13 @@ export default function Admin() {
   const { user, isAdmin, loading, signOut } = useAuth();
   const navigate = useNavigate();
   const { data: prices, isLoading: pricesLoading } = useAllPrices();
-  const updatePrice = useUpdatePrice();
+  const batchUpdate = useBatchUpdatePrices();
   const { toast } = useToast();
   
   const [editedPrices, setEditedPrices] = useState<Record<string, EditedPrice>>({});
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     if (!loading && !user) {
@@ -40,21 +41,26 @@ export default function Admin() {
     }
   }, [user, loading, navigate]);
 
+  // Only initialize editedPrices once when prices first load, or after a successful save
   useEffect(() => {
-    if (prices) {
-      const initial: Record<string, EditedPrice> = {};
-      prices.forEach(p => {
-        initial[p.id] = {
-          title: p.title,
-          price: p.price,
-          numeric_price: p.numeric_price,
-          is_active: p.is_active,
-        };
-      });
-      setEditedPrices(initial);
-      setHasUnsavedChanges(false);
+    if (prices && !isSaving) {
+      // Only reset if not initialized yet, or if we just finished saving
+      if (!isInitialized || !hasUnsavedChanges) {
+        const initial: Record<string, EditedPrice> = {};
+        prices.forEach(p => {
+          initial[p.id] = {
+            title: p.title,
+            price: p.price,
+            numeric_price: p.numeric_price,
+            is_active: p.is_active,
+          };
+        });
+        setEditedPrices(initial);
+        setHasUnsavedChanges(false);
+        setIsInitialized(true);
+      }
     }
-  }, [prices]);
+  }, [prices, isSaving, isInitialized, hasUnsavedChanges]);
 
   const handleChange = (id: string, field: keyof EditedPrice, value: string | number | boolean) => {
     setEditedPrices(prev => ({
@@ -68,7 +74,14 @@ export default function Admin() {
     if (!prices) return;
     
     setIsSaving(true);
-    const changedItems: { id: string; data: EditedPrice; sort_order: number }[] = [];
+    const updates: Array<{ 
+      id: string; 
+      title: string; 
+      price: string;
+      numeric_price: number;
+      sort_order: number;
+      is_active: boolean;
+    }> = [];
     
     prices.forEach(item => {
       const edited = editedPrices[item.id];
@@ -81,25 +94,28 @@ export default function Admin() {
         edited.is_active !== item.is_active;
       
       if (hasChanges) {
-        changedItems.push({ id: item.id, data: edited, sort_order: item.sort_order });
+        updates.push({
+          id: item.id,
+          title: edited.title,
+          price: edited.price,
+          numeric_price: edited.numeric_price,
+          sort_order: item.sort_order,
+          is_active: edited.is_active,
+        });
       }
     });
 
+    if (updates.length === 0) {
+      setIsSaving(false);
+      return;
+    }
+
     try {
-      for (const item of changedItems) {
-        await updatePrice.mutateAsync({
-          id: item.id,
-          title: item.data.title,
-          price: item.data.price,
-          numeric_price: item.data.numeric_price,
-          sort_order: item.sort_order,
-          is_active: item.data.is_active,
-        });
-      }
+      await batchUpdate.mutateAsync(updates);
       
       toast({
         title: 'Gespeichert',
-        description: `${changedItems.length} Änderung(en) wurden gespeichert.`,
+        description: `${updates.length} Änderung(en) wurden gespeichert.`,
       });
       setHasUnsavedChanges(false);
     } catch (error) {
