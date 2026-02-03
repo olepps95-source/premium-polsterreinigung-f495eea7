@@ -1,75 +1,83 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Switch } from '@/components/ui/switch';
 import { useAuth } from '@/hooks/useAuth';
-import { useAllPrices, useUpdatePrice } from '@/hooks/usePrices';
+import { useAllPrices, useUpdatePrice, Price } from '@/hooks/usePrices';
 import { LogOut, Save, Check, AlertCircle, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-
-interface EditedPrice {
-  title: string;
-  price: string;
-  numeric_price: number;
-}
 
 export default function Admin() {
   const { user, isAdmin, loading, signOut } = useAuth();
   const navigate = useNavigate();
-  const { data: prices, isLoading: pricesLoading } = useAllPrices();
+  const { data: prices, isLoading: pricesLoading, refetch } = useAllPrices();
   const updatePrice = useUpdatePrice();
   const { toast } = useToast();
   
-  const [editedPrices, setEditedPrices] = useState<Record<string, EditedPrice>>({});
-  const [savedItems, setSavedItems] = useState<Set<string>>(new Set());
-  const [savingItems, setSavingItems] = useState<Set<string>>(new Set());
-  const hasInitialized = useRef(false);
+  // Local edit state - keyed by price id
+  const [editState, setEditState] = useState<Record<string, Partial<Price>>>({});
+  const [savingId, setSavingId] = useState<string | null>(null);
+  const [savedId, setSavedId] = useState<string | null>(null);
 
+  // Redirect if not admin
   useEffect(() => {
     if (!loading && (!user || !isAdmin)) {
       navigate('/admin/login');
     }
   }, [user, isAdmin, loading, navigate]);
 
-  // Only initialize editedPrices ONCE when prices first load
+  // Initialize edit state when prices load
   useEffect(() => {
-    if (prices && prices.length > 0 && !hasInitialized.current) {
-      const initial: Record<string, EditedPrice> = {};
+    if (prices && Object.keys(editState).length === 0) {
+      const initial: Record<string, Partial<Price>> = {};
       prices.forEach(p => {
-        initial[p.id] = { title: p.title, price: p.price, numeric_price: p.numeric_price };
+        initial[p.id] = {
+          title: p.title,
+          price: p.price,
+          sort_order: p.sort_order,
+          is_active: p.is_active,
+        };
       });
-      setEditedPrices(initial);
-      hasInitialized.current = true;
+      setEditState(initial);
     }
-  }, [prices]);
+  }, [prices, editState]);
 
-  const handleSave = useCallback(async (id: string) => {
-    const edited = editedPrices[id];
-    if (!edited || savingItems.has(id)) return;
+  const handleFieldChange = (id: string, field: keyof Price, value: string | number | boolean) => {
+    setEditState(prev => ({
+      ...prev,
+      [id]: {
+        ...prev[id],
+        [field]: value,
+      },
+    }));
+  };
 
-    setSavingItems(prev => new Set(prev).add(id));
+  const handleSave = async (id: string) => {
+    const edited = editState[id];
+    if (!edited || savingId) return;
+
+    setSavingId(id);
 
     try {
       await updatePrice.mutateAsync({
         id,
         title: edited.title,
         price: edited.price,
-        numeric_price: edited.numeric_price,
+        sort_order: edited.sort_order,
+        is_active: edited.is_active,
       });
       
-      setSavedItems(prev => new Set(prev).add(id));
-      setTimeout(() => {
-        setSavedItems(prev => {
-          const next = new Set(prev);
-          next.delete(id);
-          return next;
-        });
-      }, 2000);
+      setSavedId(id);
+      setTimeout(() => setSavedId(null), 2000);
       
       toast({
         title: 'Gespeichert',
         description: `${edited.title} wurde aktualisiert.`,
       });
+      
+      // Refetch to get fresh data
+      await refetch();
     } catch (error) {
       console.error('Save error:', error);
       toast({
@@ -78,17 +86,27 @@ export default function Admin() {
         variant: 'destructive',
       });
     } finally {
-      setSavingItems(prev => {
-        const next = new Set(prev);
-        next.delete(id);
-        return next;
-      });
+      setSavingId(null);
     }
-  }, [editedPrices, savingItems, updatePrice, toast]);
+  };
 
   const handleLogout = async () => {
     await signOut();
     navigate('/');
+  };
+
+  // Check if a row has unsaved changes
+  const hasChanges = (id: string): boolean => {
+    const original = prices?.find(p => p.id === id);
+    const edited = editState[id];
+    if (!original || !edited) return false;
+    
+    return (
+      edited.title !== original.title ||
+      edited.price !== original.price ||
+      edited.sort_order !== original.sort_order ||
+      edited.is_active !== original.is_active
+    );
   };
 
   if (loading || pricesLoading) {
@@ -123,7 +141,7 @@ export default function Admin() {
 
       {/* Main Content */}
       <main className="container py-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden">
             <div className="p-6 border-b border-border">
               <h2 className="text-lg font-semibold text-foreground">Preisliste bearbeiten</h2>
@@ -132,75 +150,87 @@ export default function Admin() {
               </p>
             </div>
 
+            {/* Table Header */}
+            <div className="hidden md:grid md:grid-cols-12 gap-4 p-4 bg-muted/50 border-b border-border text-sm font-medium text-muted-foreground">
+              <div className="col-span-3">Bezeichnung</div>
+              <div className="col-span-2">Preis (Anzeige)</div>
+              <div className="col-span-2">Reihenfolge</div>
+              <div className="col-span-2">Aktiv</div>
+              <div className="col-span-3">Aktion</div>
+            </div>
+
             <div className="divide-y divide-border">
               {prices?.map((item) => {
-                const edited = editedPrices[item.id] || { title: item.title, price: item.price, numeric_price: item.numeric_price };
-                const isSaved = savedItems.has(item.id);
-                const isSaving = savingItems.has(item.id);
-                const hasChanges = 
-                  edited.title !== item.title || 
-                  edited.price !== item.price ||
-                  edited.numeric_price !== item.numeric_price;
+                const edited = editState[item.id] || {};
+                const isSaving = savingId === item.id;
+                const isSaved = savedId === item.id;
+                const changed = hasChanges(item.id);
 
                 return (
                   <div key={item.id} className="p-4 md:p-6 hover:bg-accent/30 transition-colors">
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
                       {/* Title */}
-                      <div className="md:col-span-4">
-                        <label className="text-sm font-medium text-muted-foreground mb-1 block">
+                      <div className="md:col-span-3">
+                        <label className="text-sm font-medium text-muted-foreground mb-1 block md:hidden">
                           Bezeichnung
                         </label>
                         <Input
-                          value={edited.title}
-                          onChange={(e) => setEditedPrices(prev => ({
-                            ...prev,
-                            [item.id]: { ...prev[item.id] || edited, title: e.target.value }
-                          }))}
+                          value={edited.title ?? item.title}
+                          onChange={(e) => handleFieldChange(item.id, 'title', e.target.value)}
                           disabled={isSaving}
                         />
                       </div>
 
                       {/* Price Display */}
-                      <div className="md:col-span-3">
-                        <label className="text-sm font-medium text-muted-foreground mb-1 block">
+                      <div className="md:col-span-2">
+                        <label className="text-sm font-medium text-muted-foreground mb-1 block md:hidden">
                           Preis (Anzeige)
                         </label>
                         <Input
-                          value={edited.price}
-                          onChange={(e) => setEditedPrices(prev => ({
-                            ...prev,
-                            [item.id]: { ...prev[item.id] || edited, price: e.target.value }
-                          }))}
+                          value={edited.price ?? item.price}
+                          onChange={(e) => handleFieldChange(item.id, 'price', e.target.value)}
                           placeholder="z.B. 40 €"
                           disabled={isSaving}
                         />
                       </div>
 
-                      {/* Numeric Price */}
-                      <div className="md:col-span-3">
-                        <label className="text-sm font-medium text-muted-foreground mb-1 block">
-                          Zahlenwert (€)
+                      {/* Sort Order */}
+                      <div className="md:col-span-2">
+                        <label className="text-sm font-medium text-muted-foreground mb-1 block md:hidden">
+                          Reihenfolge
                         </label>
                         <Input
                           type="number"
-                          value={edited.numeric_price}
-                          onChange={(e) => setEditedPrices(prev => ({
-                            ...prev,
-                            [item.id]: { ...prev[item.id] || edited, numeric_price: parseFloat(e.target.value) || 0 }
-                          }))}
+                          value={edited.sort_order ?? item.sort_order}
+                          onChange={(e) => handleFieldChange(item.id, 'sort_order', parseInt(e.target.value) || 0)}
                           disabled={isSaving}
                         />
                       </div>
 
+                      {/* Is Active Toggle */}
+                      <div className="md:col-span-2 flex items-center gap-2">
+                        <label className="text-sm font-medium text-muted-foreground md:hidden">
+                          Aktiv
+                        </label>
+                        <Switch
+                          checked={edited.is_active ?? item.is_active}
+                          onCheckedChange={(checked) => handleFieldChange(item.id, 'is_active', checked)}
+                          disabled={isSaving}
+                        />
+                        <span className="text-sm text-muted-foreground">
+                          {(edited.is_active ?? item.is_active) ? 'Ja' : 'Nein'}
+                        </span>
+                      </div>
+
                       {/* Save Button */}
-                      <div className="md:col-span-2">
+                      <div className="md:col-span-3">
                         <Button
                           onClick={() => handleSave(item.id)}
-                          disabled={!hasChanges || isSaving}
+                          disabled={!changed || isSaving}
                           className={`w-full transition-all ${
                             isSaved 
                               ? 'bg-green-500 hover:bg-green-600' 
-                              : hasChanges 
+                              : changed 
                                 ? 'bg-primary' 
                                 : ''
                           }`}
