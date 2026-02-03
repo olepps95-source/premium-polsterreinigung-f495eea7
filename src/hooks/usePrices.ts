@@ -20,13 +20,12 @@ export function usePrices() {
         .from('prices')
         .select('*')
         .eq('is_active', true)
-        .order('sort_order', { ascending: true, nullsFirst: false })
-        .order('created_at', { ascending: true });
+        .order('sort_order', { ascending: true });
       
       if (error) throw error;
       return data || [];
     },
-    staleTime: 1000 * 60 * 5,
+    staleTime: 1000 * 60 * 5, // 5 minutes
   });
 }
 
@@ -37,13 +36,11 @@ export function useAllPrices() {
       const { data, error } = await supabase
         .from('prices')
         .select('*')
-        .order('sort_order', { ascending: true, nullsFirst: false })
-        .order('created_at', { ascending: true });
+        .order('sort_order', { ascending: true });
       
       if (error) throw error;
       return data || [];
     },
-    staleTime: 1000 * 60 * 5,
   });
 }
 
