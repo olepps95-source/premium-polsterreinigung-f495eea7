@@ -9,6 +9,8 @@ import Impressum from "./pages/Impressum";
 import AGB from "./pages/AGB";
 import Widerrufsbelehrung from "./pages/Widerrufsbelehrung";
 import NotFound from "./pages/NotFound";
+import Admin from "./pages/Admin";
+import AdminLogin from "./pages/AdminLogin";
 import { CookieBanner } from "./components/CookieBanner";
 import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
 import { MetaPixelProvider } from "./components/MetaPixelProvider";
@@ -30,6 +32,8 @@ const App = () => (
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/agb" element={<AGB />} />
             <Route path="/widerrufsbelehrung" element={<Widerrufsbelehrung />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

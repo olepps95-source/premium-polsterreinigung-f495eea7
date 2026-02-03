@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { usePrices, Price } from '@/hooks/usePrices';
 
 export interface PriceItem {
   id: string;
@@ -19,18 +20,13 @@ interface SelectedServicesContextType {
   getTotalQuantity: () => number;
   getTotalPrice: () => number;
   clearSelections: () => void;
+  isLoading: boolean;
 }
 
 const SelectedServicesContext = createContext<SelectedServicesContextType | undefined>(undefined);
 
-// Parse price string to numeric value (e.g., "ab 40 €" -> 40)
-const parsePrice = (priceStr: string): number => {
-  const match = priceStr.match(/(\d+)/);
-  return match ? parseInt(match[1], 10) : 0;
-};
-
-// All price items with numeric prices
-export const priceItemsData: PriceItem[] = [
+// Fallback data for initial render (before DB loads)
+const fallbackPriceItems: PriceItem[] = [
   { id: 'sessel', title: 'Sessel', price: '40 €', numericPrice: 40 },
   { id: 'sofa-2', title: 'Sofa 2-Sitzer', price: '90 €', numericPrice: 90 },
   { id: 'sofa-3', title: 'Sofa 3-Sitzer', price: '110 €', numericPrice: 110 },
@@ -51,11 +47,25 @@ export const priceItemsData: PriceItem[] = [
   { id: 'trocknung', title: 'Vollständige Trocknung', price: '+30 %', numericPrice: 0 },
 ];
 
+// Transform DB price to PriceItem format
+const transformPrice = (price: Price): PriceItem => ({
+  id: price.id,
+  title: price.title,
+  price: price.price,
+  numericPrice: price.numeric_price,
+});
+
 export function SelectedServicesProvider({ children }: { children: ReactNode }) {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
+  const { data: dbPrices, isLoading } = usePrices();
+  
+  // Use DB prices if available, otherwise fallback
+  const priceItems: PriceItem[] = dbPrices && dbPrices.length > 0
+    ? dbPrices.map(transformPrice)
+    : fallbackPriceItems;
 
   const getSelectedServices = (): SelectedService[] => {
-    return priceItemsData
+    return priceItems
       .filter(item => (quantities[item.id] || 0) > 0)
       .map(item => ({
         ...item,
@@ -68,7 +78,7 @@ export function SelectedServicesProvider({ children }: { children: ReactNode }) 
   };
 
   const getTotalPrice = (): number => {
-    return priceItemsData.reduce((sum, item) => {
+    return priceItems.reduce((sum, item) => {
       const qty = quantities[item.id] || 0;
       return sum + (qty * item.numericPrice);
     }, 0);
@@ -83,11 +93,12 @@ export function SelectedServicesProvider({ children }: { children: ReactNode }) 
       value={{ 
         quantities, 
         setQuantities, 
-        priceItems: priceItemsData,
+        priceItems,
         getSelectedServices, 
         getTotalQuantity, 
         getTotalPrice,
         clearSelections,
+        isLoading,
       }}
     >
       {children}
