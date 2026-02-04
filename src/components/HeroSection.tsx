@@ -38,7 +38,23 @@ export function HeroSection() {
             Dank Express-Trocknung noch am selben Tag wieder nutzbar.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+          {/* Trust Indicators */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+            <div className="flex items-center gap-2">
+              <p className="text-2xl md:text-3xl font-bold text-primary">500+</p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Zufriedene Kunden</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <p className="text-2xl md:text-3xl font-bold text-primary">0 €</p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Keine versteckten Gebühren</p>
+            </div>
+            <div className="flex items-center gap-2 col-span-2 md:col-span-1 justify-center md:justify-start">
+              <p className="text-xl md:text-3xl font-bold text-primary">Gratis</p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Kostenlose Express-Trocknung</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: '0.4s' }}>
             <Button variant="hero" size="lg" asChild>
               <a href="#kontakt">
                 Jetzt unverbindlich anfragen
@@ -48,22 +64,6 @@ export function HeroSection() {
             <Button variant="heroOutline" size="lg" asChild>
               <a href="#preise">Preise ansehen</a>
             </Button>
-          </div>
-
-          {/* Quick Stats */}
-          <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-border/50 animate-fade-up" style={{ animationDelay: '0.4s' }}>
-            <div>
-              <p className="text-3xl font-bold text-primary">500+</p>
-              <p className="text-sm text-muted-foreground">Zufriedene Kunden</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-primary">0 €</p>
-              <p className="text-sm text-muted-foreground">Keine versteckten Gebühren</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-primary whitespace-nowrap text-xl md:text-3xl">Gratis</p>
-              <p className="text-sm text-muted-foreground">Kostenlose Express-Trocknung</p>
-            </div>
           </div>
         </div>
       </div>
