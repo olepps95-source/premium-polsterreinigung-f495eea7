@@ -31,7 +31,6 @@ const parseNumericPrice = (priceString: string): number => {
 export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
     message: '',
   });
@@ -75,13 +74,8 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
     e.preventDefault();
     setValidationError(null);
     
-    // Validate required fields: Name is required, Email OR Phone must be filled
-    if (!formData.name.trim()) {
-      setValidationError('Bitte füllen Sie die Kontaktdaten aus, damit wir Sie erreichen können.');
-      return;
-    }
-    
-    if (!formData.email.trim() && !formData.phone.trim()) {
+    // Validate required fields: Name and Phone are required
+    if (!formData.name.trim() || !formData.phone.trim()) {
       setValidationError('Bitte füllen Sie die Kontaktdaten aus, damit wir Sie erreichen können.');
       return;
     }
@@ -92,7 +86,6 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
     // Build payload with form data and selected services
     const payload = {
       name: formData.name,
-      email: formData.email,
       phone: formData.phone,
       message: formData.message,
       selected_services: selectedServicesText,
@@ -131,7 +124,6 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
         // Clear form and selections
         setFormData({
           name: '',
-          email: '',
           phone: '',
           message: '',
         });
@@ -241,23 +233,8 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground font-medium">
-                  E-Mail <span className="text-muted-foreground text-xs">(oder Telefon)</span>
-                </Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="ihre@email.de"
-                  className="h-12 bg-card border-border/50 focus:border-primary"
-                />
-              </div>
-
-              <div className="space-y-2">
                 <Label htmlFor="phone" className="text-foreground font-medium">
-                  Telefonnummer <span className="text-muted-foreground text-xs">(oder E-Mail)</span>
+                  Telefonnummer <span className="text-primary">*</span>
                 </Label>
                 <Input
                   id="phone"
