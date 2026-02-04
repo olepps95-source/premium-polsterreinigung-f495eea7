@@ -109,7 +109,7 @@ export function ServicesSection() {
                   
                   <h3 className={cn(
                     "font-semibold text-foreground mb-1 md:mb-3 leading-tight",
-                    isMobile && !isExpanded ? "text-xs" : "text-sm md:text-xl"
+                    isMobile && !isExpanded ? "text-sm" : "text-sm md:text-xl"
                   )}>
                     {service.title}
                   </h3>
@@ -118,7 +118,7 @@ export function ServicesSection() {
                     "text-muted-foreground transition-all duration-300",
                     showExpanded 
                       ? "text-sm md:text-base leading-relaxed opacity-100" 
-                      : "text-[11px] leading-snug line-clamp-2"
+                      : "text-xs leading-snug line-clamp-2"
                   )}>
                     {service.description}
                   </p>
