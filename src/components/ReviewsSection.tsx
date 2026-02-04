@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import { Star, Plus, Minus } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Star, ChevronDown } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 import avatarMaria from '@/assets/avatar-maria.jpg';
@@ -40,46 +39,23 @@ const reviews = [
   },
 ];
 
-function ReviewCard({ review, className }: { review: typeof reviews[0]; className?: string }) {
-  return (
-    <div
-      className={cn(
-        "bg-card p-4 md:p-6 rounded-xl md:rounded-2xl border border-border/50 shadow-soft",
-        className
-      )}
-    >
-      {/* Header: Avatar, Name, Location */}
-      <div className="flex items-center gap-3 mb-3">
-        <Avatar className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0">
-          <AvatarImage src={review.avatar} alt={review.name} className="object-cover" />
-          <AvatarFallback className="bg-accent text-primary text-sm font-semibold">
-            {review.name.charAt(0)}
-          </AvatarFallback>
-        </Avatar>
-        <div className="min-w-0">
-          <p className="font-semibold text-foreground text-sm md:text-base leading-tight">{review.name}</p>
-          <p className="text-xs text-muted-foreground">{review.location}</p>
-        </div>
-      </div>
-      
-      {/* Star Rating */}
-      <div className="flex gap-0.5 mb-2">
-        {Array.from({ length: review.rating }).map((_, i) => (
-          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-        ))}
-      </div>
-      
-      {/* Review Text */}
-      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-        "{review.text}"
-      </p>
-    </div>
-  );
-}
-
 export function ReviewsSection() {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    if (isMobile) {
+      const timer = setTimeout(() => setHasAnimated(true), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile]);
+
+  const handleCardClick = (index: number) => {
+    if (isMobile) {
+      setExpandedIndex(expandedIndex === index ? null : index);
+    }
+  };
 
   return (
     <section id="bewertungen" className="py-10 md:py-16 bg-secondary/50">
@@ -91,94 +67,79 @@ export function ReviewsSection() {
           </h2>
         </div>
 
-        {/* Mobile: Stacked Cards Effect */}
-        {isMobile && (
-          <div className="md:hidden">
-            <div className="relative">
-              {/* Stacked cards container */}
-              <div 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 max-w-4xl mx-auto">
+          {reviews.map((review, index) => {
+            const isExpanded = expandedIndex === index;
+            const showExpanded = isMobile ? isExpanded : true;
+            
+            return (
+              <div
+                key={review.name}
+                onClick={() => handleCardClick(index)}
                 className={cn(
-                  "relative transition-all duration-500 ease-out",
-                  isExpanded ? "space-y-3" : ""
+                  "bg-card p-4 md:p-6 rounded-xl md:rounded-2xl border",
+                  "transition-all duration-300 ease-out",
+                  // Only interactive on mobile
+                  isMobile && "cursor-pointer select-none active:scale-[0.98]",
+                  // Expanded state styling (mobile only)
+                  isMobile && isExpanded 
+                    ? "border-primary shadow-medium bg-accent/20" 
+                    : "border-border/50 shadow-soft",
+                  // Hover effects only on mobile
+                  isMobile && !isExpanded && "hover:shadow-medium hover:border-border",
+                  // One-time pulse animation (mobile only)
+                  isMobile && !hasAnimated && index === 0 && "animate-[pulse_1s_ease-in-out_1]"
                 )}
               >
-                {reviews.map((review, index) => {
-                  // Calculate stacking styles for collapsed state
-                  const isFirst = index === 0;
-                  const isSecond = index === 1;
-                  const isThird = index === 2;
-                  const isHidden = index > 2 && !isExpanded;
-                  
-                  // Collapsed state transforms
-                  const collapsedStyles = !isExpanded ? {
-                    transform: isFirst 
-                      ? 'translateY(0) scale(1)' 
-                      : isSecond 
-                        ? 'translateY(-85%) scale(0.95)' 
-                        : isThird 
-                          ? 'translateY(-170%) scale(0.9)' 
-                          : 'translateY(-255%) scale(0.85)',
-                    zIndex: reviews.length - index,
-                    opacity: isHidden ? 0 : 1,
-                    pointerEvents: isFirst ? 'auto' : 'none',
-                  } : {};
-
-                  return (
-                    <div
-                      key={review.name}
-                      className={cn(
-                        "transition-all duration-500 ease-out",
-                        !isExpanded && !isFirst && "absolute top-0 left-0 right-0",
-                        !isExpanded && isHidden && "invisible"
-                      )}
-                      style={collapsedStyles as React.CSSProperties}
-                    >
-                      <ReviewCard 
-                        review={review} 
-                        className={cn(
-                          !isExpanded && !isFirst && "shadow-medium"
-                        )}
-                      />
+                {/* Header: Avatar, Name, Location, Stars */}
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <div className="flex items-center gap-3">
+                    <Avatar className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0">
+                      <AvatarImage src={review.avatar} alt={review.name} className="object-cover" />
+                      <AvatarFallback className="bg-accent text-primary text-sm font-semibold">
+                        {review.name.charAt(0)}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="min-w-0">
+                      <p className="font-semibold text-foreground text-sm md:text-base leading-tight">{review.name}</p>
+                      <p className="text-xs text-muted-foreground">{review.location}</p>
                     </div>
-                  );
-                })}
+                  </div>
+                  
+                  {/* Chevron indicator - only visible on mobile */}
+                  {isMobile && (
+                    <div className={cn(
+                      "w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0",
+                      "transition-all duration-300",
+                      isExpanded ? "bg-primary/10" : "bg-muted/50"
+                    )}>
+                      <ChevronDown className={cn(
+                        "w-4 h-4 text-muted-foreground transition-transform duration-300",
+                        isExpanded && "rotate-180 text-primary"
+                      )} />
+                    </div>
+                  )}
+                </div>
+                
+                {/* Star Rating */}
+                <div className="flex gap-0.5 mb-2">
+                  {Array.from({ length: review.rating }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                  ))}
+                </div>
+                
+                {/* Review Text */}
+                <p className={cn(
+                  "text-muted-foreground leading-relaxed transition-all duration-300",
+                  showExpanded 
+                    ? "text-sm md:text-base" 
+                    : "text-sm line-clamp-2"
+                )}>
+                  "{review.text}"
+                </p>
               </div>
-
-              {/* Spacer for stacked cards when collapsed */}
-              {!isExpanded && (
-                <div className="h-10" aria-hidden="true" />
-              )}
-            </div>
-
-            {/* Expand/Collapse Button */}
-            <div className="flex justify-center mt-4">
-              <Button
-                variant="ghost"
-                size="default"
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="border border-border/50 hover:border-primary/30 hover:bg-accent/50 text-muted-foreground hover:text-foreground transition-all duration-300"
-              >
-                {isExpanded ? (
-                  <>
-                    <Minus className="w-4 h-4 mr-2" />
-                    Weniger anzeigen
-                  </>
-                ) : (
-                  <>
-                    <Plus className="w-4 h-4 mr-2" />
-                    + 500 weitere Kundenstimmen
-                  </>
-                )}
-              </Button>
-            </div>
-          </div>
-        )}
-
-        {/* Desktop: Multi-column Grid */}
-        <div className="hidden md:grid md:grid-cols-2 gap-3 md:gap-6 max-w-4xl mx-auto">
-          {reviews.map((review) => (
-            <ReviewCard key={review.name} review={review} />
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
