@@ -1,6 +1,11 @@
 import beforeAfter1 from '@/assets/before-after-1.jpg';
 import beforeAfter2 from '@/assets/before-after-2.jpg';
 import beforeAfterSessel from '@/assets/before-after-sessel.png';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
 
 const gallery = [
   {
@@ -20,6 +25,24 @@ const gallery = [
   },
 ];
 
+function GalleryCard({ item }: { item: typeof gallery[0] }) {
+  return (
+    <div className="relative rounded-2xl overflow-hidden shadow-soft">
+      <div className="aspect-[4/3] overflow-hidden">
+        <img
+          src={item.image}
+          alt={item.caption}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="p-4 bg-card">
+        <h3 className="font-semibold text-foreground">{item.caption}</h3>
+        <p className="text-sm text-muted-foreground">{item.description}</p>
+      </div>
+    </div>
+  );
+}
+
 export function BeforeAfterSection() {
   return (
     <section id="vorher-nachher" className="py-16">
@@ -35,24 +58,29 @@ export function BeforeAfterSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Mobile Carousel */}
+        <div className="md:hidden -mx-4">
+          <Carousel
+            opts={{
+              align: 'center',
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2">
+              {gallery.map((item) => (
+                <CarouselItem key={item.caption} className="pl-2 basis-[85%]">
+                  <GalleryCard item={item} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-3 gap-8">
           {gallery.map((item) => (
-            <div
-              key={item.caption}
-              className="relative rounded-2xl overflow-hidden shadow-soft"
-            >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.caption}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4 bg-card">
-                <h3 className="font-semibold text-foreground">{item.caption}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
-              </div>
-            </div>
+            <GalleryCard key={item.caption} item={item} />
           ))}
         </div>
       </div>
