@@ -40,23 +40,23 @@ export function HeroSection() {
           </p>
 
           {/* Trust Indicators */}
-          <div className="flex flex-col gap-4 md:flex-row md:gap-8 mb-8 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+          <div className="grid grid-cols-3 gap-3 md:flex md:gap-8 mb-8 animate-fade-up" style={{ animationDelay: '0.3s' }}>
             <div className="flex flex-col text-left">
-              <p className="text-3xl md:text-3xl font-bold text-primary">500+</p>
-              <p className="text-sm text-muted-foreground leading-tight">Zufriedene</p>
-              <p className="text-sm text-muted-foreground leading-tight">Kunden</p>
+              <p className="text-2xl md:text-3xl font-bold text-primary">500+</p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Zufriedene</p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Kunden</p>
             </div>
             <div className="flex flex-col text-left">
-              <p className="text-3xl md:text-3xl font-bold text-primary">0 €</p>
-              <p className="text-sm text-muted-foreground leading-tight">Keine</p>
-              <p className="text-sm text-muted-foreground leading-tight">versteckten</p>
-              <p className="text-sm text-muted-foreground leading-tight">Gebühren</p>
+              <p className="text-2xl md:text-3xl font-bold text-primary">0 €</p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Keine</p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-tight">versteckten</p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Gebühren</p>
             </div>
             <div className="flex flex-col text-left">
-              <p className="text-3xl md:text-3xl font-bold text-primary">Gratis</p>
-              <p className="text-sm text-muted-foreground leading-tight">Kostenlose</p>
-              <p className="text-sm text-muted-foreground leading-tight">Express-</p>
-              <p className="text-sm text-muted-foreground leading-tight">Trocknung</p>
+              <p className="text-2xl md:text-3xl font-bold text-primary">Gratis</p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Kostenlose</p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Express-</p>
+              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Trocknung</p>
             </div>
           </div>
 
