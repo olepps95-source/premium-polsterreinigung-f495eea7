@@ -118,7 +118,7 @@ export function WhyChooseUsSection() {
                   
                   <h3 className={cn(
                     "font-semibold text-foreground mb-1 md:mb-2 leading-tight text-left w-full",
-                    isMobile && !isExpanded ? "text-xs" : "text-sm md:text-base lg:text-lg"
+                    isMobile && !isExpanded ? "text-sm" : "text-sm md:text-base lg:text-lg"
                   )}>
                     {benefit.title}
                   </h3>
@@ -127,7 +127,7 @@ export function WhyChooseUsSection() {
                     "text-muted-foreground text-left w-full transition-all duration-300",
                     showExpanded 
                       ? "text-sm md:text-sm leading-relaxed opacity-100" 
-                      : "text-[11px] leading-snug line-clamp-2"
+                      : "text-xs leading-snug line-clamp-2"
                   )}>
                     {benefit.description}
                   </p>
