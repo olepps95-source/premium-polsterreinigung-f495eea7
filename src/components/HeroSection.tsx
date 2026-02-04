@@ -33,7 +33,7 @@ export function HeroSection() {
             direkt bei Ihnen vor Ort
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-lg md:text-xl text-black mb-10 max-w-xl animate-fade-up" style={{ animationDelay: '0.2s' }}>
             Hygienisch sauber, schonend gereinigt und unbedenklich für Kinder & Haustiere.
             <br />
             Dank Express-Trocknung noch am selben Tag wieder nutzbar.
@@ -43,20 +43,20 @@ export function HeroSection() {
           <div className="grid grid-cols-3 gap-3 md:flex md:gap-8 mb-8 animate-fade-up" style={{ animationDelay: '0.3s' }}>
             <div className="flex flex-col text-left">
               <p className="text-2xl md:text-3xl font-bold text-primary">500+</p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Zufriedene</p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Kunden</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Zufriedene</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Kunden</p>
             </div>
             <div className="flex flex-col text-left">
               <p className="text-2xl md:text-3xl font-bold text-primary">0 €</p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Keine</p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-tight">versteckten</p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Gebühren</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Keine</p>
+              <p className="text-xs md:text-sm text-black leading-tight">versteckten</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Gebühren</p>
             </div>
             <div className="flex flex-col text-left">
               <p className="text-2xl md:text-3xl font-bold text-primary">Gratis</p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Kostenlose</p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Express-</p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-tight">Trocknung</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Kostenlose</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Express-</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Trocknung</p>
             </div>
           </div>
 
