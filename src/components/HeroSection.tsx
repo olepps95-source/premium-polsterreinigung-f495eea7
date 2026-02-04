@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Shield, Sparkles } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import heroImage from '@/assets/hero-living-room.jpg';
 import heroMobileImage from '@/assets/hero-mobile.png';
+import { trackContact } from '@/lib/meta-pixel';
 
 export function HeroSection() {
   return (
@@ -61,8 +62,20 @@ export function HeroSection() {
                 <ArrowRight className="w-5 h-5" />
               </a>
             </Button>
-            <Button variant="heroOutline" size="lg" asChild>
-              <a href="#preise">Preise ansehen</a>
+            <Button 
+              size="lg" 
+              className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold"
+              asChild
+            >
+              <a 
+                href="https://wa.me/491636986317?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20eine%20Reinigung%20und%20sende%20Ihnen%20gleich%20Fotos."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackContact()}
+              >
+                <MessageCircle className="w-5 h-5" />
+                24/7 WhatsApp Service nutzen
+              </a>
             </Button>
           </div>
         </div>
