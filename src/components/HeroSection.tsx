@@ -40,17 +40,17 @@ export function HeroSection() {
           </p>
 
           {/* Trust Indicators */}
-          <div className="flex flex-col items-center gap-4 md:flex-row md:items-start md:gap-6 mb-8 animate-fade-up" style={{ animationDelay: '0.3s' }}>
-            <div className="flex flex-col items-center text-center md:flex-row md:items-center md:text-left gap-1 md:gap-2">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+            <div className="flex items-center gap-2">
               <p className="text-2xl md:text-3xl font-bold text-primary">500+</p>
               <p className="text-xs md:text-sm text-muted-foreground leading-tight">Zufriedene Kunden</p>
             </div>
-            <div className="flex flex-col items-center text-center md:flex-row md:items-center md:text-left gap-1 md:gap-2">
+            <div className="flex items-center gap-2">
               <p className="text-2xl md:text-3xl font-bold text-primary">0 €</p>
               <p className="text-xs md:text-sm text-muted-foreground leading-tight">Keine versteckten Gebühren</p>
             </div>
-            <div className="flex flex-col items-center text-center md:flex-row md:items-center md:text-left gap-1 md:gap-2">
-              <p className="text-2xl md:text-3xl font-bold text-primary">Gratis</p>
+            <div className="flex items-center gap-2 col-span-2 md:col-span-1 justify-center md:justify-start">
+              <p className="text-xl md:text-3xl font-bold text-primary">Gratis</p>
               <p className="text-xs md:text-sm text-muted-foreground leading-tight">Kostenlose Express-Trocknung</p>
             </div>
           </div>
