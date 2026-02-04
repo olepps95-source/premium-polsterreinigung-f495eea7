@@ -234,7 +234,7 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
 
               <div className="space-y-2">
                 <Label htmlFor="phone" className="text-foreground font-medium">
-                  Telefonnummer <span className="text-primary">*</span>
+                  Telefonnummer <span className="text-muted-foreground text-xs">(oder E-Mail)</span>
                 </Label>
                 <Input
                   id="phone"
