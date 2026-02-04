@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { Home, ShieldCheck, Sparkles, Euro, CalendarDays, HeartHandshake, ChevronDown } from 'lucide-react';
+import { Home, ShieldCheck, Sparkles, Euro, CalendarDays, HeartHandshake } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -37,23 +36,7 @@ const benefits = [
 ];
 
 export function WhyChooseUsSection() {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const isMobile = useIsMobile();
-
-  useEffect(() => {
-    // Trigger pulse animation once after mount (only on mobile)
-    if (isMobile) {
-      const timer = setTimeout(() => setHasAnimated(true), 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [isMobile]);
-
-  const handleCardClick = (index: number) => {
-    if (isMobile) {
-      setExpandedIndex(expandedIndex === index ? null : index);
-    }
-  };
 
   return (
     <section className="py-8 md:py-12 bg-background">
@@ -65,76 +48,53 @@ export function WhyChooseUsSection() {
           </h2>
         </div>
 
-        {/* Benefits Grid */}
+        {/* Benefits */}
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6">
-            {benefits.map((benefit, index) => {
-              const isExpanded = expandedIndex === index;
-              const showExpanded = isMobile ? isExpanded : true; // Desktop always shows full content
-              
-              return (
+          {isMobile ? (
+            /* Mobile: Single column vertical stack */
+            <div className="flex flex-col gap-3">
+              {benefits.map((benefit) => (
                 <div
                   key={benefit.title}
-                  onClick={() => handleCardClick(index)}
-                  className={cn(
-                    "bg-card p-3 md:p-6 rounded-xl md:rounded-2xl border",
-                    "flex flex-col items-center text-center",
-                    "transition-all duration-300 ease-out",
-                    // Only interactive on mobile
-                    isMobile && "cursor-pointer select-none active:scale-[0.98]",
-                    // Expanded state styling (mobile only)
-                    isMobile && isExpanded 
-                      ? "col-span-2 border-primary shadow-medium bg-accent/30" 
-                      : "border-border/50 shadow-soft",
-                    // Hover effects only on mobile
-                    isMobile && !isExpanded && "hover:shadow-medium hover:border-border",
-                    // One-time pulse animation (mobile only)
-                    isMobile && !hasAnimated && index === 0 && "animate-[pulse_1s_ease-in-out_1]"
-                  )}
+                  className="bg-card p-4 rounded-xl border border-border/50 shadow-soft"
                 >
-                  <div className="w-full flex items-start justify-between mb-2 md:mb-4">
-                    <div className={cn(
-                      "w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-accent flex items-center justify-center",
-                      "transition-colors duration-300",
-                      isMobile && isExpanded && "bg-primary/10"
-                    )}>
-                      <benefit.icon className="w-5 h-5 md:w-7 md:h-7 text-primary" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center flex-shrink-0">
+                      <benefit.icon className="w-6 h-6 text-primary" />
                     </div>
-                    
-                    {/* Chevron indicator - only visible on mobile */}
-                    {isMobile && (
-                      <div className={cn(
-                        "w-6 h-6 rounded-full flex items-center justify-center",
-                        "transition-all duration-300",
-                        isExpanded ? "bg-primary/10" : "bg-muted/50"
-                      )}>
-                        <ChevronDown className={cn(
-                          "w-4 h-4 text-muted-foreground transition-transform duration-300",
-                          isExpanded && "rotate-180 text-primary"
-                        )} />
-                      </div>
-                    )}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-foreground text-base mb-1">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-muted-foreground text-base leading-relaxed">
+                        {benefit.description}
+                      </p>
+                    </div>
                   </div>
-                  
-                  <h3 className={cn(
-                    "font-semibold text-foreground mb-1 md:mb-2 leading-tight text-left w-full",
-                    isMobile && !isExpanded ? "text-sm" : "text-sm md:text-base lg:text-lg"
-                  )}>
+                </div>
+              ))}
+            </div>
+          ) : (
+            /* Desktop: 3-column grid */
+            <div className="grid lg:grid-cols-3 gap-6">
+              {benefits.map((benefit) => (
+                <div
+                  key={benefit.title}
+                  className="bg-card p-6 rounded-2xl border border-border/50 shadow-soft flex flex-col items-center text-center"
+                >
+                  <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-4">
+                    <benefit.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground text-base lg:text-lg mb-2">
                     {benefit.title}
                   </h3>
-                  
-                  <p className={cn(
-                    "text-muted-foreground text-left w-full transition-all duration-300",
-                    showExpanded 
-                      ? "text-sm md:text-sm leading-relaxed opacity-100" 
-                      : "text-xs leading-snug line-clamp-2"
-                  )}>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {benefit.description}
                   </p>
                 </div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

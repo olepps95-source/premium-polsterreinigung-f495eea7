@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Leaf, Sparkles, Clock, Shield, ChevronDown } from 'lucide-react';
+import { Leaf, Sparkles, Clock, Shield } from 'lucide-react';
 import teamMemberImage from '@/assets/team-member.png';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -28,114 +27,112 @@ const benefits = [
 ];
 
 export function AboutSection() {
-  // First card open by default on mobile
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
   const isMobile = useIsMobile();
 
-  const handleCardClick = (index: number) => {
-    if (isMobile) {
-      setExpandedIndex(expandedIndex === index ? null : index);
-    }
-  };
-
   return (
-    <section id="ueber-uns" className="py-16 bg-secondary/50">
+    <section id="ueber-uns" className="py-12 md:py-16 bg-secondary/50">
       <div className="container px-3 md:px-4">
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Über uns</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ihr Partner für saubere Polster
-          </h2>
-          
-          <p className="text-lg text-muted-foreground">
-            Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel 
-            wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer 
-            Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.
-          </p>
-          
-          {/* Team member image */}
-          <div className="flex justify-center mt-8">
-            <div className="relative">
-              {/* Subtle glow effect behind image */}
+        {/* Mobile: Image on top, text below, centered */}
+        {isMobile ? (
+          <div className="flex flex-col items-center text-center mb-8">
+            {/* Team member image first on mobile */}
+            <div className="relative mb-6">
               <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent blur-2xl scale-110 -z-10" />
               <img 
                 src={teamMemberImage} 
                 alt="ReinWerk Teammitglied" 
-                className="w-72 sm:w-48 md:w-56 lg:w-64 h-auto object-contain"
+                className="w-64 h-auto object-contain"
                 style={{
                   filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08))'
                 }}
               />
             </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-8 max-w-5xl mx-auto">
-          {benefits.map((benefit, index) => {
-            const isExpanded = expandedIndex === index;
-            const showExpanded = isMobile ? isExpanded : true; // Desktop always shows full content
             
-            return (
-              <div
-                key={benefit.title}
-                onClick={() => handleCardClick(index)}
-                className={cn(
-                  "bg-card p-3 md:p-8 rounded-xl md:rounded-2xl border",
-                  "transition-all duration-300 ease-out",
-                  // Only interactive on mobile
-                  isMobile && "cursor-pointer select-none active:scale-[0.98]",
-                  // Expanded state styling (mobile only)
-                  isMobile && isExpanded 
-                    ? "col-span-2 border-primary shadow-medium bg-accent/20" 
-                    : "border-border/50 shadow-soft",
-                  // Hover effects only on mobile
-                  isMobile && !isExpanded && "hover:shadow-medium hover:border-border"
-                )}
-              >
-                <div className="flex flex-col">
-                  <div className="w-full flex items-start justify-between mb-2 md:mb-6">
-                    <div className={cn(
-                      "w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-accent flex items-center justify-center",
-                      "transition-colors duration-300",
-                      isMobile && isExpanded && "bg-primary/10"
-                    )}>
-                      <benefit.icon className="w-5 h-5 md:w-7 md:h-7 text-primary" />
-                    </div>
-                    
-                    {/* Chevron indicator - only visible on mobile */}
-                    {isMobile && (
-                      <div className={cn(
-                        "w-6 h-6 rounded-full flex items-center justify-center",
-                        "transition-all duration-300",
-                        isExpanded ? "bg-primary/10" : "bg-muted/50"
-                      )}>
-                        <ChevronDown className={cn(
-                          "w-4 h-4 text-muted-foreground transition-transform duration-300",
-                          isExpanded && "rotate-180 text-primary"
-                        )} />
-                      </div>
-                    )}
+            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">Über uns</p>
+            <h2 className="text-2xl font-bold text-foreground mb-4">
+              Ihr Partner für saubere Polster
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel 
+              wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer 
+              Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.
+            </p>
+          </div>
+        ) : (
+          /* Desktop: Original layout */
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Über uns</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Ihr Partner für saubere Polster
+            </h2>
+            
+            <p className="text-lg text-muted-foreground">
+              Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel 
+              wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer 
+              Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.
+            </p>
+            
+            {/* Team member image */}
+            <div className="flex justify-center mt-8">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent blur-2xl scale-110 -z-10" />
+                <img 
+                  src={teamMemberImage} 
+                  alt="ReinWerk Teammitglied" 
+                  className="w-48 md:w-56 lg:w-64 h-auto object-contain"
+                  style={{
+                    filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08))'
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Benefits grid */}
+        <div className={cn(
+          "max-w-5xl mx-auto",
+          isMobile ? "flex flex-col gap-3" : "grid lg:grid-cols-4 gap-8"
+        )}>
+          {benefits.map((benefit) => (
+            <div
+              key={benefit.title}
+              className={cn(
+                "bg-card border border-border/50 shadow-soft",
+                isMobile 
+                  ? "p-4 rounded-xl" 
+                  : "p-8 rounded-2xl text-center"
+              )}
+            >
+              {isMobile ? (
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center flex-shrink-0">
+                    <benefit.icon className="w-6 h-6 text-primary" />
                   </div>
-                  
-                  <h3 className={cn(
-                    "font-semibold text-foreground mb-1 md:mb-3 leading-tight",
-                    isMobile && !isExpanded ? "text-sm" : "text-sm md:text-lg"
-                  )}>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-foreground text-base mb-1">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-muted-foreground text-base leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex flex-col items-center">
+                  <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-6">
+                    <benefit.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground text-lg mb-3">
                     {benefit.title}
                   </h3>
-                  
-                  <p className={cn(
-                    "text-muted-foreground transition-all duration-300",
-                    showExpanded 
-                      ? "text-sm md:text-sm leading-relaxed opacity-100" 
-                      : "text-xs leading-snug line-clamp-2"
-                  )}>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {benefit.description}
                   </p>
                 </div>
-              </div>
-            );
-          })}
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

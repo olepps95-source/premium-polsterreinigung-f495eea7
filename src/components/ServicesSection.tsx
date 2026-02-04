@@ -1,7 +1,11 @@
-import { useState, useEffect } from 'react';
-import { Sofa, BedDouble, Droplets, Wind, ChevronDown } from 'lucide-react';
+import { Sofa, BedDouble, Droplets, Wind } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
 
 const services = [
   {
@@ -27,23 +31,7 @@ const services = [
 ];
 
 export function ServicesSection() {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const isMobile = useIsMobile();
-
-  useEffect(() => {
-    // Trigger pulse animation once after mount (only on mobile)
-    if (isMobile) {
-      const timer = setTimeout(() => setHasAnimated(true), 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [isMobile]);
-
-  const handleCardClick = (index: number) => {
-    if (isMobile) {
-      setExpandedIndex(expandedIndex === index ? null : index);
-    }
-  };
 
   return (
     <section id="leistungen" className="py-10 md:py-16">
@@ -58,75 +46,60 @@ export function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-8 max-w-4xl mx-auto">
-        {services.map((service, index) => {
-            const isExpanded = expandedIndex === index;
-            const showExpanded = isMobile ? isExpanded : true; // Desktop always shows full content
-            
-            return (
+        {/* Mobile: Horizontal swipeable carousel */}
+        {isMobile ? (
+          <div className="-mx-3">
+            <Carousel
+              opts={{
+                align: 'start',
+                loop: false,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 pl-3">
+                {services.map((service) => (
+                  <CarouselItem key={service.title} className="pl-2 basis-[82%]">
+                    <div className="bg-card p-4 rounded-xl border border-border/50 shadow-soft h-full">
+                      <div className="flex flex-col">
+                        <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center mb-3">
+                          <service.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <h3 className="font-semibold text-foreground text-base mb-2">
+                          {service.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+        ) : (
+          /* Desktop: Grid layout */
+          <div className="grid grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {services.map((service) => (
               <div
                 key={service.title}
-                onClick={() => handleCardClick(index)}
-                className={cn(
-                  "group relative p-3 md:p-8 rounded-xl md:rounded-2xl border bg-card",
-                  "transition-all duration-300 ease-out",
-                  // Only interactive on mobile
-                  isMobile && "cursor-pointer select-none active:scale-[0.98]",
-                  // Expanded state styling (mobile only)
-                  isMobile && isExpanded 
-                    ? "col-span-2 border-primary shadow-medium bg-accent/20" 
-                    : "border-border shadow-soft",
-                  // Hover effects only on mobile
-                  isMobile && !isExpanded && "hover:shadow-medium hover:border-border/80",
-                  // One-time pulse animation (mobile only)
-                  isMobile && !hasAnimated && index === 0 && "animate-[pulse_1s_ease-in-out_1]"
-                )}
+                className="bg-card p-8 rounded-2xl border border-border/50 shadow-soft"
               >
                 <div className="flex flex-col">
-                  <div className="w-full flex items-start justify-between mb-2 md:mb-4">
-                    <div className={cn(
-                      "w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-2xl bg-accent flex items-center justify-center flex-shrink-0",
-                      "transition-colors duration-300",
-                      isMobile && isExpanded && "bg-primary/10"
-                    )}>
-                      <service.icon className="w-5 h-5 md:w-8 md:h-8 text-primary" />
-                    </div>
-                    
-                    {/* Chevron indicator - only visible on mobile */}
-                    {isMobile && (
-                      <div className={cn(
-                        "w-6 h-6 rounded-full flex items-center justify-center",
-                        "transition-all duration-300",
-                        isExpanded ? "bg-primary/10" : "bg-muted/50"
-                      )}>
-                        <ChevronDown className={cn(
-                          "w-4 h-4 text-muted-foreground transition-transform duration-300",
-                          isExpanded && "rotate-180 text-primary"
-                        )} />
-                      </div>
-                    )}
+                  <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center mb-4">
+                    <service.icon className="w-8 h-8 text-primary" />
                   </div>
-                  
-                  <h3 className={cn(
-                    "font-semibold text-foreground mb-1 md:mb-3 leading-tight",
-                    isMobile && !isExpanded ? "text-sm" : "text-sm md:text-xl"
-                  )}>
+                  <h3 className="font-semibold text-foreground text-xl mb-3">
                     {service.title}
                   </h3>
-                  
-                  <p className={cn(
-                    "text-muted-foreground transition-all duration-300",
-                    showExpanded 
-                      ? "text-sm md:text-base leading-relaxed opacity-100" 
-                      : "text-xs leading-snug line-clamp-2"
-                  )}>
+                  <p className="text-muted-foreground text-base leading-relaxed">
                     {service.description}
                   </p>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

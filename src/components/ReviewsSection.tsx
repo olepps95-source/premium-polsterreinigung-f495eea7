@@ -9,8 +9,10 @@ import avatarThomas from '@/assets/avatar-thomas.jpg';
 import avatarAnna from '@/assets/avatar-anna.jpg';
 import avatarMichael from '@/assets/avatar-michael.jpg';
 
+// Unique reviews - each person appears only once
 const reviews = [
   {
+    id: 'maria-schmidt',
     name: 'Maria Schmidt',
     location: 'Dresden',
     rating: 5,
@@ -18,6 +20,7 @@ const reviews = [
     avatar: avatarMaria,
   },
   {
+    id: 'thomas-mueller',
     name: 'Thomas Müller',
     location: 'Leipzig',
     rating: 5,
@@ -25,6 +28,7 @@ const reviews = [
     avatar: avatarThomas,
   },
   {
+    id: 'anna-weber',
     name: 'Anna Weber',
     location: 'Chemnitz',
     rating: 5,
@@ -32,6 +36,7 @@ const reviews = [
     avatar: avatarAnna,
   },
   {
+    id: 'michael-hoffmann',
     name: 'Michael Hoffmann',
     location: 'Zwickau',
     rating: 5,
@@ -83,7 +88,7 @@ export function ReviewsSection() {
             
             return (
               <div
-                key={review.name}
+                key={review.id}
                 onClick={() => handleCardClick(index)}
                 className={cn(
                   "bg-card p-4 md:p-6 rounded-xl md:rounded-2xl border",
