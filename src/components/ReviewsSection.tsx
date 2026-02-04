@@ -230,15 +230,18 @@ export function ReviewsSection() {
           <div className="flex justify-center mt-4">
             <Button
               variant="outline"
-              size="default"
+              size="sm"
               onClick={toggleShowAll}
               className={cn(
-                "gap-2 border-primary/30 hover:bg-primary hover:text-primary-foreground",
+                "gap-2 px-6 w-fit max-w-[280px] text-xs",
+                "border-primary/30 hover:bg-primary hover:text-primary-foreground",
                 "transition-all duration-300"
               )}
             >
-              <Users className="w-4 h-4" />
-              {showAllReviews ? 'Weniger anzeigen' : '500+ zufriedene Kunden – Mehr Bewertungen lesen'}
+              <Users className="w-3.5 h-3.5 flex-shrink-0" />
+              <span className="whitespace-nowrap">
+                {showAllReviews ? 'Weniger anzeigen' : '500+ zufriedene Kunden – Mehr lesen'}
+              </span>
             </Button>
           </div>
         )}
