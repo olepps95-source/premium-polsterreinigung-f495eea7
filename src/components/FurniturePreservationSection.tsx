@@ -1,6 +1,15 @@
+import { ArrowRight } from 'lucide-react';
 import sofaCleaningProcess from '@/assets/sofa-cleaning-process.png';
+import { Button } from '@/components/ui/button';
 
 export function FurniturePreservationSection() {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('kontakt');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="py-16 bg-background">
       <div className="container">
@@ -23,11 +32,20 @@ export function FurniturePreservationSection() {
               <h3 className="text-lg md:text-xl font-semibold text-primary mb-4">
                 Professionelle Reinigung: Gut für Ihr Sofa, besser für Ihr Konto.
               </h3>
-              <p className="text-base text-muted-foreground leading-relaxed">
+              <p className="text-base text-muted-foreground leading-relaxed mb-6">
                 Wer tiefenreinigt, investiert in die Zukunft seiner Möbel. Die verbesserte 
                 Haltbarkeit spart Ihnen langfristig die Kosten für einen Neukauf und sorgt 
                 für ein sauberes Zuhause.
               </p>
+              <Button
+                onClick={scrollToContact}
+                variant="hero"
+                size="lg"
+                className="w-full md:w-auto"
+              >
+                Jetzt kostenlose Preisanfrage senden
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
             </div>
           </div>
         </div>
