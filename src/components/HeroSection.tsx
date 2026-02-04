@@ -28,9 +28,10 @@ export function HeroSection() {
         <div className="max-w-2xl">
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            Premium{' '}
-            <span className="text-primary">Polsterreinigung</span>{' '}
-            direkt bei Ihnen vor Ort
+            <span className="block md:inline">Premium</span>{' '}
+            <span className="text-primary block md:inline">Polsterreinigung</span>{' '}
+            <span className="block md:inline">direkt bei Ihnen</span>{' '}
+            <span className="block md:inline">vor Ort</span>
           </h1>
 
           <p className="text-lg md:text-xl text-black mb-10 max-w-xl animate-fade-up" style={{ animationDelay: '0.2s' }}>
