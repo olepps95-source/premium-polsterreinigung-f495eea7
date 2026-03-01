@@ -35,8 +35,18 @@ export function AboutSection() {
         {/* Mobile: Image on top, text below, centered */}
         {isMobile ? (
           <div className="flex flex-col items-center text-center mb-8">
-            {/* Team member image first on mobile */}
-            <div className="relative mb-6">
+            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">Über uns</p>
+            <h2 className="text-2xl font-bold text-foreground mb-4">
+              Ihr Partner für saubere Polster
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-6">
+              Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel 
+              wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer 
+              Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.
+            </p>
+            
+            {/* Team member image below text on mobile */}
+            <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent blur-2xl scale-110 -z-10" />
               <img 
                 src={teamMemberImage} 
@@ -47,16 +57,6 @@ export function AboutSection() {
                 }}
               />
             </div>
-            
-            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">Über uns</p>
-            <h2 className="text-2xl font-bold text-foreground mb-4">
-              Ihr Partner für saubere Polster
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel 
-              wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer 
-              Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.
-            </p>
           </div>
         ) : (
           /* Desktop: Original layout */
