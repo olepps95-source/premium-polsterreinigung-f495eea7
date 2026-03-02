@@ -35,10 +35,6 @@ function GalleryCard({ item }: { item: typeof gallery[0] }) {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="p-4 bg-card">
-        <h3 className="font-semibold text-foreground">{item.caption}</h3>
-        <p className="text-sm text-muted-foreground">{item.description}</p>
-      </div>
     </div>
   );
 }
