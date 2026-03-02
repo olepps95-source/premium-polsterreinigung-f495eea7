@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, MessageCircle, Wind, Euro, Users } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import heroImage from '@/assets/hero-living-room.jpg';
 import heroMobileImage from '@/assets/hero-mobile.png';
 import { trackContact } from '@/lib/meta-pixel';
@@ -20,58 +20,37 @@ export function HeroSection() {
       <div className="container relative z-10 py-8 pt-16 md:py-32">
         <div className="max-w-2xl">
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-up" style={{ animationDelay: '0.1s', color: 'hsl(220, 25%, 12%)' }}>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
             <span className="block md:inline">Premium</span>{' '}
-            <span className="block md:inline" style={{ color: 'hsl(var(--primary))' }}>Polsterreinigung</span>{' '}
+            <span className="text-primary block md:inline">Polsterreinigung</span>{' '}
             <span className="block md:inline">direkt bei Ihnen</span>{' '}
             <span className="block md:inline">vor Ort</span>
           </h1>
 
-          <p className="text-lg md:text-xl mb-10 max-w-xl animate-fade-up leading-relaxed" style={{ animationDelay: '0.2s', color: '#000000' }}>
+          <p className="text-lg md:text-xl text-black mb-10 max-w-xl animate-fade-up" style={{ animationDelay: '0.2s' }}>
             Hygienisch sauber, schonend gereinigt und unbedenklich für Kinder & Haustiere.
             <br />
             Dank Express-Trocknung noch am selben Tag wieder nutzbar.
           </p>
 
           {/* Trust Indicators */}
-          <div className="flex items-stretch gap-0 mb-8 animate-fade-up" style={{ animationDelay: '0.3s' }}>
-            {/* Gratis */}
-            <div className="flex items-center gap-3 pr-5 md:pr-8">
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Wind className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-              </div>
-              <div className="flex flex-col text-left">
-                <p className="text-lg md:text-2xl font-bold text-primary leading-none">Gratis</p>
-                <p className="text-xs md:text-sm text-black leading-tight mt-0.5">Kostenlose<br />Express-Trocknung</p>
-              </div>
+          <div className="grid grid-cols-3 gap-3 md:flex md:gap-8 mb-8 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+            <div className="flex flex-col text-left">
+              <p className="text-2xl md:text-3xl font-bold text-primary">Gratis</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Kostenlose</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Express-</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Trocknung</p>
             </div>
-
-            {/* Divider */}
-            <div className="w-px self-stretch bg-border mx-1 md:mx-2" />
-
-            {/* 0 € */}
-            <div className="flex items-center gap-3 px-5 md:px-8">
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Euro className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-              </div>
-              <div className="flex flex-col text-left">
-                <p className="text-lg md:text-2xl font-bold text-primary leading-none">0 €</p>
-                <p className="text-xs md:text-sm text-black leading-tight mt-0.5">Keine versteckten<br />Gebühren</p>
-              </div>
+            <div className="flex flex-col text-left">
+              <p className="text-2xl md:text-3xl font-bold text-primary">0 €</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Keine</p>
+              <p className="text-xs md:text-sm text-black leading-tight">versteckten</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Gebühren</p>
             </div>
-
-            {/* Divider */}
-            <div className="w-px self-stretch bg-border mx-1 md:mx-2" />
-
-            {/* 500+ */}
-            <div className="flex items-center gap-3 pl-5 md:pl-8">
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Users className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-              </div>
-              <div className="flex flex-col text-left">
-                <p className="text-lg md:text-2xl font-bold text-primary leading-none">500+</p>
-                <p className="text-xs md:text-sm text-black leading-tight mt-0.5">Zufriedene<br />Kunden</p>
-              </div>
+            <div className="flex flex-col text-left">
+              <p className="text-2xl md:text-3xl font-bold text-primary">500+</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Zufriedene</p>
+              <p className="text-xs md:text-sm text-black leading-tight">Kunden</p>
             </div>
           </div>
 
