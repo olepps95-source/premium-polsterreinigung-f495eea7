@@ -13,7 +13,7 @@ export default function Impressum() {
             <section>
               <h2 className="text-xl font-semibold text-foreground mb-3">Angaben gemäß § 5 TMG:</h2>
               <p className="text-lg">
-                <strong className="text-foreground">ReinWerk</strong><br />
+                <strong className="text-foreground">ReinWerk – Oleh Pshenychnyi</strong><br />
                 Matthesstraße 48<br />
                 09113 Chemnitz<br />
                 Deutschland
@@ -30,19 +30,33 @@ export default function Impressum() {
                 </a><br />
                 <strong className="text-foreground">Website:</strong>{' '}
                 <a href="https://www.reinwerk-service.de/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                  www.reinwerk-service.de/
+                  www.reinwerk-service.de
                 </a>
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">Vertreten durch:</h2>
-              <p>Oleh Pshenychnyi</p>
+              <h2 className="text-xl font-semibold text-foreground mb-3">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</h2>
+              <p>
+                Oleh Pshenychnyi<br />
+                Matthesstraße 48<br />
+                09113 Chemnitz
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold text-foreground mb-3">Dieses Impressum gilt auch für folgende Social-Media-Profile:</h2>
+              <p>
+                <strong className="text-foreground">Instagram:</strong>{' '}
+                <a href="https://www.instagram.com/reinwerk.clean?igsh=MW90MGVhYm5yZzZhMA%3D%3D" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  @reinwerk.clean
+                </a>
+              </p>
             </section>
 
             <section>
               <h2 className="text-xl font-semibold text-foreground mb-3">Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</h2>
-              <p>Entfällt, da Kleinunternehmer gemäß § 19 UStG</p>
+              <p>Entfällt, da Kleinunternehmer gemäß § 19 UStG.</p>
             </section>
 
             <section>
