@@ -1,6 +1,11 @@
 import beforeAfter1 from '@/assets/before-after-1.jpg';
 import beforeAfter2 from '@/assets/before-after-2.jpg';
 import beforeAfterSessel from '@/assets/before-after-sessel.png';
+import beforeAfter4 from '@/assets/before-after-4.png';
+import beforeAfter5 from '@/assets/before-after-5.png';
+import beforeAfter6 from '@/assets/before-after-6.png';
+import beforeAfter7 from '@/assets/before-after-7.png';
+import beforeAfter8 from '@/assets/before-after-8.png';
 import {
   Carousel,
   CarouselContent,
@@ -8,21 +13,14 @@ import {
 } from '@/components/ui/carousel';
 
 const gallery = [
-  {
-    image: beforeAfter1,
-    caption: 'Sofa Tiefenreinigung',
-    description: 'Geruchsneutralisierung, gründliche Entfernung von Tierhaaren, Beseitigung von Farbflecken sowie eine intensive Tiefenreinigung mit Frischeeffekt für Ihr Sofa.',
-  },
-  {
-    image: beforeAfter2,
-    caption: 'Matratzenreinigung',
-    description: 'Entfernung von gelben Verfärbungen sowie eine umfassende hygienische Tiefenreinigung der Matratze für spürbare Frische und Sauberkeit.',
-  },
-  {
-    image: beforeAfterSessel,
-    caption: 'Sofa Auffrischung',
-    description: 'Entfernung von jahrelangem Schmutz, Staub sowie Fusseln und Knötchen. Der Farbton konnte nicht vollständig erhalten werden, dennoch wirkt das Sofa deutlich frischer und gepflegt.',
-  },
+  { image: beforeAfter1, caption: 'Sofa Tiefenreinigung' },
+  { image: beforeAfter2, caption: 'Matratzenreinigung' },
+  { image: beforeAfterSessel, caption: 'Sofa Auffrischung' },
+  { image: beforeAfter4, caption: 'Cord-Sofa Reinigung' },
+  { image: beforeAfter5, caption: 'Stoff-Sofa Reinigung' },
+  { image: beforeAfter6, caption: 'Ecksofa Tiefenreinigung' },
+  { image: beforeAfter7, caption: 'Cord-Ecksofa Reinigung' },
+  { image: beforeAfter8, caption: 'Dunkles Sofa Reinigung' },
 ];
 
 function GalleryCard({ item }: { item: typeof gallery[0] }) {
