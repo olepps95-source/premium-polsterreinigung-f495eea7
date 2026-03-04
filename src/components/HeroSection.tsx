@@ -1,21 +1,25 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MessageCircle } from 'lucide-react';
-import heroImage from '@/assets/hero-living-room.jpg';
-import heroMobileImage from '@/assets/hero-mobile.png';
+import heroTeamImage from '@/assets/hero-team.png';
 import { trackContact } from '@/lib/meta-pixel';
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center md:justify-start md:items-center pt-0 md:pt-20 pb-safe overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      {/* Background gradient */}
+      <div className="absolute inset-0 z-0 bg-background">
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary/80 via-background to-accent/30" />
+      </div>
+
+      {/* Team image - right side */}
+      <div className="absolute right-0 bottom-0 z-[1] hidden md:block">
         <img
-          src={heroImage}
-          alt="Professionelle Polsterreinigung – sauberes Sofa in modernem Wohnzimmer in Sachsen"
-          className="w-full h-full object-cover"
+          src={heroTeamImage}
+          alt="ReinWerk Team – Professionelle Polsterreinigung Sachsen"
+          className="h-[85vh] w-auto object-contain object-right-bottom"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
       </div>
 
       <div className="container relative z-10 py-8 md:py-32">
@@ -77,6 +81,16 @@ export function HeroSection() {
                 24/7 WhatsApp Service nutzen
               </a>
             </Button>
+          </div>
+
+          {/* Mobile team image */}
+          <div className="mt-8 flex justify-center md:hidden animate-fade-up" style={{ animationDelay: '0.5s' }}>
+            <img
+              src={heroTeamImage}
+              alt="ReinWerk Team – Professionelle Polsterreinigung Sachsen"
+              className="w-72 h-auto object-contain"
+              loading="eager"
+            />
           </div>
         </div>
       </div>
