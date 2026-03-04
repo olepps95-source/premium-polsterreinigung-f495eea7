@@ -47,7 +47,7 @@ export function Header() {
         <a href="/" onClick={handleLogoClick} className="flex items-center gap-3 cursor-pointer">
           <img 
             src={reinwerkLogo} 
-            alt="ReinWerk Logo" 
+            alt="ReinWerk Logo – Polsterreinigung Sachsen" 
             className="h-8 w-8 md:h-10 md:w-10 object-contain"
           />
           <span className="text-xl md:text-2xl font-bold text-foreground tracking-tight">

@@ -108,7 +108,7 @@ export function ReviewsSection() {
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <div className="flex items-center gap-3">
                     <Avatar className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0">
-                      <AvatarImage src={review.avatar} alt={review.name} className="object-cover" />
+                      <AvatarImage src={review.avatar} alt={`Kundenbewertung Polsterreinigung – ${review.name} aus ${review.location}`} className="object-cover" />
                       <AvatarFallback className="bg-accent text-primary text-sm font-semibold">
                         {review.name.charAt(0)}
                       </AvatarFallback>

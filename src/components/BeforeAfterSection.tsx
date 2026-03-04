@@ -13,14 +13,14 @@ import {
 } from '@/components/ui/carousel';
 
 const gallery = [
-  { image: beforeAfter1, caption: 'Sofa Tiefenreinigung' },
-  { image: beforeAfter2, caption: 'Matratzenreinigung' },
-  { image: beforeAfterSessel, caption: 'Sofa Auffrischung' },
-  { image: beforeAfter4, caption: 'Cord-Sofa Reinigung' },
-  { image: beforeAfter5, caption: 'Stoff-Sofa Reinigung' },
-  { image: beforeAfter6, caption: 'Ecksofa Tiefenreinigung' },
-  { image: beforeAfter7, caption: 'Cord-Ecksofa Reinigung' },
-  { image: beforeAfter8, caption: 'Dunkles Sofa Reinigung' },
+  { image: beforeAfter1, alt: 'Sofa Reinigung Vorher Nachher – Tiefenreinigung Ergebnis' },
+  { image: beforeAfter2, alt: 'Matratzenreinigung Vorher Nachher – professionelle Fleckenentfernung' },
+  { image: beforeAfterSessel, alt: 'Sessel Polsterreinigung Vorher Nachher – Auffrischung' },
+  { image: beforeAfter4, alt: 'Cord-Sofa Reinigung Vorher Nachher – Tiefenreinigung Sachsen' },
+  { image: beforeAfter5, alt: 'Stoff-Sofa Polsterreinigung Vorher Nachher Ergebnis' },
+  { image: beforeAfter6, alt: 'Ecksofa Tiefenreinigung Vorher Nachher – ReinWerk Chemnitz' },
+  { image: beforeAfter7, alt: 'Cord-Ecksofa professionelle Reinigung Vorher Nachher' },
+  { image: beforeAfter8, alt: 'Dunkles Sofa Reinigung Vorher Nachher – Fleckenentfernung' },
 ];
 
 function GalleryCard({ item }: { item: typeof gallery[0] }) {
@@ -29,8 +29,9 @@ function GalleryCard({ item }: { item: typeof gallery[0] }) {
       <div className="aspect-[4/3] overflow-hidden">
         <img
           src={item.image}
-          alt={item.caption}
+          alt={item.alt}
           className="w-full h-full object-cover"
+          loading="lazy"
         />
       </div>
     </div>
@@ -63,7 +64,7 @@ export function BeforeAfterSection() {
           >
             <CarouselContent className="-ml-2">
               {gallery.map((item) => (
-                <CarouselItem key={item.caption} className="pl-2 basis-[85%]">
+                <CarouselItem key={item.alt} className="pl-2 basis-[85%]">
                   <GalleryCard item={item} />
                 </CarouselItem>
               ))}
@@ -74,7 +75,7 @@ export function BeforeAfterSection() {
         {/* Desktop Grid */}
         <div className="hidden md:grid md:grid-cols-3 gap-8">
           {gallery.map((item) => (
-            <GalleryCard key={item.caption} item={item} />
+            <GalleryCard key={item.alt} item={item} />
           ))}
         </div>
       </div>
