@@ -6,6 +6,7 @@ import beforeAfter5 from '@/assets/before-after-5.png';
 import beforeAfter6 from '@/assets/before-after-6.png';
 import beforeAfter7 from '@/assets/before-after-7.png';
 import beforeAfter8 from '@/assets/before-after-8.png';
+import beforeAfter9 from '@/assets/before-after-9.png';
 import {
   Carousel,
   CarouselContent,
@@ -21,6 +22,7 @@ const gallery = [
   { image: beforeAfter6, alt: 'Ecksofa Tiefenreinigung Vorher Nachher – ReinWerk Chemnitz' },
   { image: beforeAfter7, alt: 'Cord-Ecksofa professionelle Reinigung Vorher Nachher' },
   { image: beforeAfter8, alt: 'Dunkles Sofa Reinigung Vorher Nachher – Fleckenentfernung' },
+  { image: beforeAfter9, alt: 'Teppichreinigung Vorher Nachher – professionelle Tiefenreinigung' },
 ];
 
 function GalleryCard({ item }: { item: typeof gallery[0] }) {
