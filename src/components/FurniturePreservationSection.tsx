@@ -24,8 +24,9 @@ export function FurniturePreservationSection() {
             <div className="flex justify-center md:justify-start">
               <img
                 src={sofaCleaningProcess}
-                alt="Professionelle Polsterreinigung - Tiefenreinigung, Fleckenentfernung, Desinfektion, Imprägnierung"
+                alt="Professionelle Polsterreinigung Gerät – Tiefenreinigung, Fleckenentfernung und Imprägnierung"
                 className="w-full max-w-md md:max-w-full h-auto object-contain"
+                loading="lazy"
               />
             </div>
 

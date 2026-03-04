@@ -11,8 +11,9 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="Professionell gereinigtes Sofa in modernem Wohnzimmer"
+          alt="Professionelle Polsterreinigung – sauberes Sofa in modernem Wohnzimmer in Sachsen"
           className="w-full h-full object-cover"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
       </div>

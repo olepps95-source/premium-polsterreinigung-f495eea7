@@ -50,8 +50,9 @@ export function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent blur-2xl scale-110 -z-10" />
               <img 
                 src={teamMemberImage} 
-                alt="ReinWerk Teammitglied" 
+                alt="ReinWerk Teammitglied – Professionelle Polsterreinigung Sachsen" 
                 className="w-64 h-auto object-contain"
+                loading="lazy"
                 style={{
                   filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08))'
                 }}
@@ -78,8 +79,9 @@ export function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent blur-2xl scale-110 -z-10" />
                 <img 
                   src={teamMemberImage} 
-                  alt="ReinWerk Teammitglied" 
+                  alt="ReinWerk Teammitglied – Professionelle Polsterreinigung Sachsen" 
                   className="w-48 md:w-56 lg:w-64 h-auto object-contain"
+                  loading="lazy"
                   style={{
                     filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08))'
                   }}

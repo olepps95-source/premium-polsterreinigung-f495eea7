@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
+import { LocalBusinessSchema } from '@/components/LocalBusinessSchema';
 import { AboutSection } from '@/components/AboutSection';
 import { ServicesSection } from '@/components/ServicesSection';
 import { PricingSection } from '@/components/PricingSection';
@@ -19,6 +20,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <LocalBusinessSchema />
       <Header />
       <main>
         <HeroSection />
