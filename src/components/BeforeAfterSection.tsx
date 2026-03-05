@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import beforeAfter1 from '@/assets/before-after-1.jpg';
 import beforeAfter2 from '@/assets/before-after-2.jpg';
 import beforeAfterSessel from '@/assets/before-after-sessel.png';
@@ -12,6 +13,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
+import { Button } from '@/components/ui/button';
 
 const gallery = [
   { image: beforeAfter1, alt: 'Sofa Reinigung Vorher Nachher – Tiefenreinigung Ergebnis' },
@@ -24,6 +26,8 @@ const gallery = [
   { image: beforeAfter8, alt: 'Dunkles Sofa Reinigung Vorher Nachher – Fleckenentfernung' },
   { image: beforeAfter9, alt: 'Teppichreinigung Vorher Nachher – professionelle Tiefenreinigung' },
 ];
+
+const DESKTOP_INITIAL_COUNT = 3;
 
 function GalleryCard({ item }: { item: typeof gallery[0] }) {
   return (
@@ -41,6 +45,11 @@ function GalleryCard({ item }: { item: typeof gallery[0] }) {
 }
 
 export function BeforeAfterSection() {
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleGallery = gallery.slice(0, DESKTOP_INITIAL_COUNT);
+  const hiddenGallery = gallery.slice(DESKTOP_INITIAL_COUNT);
+
   return (
     <section id="vorher-nachher" className="py-16">
       <div className="container">
@@ -55,7 +64,7 @@ export function BeforeAfterSection() {
           </p>
         </div>
 
-        {/* Mobile Carousel */}
+        {/* Mobile Carousel – unchanged */}
         <div className="md:hidden -mx-4">
           <Carousel
             opts={{
@@ -74,11 +83,34 @@ export function BeforeAfterSection() {
           </Carousel>
         </div>
 
-        {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8">
-          {gallery.map((item) => (
-            <GalleryCard key={item.alt} item={item} />
-          ))}
+        {/* Desktop Grid with Show More */}
+        <div className="hidden md:block">
+          <div className="grid md:grid-cols-3 gap-8">
+            {visibleGallery.map((item) => (
+              <GalleryCard key={item.alt} item={item} />
+            ))}
+          </div>
+
+          {showAll && (
+            <div className="grid md:grid-cols-3 gap-8 mt-8 animate-fade-in">
+              {hiddenGallery.map((item) => (
+                <GalleryCard key={item.alt} item={item} />
+              ))}
+            </div>
+          )}
+
+          {!showAll && hiddenGallery.length > 0 && (
+            <div className="flex justify-center mt-10">
+              <Button
+                onClick={() => setShowAll(true)}
+                variant="default"
+                size="lg"
+                className="text-base"
+              >
+                Mehr Ergebnisse ansehen
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </section>
