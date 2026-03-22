@@ -87,7 +87,7 @@ export function HeroSection() {
                 24/7 WhatsApp Service nutzen
               </a>
             </Button>
-            <Button variant="hero" size="lg" asChild>
+            <Button size="lg" className="rounded-xl shadow-lg font-semibold" asChild>
               <a href="#kontakt">
                 Jetzt unverbindlich anfragen
                 <ArrowRight className="w-5 h-5" />
