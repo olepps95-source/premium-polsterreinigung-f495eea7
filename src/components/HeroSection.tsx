@@ -71,10 +71,10 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="flex flex-col items-center md:items-start sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: '0.4s' }}>
+          <div className="flex flex-col items-center md:items-start sm:flex-row gap-4 animate-fade-up w-full md:w-auto" style={{ animationDelay: '0.4s' }}>
             <Button 
               size="lg" 
-              className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold"
+              className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold w-full sm:w-auto"
               asChild
             >
               <a 
@@ -87,7 +87,7 @@ export function HeroSection() {
                 24/7 WhatsApp Service nutzen
               </a>
             </Button>
-            <Button variant="hero" size="lg" asChild>
+            <Button variant="hero" size="lg" className="w-full sm:w-auto" asChild>
               <a href="#kontakt">
                 Jetzt unverbindlich anfragen
                 <ArrowRight className="w-5 h-5" />
