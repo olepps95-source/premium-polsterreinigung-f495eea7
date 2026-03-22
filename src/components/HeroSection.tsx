@@ -27,11 +27,11 @@ export function HeroSection() {
 
           {/* Mobile: show banner image instead of headline */}
           {isMobile ? (
-            <div className="mb-6 px-1 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+            <div className="mb-6 -mx-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
               <img
                 src={heroBannerMobile}
                 alt="Professionelle Polsterreinigung Vorher Nachher Vergleich"
-                className="w-full h-auto rounded-2xl shadow-medium"
+                className="w-screen h-auto"
                 loading="eager"
               />
             </div>
