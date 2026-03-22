@@ -2,9 +2,13 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import heroImage from '@/assets/hero-living-room.jpg';
 import heroMobileImage from '@/assets/hero-mobile.png';
+import heroBannerMobile from '@/assets/hero-banner-mobile.jpg';
 import { trackContact } from '@/lib/meta-pixel';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export function HeroSection() {
+  const isMobile = useIsMobile();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center md:justify-start md:items-center pt-0 md:pt-20 pb-safe overflow-hidden">
       {/* Background Image */}
@@ -21,12 +25,24 @@ export function HeroSection() {
       <div className="container relative z-10 py-8 md:py-32">
         <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            <span className="block md:inline">Premium</span>{' '}
-            <span className="text-primary block md:inline">Polsterreinigung</span>{' '}
-            <span className="block md:inline">direkt bei Ihnen</span>{' '}
-            <span className="block md:inline">vor Ort</span>
-          </h1>
+          {/* Mobile: show banner image instead of headline */}
+          {isMobile ? (
+            <div className="mb-6 px-1 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+              <img
+                src={heroBannerMobile}
+                alt="Professionelle Polsterreinigung Vorher Nachher Vergleich"
+                className="w-full h-auto rounded-2xl shadow-medium"
+                loading="eager"
+              />
+            </div>
+          ) : (
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+              <span className="block md:inline">Premium</span>{' '}
+              <span className="text-primary block md:inline">Polsterreinigung</span>{' '}
+              <span className="block md:inline">direkt bei Ihnen</span>{' '}
+              <span className="block md:inline">vor Ort</span>
+            </h1>
+          )}
 
           <p className="text-lg md:text-xl text-black mb-10 max-w-xl mx-auto md:mx-0 animate-fade-up" style={{ animationDelay: '0.2s' }}>
             Hygienisch sauber, schonend gereinigt und unbedenklich für Kinder & Haustiere.
