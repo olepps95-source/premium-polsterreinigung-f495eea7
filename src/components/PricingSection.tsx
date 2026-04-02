@@ -1,5 +1,4 @@
-import { Armchair, Sofa, BedDouble, Square, LayoutGrid, Minus, Plus, Wind, Fan, Bed } from 'lucide-react';
-import { trackContact } from '@/lib/meta-pixel';
+import { Armchair, Sofa, BedDouble, Square, LayoutGrid, Minus, Plus, Wind, Fan, Bed, ArrowRight } from 'lucide-react';
 import { useSelectedServices, PriceItem } from '@/contexts/SelectedServicesContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';

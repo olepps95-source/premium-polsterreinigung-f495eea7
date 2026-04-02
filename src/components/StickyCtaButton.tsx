@@ -3,10 +3,21 @@ import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useSelectedServices } from '@/contexts/SelectedServicesContext';
 
+// Helper to extract numeric price
+const parseNumericPrice = (priceString: string): number => {
+  const match = priceString.match(/(\d+)/);
+  return match ? parseInt(match[1], 10) : 0;
+};
+
 export function StickyCtaButton() {
-  const { getTotalQuantity } = useSelectedServices();
+  const { getTotalQuantity, getSelectedServices } = useSelectedServices();
   const hasSelectedServices = getTotalQuantity() > 0;
   const [isFormVisible, setIsFormVisible] = useState(false);
+
+  const totalPrice = getSelectedServices().reduce((sum, service) => {
+    const numericPrice = parseNumericPrice(service.price);
+    return sum + (numericPrice * service.quantity);
+  }, 0);
 
   useEffect(() => {
     const formSection = document.getElementById('kontakt');
@@ -48,6 +59,7 @@ export function StickyCtaButton() {
           className="w-full shadow-lg"
         >
           Weiter zur Anfrage
+          {totalPrice > 0 && <span className="ml-1">– ab {totalPrice} €</span>}
           <ArrowRight className="w-5 h-5 ml-2" />
         </Button>
       </div>
