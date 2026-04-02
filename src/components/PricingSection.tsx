@@ -155,11 +155,10 @@ function PriceCard({ item, quantity, onQuantityChange }: {
   );
 }
 
-function PriceGrid({ items, quantities, onQuantityChange, onClick }: {
+function PriceGrid({ items, quantities, onQuantityChange }: {
   items: PriceItem[];
   quantities: Record<string, number>;
   onQuantityChange: (id: string, delta: number) => void;
-  onClick: (id: string) => void;
 }) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
@@ -169,7 +168,6 @@ function PriceGrid({ items, quantities, onQuantityChange, onClick }: {
           item={item}
           quantity={quantities[item.id] || 0}
           onQuantityChange={onQuantityChange}
-          onClick={onClick}
         />
       ))}
     </div>
