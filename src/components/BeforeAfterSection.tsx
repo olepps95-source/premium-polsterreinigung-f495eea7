@@ -65,7 +65,7 @@ export function BeforeAfterSection() {
         </div>
 
         {/* Mobile Carousel – unchanged */}
-        <div className="md:hidden -mx-4">
+        <div className="lg:hidden -mx-4">
           <Carousel
             opts={{
               align: 'center',
@@ -84,8 +84,8 @@ export function BeforeAfterSection() {
         </div>
 
         {/* Desktop Grid with Show More */}
-        <div className="hidden md:block">
-          <div className="grid md:grid-cols-3 gap-8">
+        <div className="hidden lg:block">
+          <div className="grid lg:grid-cols-3 gap-8">
             {visibleGallery.map((item) => (
               <GalleryCard key={item.alt} item={item} />
             ))}
