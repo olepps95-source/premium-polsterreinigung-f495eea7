@@ -65,7 +65,7 @@ export function BeforeAfterSection() {
         </div>
 
         {/* Mobile Carousel – unchanged */}
-        <div className="md:hidden -mx-4">
+        <div className="lg:hidden -mx-4">
           <Carousel
             opts={{
               align: 'center',
