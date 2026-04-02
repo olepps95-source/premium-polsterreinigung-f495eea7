@@ -97,19 +97,25 @@ function getIconSizeClass(itemId: string) {
   return 'w-12 h-12 md:w-14 md:h-14';
 }
 
-function PriceCard({ item, quantity, onQuantityChange, onClick }: {
+// Helper to extract numeric price from display string
+const parseNumericPrice = (priceString: string): number => {
+  const match = priceString.match(/(\d+)/);
+  return match ? parseInt(match[1], 10) : 0;
+};
+
+function PriceCard({ item, quantity, onQuantityChange }: {
   item: PriceItem;
   quantity: number;
   onQuantityChange: (id: string, delta: number) => void;
-  onClick: (id: string) => void;
 }) {
   const isSelected = quantity > 0;
   const Icon = iconMap[item.id] || FallbackIcon;
+  const numericPrice = parseNumericPrice(item.price);
+  const itemTotal = numericPrice * quantity;
 
   return (
     <div
-      onClick={() => onClick(item.id)}
-      className={`bg-card rounded-2xl p-4 md:p-6 shadow-soft border-2 flex flex-col items-center text-center cursor-pointer transition-all duration-200 hover:shadow-md ${
+      className={`bg-card rounded-2xl p-4 md:p-6 shadow-soft border-2 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md ${
         isSelected
           ? 'border-primary bg-primary/5 ring-1 ring-primary/20'
           : 'border-border/50 hover:border-primary/30'
@@ -121,8 +127,14 @@ function PriceCard({ item, quantity, onQuantityChange, onClick }: {
         <Icon className={`text-primary ${getIconSizeClass(item.id)}`} strokeWidth={1.5} />
       </div>
       <h4 className="text-sm md:text-lg font-semibold text-foreground mb-2">{item.title}</h4>
-      <p className="text-base md:text-xl font-bold text-primary mb-4">{item.price}</p>
-      <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
+      <p className="text-base md:text-xl font-bold text-primary mb-1">{item.price}</p>
+      {isSelected && numericPrice > 0 && (
+        <p className="text-xs md:text-sm text-muted-foreground mb-3">
+          {quantity} × {numericPrice} € = <span className="font-semibold text-foreground">{itemTotal} €</span>
+        </p>
+      )}
+      {(!isSelected || numericPrice === 0) && <div className="mb-3" />}
+      <div className="flex items-center gap-3">
         <button
           onClick={() => onQuantityChange(item.id, -1)}
           className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-muted border border-border hover:bg-accent hover:border-primary/30 flex items-center justify-center transition-colors duration-200"
