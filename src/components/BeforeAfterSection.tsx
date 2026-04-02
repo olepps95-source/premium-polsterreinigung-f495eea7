@@ -84,8 +84,8 @@ export function BeforeAfterSection() {
         </div>
 
         {/* Desktop Grid with Show More */}
-        <div className="hidden md:block">
-          <div className="grid md:grid-cols-3 gap-8">
+        <div className="hidden lg:block">
+          <div className="grid lg:grid-cols-3 gap-8">
             {visibleGallery.map((item) => (
               <GalleryCard key={item.alt} item={item} />
             ))}
