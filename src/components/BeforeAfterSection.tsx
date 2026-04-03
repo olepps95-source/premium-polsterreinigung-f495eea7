@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import beforeAfter1 from '@/assets/before-after-1.jpg';
 import beforeAfter2 from '@/assets/before-after-2.jpg';
@@ -9,7 +9,6 @@ import beforeAfter6 from '@/assets/before-after-6.png';
 import beforeAfter7 from '@/assets/before-after-7.png';
 import beforeAfter8 from '@/assets/before-after-8.png';
 import beforeAfter9 from '@/assets/before-after-9.png';
-import { Button } from '@/components/ui/button';
 
 const gallery = [
   { image: beforeAfter1, alt: 'Sofa Reinigung Vorher Nachher – Tiefenreinigung Ergebnis' },
@@ -22,37 +21,6 @@ const gallery = [
   { image: beforeAfter8, alt: 'Dunkles Sofa Reinigung Vorher Nachher – Fleckenentfernung' },
   { image: beforeAfter9, alt: 'Teppichreinigung Vorher Nachher – professionelle Tiefenreinigung' },
 ];
-
-const DESKTOP_INITIAL_COUNT = 3;
-const MOBILE_INITIAL_COUNT = 4;
-
-function GalleryCard({ item, onClick }: { item: typeof gallery[0]; onClick?: () => void }) {
-  return (
-    <div
-      className="relative rounded-2xl overflow-hidden shadow-soft cursor-pointer group"
-      onClick={onClick}
-    >
-      <div className="aspect-[4/3] overflow-hidden">
-        <img
-          src={item.image}
-          alt={item.alt}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 group-active:scale-110"
-          loading="lazy"
-        />
-      </div>
-      {/* Subtle overlay hint on hover/tap */}
-      <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300 flex items-center justify-center">
-        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center shadow-md">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-foreground">
-              <path d="M15 3h6v6" /><path d="M9 21H3v-6" /><path d="M21 3l-7 7" /><path d="M3 21l7-7" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function Lightbox({
   images,
@@ -122,10 +90,7 @@ function Lightbox({
       }`}
       onClick={handleClose}
     >
-      {/* Backdrop */}
       <div className="absolute inset-0 bg-black/90 backdrop-blur-md" />
-
-      {/* Close button */}
       <button
         onClick={(e) => { e.stopPropagation(); handleClose(); }}
         className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200"
@@ -133,13 +98,9 @@ function Lightbox({
       >
         <X className="w-5 h-5 text-white" />
       </button>
-
-      {/* Counter */}
       <div className="absolute top-4 left-4 z-10 text-white/70 text-sm font-medium">
         {currentIndex + 1} / {images.length}
       </div>
-
-      {/* Nav arrows (desktop) */}
       <button
         onClick={(e) => { e.stopPropagation(); goPrev(); }}
         className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200 hidden lg:flex"
@@ -154,8 +115,6 @@ function Lightbox({
       >
         <ChevronRight className="w-5 h-5 text-white" />
       </button>
-
-      {/* Image */}
       <div
         className="relative z-[1] w-full h-full flex items-center justify-center p-4 lg:p-12"
         onClick={(e) => e.stopPropagation()}
@@ -179,104 +138,73 @@ function Lightbox({
 }
 
 export function BeforeAfterSection() {
-  const [showAll, setShowAll] = useState(false);
-  const [showAllMobile, setShowAllMobile] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-
-  const visibleGallery = gallery.slice(0, DESKTOP_INITIAL_COUNT);
-  const hiddenGallery = gallery.slice(DESKTOP_INITIAL_COUNT);
-
-  const mobileVisible = gallery.slice(0, MOBILE_INITIAL_COUNT);
-  const mobileHidden = gallery.slice(MOBILE_INITIAL_COUNT);
-
-  const openLightbox = (index: number) => setLightboxIndex(index);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
       <section id="vorher-nachher" className="py-16">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-10">
-            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Vorher – Nachher</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Überzeugen Sie sich selbst
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Sehen Sie den Unterschied, den professionelle Polsterreinigung macht.
-              Diese Ergebnisse sprechen für sich.
-            </p>
-          </div>
+          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-8 text-center">Vorher – Nachher</p>
 
-          {/* Mobile Grid */}
-          <div className="lg:hidden">
-            <div className="grid grid-cols-2 gap-3">
-              {mobileVisible.map((item, i) => (
-                <GalleryCard key={item.alt} item={item} onClick={() => openLightbox(i)} />
+          {/* Mobile: horizontal scroll with peek effect */}
+          <div className="lg:hidden -mx-4 px-4">
+            <div
+              ref={scrollRef}
+              className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-2"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {gallery.map((item, i) => (
+                <div
+                  key={item.alt}
+                  className="snap-start shrink-0 cursor-pointer rounded-2xl overflow-hidden shadow-soft"
+                  style={{ width: 'calc(85vw - 16px)' }}
+                  onClick={() => setLightboxIndex(i)}
+                >
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.alt}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
               ))}
             </div>
-
-            {showAllMobile && (
-              <div className="grid grid-cols-2 gap-3 mt-3 animate-fade-in">
-                {mobileHidden.map((item, i) => (
-                  <GalleryCard
-                    key={item.alt}
-                    item={item}
-                    onClick={() => openLightbox(MOBILE_INITIAL_COUNT + i)}
-                  />
-                ))}
-              </div>
-            )}
-
-            {!showAllMobile && mobileHidden.length > 0 && (
-              <div className="flex justify-center mt-8">
-                <Button
-                  onClick={() => setShowAllMobile(true)}
-                  variant="default"
-                  size="lg"
-                  className="text-base"
-                >
-                  Mehr Ergebnisse ansehen
-                </Button>
-              </div>
-            )}
           </div>
 
-          {/* Desktop Grid with Show More */}
-          <div className="hidden lg:block">
-            <div className="grid lg:grid-cols-3 gap-8">
-              {visibleGallery.map((item, i) => (
-                <GalleryCard key={item.alt} item={item} onClick={() => openLightbox(i)} />
-              ))}
-            </div>
-
-            {showAll && (
-              <div className="grid md:grid-cols-3 gap-8 mt-8 animate-fade-in">
-                {hiddenGallery.map((item, i) => (
-                  <GalleryCard
-                    key={item.alt}
-                    item={item}
-                    onClick={() => openLightbox(DESKTOP_INITIAL_COUNT + i)}
+          {/* Desktop: 4 images in one row */}
+          <div className="hidden lg:grid lg:grid-cols-4 gap-5">
+            {gallery.slice(0, 4).map((item, i) => (
+              <div
+                key={item.alt}
+                className="relative rounded-2xl overflow-hidden shadow-soft cursor-pointer group"
+                onClick={() => setLightboxIndex(i)}
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
                   />
-                ))}
+                </div>
+                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center shadow-md">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-foreground">
+                        <path d="M15 3h6v6" /><path d="M9 21H3v-6" /><path d="M21 3l-7 7" /><path d="M3 21l7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
-
-            {!showAll && hiddenGallery.length > 0 && (
-              <div className="flex justify-center mt-10">
-                <Button
-                  onClick={() => setShowAll(true)}
-                  variant="default"
-                  size="lg"
-                  className="text-base"
-                >
-                  Mehr Ergebnisse ansehen
-                </Button>
-              </div>
-            )}
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Lightbox */}
       {lightboxIndex !== null && (
         <Lightbox
           images={gallery}
