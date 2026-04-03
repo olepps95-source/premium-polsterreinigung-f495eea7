@@ -256,7 +256,7 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Beschreiben Sie Ihr Anliegen oder teilen Sie uns weitere Details mit..."
+                  placeholder="Beschreiben Sie Ihr Anliegen oder teilen Sie uns weitere Details mit. Geben Sie bitte auch an, wie wir Sie am besten kontaktieren können (WhatsApp, Telefon oder E-Mail)."
                   className="min-h-[140px] bg-card border-border/50 focus:border-primary resize-none"
                 />
               </div>
