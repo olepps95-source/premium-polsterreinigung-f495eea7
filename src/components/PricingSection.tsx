@@ -265,7 +265,7 @@ export function PricingSection() {
               <ArrowRight className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" />
               Weiter zur Anfrage
               {totalPrice > 0 && (
-                <span className="ml-1">– ab {totalPrice} €</span>
+                <span className="ml-1">– {totalPrice} €</span>
               )}
             </button>
           </div>
