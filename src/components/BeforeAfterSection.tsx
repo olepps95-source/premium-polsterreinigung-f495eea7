@@ -84,6 +84,9 @@ function Lightbox({
 
 export function BeforeAfterSection() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleImages = showAll ? gallery : gallery.slice(0, 4);
 
   return (
     <>
@@ -92,7 +95,7 @@ export function BeforeAfterSection() {
           <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-8 text-center">Vorher – Nachher</p>
 
           <div className="flex flex-col gap-5">
-            {gallery.map((item, i) => (
+            {visibleImages.map((item, i) => (
               <div
                 key={item.alt}
                 className="rounded-2xl overflow-hidden shadow-soft cursor-pointer group"
@@ -107,6 +110,17 @@ export function BeforeAfterSection() {
               </div>
             ))}
           </div>
+
+          {gallery.length > 4 && (
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium text-base transition-colors hover:bg-primary/90"
+              >
+                {showAll ? 'Weniger anzeigen' : 'Mehr Ergebnisse ansehen'}
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
