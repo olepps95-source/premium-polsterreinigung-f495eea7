@@ -37,6 +37,13 @@ export function ServicesSection() {
     <section id="leistungen" className="py-10 md:py-16">
       <div className="container px-3 md:px-4">
         <div className="max-w-3xl mx-auto text-center mb-4 md:mb-10">
+          <p className="text-primary font-semibold text-xs md:text-sm uppercase tracking-wider mb-2 md:mb-4">Unsere Leistungen</p>
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3 md:mb-6">
+            Was wir für Sie tun können
+          </h2>
+          <p className="text-sm md:text-lg text-muted-foreground">
+            Von der einfachen Auffrischung bis zur Tiefenreinigung – wir haben die passende Lösung für jedes Polsterproblem.
+          </p>
         </div>
 
         {/* Mobile: Horizontal swipeable carousel */}
