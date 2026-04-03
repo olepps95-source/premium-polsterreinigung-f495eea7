@@ -59,7 +59,7 @@ export function StickyCtaButton() {
           className="w-full shadow-lg"
         >
           Weiter zur Anfrage
-          {totalPrice > 0 && <span className="ml-1">– ab {totalPrice} €</span>}
+          {totalPrice > 0 && <span className="ml-1">– {totalPrice} €</span>}
           <ArrowRight className="w-5 h-5 ml-2" />
         </Button>
       </div>
