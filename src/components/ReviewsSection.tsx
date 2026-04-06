@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 import avatarMaria from '@/assets/avatar-maria.jpg';
 import avatarThomas from '@/assets/avatar-thomas.jpg';
+import reviewMariaResult from '@/assets/review-maria-result.png';
 import avatarAnna from '@/assets/avatar-anna.jpg';
 import avatarMichael from '@/assets/avatar-michael.jpg';
 
@@ -18,6 +19,7 @@ const reviews = [
     rating: 5,
     text: 'Unser Sofa sieht aus wie neu! Sehr professioneller Service, pünktlich und sauber gearbeitet. Kann ich nur weiterempfehlen!',
     avatar: avatarMaria,
+    resultImage: reviewMariaResult,
   },
   {
     id: 'thomas-mueller',
@@ -91,7 +93,7 @@ export function ReviewsSection() {
                 key={review.id}
                 onClick={() => handleCardClick(index)}
                 className={cn(
-                  "bg-card p-4 md:p-6 rounded-xl md:rounded-2xl border",
+                  "bg-card rounded-xl md:rounded-2xl border overflow-hidden",
                   "transition-all duration-300 ease-out",
                   isMobile && "cursor-pointer select-none active:scale-[0.98]",
                   isMobile && isExpanded 
@@ -99,11 +101,20 @@ export function ReviewsSection() {
                     : "border-border/50 shadow-soft",
                   isMobile && !isExpanded && "hover:shadow-medium hover:border-border",
                   isMobile && !hasAnimated && index === 0 && "animate-[pulse_1s_ease-in-out_1]",
-                  // Fade-in animation for newly revealed cards
                   isMobile && showAllReviews && index > 0 && "animate-fade-in"
                 )}
                 style={isMobile && showAllReviews && index > 0 ? { animationDelay: `${(index - 1) * 100}ms` } : undefined}
               >
+                {/* Result image above review */}
+                {review.resultImage && (
+                  <img
+                    src={review.resultImage}
+                    alt={`Reinigungsergebnis – ${review.name}`}
+                    className="w-full h-40 md:h-48 object-cover"
+                    loading="lazy"
+                  />
+                )}
+                <div className="p-4 md:p-6">
                 {/* Header: Avatar, Name, Location, Stars */}
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <div className="flex items-center gap-3">
@@ -151,6 +162,7 @@ export function ReviewsSection() {
                 <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   "{review.text}"
                 </p>
+                </div>
               </div>
             );
           })}
