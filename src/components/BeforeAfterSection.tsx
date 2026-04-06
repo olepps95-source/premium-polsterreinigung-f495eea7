@@ -116,12 +116,6 @@ export function BeforeAfterSection() {
 
           {/* Desktop: 3-column grid with horizontal scroll when expanded */}
           <div className="hidden lg:block">
-            <div
-              className={`grid grid-cols-3 gap-5 ${!showAll ? '' : 'overflow-x-auto snap-x snap-mandatory scrollbar-hide'}`}
-              style={showAll ? { gridTemplateColumns: `repeat(${Math.ceil(gallery.length / 1)}, minmax(0, 1fr))` } : undefined}
-            >
-              {/* Show as rows of 3 */}
-            </div>
             <div className="grid grid-cols-3 gap-5">
               {desktopVisible.map((item, i) => (
                 <div
