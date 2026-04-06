@@ -86,16 +86,19 @@ export function BeforeAfterSection() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [showAll, setShowAll] = useState(false);
 
-  const visibleImages = showAll ? gallery : gallery.slice(0, 4);
+  // Mobile: 4 images initially, Desktop: 3 images initially
+  const mobileVisible = showAll ? gallery : gallery.slice(0, 4);
+  const desktopVisible = showAll ? gallery : gallery.slice(0, 3);
 
   return (
     <>
       <section id="vorher-nachher" className="py-16">
-        <div className="container max-w-4xl">
+        <div className="container max-w-6xl">
           <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-8 text-center">Vorher – Nachher</p>
 
-          <div className="flex flex-col gap-5">
-            {visibleImages.map((item, i) => (
+          {/* Mobile: vertical stack */}
+          <div className="flex flex-col gap-5 lg:hidden">
+            {mobileVisible.map((item, i) => (
               <div
                 key={item.alt}
                 className="rounded-2xl overflow-hidden shadow-soft cursor-pointer group"
@@ -111,16 +114,35 @@ export function BeforeAfterSection() {
             ))}
           </div>
 
-          {gallery.length > 4 && (
-            <div className="flex justify-center mt-8">
-              <button
-                onClick={() => setShowAll(!showAll)}
-                className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium text-base transition-colors hover:bg-primary/90"
-              >
-                {showAll ? 'Weniger anzeigen' : 'Mehr Ergebnisse ansehen'}
-              </button>
+          {/* Desktop: 3-column grid with horizontal scroll when expanded */}
+          <div className="hidden lg:block">
+            <div className="grid grid-cols-3 gap-5">
+              {desktopVisible.map((item, i) => (
+                <div
+                  key={item.alt}
+                  className="rounded-2xl overflow-hidden shadow-soft cursor-pointer group aspect-[4/3]"
+                  onClick={() => setLightboxIndex(i)}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
             </div>
-          )}
+          </div>
+
+          {/* Show more / less button */}
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium text-base transition-colors hover:bg-primary/90"
+            >
+              {showAll ? 'Weniger anzeigen' : 'Mehr Ergebnisse ansehen'}
+            </button>
+          </div>
         </div>
       </section>
 
