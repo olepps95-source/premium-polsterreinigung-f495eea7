@@ -7,6 +7,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import avatarMaria from '@/assets/avatar-maria.jpg';
 import avatarThomas from '@/assets/avatar-thomas.jpg';
 import reviewMariaResult from '@/assets/review-maria-result.png';
+import reviewThomasResult from '@/assets/review-thomas-result.jpg';
 import avatarAnna from '@/assets/avatar-anna.jpg';
 import avatarMichael from '@/assets/avatar-michael.jpg';
 
@@ -28,6 +29,7 @@ const reviews = [
     rating: 5,
     text: 'Nach der Reinigung unserer Matratze schlafe ich endlich wieder gut. Die Flecken sind komplett verschwunden. Top Arbeit!',
     avatar: avatarThomas,
+    resultImage: reviewThomasResult,
   },
   {
     id: 'anna-weber',
@@ -110,7 +112,7 @@ export function ReviewsSection() {
                   <img
                     src={review.resultImage}
                     alt={`Reinigungsergebnis – ${review.name}`}
-                    className="w-full h-40 md:h-48 object-cover"
+                    className="w-full object-contain"
                     loading="lazy"
                   />
                 )}
