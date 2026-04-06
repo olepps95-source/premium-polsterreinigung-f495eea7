@@ -19,6 +19,7 @@ const reviews = [
     rating: 5,
     text: 'Unser Sofa sieht aus wie neu! Sehr professioneller Service, pünktlich und sauber gearbeitet. Kann ich nur weiterempfehlen!',
     avatar: avatarMaria,
+    resultImage: reviewMariaResult,
   },
   {
     id: 'thomas-mueller',
