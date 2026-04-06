@@ -29,6 +29,7 @@ const reviews = [
     rating: 5,
     text: 'Nach der Reinigung unserer Matratze schlafe ich endlich wieder gut. Die Flecken sind komplett verschwunden. Top Arbeit!',
     avatar: avatarThomas,
+    resultImage: reviewThomasResult,
   },
   {
     id: 'anna-weber',
