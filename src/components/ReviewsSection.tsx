@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 import avatarMaria from '@/assets/avatar-maria.jpg';
 import avatarThomas from '@/assets/avatar-thomas.jpg';
+import reviewMariaResult from '@/assets/review-maria-result.png';
 import avatarAnna from '@/assets/avatar-anna.jpg';
 import avatarMichael from '@/assets/avatar-michael.jpg';
 
