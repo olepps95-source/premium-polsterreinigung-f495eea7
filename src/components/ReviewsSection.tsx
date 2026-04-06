@@ -112,7 +112,7 @@ export function ReviewsSection() {
                   <img
                     src={review.resultImage}
                     alt={`Reinigungsergebnis – ${review.name}`}
-                    className="w-full h-40 md:h-48 object-cover"
+                    className="w-full object-contain"
                     loading="lazy"
                   />
                 )}
