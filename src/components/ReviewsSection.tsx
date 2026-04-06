@@ -162,6 +162,7 @@ export function ReviewsSection() {
                 <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   "{review.text}"
                 </p>
+                </div>
               </div>
             );
           })}
