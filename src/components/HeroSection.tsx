@@ -10,61 +10,61 @@ export function HeroSection() {
 
   if (isMobile) {
     return (
-      <section className="relative min-h-screen flex flex-col pt-16 pb-safe overflow-hidden bg-background">
-        {/* Mobile: New sofa image as main visual */}
-        <div className="w-full">
+      <section className="relative flex flex-col pt-16 pb-safe overflow-hidden bg-background">
+        {/* Mobile: Image with overlaid buttons and trust indicators */}
+        <div className="relative w-full">
           <img
             src={heroSofaMobile}
             alt="Professionelle Polsterreinigung Vorher Nachher Vergleich"
             className="w-full h-auto"
             loading="eager"
           />
-        </div>
+          {/* Gradient overlay at bottom for readability */}
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-24 pb-4 px-4">
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-3 gap-3 w-full mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+              <div className="flex flex-col text-center">
+                <p className="text-2xl font-bold text-primary">Gratis</p>
+                <p className="text-xs text-white leading-tight">Kostenlose</p>
+                <p className="text-xs text-white leading-tight">Express-</p>
+                <p className="text-xs text-white leading-tight">Trocknung</p>
+              </div>
+              <div className="flex flex-col text-center">
+                <p className="text-2xl font-bold text-primary">0 €</p>
+                <p className="text-xs text-white leading-tight">Keine</p>
+                <p className="text-xs text-white leading-tight">versteckten</p>
+                <p className="text-xs text-white leading-tight">Gebühren</p>
+              </div>
+              <div className="flex flex-col text-center">
+                <p className="text-2xl font-bold text-primary">500+</p>
+                <p className="text-xs text-white leading-tight">Zufriedene</p>
+                <p className="text-xs text-white leading-tight">Kunden</p>
+              </div>
+            </div>
 
-        <div className="container flex flex-col items-center px-4 py-6 gap-5">
-          {/* Buttons - unchanged */}
-          <div className="flex flex-col items-center gap-4 w-full animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            <Button 
-              size="lg" 
-              className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold w-full"
-              asChild
-            >
-              <a 
-                href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackContact()}
+            {/* Buttons */}
+            <div className="flex flex-col items-center gap-3 w-full animate-fade-up" style={{ animationDelay: '0.3s' }}>
+              <Button 
+                size="lg" 
+                className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold w-full"
+                asChild
               >
-                <MessageCircle className="w-5 h-5" />
-                24/7 WhatsApp Service nutzen
-              </a>
-            </Button>
-            <Button variant="hero" size="lg" className="w-full" asChild>
-              <a href="#kontakt">
-                Jetzt unverbindlich anfragen
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </Button>
-          </div>
-
-          {/* Trust Indicators - below buttons */}
-          <div className="grid grid-cols-3 gap-3 w-full animate-fade-up" style={{ animationDelay: '0.3s' }}>
-            <div className="flex flex-col text-center">
-              <p className="text-2xl font-bold text-primary">Gratis</p>
-              <p className="text-xs text-black leading-tight">Kostenlose</p>
-              <p className="text-xs text-black leading-tight">Express-</p>
-              <p className="text-xs text-black leading-tight">Trocknung</p>
-            </div>
-            <div className="flex flex-col text-center">
-              <p className="text-2xl font-bold text-primary">0 €</p>
-              <p className="text-xs text-black leading-tight">Keine</p>
-              <p className="text-xs text-black leading-tight">versteckten</p>
-              <p className="text-xs text-black leading-tight">Gebühren</p>
-            </div>
-            <div className="flex flex-col text-center">
-              <p className="text-2xl font-bold text-primary">500+</p>
-              <p className="text-xs text-black leading-tight">Zufriedene</p>
-              <p className="text-xs text-black leading-tight">Kunden</p>
+                <a 
+                  href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackContact()}
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  24/7 WhatsApp Service nutzen
+                </a>
+              </Button>
+              <Button variant="hero" size="lg" className="w-full" asChild>
+                <a href="#kontakt">
+                  Jetzt unverbindlich anfragen
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </Button>
             </div>
           </div>
         </div>
