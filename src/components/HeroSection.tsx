@@ -25,12 +25,24 @@ export function HeroSection() {
       <div className="container relative z-10 py-8 md:py-32">
         <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            <span className="block md:inline">Premium</span>{' '}
-            <span className="text-primary block md:inline">Polsterreinigung</span>{' '}
-            <span className="block md:inline">direkt bei Ihnen</span>{' '}
-            <span className="block md:inline">vor Ort</span>
-          </h1>
+          {/* Mobile: show banner image instead of headline */}
+          {isMobile ? (
+            <div className="mb-6 -mx-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+              <img
+                src={heroBannerMobile}
+                alt="Professionelle Polsterreinigung Vorher Nachher Vergleich"
+                className="w-screen h-auto"
+                loading="eager"
+              />
+            </div>
+          ) : (
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+              <span className="block md:inline">Premium</span>{' '}
+              <span className="text-primary block md:inline">Polsterreinigung</span>{' '}
+              <span className="block md:inline">direkt bei Ihnen</span>{' '}
+              <span className="block md:inline">vor Ort</span>
+            </h1>
+          )}
 
           <p className="text-lg md:text-xl text-black mb-10 max-w-xl mx-auto md:mx-0 animate-fade-up" style={{ animationDelay: '0.2s' }}>
             Hygienisch sauber, schonend gereinigt und unbedenklich für Kinder & Haustiere.
