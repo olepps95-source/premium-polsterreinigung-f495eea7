@@ -36,6 +36,12 @@ const Index = () => {
         <CTASection ref={ctaFormRef} />
       </main>
       <Footer />
+      <img
+        src={heroBannerMobile}
+        alt="Professionelle Polsterreinigung Vorher Nachher Vergleich"
+        className="w-full h-auto block md:hidden"
+        loading="lazy"
+      />
       <StickyCtaButton />
     </div>
   );
