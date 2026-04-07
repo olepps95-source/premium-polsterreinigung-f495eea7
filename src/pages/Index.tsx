@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import heroBannerMobile from '@/assets/hero-banner-mobile.jpg';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
 import { LocalBusinessSchema } from '@/components/LocalBusinessSchema';
