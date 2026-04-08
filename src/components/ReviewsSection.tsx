@@ -37,8 +37,9 @@ const reviews = [
     name: 'Anna Weber',
     location: 'Chemnitz',
     rating: 5,
-    text: 'Schnell, freundlich und ein fantastisches Ergebnis. Der Kaffeefleck, den ich für unrettbar hielt, ist Geschichte.',
+    text: 'Schnell, freundlich und ein fantastisches Ergebnis. Der unangenehme Geruch, den ich für kaum entfernbar hielt, ist komplett verschwunden.',
     avatar: avatarAnna,
+    resultImage: reviewAnnaResult,
   },
   {
     id: 'michael-hoffmann',
