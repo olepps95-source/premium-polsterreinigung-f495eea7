@@ -10,6 +10,7 @@ import reviewMariaResult from '@/assets/review-maria-result.png';
 import reviewThomasResult from '@/assets/review-thomas-result.jpg';
 import avatarAnna from '@/assets/avatar-anna.jpg';
 import avatarMichael from '@/assets/avatar-michael.jpg';
+import reviewAnnaResult from '@/assets/review-anna-result.jpg';
 
 // Unique reviews - each person appears only once
 const reviews = [
@@ -36,8 +37,9 @@ const reviews = [
     name: 'Anna Weber',
     location: 'Chemnitz',
     rating: 5,
-    text: 'Schnell, freundlich und ein fantastisches Ergebnis. Der Kaffeefleck, den ich für unrettbar hielt, ist Geschichte.',
+    text: 'Schnell, freundlich und ein fantastisches Ergebnis. Der unangenehme Geruch, den ich für kaum entfernbar hielt, ist komplett verschwunden.',
     avatar: avatarAnna,
+    resultImage: reviewAnnaResult,
   },
   {
     id: 'michael-hoffmann',
