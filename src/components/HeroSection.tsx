@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import heroImage from '@/assets/hero-living-room.jpg';
-import heroSofaMobile from '@/assets/hero-sofa-mobile.png';
+import heroSofaMobile from '@/assets/hero-sofa-mobile.jpg';
 import { trackContact } from '@/lib/meta-pixel';
 import { useIsMobile } from '@/hooks/use-mobile';
 
