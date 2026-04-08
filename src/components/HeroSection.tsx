@@ -21,29 +21,8 @@ export function HeroSection() {
           />
           {/* Gradient overlay at bottom for readability */}
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-24 pb-4 px-4">
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-3 gap-3 w-full mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-              <div className="flex flex-col text-center">
-                <p className="text-2xl font-bold text-primary">Gratis</p>
-                <p className="text-xs text-white leading-tight">Kostenlose</p>
-                <p className="text-xs text-white leading-tight">Express-</p>
-                <p className="text-xs text-white leading-tight">Trocknung</p>
-              </div>
-              <div className="flex flex-col text-center">
-                <p className="text-2xl font-bold text-primary">0 €</p>
-                <p className="text-xs text-white leading-tight">Keine</p>
-                <p className="text-xs text-white leading-tight">versteckten</p>
-                <p className="text-xs text-white leading-tight">Gebühren</p>
-              </div>
-              <div className="flex flex-col text-center">
-                <p className="text-2xl font-bold text-primary">500+</p>
-                <p className="text-xs text-white leading-tight">Zufriedene</p>
-                <p className="text-xs text-white leading-tight">Kunden</p>
-              </div>
-            </div>
-
             {/* Buttons */}
-            <div className="flex flex-col items-center gap-3 w-full animate-fade-up" style={{ animationDelay: '0.3s' }}>
+            <div className="flex flex-col items-center gap-3 w-full mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
               <Button 
                 size="lg" 
                 className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold w-full"
@@ -65,6 +44,27 @@ export function HeroSection() {
                   <ArrowRight className="w-5 h-5" />
                 </a>
               </Button>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-3 gap-3 w-full animate-fade-up" style={{ animationDelay: '0.3s' }}>
+              <div className="flex flex-col text-center">
+                <p className="text-2xl font-bold text-primary">Gratis</p>
+                <p className="text-xs text-white leading-tight">Kostenlose</p>
+                <p className="text-xs text-white leading-tight">Express-</p>
+                <p className="text-xs text-white leading-tight">Trocknung</p>
+              </div>
+              <div className="flex flex-col text-center">
+                <p className="text-2xl font-bold text-primary">0 €</p>
+                <p className="text-xs text-white leading-tight">Keine</p>
+                <p className="text-xs text-white leading-tight">versteckten</p>
+                <p className="text-xs text-white leading-tight">Gebühren</p>
+              </div>
+              <div className="flex flex-col text-center">
+                <p className="text-2xl font-bold text-primary">500+</p>
+                <p className="text-xs text-white leading-tight">Zufriedene</p>
+                <p className="text-xs text-white leading-tight">Kunden</p>
+              </div>
             </div>
           </div>
         </div>
