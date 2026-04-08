@@ -112,9 +112,14 @@ function PriceCard({ item, quantity, onQuantityChange }: {
   const numericPrice = parseNumericPrice(item.price);
   const itemTotal = numericPrice * quantity;
 
+  const handleCardClick = () => {
+    onQuantityChange(item.id, 1);
+  };
+
   return (
     <div
-      className={`bg-card rounded-2xl p-4 md:p-6 shadow-soft border-2 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md ${
+      onClick={handleCardClick}
+      className={`bg-card rounded-2xl p-4 md:p-6 shadow-soft border-2 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md cursor-pointer select-none ${
         isSelected
           ? 'border-primary bg-primary/5 ring-1 ring-primary/20'
           : 'border-border/50 hover:border-primary/30'
@@ -135,7 +140,7 @@ function PriceCard({ item, quantity, onQuantityChange }: {
       {(!isSelected || numericPrice === 0) && <div className="mb-3" />}
       <div className="flex items-center gap-3">
         <button
-          onClick={() => onQuantityChange(item.id, -1)}
+          onClick={(e) => { e.stopPropagation(); onQuantityChange(item.id, -1); }}
           className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-muted border border-border hover:bg-accent hover:border-primary/30 flex items-center justify-center transition-colors duration-200"
           aria-label="Menge verringern"
         >
@@ -143,7 +148,7 @@ function PriceCard({ item, quantity, onQuantityChange }: {
         </button>
         <span className="w-8 text-center text-lg md:text-xl font-semibold text-foreground">{quantity}</span>
         <button
-          onClick={() => onQuantityChange(item.id, 1)}
+          onClick={(e) => { e.stopPropagation(); onQuantityChange(item.id, 1); }}
           className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary hover:bg-primary/90 flex items-center justify-center transition-colors duration-200"
           aria-label="Menge erhöhen"
         >
