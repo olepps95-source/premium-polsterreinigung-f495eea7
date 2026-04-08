@@ -112,9 +112,14 @@ function PriceCard({ item, quantity, onQuantityChange }: {
   const numericPrice = parseNumericPrice(item.price);
   const itemTotal = numericPrice * quantity;
 
+  const handleCardClick = () => {
+    onQuantityChange(item.id, 1);
+  };
+
   return (
     <div
-      className={`bg-card rounded-2xl p-4 md:p-6 shadow-soft border-2 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md ${
+      onClick={handleCardClick}
+      className={`bg-card rounded-2xl p-4 md:p-6 shadow-soft border-2 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md cursor-pointer select-none ${
         isSelected
           ? 'border-primary bg-primary/5 ring-1 ring-primary/20'
           : 'border-border/50 hover:border-primary/30'
