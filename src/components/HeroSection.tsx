@@ -20,7 +20,7 @@ export function HeroSection() {
             loading="eager"
           />
           {/* Gradient overlay at bottom for readability */}
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-24 pb-4 px-4">
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-28 pb-8 px-4">
             {/* Buttons */}
             <div className="flex flex-col items-center gap-3 w-full mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
               <Button 
