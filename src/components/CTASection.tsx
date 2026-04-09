@@ -189,7 +189,7 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
                           <TableCell className="text-foreground text-center">{service.quantity}</TableCell>
                           <TableCell className="text-foreground text-right">{service.price}</TableCell>
                           <TableCell className="text-foreground text-right font-medium">
-                            {rowTotal > 0 ? `ab ${rowTotal} €` : 'Nach Absprache'}
+                            {rowTotal > 0 ? `${rowTotal} €` : 'Nach Absprache'}
                           </TableCell>
                         </TableRow>
                       );
@@ -201,7 +201,7 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
                       <TableCell className="text-foreground font-bold text-center">{totalQuantity}</TableCell>
                       <TableCell></TableCell>
                       <TableCell className="text-primary font-bold text-right">
-                        {totalPrice > 0 ? `ab ${totalPrice} €` : 'Nach Absprache'}
+                        {totalPrice > 0 ? `${totalPrice} €` : 'Nach Absprache'}
                       </TableCell>
                     </TableRow>
                   </TableFooter>
