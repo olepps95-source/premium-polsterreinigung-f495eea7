@@ -47,8 +47,9 @@ const reviews = [
     name: 'Michael Hoffmann',
     location: 'Zwickau',
     rating: 5,
-    text: 'Super netter Kontakt über WhatsApp, faire Preise und perfektes Ergebnis. Was will man mehr?',
+    text: 'Sehr zufrieden! Freundlich, schnell und unkompliziert. Preis-Leistung top – gerne wieder!',
     avatar: avatarMichael,
+    resultImage: reviewMichaelResult,
   },
 ];
 
