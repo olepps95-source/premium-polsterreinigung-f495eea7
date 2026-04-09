@@ -11,6 +11,7 @@ import reviewThomasResult from '@/assets/review-thomas-result.jpg';
 import avatarAnna from '@/assets/avatar-anna.jpg';
 import avatarMichael from '@/assets/avatar-michael.jpg';
 import reviewAnnaResult from '@/assets/review-anna-result.jpg';
+import reviewMichaelResult from '@/assets/review-michael-result.jpg';
 
 // Unique reviews - each person appears only once
 const reviews = [
@@ -46,8 +47,9 @@ const reviews = [
     name: 'Michael Hoffmann',
     location: 'Zwickau',
     rating: 5,
-    text: 'Super netter Kontakt über WhatsApp, faire Preise und perfektes Ergebnis. Was will man mehr?',
+    text: 'Sehr zufrieden! Freundlich, schnell und unkompliziert. Preis-Leistung top – gerne wieder!',
     avatar: avatarMichael,
+    resultImage: reviewMichaelResult,
   },
 ];
 
