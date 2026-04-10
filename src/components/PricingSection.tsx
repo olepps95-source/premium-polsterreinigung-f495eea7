@@ -212,15 +212,12 @@ export function PricingSection() {
   };
 
   return (
-    <section id="preise" className="pt-16 pb-10 bg-secondary/30">
+    <section id="preise" className="pt-10 pb-6 bg-secondary/30">
       <div className="container">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-8">
-          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Preisliste</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Transparente Preise</h2>
-          <p className="text-lg text-muted-foreground">
-            Kostenlose Beratung vorab.<br />Transparenter Preis – ohne Überraschungen.
-          </p>
+        <div className="max-w-3xl mx-auto text-center mb-6">
+          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">Preisliste</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Transparente Preise</h2>
         </div>
 
         {/* Price Content */}
