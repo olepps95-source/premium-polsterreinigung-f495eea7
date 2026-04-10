@@ -12,6 +12,9 @@ import beforeAfter9 from '@/assets/before-after-9.png';
 import beforeAfter10 from '@/assets/before-after-10.png';
 import beforeAfter11 from '@/assets/before-after-11.png';
 import beforeAfter12 from '@/assets/before-after-12.png';
+import beforeAfter13 from '@/assets/before-after-13.jpg';
+import beforeAfter14 from '@/assets/before-after-14.jpg';
+import beforeAfter15 from '@/assets/before-after-15.jpg';
 
 const gallery = [
   { image: beforeAfter1, alt: 'Sofa Reinigung Vorher Nachher – Tiefenreinigung Ergebnis' },
@@ -26,6 +29,9 @@ const gallery = [
   { image: beforeAfter10, alt: 'Ecksofa Polsterreinigung Vorher Nachher – helles Sofa' },
   { image: beforeAfter11, alt: 'Cord-Sofa Tiefenreinigung Vorher Nachher – dunkles Sofa' },
   { image: beforeAfter12, alt: 'Sofa Reinigung Vorher Nachher – Fleckenentfernung Mikrofaser' },
+  { image: beforeAfter13, alt: 'Polsterreinigung Sofa Vorher Nachher – Mikrofaser Auffrischung' },
+  { image: beforeAfter14, alt: 'Teppich Tiefenreinigung Vorher Nachher – heller Teppich' },
+  { image: beforeAfter15, alt: 'Sofa Polsterreinigung Vorher Nachher – Fleckenentfernung Ergebnis' },
 ];
 
 function Lightbox({
