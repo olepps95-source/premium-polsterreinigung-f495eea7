@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useSelectedServices } from '@/contexts/SelectedServicesContext';
+import { trackContact } from '@/lib/meta-pixel';
 
-// Helper to extract numeric price
 const parseNumericPrice = (priceString: string): number => {
   const match = priceString.match(/(\d+)/);
   return match ? parseInt(match[1], 10) : 0;
@@ -14,37 +14,38 @@ export function StickyCtaButton() {
   const hasSelectedServices = getTotalQuantity() > 0;
   const [isFormVisible, setIsFormVisible] = useState(false);
 
-  const totalPrice = getSelectedServices().reduce((sum, service) => {
-    const numericPrice = parseNumericPrice(service.price);
-    return sum + (numericPrice * service.quantity);
+  const selectedServices = getSelectedServices();
+  const totalPrice = selectedServices.reduce((sum, service) => {
+    return sum + (parseNumericPrice(service.price) * service.quantity);
   }, 0);
 
   useEffect(() => {
     const formSection = document.getElementById('kontakt');
     if (!formSection) return;
-
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsFormVisible(entry.isIntersecting);
-      },
+      ([entry]) => setIsFormVisible(entry.isIntersecting),
       { threshold: 0.1 }
     );
-
     observer.observe(formSection);
     return () => observer.disconnect();
   }, []);
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('kontakt');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-      setTimeout(() => {
-        const firstInput = contactSection.querySelector('input');
-        if (firstInput) {
-          firstInput.focus();
-        }
-      }, 800);
+  const buildWhatsAppUrl = () => {
+    const phone = '491636986317';
+    let message = 'Hallo, ich möchte eine Preisbewertung für meine Polsterreinigung. Ich sende Ihnen gleich ein Foto.';
+
+    if (selectedServices.length > 0) {
+      const servicesList = selectedServices
+        .map(s => `${s.title} (${s.quantity}x)`)
+        .join(', ');
+      message = `Hallo, ich interessiere mich für folgende Leistungen: ${servicesList}.`;
+      if (totalPrice > 0) {
+        message += ` Gesamtpreis: ${totalPrice} €.`;
+      }
+      message += ' Ich sende Ihnen gleich ein Foto.';
     }
+
+    return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   };
 
   if (!hasSelectedServices || isFormVisible) return null;
@@ -53,14 +54,19 @@ export function StickyCtaButton() {
     <div className="fixed bottom-0 left-0 right-0 z-40 p-4 pb-[calc(env(safe-area-inset-bottom,16px)+16px)] pointer-events-none">
       <div className="max-w-md mx-auto pointer-events-auto">
         <Button
-          onClick={scrollToContact}
-          variant="cta"
+          asChild
           size="xl"
-          className="w-full shadow-lg"
+          className="w-full shadow-lg bg-[#25D366] hover:bg-[#25D366] text-white font-bold text-base"
         >
-          Weiter zur Anfrage
-          {totalPrice > 0 && <span className="ml-1">– {totalPrice} €</span>}
-          <ArrowRight className="w-5 h-5 ml-2" />
+          <a
+            href={buildWhatsAppUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackContact()}
+          >
+            <MessageCircle className="w-5 h-5" />
+            📸 Foto senden — Preis in 15 Min!
+          </a>
         </Button>
       </div>
     </div>
