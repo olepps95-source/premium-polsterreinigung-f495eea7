@@ -1,4 +1,5 @@
-import { Armchair, Sofa, BedDouble, Square, LayoutGrid, Minus, Plus, Wind, Fan, Bed, ArrowRight } from 'lucide-react';
+import { Armchair, Sofa, BedDouble, Square, LayoutGrid, Minus, Plus, Wind, Fan, Bed, MessageCircle } from 'lucide-react';
+import { trackContact } from '@/lib/meta-pixel';
 import { useSelectedServices, PriceItem } from '@/contexts/SelectedServicesContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -258,18 +259,19 @@ export function PricingSection() {
             <PriceGrid items={priceItems} quantities={quantities} onQuantityChange={handleQuantityChange} />
           )}
 
-          {/* CTA Button with total price */}
-          <div className="flex justify-center mt-10">
-            <button
-              onClick={scrollToContact}
-              className="inline-flex items-center justify-center gap-3 px-6 py-4 md:px-10 md:py-5 bg-primary hover:bg-primary/90 active:scale-[0.98] text-primary-foreground font-bold text-base md:text-xl rounded-2xl shadow-2xl shadow-primary/30 transition-all duration-200 hover:shadow-primary/40 hover:-translate-y-0.5"
+          {/* WhatsApp CTA Button */}
+          <div className="flex flex-col items-center mt-10 gap-2">
+            <a
+              href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackContact()}
+              className="inline-flex items-center justify-center gap-3 px-6 py-4 md:px-10 md:py-5 bg-[#25D366] hover:bg-[#20bd5a] active:scale-[0.98] text-white font-bold text-base md:text-xl rounded-2xl shadow-2xl shadow-[#25D366]/30 transition-all duration-200 hover:shadow-[#25D366]/40 hover:-translate-y-0.5 w-full md:w-auto"
             >
-              <ArrowRight className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" />
-              Weiter zur Anfrage
-              {totalPrice > 0 && (
-                <span className="ml-1">– {totalPrice} €</span>
-              )}
-            </button>
+              <MessageCircle className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" />
+              📸 Foto senden — Preis in 15 Min!
+            </a>
+            <p className="text-sm text-muted-foreground">Antwort meist innerhalb weniger Minuten</p>
           </div>
         </div>
 
