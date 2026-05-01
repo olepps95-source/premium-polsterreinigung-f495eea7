@@ -39,7 +39,7 @@ export function HeroSection() {
                   }}
                 >
                   <MessageCircle className="w-5 h-5" />
-                  24/7 WhatsApp Service nutzen
+                  📸 Foto senden — Preis in 15 Min!
                 </a>
               </Button>
               <Button variant="hero" size="lg" className="w-full active:scale-[0.97] transition-transform" asChild>
@@ -56,7 +56,7 @@ export function HeroSection() {
                   }}
                 >
                   <Phone className="w-5 h-5" />
-                  📞 Jetzt anrufen
+                  Jetzt anrufen
                 </a>
               </Button>
             </div>
@@ -152,7 +152,7 @@ export function HeroSection() {
                 }}
               >
                 <MessageCircle className="w-5 h-5" />
-                24/7 WhatsApp Service nutzen
+                📸 Foto senden — Preis in 15 Min!
               </a>
             </Button>
             <Button variant="hero" size="lg" asChild>
