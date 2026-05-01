@@ -56,7 +56,7 @@ export function HeroSection() {
                   }}
                 >
                   <Phone className="w-5 h-5" />
-                  Jetzt anrufen
+                  +49 163 698 6317
                 </a>
               </Button>
             </div>
