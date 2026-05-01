@@ -3,6 +3,7 @@ import { MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useSelectedServices } from '@/contexts/SelectedServicesContext';
 import { trackContact } from '@/lib/meta-pixel';
+import { trackGoogleAdsConversion } from '@/lib/google-ads';
 
 const parseNumericPrice = (priceString: string): number => {
   const match = priceString.match(/(\d+)/);
@@ -62,7 +63,10 @@ export function StickyCtaButton() {
             href={buildWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackContact()}
+            onClick={() => {
+              trackContact();
+              trackGoogleAdsConversion();
+            }}
           >
             <MessageCircle className="w-5 h-5" />
             📸 Foto senden — Preis in 15 Min!

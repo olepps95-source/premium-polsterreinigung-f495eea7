@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { trackContact } from '@/lib/meta-pixel';
+import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { useSelectedServices } from '@/contexts/SelectedServicesContext';
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -40,7 +41,10 @@ export const FloatingWhatsApp = () => {
         onMouseLeave={() => setShowTooltip(false)}
         onFocus={() => setShowTooltip(true)}
         onBlur={() => setShowTooltip(false)}
-        onClick={() => trackContact()}
+        onClick={() => {
+          trackContact();
+          trackGoogleAdsConversion();
+        }}
         className="flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg"
         aria-label="WhatsApp schreiben"
       >
