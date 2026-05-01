@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, MessageCircle } from 'lucide-react';
+import { ArrowRight, MessageCircle, Phone } from 'lucide-react';
 import heroImage from '@/assets/hero-living-room.jpg';
 import heroSofaMobile from '@/assets/hero-sofa-mobile.jpg';
 import { trackContact } from '@/lib/meta-pixel';
@@ -38,10 +38,20 @@ export function HeroSection() {
                   24/7 WhatsApp Service nutzen
                 </a>
               </Button>
-              <Button variant="hero" size="lg" className="w-full" asChild>
-                <a href="#kontakt">
-                  Jetzt unverbindlich anfragen
-                  <ArrowRight className="w-5 h-5" />
+              <Button variant="hero" size="lg" className="w-full active:scale-[0.97] transition-transform" asChild>
+                <a
+                  href="tel:+491636986317"
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && (window as any).gtag) {
+                      (window as any).gtag('event', 'click_call', {
+                        event_category: 'contact',
+                        event_label: 'phone_click',
+                      });
+                    }
+                  }}
+                >
+                  <Phone className="w-5 h-5" />
+                  📞 Jetzt anrufen
                 </a>
               </Button>
             </div>
