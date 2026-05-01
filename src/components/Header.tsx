@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
@@ -70,7 +70,20 @@ export function Header() {
 
         <div className="hidden md:flex items-center gap-3">
           <Button variant="hero" size="sm" asChild>
-            <a href="#kontakt">Termin buchen</a>
+            <a
+              href="tel:+491636986317"
+              onClick={() => {
+                if (typeof window !== 'undefined' && (window as any).gtag) {
+                  (window as any).gtag('event', 'click_call', {
+                    event_category: 'contact',
+                    event_label: 'phone_click',
+                  });
+                }
+              }}
+            >
+              <Phone className="w-4 h-4" />
+              +49 163 6986317
+            </a>
           </Button>
         </div>
 
@@ -100,7 +113,10 @@ export function Header() {
             ))}
             <div className="pt-4 border-t border-border flex flex-col gap-3">
               <Button variant="hero" className="w-full" asChild>
-                <a href="#kontakt">Termin buchen</a>
+                <a href="tel:+491636986317">
+                  <Phone className="w-4 h-4" />
+                  +49 163 6986317
+                </a>
               </Button>
             </div>
           </nav>
