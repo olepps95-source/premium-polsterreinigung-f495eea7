@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle, Phone } from 'lucide-react';
 import heroImage from '@/assets/hero-living-room.jpg';
 import heroSofaMobile from '@/assets/hero-sofa-mobile.jpg';
 import { trackContact } from '@/lib/meta-pixel';
+import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 export function HeroSection() {
@@ -32,7 +33,10 @@ export function HeroSection() {
                   href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackContact()}
+                  onClick={() => {
+                    trackContact();
+                    trackGoogleAdsConversion();
+                  }}
                 >
                   <MessageCircle className="w-5 h-5" />
                   24/7 WhatsApp Service nutzen
@@ -48,6 +52,7 @@ export function HeroSection() {
                         event_label: 'phone_click',
                       });
                     }
+                    trackGoogleAdsConversion();
                   }}
                 >
                   <Phone className="w-5 h-5" />
@@ -141,7 +146,10 @@ export function HeroSection() {
                 href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackContact()}
+                onClick={() => {
+                  trackContact();
+                  trackGoogleAdsConversion();
+                }}
               >
                 <MessageCircle className="w-5 h-5" />
                 24/7 WhatsApp Service nutzen

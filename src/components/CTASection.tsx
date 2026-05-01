@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { MessageCircle, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { trackLead, trackContact } from '@/lib/meta-pixel';
+import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { useSelectedServices } from '@/contexts/SelectedServicesContext';
 import {
   Table,
@@ -120,6 +121,9 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
 
         // Track Lead event for Meta Pixel (only fires if consent granted)
         trackLead();
+
+        // Track Google Ads conversion after successful submit
+        trackGoogleAdsConversion();
 
         // Clear form and selections
         setFormData({
@@ -288,7 +292,10 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
                 href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                onClick={() => trackContact()}
+                onClick={() => {
+                  trackContact();
+                  trackGoogleAdsConversion();
+                }}
               >
                 <MessageCircle className="w-5 h-5" />
                 WhatsApp schreiben

@@ -265,7 +265,14 @@ export function PricingSection() {
               href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackContact()}
+              onClick={() => {
+                trackContact();
+                if (typeof window !== 'undefined' && (window as any).gtag) {
+                  (window as any).gtag('event', 'conversion', {
+                    send_to: 'AW-18104648983/Y5YPCM_pwZ8cEJeK_LhD',
+                  });
+                }
+              }}
               className="inline-flex items-center justify-center gap-3 px-6 py-4 md:px-10 md:py-5 bg-[#25D366] hover:bg-[#20bd5a] active:scale-[0.98] text-white font-bold text-base md:text-xl rounded-2xl shadow-2xl shadow-[#25D366]/30 transition-all duration-200 hover:shadow-[#25D366]/40 hover:-translate-y-0.5 w-full md:w-auto"
             >
               <MessageCircle className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" />

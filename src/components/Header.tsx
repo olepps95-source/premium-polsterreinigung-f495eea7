@@ -78,6 +78,9 @@ export function Header() {
                     event_category: 'contact',
                     event_label: 'phone_click',
                   });
+                  (window as any).gtag('event', 'conversion', {
+                    send_to: 'AW-18104648983/Y5YPCM_pwZ8cEJeK_LhD',
+                  });
                 }
               }}
             >
@@ -113,7 +116,16 @@ export function Header() {
             ))}
             <div className="pt-4 border-t border-border flex flex-col gap-3">
               <Button variant="hero" className="w-full" asChild>
-                <a href="tel:+491636986317">
+                <a
+                  href="tel:+491636986317"
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && (window as any).gtag) {
+                      (window as any).gtag('event', 'conversion', {
+                        send_to: 'AW-18104648983/Y5YPCM_pwZ8cEJeK_LhD',
+                      });
+                    }
+                  }}
+                >
                   <Phone className="w-4 h-4" />
                   +49 163 6986317
                 </a>

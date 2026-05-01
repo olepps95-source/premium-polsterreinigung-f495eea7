@@ -30,6 +30,11 @@ const WHATSAPP_URL = 'https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1
 export function PricingExplanationSection() {
   const handleWhatsAppClick = () => {
     trackContact();
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', {
+        send_to: 'AW-18104648983/Y5YPCM_pwZ8cEJeK_LhD',
+      });
+    }
     window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer');
   };
 
