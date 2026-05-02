@@ -15,6 +15,9 @@ import beforeAfter12 from '@/assets/before-after-12.png';
 import beforeAfter13 from '@/assets/before-after-13.jpg';
 import beforeAfter14 from '@/assets/before-after-14.jpg';
 import beforeAfter15 from '@/assets/before-after-15.jpg';
+import beforeAfter16 from '@/assets/before-after-16.png';
+import beforeAfter17 from '@/assets/before-after-17.png';
+import beforeAfter18 from '@/assets/before-after-18.png';
 
 const gallery = [
   { image: beforeAfter1, alt: 'Sofa Reinigung Vorher Nachher – Tiefenreinigung Ergebnis' },
@@ -32,6 +35,9 @@ const gallery = [
   { image: beforeAfter13, alt: 'Polsterreinigung Sofa Vorher Nachher – Mikrofaser Auffrischung' },
   { image: beforeAfter14, alt: 'Teppich Tiefenreinigung Vorher Nachher – heller Teppich' },
   { image: beforeAfter15, alt: 'Sofa Polsterreinigung Vorher Nachher – Fleckenentfernung Ergebnis' },
+  { image: beforeAfter16, alt: 'Wohnlandschaft Mikrofaser Vorher Nachher – Tiefenreinigung ReinWerk' },
+  { image: beforeAfter17, alt: 'Sessel Polsterreinigung Vorher Nachher – Auffrischung Mikrofaser' },
+  { image: beforeAfter18, alt: 'Teppichboden Tiefenreinigung Vorher Nachher – ReinWerk Sachsen' },
 ];
 
 function Lightbox({
