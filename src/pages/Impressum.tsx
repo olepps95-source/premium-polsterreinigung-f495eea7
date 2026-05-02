@@ -23,7 +23,7 @@ export default function Impressum() {
             <section>
               <h2 className="text-xl font-semibold text-foreground mb-3">Kontakt:</h2>
               <p>
-                <strong className="text-foreground">Telefon:</strong> +491636986317<br />
+                <strong className="text-foreground">Telefon:</strong> +491632373108<br />
                 <strong className="text-foreground">E-Mail:</strong>{' '}
                 <a href="mailto:info@reinwerk-service.de" className="text-primary hover:underline">
                   info@reinwerk-service.de

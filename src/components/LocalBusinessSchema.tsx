@@ -6,7 +6,7 @@ const localBusinessSchema = {
   "name": "ReinWerk",
   "description": "Professionelle Tiefenreinigung Ihrer Polstermöbel & Matratzen direkt vor Ort in Sachsen.",
   "url": "https://reinwerk-service.de",
-  "telephone": "+491636986317",
+  "telephone": "+491632373108",
   "email": "info@reinwerk-service.de",
   "address": {
     "@type": "PostalAddress",
