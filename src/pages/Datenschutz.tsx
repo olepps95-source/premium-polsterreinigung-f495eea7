@@ -15,7 +15,7 @@ export default function Datenschutz() {
               <p>
                 ReinWerk – Oleh Pshenychnyi<br />
                 Matthesstraße 48, 09113 Chemnitz<br />
-                Telefon: 01636986317 | E-Mail:{' '}
+                Telefon: 01632373108 | E-Mail:{' '}
                 <a href="mailto:info@reinwerk-service.de" className="text-primary hover:underline">info@reinwerk-service.de</a>
               </p>
             </section>

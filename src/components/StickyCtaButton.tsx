@@ -32,7 +32,7 @@ export function StickyCtaButton() {
   }, []);
 
   const buildWhatsAppUrl = () => {
-    const phone = '491636986317';
+    const phone = '491632373108';
     let message = 'Hallo, ich möchte eine Preisbewertung für meine Polsterreinigung. Ich sende Ihnen gleich ein Foto.';
 
     if (selectedServices.length > 0) {

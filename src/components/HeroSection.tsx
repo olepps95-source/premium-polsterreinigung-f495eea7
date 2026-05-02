@@ -44,7 +44,7 @@ export function HeroSection() {
               </Button>
               <Button variant="hero" size="lg" className="w-full active:scale-[0.97] transition-transform" asChild>
                 <a
-                  href="tel:+491636986317"
+                  href="tel:+491632373108"
                   onClick={() => {
                     if (typeof window !== 'undefined' && (window as any).gtag) {
                       (window as any).gtag('event', 'click_call', {
@@ -56,7 +56,7 @@ export function HeroSection() {
                   }}
                 >
                   <Phone className="w-6 h-6" />
-                  <span className="text-lg md:text-xl font-bold">+49 163 698 6317</span>
+                  <span className="text-lg md:text-xl font-bold">+49 163 237 3108</span>
                 </a>
               </Button>
             </div>
