@@ -55,8 +55,8 @@ export function HeroSection() {
                     trackGoogleAdsConversion();
                   }}
                 >
-                  <Phone className="w-5 h-5" />
-                  +49 163 698 6317
+                  <Phone className="w-6 h-6" />
+                  <span className="text-lg md:text-xl font-bold">+49 163 698 6317</span>
                 </a>
               </Button>
             </div>
