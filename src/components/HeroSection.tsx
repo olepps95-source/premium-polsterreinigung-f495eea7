@@ -39,7 +39,7 @@ export function HeroSection() {
                   }}
                 >
                   <MessageCircle className="w-5 h-5" />
-                  📸 Foto senden — Preis in 15 Min!
+                  WhatsApp schreiben
                 </a>
               </Button>
               <Button variant="hero" size="lg" className="w-full active:scale-[0.97] transition-transform" asChild>
@@ -152,7 +152,7 @@ export function HeroSection() {
                 }}
               >
                 <MessageCircle className="w-5 h-5" />
-                📸 Foto senden — Preis in 15 Min!
+                WhatsApp schreiben
               </a>
             </Button>
             <Button variant="hero" size="lg" asChild>
