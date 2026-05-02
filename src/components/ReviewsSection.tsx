@@ -189,7 +189,7 @@ export function ReviewsSection() {
             >
               <Users className="w-3.5 h-3.5 flex-shrink-0" />
               <span className="whitespace-nowrap">
-                {showAllReviews ? 'Weniger anzeigen' : '500+ zufriedene Kunden – Mehr lesen'}
+                {showAllReviews ? 'Weniger anzeigen' : '⭐ 5,0 Google Bewertung – Mehr lesen'}
               </span>
             </Button>
           </div>
