@@ -69,7 +69,7 @@ export function StickyCtaButton() {
             }}
           >
             <MessageCircle className="w-5 h-5" />
-            📸 Foto senden — Preis in 15 Min!
+            WhatsApp schreiben
           </a>
         </Button>
       </div>
