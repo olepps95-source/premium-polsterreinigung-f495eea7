@@ -57,7 +57,7 @@ export function StickyCtaButton() {
         <Button
           asChild
           size="xl"
-          className="w-full shadow-lg bg-[#25D366] hover:bg-[#25D366] text-white font-bold text-base"
+          className="w-full shadow-lg bg-[#25D366] hover:bg-[#25D366] text-white font-bold text-lg"
         >
           <a
             href={buildWhatsAppUrl()}
@@ -68,8 +68,8 @@ export function StickyCtaButton() {
               trackGoogleAdsConversion();
             }}
           >
-            <MessageCircle className="w-5 h-5" />
-            WhatsApp schreiben
+            <MessageCircle className="w-6 h-6" />
+            <span className="text-lg font-bold">WhatsApp schreiben</span>
           </a>
         </Button>
       </div>

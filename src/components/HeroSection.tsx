@@ -38,8 +38,8 @@ export function HeroSection() {
                     trackGoogleAdsConversion();
                   }}
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp schreiben
+                  <MessageCircle className="w-6 h-6" />
+                  <span className="text-lg md:text-xl font-bold">WhatsApp schreiben</span>
                 </a>
               </Button>
               <Button variant="hero" size="lg" className="w-full active:scale-[0.97] transition-transform" asChild>
@@ -151,8 +151,8 @@ export function HeroSection() {
                   trackGoogleAdsConversion();
                 }}
               >
-                <MessageCircle className="w-5 h-5" />
-                WhatsApp schreiben
+                <MessageCircle className="w-6 h-6" />
+                <span className="text-lg md:text-xl font-bold">WhatsApp schreiben</span>
               </a>
             </Button>
             <Button variant="hero" size="lg" asChild>
