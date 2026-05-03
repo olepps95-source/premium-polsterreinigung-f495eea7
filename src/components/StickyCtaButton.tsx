@@ -45,7 +45,7 @@ export function StickyCtaButton() {
           onClick={handleClick}
           className="w-full shadow-lg bg-primary hover:bg-primary text-primary-foreground font-bold text-lg"
         >
-          <span className="text-lg font-bold">Weiter zu Kontaktdaten</span>
+          <span className="text-lg font-bold">Weiter zu Kontaktdaten ({totalPrice} €)</span>
         </Button>
       </div>
     </div>
