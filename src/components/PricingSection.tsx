@@ -4,7 +4,6 @@ import { useSelectedServices, PriceItem } from '@/contexts/SelectedServicesConte
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import ecksofaGrossIcon from '@/assets/ecksofa-gross-icon.svg';
-import pSofaIcon from '@/assets/p-sofa-icon.png';
 import sofa3SitzerIcon from '@/assets/sofa-3-sitzer-icon.svg';
 import autositzIcon from '@/assets/autositz-icon.svg';
 import kuechenstuhlIcon from '@/assets/kuechenstuhl-icon.svg';
@@ -38,7 +37,26 @@ const EcksofaGrossIcon = ({ className }: { className?: string }) => (
   <img src={ecksofaGrossIcon} alt="Ecksofa groß" className={className} />
 );
 const PSofaIcon = ({ className }: { className?: string }) => (
-  <img src={pSofaIcon} alt="P-förmiges Sofa" className={className} />
+  <svg viewBox="0 0 120 50" fill="none" stroke="currentColor" strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" className={className}>
+    {/* Left chaise */}
+    <path d="M8 16 C4 16 2 18 2 22 L2 34 C2 37 4 39 7 39 L7 42" />
+    <path d="M8 16 L8 10 C8 7 10 5 13 5 L30 5 C33 5 35 7 35 10 L35 16" />
+    <path d="M8 39 L30 39 L30 32" />
+    <path d="M8 22 L35 22" />
+    {/* Middle 3-seater */}
+    <path d="M35 16 L35 10 C35 7 37 5 40 5 L80 5 C83 5 85 7 85 10 L85 16" />
+    <path d="M35 22 L85 22" />
+    <path d="M50 5 L50 16" /><path d="M65 5 L65 16" />
+    <path d="M30 32 L85 32" />
+    {/* Right chaise */}
+    <path d="M85 16 L85 22 L118 22 L118 34 C118 37 116 39 113 39 L113 42" />
+    <path d="M85 32 L85 39 L113 39" />
+    {/* Feet */}
+    <circle cx="7" cy="44" r="2" fill="currentColor" />
+    <circle cx="30" cy="46" r="2" fill="currentColor" />
+    <circle cx="85" cy="46" r="2" fill="currentColor" />
+    <circle cx="113" cy="44" r="2" fill="currentColor" />
+  </svg>
 );
 const KuechenstuhlIcon = ({ className }: { className?: string }) => (
   <img src={kuechenstuhlIcon} alt="Küchenstuhl" className={className} />
@@ -98,7 +116,7 @@ const SONSTIGES_IDS = ['hocker-klein', 'hocker-gross', 'autositz', 'kuechenstuhl
 function getIconSizeClass(itemId: string) {
   if (itemId === 'sofa-3-sitzer') return 'w-[6.75rem] h-[6.75rem] md:w-[7.875rem] md:h-[7.875rem]';
   if (itemId === 'eckcouch-gross') return 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]';
-  if (itemId === 'p-sofa') return 'w-[6.75rem] h-[6.75rem] md:w-[7.875rem] md:h-[7.875rem]';
+  if (itemId === 'p-sofa') return 'w-[5.5rem] h-[5.5rem] md:w-[6.5rem] md:h-[6.5rem]';
   if (['autositz', 'kuechenstuhl', 'buerostuhl'].includes(itemId)) return 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]';
   return 'w-12 h-12 md:w-14 md:h-14';
 }
