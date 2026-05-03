@@ -2,9 +2,18 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useSelectedServices } from '@/contexts/SelectedServicesContext';
 
+const parseNumericPrice = (priceString: string): number => {
+  const match = priceString.match(/(\d+)/);
+  return match ? parseInt(match[1], 10) : 0;
+};
+
 export function StickyCtaButton() {
-  const { getTotalQuantity } = useSelectedServices();
+  const { getTotalQuantity, getSelectedServices } = useSelectedServices();
   const hasSelectedServices = getTotalQuantity() > 0;
+  const totalPrice = getSelectedServices().reduce(
+    (sum, s) => sum + parseNumericPrice(s.price) * s.quantity,
+    0
+  );
   const [isFormVisible, setIsFormVisible] = useState(false);
 
   useEffect(() => {
