@@ -4,6 +4,7 @@ import { useSelectedServices, PriceItem } from '@/contexts/SelectedServicesConte
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import ecksofaGrossIcon from '@/assets/ecksofa-gross-icon.svg';
+import pSofaIcon from '@/assets/p-sofa-icon.png';
 import sofa3SitzerIcon from '@/assets/sofa-3-sitzer-icon.svg';
 import autositzIcon from '@/assets/autositz-icon.svg';
 import kuechenstuhlIcon from '@/assets/kuechenstuhl-icon.svg';
@@ -36,6 +37,9 @@ const EcksofaIcon = ({ className }: { className?: string }) => (
 const EcksofaGrossIcon = ({ className }: { className?: string }) => (
   <img src={ecksofaGrossIcon} alt="Ecksofa groß" className={className} />
 );
+const PSofaIcon = ({ className }: { className?: string }) => (
+  <img src={pSofaIcon} alt="P-förmiges Sofa" className={className} />
+);
 const KuechenstuhlIcon = ({ className }: { className?: string }) => (
   <img src={kuechenstuhlIcon} alt="Küchenstuhl" className={className} />
 );
@@ -64,6 +68,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string; strokeWi
   'sofa-3-sitzer': Sofa3SitzerIcon,
   'eckcouch': EcksofaIcon,
   'eckcouch-gross': EcksofaGrossIcon,
+  'p-sofa': PSofaIcon,
   'matratze-90': BedDouble as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
   'matratze-140': BedDouble as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
   'matratze-180': BedDouble as React.ComponentType<{ className?: string; strokeWidth?: number | string }>,
@@ -86,13 +91,14 @@ const FallbackIcon = ({ className }: { className?: string }) => (
 );
 
 // Category definitions for mobile tabs
-const POLSTER_IDS = ['sessel', 'sofa-2-sitzer', 'sofa-3-sitzer', 'eckcouch', 'eckcouch-gross'];
+const POLSTER_IDS = ['sessel', 'sofa-2-sitzer', 'sofa-3-sitzer', 'eckcouch', 'eckcouch-gross', 'p-sofa'];
 const MATRATZEN_IDS = ['matratze-90', 'matratze-140', 'matratze-180', 'bettrahmen'];
 const SONSTIGES_IDS = ['hocker-klein', 'hocker-gross', 'autositz', 'kuechenstuhl', 'buerostuhl', 'teppich-bis-10', 'teppich-ueber-10', 'geruchsentfernung', 'trocknung'];
 
 function getIconSizeClass(itemId: string) {
   if (itemId === 'sofa-3-sitzer') return 'w-[6.75rem] h-[6.75rem] md:w-[7.875rem] md:h-[7.875rem]';
   if (itemId === 'eckcouch-gross') return 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]';
+  if (itemId === 'p-sofa') return 'w-[6.75rem] h-[6.75rem] md:w-[7.875rem] md:h-[7.875rem]';
   if (['autositz', 'kuechenstuhl', 'buerostuhl'].includes(itemId)) return 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]';
   return 'w-12 h-12 md:w-14 md:h-14';
 }
