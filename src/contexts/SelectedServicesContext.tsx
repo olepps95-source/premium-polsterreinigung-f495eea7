@@ -30,6 +30,7 @@ const fallbackPriceItems: PriceItem[] = [
   { id: 'sofa-3-sitzer', title: 'Sofa 3-Sitzer', price: '110 €' },
   { id: 'eckcouch', title: 'Eckcouch', price: '130 €' },
   { id: 'eckcouch-gross', title: 'Eckcouch groß', price: '160 €' },
+  { id: 'p-sofa', title: 'P-förmiges Sofa', price: '190 €' },
   { id: 'matratze-90', title: 'Matratze 90 cm', price: '60 €' },
   { id: 'matratze-140', title: 'Matratze 140 cm', price: '90 €' },
   { id: 'matratze-180', title: 'Matratze 180 cm', price: '120 €' },
