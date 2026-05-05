@@ -98,7 +98,7 @@ const SONSTIGES_IDS = ['hocker-klein', 'hocker-gross', 'autositz', 'kuechenstuhl
 function getIconSizeClass(itemId: string) {
   if (itemId === 'sofa-3-sitzer') return 'w-[6.75rem] h-[6.75rem] md:w-[7.875rem] md:h-[7.875rem]';
   if (itemId === 'eckcouch-gross') return 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]';
-  if (itemId === 'p-sofa') return 'w-[5.5rem] h-[5.5rem] md:w-[6.5rem] md:h-[6.5rem]';
+  if (itemId === 'p-sofa') return 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]';
   if (['autositz', 'kuechenstuhl', 'buerostuhl'].includes(itemId)) return 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]';
   return 'w-12 h-12 md:w-14 md:h-14';
 }
