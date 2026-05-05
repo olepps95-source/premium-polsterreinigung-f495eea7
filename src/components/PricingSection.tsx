@@ -4,6 +4,7 @@ import { useSelectedServices, PriceItem } from '@/contexts/SelectedServicesConte
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import ecksofaGrossIcon from '@/assets/ecksofa-gross-icon.svg';
+import eckcouchIcon from '@/assets/eckcouch-icon.svg';
 import sofa3SitzerIcon from '@/assets/sofa-3-sitzer-icon.svg';
 import autositzIcon from '@/assets/autositz-icon.svg';
 import kuechenstuhlIcon from '@/assets/kuechenstuhl-icon.svg';
