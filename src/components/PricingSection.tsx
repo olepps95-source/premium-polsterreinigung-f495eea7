@@ -86,12 +86,12 @@ const MATRATZEN_IDS = ['matratze-90', 'matratze-140', 'matratze-180', 'bettrahme
 const SONSTIGES_IDS = ['hocker-klein', 'hocker-gross', 'autositz', 'kuechenstuhl', 'buerostuhl', 'teppich-bis-10', 'teppich-ueber-10', 'geruchsentfernung', 'trocknung'];
 
 function getIconSizeClass(itemId: string) {
-  if (itemId === 'sofa-3-sitzer') return 'w-[6.75rem] h-[6.75rem] md:w-[7.875rem] md:h-[7.875rem]';
-  if (itemId === 'eckcouch') return 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]';
-  if (itemId === 'eckcouch-gross') return 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]';
-  if (itemId === 'p-sofa') return 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]';
-  if (['autositz', 'kuechenstuhl', 'buerostuhl'].includes(itemId)) return 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]';
-  return 'w-12 h-12 md:w-14 md:h-14';
+  if (itemId === 'sofa-3-sitzer') return 'w-[10.125rem] h-[10.125rem] md:w-[11.8125rem] md:h-[11.8125rem]';
+  if (itemId === 'eckcouch') return 'w-[6.75rem] h-[6.75rem] md:w-[7.875rem] md:h-[7.875rem]';
+  if (itemId === 'eckcouch-gross') return 'w-[6.75rem] h-[6.75rem] md:w-[7.875rem] md:h-[7.875rem]';
+  if (itemId === 'p-sofa') return 'w-[6.75rem] h-[6.75rem] md:w-[7.875rem] md:h-[7.875rem]';
+  if (['autositz', 'kuechenstuhl', 'buerostuhl'].includes(itemId)) return 'w-[6.75rem] h-[6.75rem] md:w-[7.875rem] md:h-[7.875rem]';
+  return 'w-[4.5rem] h-[4.5rem] md:w-[5.25rem] md:h-[5.25rem]';
 }
 
 // Helper to extract numeric price from display string
