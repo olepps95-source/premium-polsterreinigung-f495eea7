@@ -22,18 +22,7 @@ const AutositzIcon = ({ className }: { className?: string }) => (
   <img src={autositzIcon} alt="Autositz" className={className} />
 );
 const EcksofaIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 100 50" fill="none" stroke="currentColor" strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M8 16 C4 16 2 18 2 22 L2 34 C2 37 4 39 7 39 L7 42" />
-    <path d="M8 16 L8 10 C8 7 10 5 13 5 L62 5 C65 5 67 7 67 10 L67 16" />
-    <path d="M8 39 L55 39 L55 32" />
-    <path d="M26 5 L26 16" /><path d="M44 5 L44 16" />
-    <path d="M8 22 L67 22" />
-    <path d="M67 16 L67 22 L98 22 L98 39 C98 42 96 44 93 44 L60 44 C57 44 55 42 55 39" />
-    <path d="M67 32 L93 32" />
-    <circle cx="7" cy="44" r="2" fill="currentColor" />
-    <circle cx="60" cy="46" r="2" fill="currentColor" />
-    <circle cx="93" cy="46" r="2" fill="currentColor" />
-  </svg>
+  <img src={eckcouchIcon} alt="Eckcouch" className={className} />
 );
 const EcksofaGrossIcon = ({ className }: { className?: string }) => (
   <img src={ecksofaGrossIcon} alt="Ecksofa groß" className={className} />
