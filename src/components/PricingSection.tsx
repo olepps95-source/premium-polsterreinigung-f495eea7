@@ -123,7 +123,7 @@ function PriceCard({ item, quantity, onQuantityChange }: {
           : 'border-border/50 hover:border-primary/30'
       }`}
     >
-      <div className={`w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center mb-4 transition-colors duration-200 ${
+      <div className={`w-[7.5rem] h-[7.5rem] md:w-36 md:h-36 rounded-2xl flex items-center justify-center mb-4 transition-colors duration-200 ${
         isSelected ? 'bg-primary/10' : 'bg-accent/50'
       }`}>
         <Icon className={`text-primary ${getIconSizeClass(item.id)}`} strokeWidth={1.5} />
