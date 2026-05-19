@@ -11,6 +11,7 @@ import Widerrufsbelehrung from "./pages/Widerrufsbelehrung";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
+import Gewerbe from "./pages/Gewerbe";
 import { CookieBanner } from "./components/CookieBanner";
 import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
 import { MetaPixelProvider } from "./components/MetaPixelProvider";
