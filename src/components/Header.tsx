@@ -127,7 +127,7 @@ export function Header() {
                   }}
                 >
                   <Phone className="w-4 h-4" />
-                  <span className="text-xs whitespace-nowrap">Jetzt anrufen - +49 163 237 3108</span>
+                  +49 163 2373108
                 </a>
               </Button>
             </div>
