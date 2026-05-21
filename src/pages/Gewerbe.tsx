@@ -208,40 +208,52 @@ const Gewerbe = () => {
       <Header />
       <main>
         {/* HERO */}
-        <section className="relative pt-28 pb-16 bg-gradient-to-br from-secondary via-background to-accent/30">
-          <div className="container grid lg:grid-cols-2 gap-12 items-center">
+        <section className="relative pt-28 lg:pt-32 pb-20 lg:pb-24 overflow-hidden bg-gradient-to-b from-secondary/40 via-background to-background">
+          {/* soft radial glow */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-0"
+            style={{
+              background:
+                'radial-gradient(ellipse 60% 50% at 20% 30%, hsl(var(--primary) / 0.10), transparent 60%), radial-gradient(ellipse 50% 40% at 90% 80%, hsl(var(--primary) / 0.06), transparent 60%)',
+            }}
+          />
+          <div className="container relative grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
             <div>
-              <p className="text-sm font-bold tracking-[0.2em] text-primary uppercase mb-4">
+              <p className="text-xs sm:text-sm font-bold tracking-[0.25em] text-primary uppercase mb-5">
                 Für Unternehmen & Gewerbe
               </p>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-6">
-                Professionelle <span className="text-primary">Reinigung</span> für Ihr Unternehmen
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-7">
+                Professionelle<br />
+                <span className="text-primary">Reinigung</span> für<br />
+                Ihr Unternehmen
               </h1>
-              <p className="text-lg text-muted-foreground mb-8 max-w-xl">
+              <p className="text-base lg:text-lg text-muted-foreground mb-10 max-w-md leading-relaxed">
                 Teppiche, Polster, Matratzen & Hartböden — direkt vor Ort in Dresden, Leipzig &
                 Chemnitz.
               </p>
 
-              <div className="grid grid-cols-3 gap-3 mb-8 max-w-lg">
+              <div className="grid grid-cols-3 gap-4 mb-10 max-w-xl">
                 {[
-                  { t: '✅ Rechnung', s: 'Mit MwSt-Ausweis' },
-                  { t: '⚡ Flexibel', s: 'Auch am Wochenende' },
-                  { t: '📍 Sachsen', s: 'Vor-Ort Service' },
-                ].map((b) => (
+                  { Icon: FileText, t: 'Rechnung', s: 'Mit MwSt-Ausweis' },
+                  { Icon: CalendarClock, t: 'Flexibel', s: 'Auch am Wochenende' },
+                  { Icon: MapPin, t: 'Sachsen', s: 'Vor-Ort Service' },
+                ].map(({ Icon, t, s }) => (
                   <div
-                    key={b.t}
-                    className="bg-card border border-border rounded-xl p-3 text-center shadow-soft"
+                    key={t}
+                    className="bg-card border border-border rounded-2xl p-4 text-center shadow-medium hover:shadow-glow transition-shadow"
                   >
-                    <p className="font-bold text-sm text-foreground">{b.t}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{b.s}</p>
+                    <Icon className="w-6 h-6 text-primary mx-auto mb-2.5" strokeWidth={1.75} />
+                    <p className="font-bold text-sm text-foreground">{t}</p>
+                    <p className="text-[11px] text-muted-foreground mt-1 leading-tight">{s}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button
                   size="lg"
-                  className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold"
+                  className="h-14 flex-1 bg-[#25D366] hover:bg-[#1ea855] hover:shadow-xl text-white rounded-xl shadow-lg font-semibold transition-all hover:-translate-y-0.5"
                   asChild
                 >
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
@@ -249,7 +261,12 @@ const Gewerbe = () => {
                     WhatsApp schreiben
                   </a>
                 </Button>
-                <Button variant="hero" size="lg" asChild>
+                <Button
+                  variant="hero"
+                  size="lg"
+                  className="h-14 flex-1 hover:shadow-xl transition-all hover:-translate-y-0.5"
+                  asChild
+                >
                   <a href={TEL}>
                     <Phone className="w-5 h-5" />
                     {PHONE_DISPLAY}
@@ -259,12 +276,23 @@ const Gewerbe = () => {
             </div>
 
             <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80"
-                alt="Modernes sauberes Büro in Sachsen — Gewerbereinigung ReinWerk"
-                className="w-full h-[450px] object-cover rounded-2xl shadow-medium"
-                loading="eager"
+              <div
+                aria-hidden
+                className="absolute -inset-4 -z-10 rounded-[2rem] opacity-60 blur-2xl"
+                style={{ background: 'radial-gradient(ellipse at center, hsl(var(--primary) / 0.18), transparent 70%)' }}
               />
+              <div className="relative overflow-hidden rounded-3xl shadow-medium">
+                <img
+                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=85"
+                  alt="Helle moderne Büroumgebung — Gewerbereinigung in Sachsen | ReinWerk"
+                  className="w-full h-[460px] lg:h-[520px] object-cover"
+                  loading="eager"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-tr from-background/30 via-transparent to-transparent"
+                />
+              </div>
             </div>
           </div>
         </section>
