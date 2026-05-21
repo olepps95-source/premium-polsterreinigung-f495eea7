@@ -328,7 +328,7 @@ const Gewerbe = () => {
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
                 alt="Teppichreinigung für Büros und Hotels in Sachsen — ReinWerk"
-                icon="🧹"
+                icon={Brush}
                 title="Teppichreinigung"
                 items={[
                   'Büro & Hotel bis 50m² — ab 149€',
