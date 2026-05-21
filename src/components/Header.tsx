@@ -66,12 +66,6 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <Link
-            to="/firmenkunden"
-            className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
-          >
-            Für Firmenkunden
-          </Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
@@ -120,13 +114,6 @@ export function Header() {
                 {link.label}
               </a>
             ))}
-            <Link
-              to="/firmenkunden"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-base font-semibold text-primary hover:text-primary/80 transition-colors py-2"
-            >
-              Für Firmenkunden
-            </Link>
             <div className="pt-4 border-t border-border flex flex-col gap-3">
               <Button variant="hero" className="w-full" asChild>
                 <a
