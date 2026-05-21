@@ -308,7 +308,7 @@ const Gewerbe = () => {
                 Maßgeschneiderte Lösungen für jeden Unternehmenstyp
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               <ClientCard
                 photo="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80"
                 alt="Hotelzimmer-Reinigung Dresden — Teppiche und Matratzen | ReinWerk"
