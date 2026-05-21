@@ -361,7 +361,7 @@ const Gewerbe = () => {
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80"
                 alt="Hartbodenreinigung Laminat Fliesen Vinyl in Sachsen — ReinWerk"
-                icon="✨"
+                icon={Sparkles}
                 title="Hartbodenreinigung"
                 items={[
                   'Laminat bis 50m² — ab 79€',
