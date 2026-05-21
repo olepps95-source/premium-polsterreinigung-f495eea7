@@ -306,7 +306,7 @@ const Gewerbe = () => {
               <ClientCard
                 photo="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80"
                 alt="Büroreinigung Leipzig — Bürostühle und Teppiche | ReinWerk"
-                icon="🏢"
+                icon={Building2}
                 title="Büros & Unternehmen"
                 text="Bürostühle, Konferenzräume, Teppiche & Böden — Termine abends oder am Wochenende möglich."
                 badge="Ab 149€ pro Termin"
