@@ -282,7 +282,7 @@ const Gewerbe = () => {
               <ClientCard
                 photo="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80"
                 alt="Hotelzimmer-Reinigung Dresden — Teppiche und Matratzen | ReinWerk"
-                icon="🏨"
+                icon={Hotel}
                 title="Hotels & Pensionen"
                 text="Zimmerteppiche, Matratzen, Lobby-Sofas & Sessel — diskret und zuverlässig zwischen den Saisons."
                 badge="Ab 299€ pro Termin"
