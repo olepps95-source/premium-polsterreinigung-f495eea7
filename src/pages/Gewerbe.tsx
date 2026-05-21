@@ -160,7 +160,7 @@ const ServiceCard = ({
   <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300">
     <img src={photo} alt={alt} loading="lazy" className="w-full h-[180px] object-cover" />
     <div className="p-6">
-      <div className="text-3xl mb-2">{icon}</div>
+      
       <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
       <ul className="space-y-2">
         {items.map((it) => (
