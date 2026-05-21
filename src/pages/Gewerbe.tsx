@@ -118,14 +118,14 @@ function useGewerbeHead() {
 
 const ClientCard = ({
   photo,
-  icon,
+  icon: Icon,
   title,
   text,
   badge,
   alt,
 }: {
   photo: string;
-  icon: string;
+  icon: LucideIcon;
   title: string;
   text: string;
   badge: string;
@@ -134,7 +134,7 @@ const ClientCard = ({
   <div className="group bg-card rounded-2xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-medium">
     <img src={photo} alt={alt} loading="lazy" className="w-full h-[200px] object-cover" />
     <div className="p-6">
-      <div className="text-4xl mb-3">{icon}</div>
+      <Icon className="w-9 h-9 text-primary mb-3" strokeWidth={1.5} />
       <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
       <p className="text-muted-foreground mb-4 leading-relaxed">{text}</p>
       <span className="inline-block bg-accent text-accent-foreground text-sm font-semibold px-3 py-1.5 rounded-full">
@@ -146,13 +146,13 @@ const ClientCard = ({
 
 const ServiceCard = ({
   photo,
-  icon,
+  icon: Icon,
   title,
   items,
   alt,
 }: {
   photo: string;
-  icon: string;
+  icon: LucideIcon;
   title: string;
   items: string[];
   alt: string;
@@ -160,7 +160,7 @@ const ServiceCard = ({
   <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300">
     <img src={photo} alt={alt} loading="lazy" className="w-full h-[180px] object-cover" />
     <div className="p-6">
-      <div className="text-3xl mb-2">{icon}</div>
+      <Icon className="w-8 h-8 text-primary mb-2" strokeWidth={1.5} />
       <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
       <ul className="space-y-2">
         {items.map((it) => (
