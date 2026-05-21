@@ -6,7 +6,6 @@ import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 
 const navLinks = [
   { label: 'Leistungen', href: '#leistungen' },
-  { label: 'Gewerbe', href: '/gewerbe' },
   { label: 'Preise', href: '#preise' },
   { label: 'Vorher–Nachher', href: '#vorher-nachher' },
   { label: 'Bewertungen', href: '#bewertungen' },
