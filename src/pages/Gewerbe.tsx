@@ -298,7 +298,7 @@ const Gewerbe = () => {
               <ClientCard
                 photo="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80"
                 alt="Arztpraxis-Reinigung Sachsen — Wartezimmer hygienisch sauber | ReinWerk"
-                icon="🏥"
+                icon={Stethoscope}
                 title="Arztpraxen & Praxen"
                 text="Wartezimmer-Stühle, Teppiche & Hartböden — hygienisch sauber, mit Rechnung für Ihre Buchhaltung."
                 badge="Ab 149€ pro Termin"
