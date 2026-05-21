@@ -134,7 +134,7 @@ const ClientCard = ({
   <div className="group bg-card rounded-2xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-medium">
     <img src={photo} alt={alt} loading="lazy" className="w-full h-[200px] object-cover" />
     <div className="p-6">
-      <div className="text-4xl mb-3">{icon}</div>
+      
       <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
       <p className="text-muted-foreground mb-4 leading-relaxed">{text}</p>
       <span className="inline-block bg-accent text-accent-foreground text-sm font-semibold px-3 py-1.5 rounded-full">
