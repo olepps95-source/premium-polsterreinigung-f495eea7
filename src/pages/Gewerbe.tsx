@@ -118,26 +118,31 @@ function useGewerbeHead() {
 
 const ClientCard = ({
   photo,
-  icon,
   title,
   text,
   badge,
   alt,
 }: {
   photo: string;
-  icon: string;
+  icon?: string;
   title: string;
   text: string;
   badge: string;
   alt: string;
 }) => (
-  <div className="group bg-card rounded-2xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-medium">
-    <img src={photo} alt={alt} loading="lazy" className="w-full h-[200px] object-cover" />
-    <div className="p-6">
-      
-      <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
-      <p className="text-muted-foreground mb-4 leading-relaxed">{text}</p>
-      <span className="inline-block bg-accent text-accent-foreground text-sm font-semibold px-3 py-1.5 rounded-full">
+  <div className="group bg-card rounded-3xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-medium hover:-translate-y-1">
+    <div className="overflow-hidden">
+      <img
+        src={photo}
+        alt={alt}
+        loading="lazy"
+        className="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+    </div>
+    <div className="p-7">
+      <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">{title}</h3>
+      <p className="text-muted-foreground mb-5 leading-relaxed text-[15px]">{text}</p>
+      <span className="inline-block border border-primary/30 text-primary bg-primary/5 text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
         {badge}
       </span>
     </div>
@@ -146,27 +151,24 @@ const ClientCard = ({
 
 const ServiceCard = ({
   photo,
-  icon,
   title,
   items,
   alt,
 }: {
   photo: string;
-  icon: string;
+  icon?: string;
   title: string;
   items: string[];
   alt: string;
 }) => (
-  <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300">
-    <img src={photo} alt={alt} loading="lazy" className="w-full h-[180px] object-cover" />
-    <div className="p-6">
-      
-      <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
-      <ul className="space-y-2">
+  <div className="bg-white/[0.04] backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-primary/50 hover:bg-white/[0.06] transition-all duration-300">
+    <img src={photo} alt={alt} loading="lazy" className="w-full h-[190px] object-cover" />
+    <div className="p-7">
+      <h3 className="text-xl font-bold text-white mb-5 tracking-tight">{title}</h3>
+      <ul className="divide-y divide-white/10">
         {items.map((it) => (
-          <li key={it} className="text-white/80 flex items-start gap-2 text-sm">
-            <span className="text-primary mt-1">•</span>
-            <span>{it}</span>
+          <li key={it} className="text-white/80 text-sm py-2.5 first:pt-0 last:pb-0 leading-relaxed">
+            {it}
           </li>
         ))}
       </ul>
