@@ -350,7 +350,7 @@ const Gewerbe = () => {
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1631049552057-403cdb8f0658?w=600&q=80"
                 alt="Matratzenreinigung Hotel und Kita in Sachsen — ReinWerk"
-                icon="🛏️"
+                icon={BedDouble}
                 title="Matratzenreinigung"
                 items={[
                   'Hotel (10 Stück) — ab 299€',
