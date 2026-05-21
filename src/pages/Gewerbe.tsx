@@ -290,7 +290,7 @@ const Gewerbe = () => {
               <ClientCard
                 photo="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80"
                 alt="Kita-Reinigung Chemnitz — Spielteppiche und Matratzen | ReinWerk"
-                icon="🏫"
+                icon={GraduationCap}
                 title="Kitas & Schulen"
                 text="Spielteppiche, Schlafmatratzen & Sitzmöbel — ideal während der Ferien ohne Betriebsunterbrechung."
                 badge="Ab 199€ pro Termin"
