@@ -14,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { MessageCircle, Phone, Check } from 'lucide-react';
+import { MessageCircle, Phone, Check, FileText, CalendarClock, MapPin } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
@@ -118,26 +118,31 @@ function useGewerbeHead() {
 
 const ClientCard = ({
   photo,
-  icon,
   title,
   text,
   badge,
   alt,
 }: {
   photo: string;
-  icon: string;
+  icon?: string;
   title: string;
   text: string;
   badge: string;
   alt: string;
 }) => (
-  <div className="group bg-card rounded-2xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-medium">
-    <img src={photo} alt={alt} loading="lazy" className="w-full h-[200px] object-cover" />
-    <div className="p-6">
-      
-      <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
-      <p className="text-muted-foreground mb-4 leading-relaxed">{text}</p>
-      <span className="inline-block bg-accent text-accent-foreground text-sm font-semibold px-3 py-1.5 rounded-full">
+  <div className="group bg-card rounded-3xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-medium hover:-translate-y-1">
+    <div className="overflow-hidden">
+      <img
+        src={photo}
+        alt={alt}
+        loading="lazy"
+        className="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+    </div>
+    <div className="p-7">
+      <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">{title}</h3>
+      <p className="text-muted-foreground mb-5 leading-relaxed text-[15px]">{text}</p>
+      <span className="inline-block border border-primary/30 text-primary bg-primary/5 text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
         {badge}
       </span>
     </div>
@@ -146,27 +151,24 @@ const ClientCard = ({
 
 const ServiceCard = ({
   photo,
-  icon,
   title,
   items,
   alt,
 }: {
   photo: string;
-  icon: string;
+  icon?: string;
   title: string;
   items: string[];
   alt: string;
 }) => (
-  <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300">
-    <img src={photo} alt={alt} loading="lazy" className="w-full h-[180px] object-cover" />
-    <div className="p-6">
-      
-      <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
-      <ul className="space-y-2">
+  <div className="bg-white/[0.04] backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-primary/50 hover:bg-white/[0.06] transition-all duration-300">
+    <img src={photo} alt={alt} loading="lazy" className="w-full h-[190px] object-cover" />
+    <div className="p-7">
+      <h3 className="text-xl font-bold text-white mb-5 tracking-tight">{title}</h3>
+      <ul className="divide-y divide-white/10">
         {items.map((it) => (
-          <li key={it} className="text-white/80 flex items-start gap-2 text-sm">
-            <span className="text-primary mt-1">•</span>
-            <span>{it}</span>
+          <li key={it} className="text-white/80 text-sm py-2.5 first:pt-0 last:pb-0 leading-relaxed">
+            {it}
           </li>
         ))}
       </ul>
@@ -206,40 +208,52 @@ const Gewerbe = () => {
       <Header />
       <main>
         {/* HERO */}
-        <section className="relative pt-28 pb-16 bg-gradient-to-br from-secondary via-background to-accent/30">
-          <div className="container grid lg:grid-cols-2 gap-12 items-center">
+        <section className="relative pt-28 lg:pt-32 pb-20 lg:pb-24 overflow-hidden bg-gradient-to-b from-secondary/40 via-background to-background">
+          {/* soft radial glow */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-0"
+            style={{
+              background:
+                'radial-gradient(ellipse 60% 50% at 20% 30%, hsl(var(--primary) / 0.10), transparent 60%), radial-gradient(ellipse 50% 40% at 90% 80%, hsl(var(--primary) / 0.06), transparent 60%)',
+            }}
+          />
+          <div className="container relative grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
             <div>
-              <p className="text-sm font-bold tracking-[0.2em] text-primary uppercase mb-4">
+              <p className="text-xs sm:text-sm font-bold tracking-[0.25em] text-primary uppercase mb-5">
                 Für Unternehmen & Gewerbe
               </p>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-6">
-                Professionelle <span className="text-primary">Reinigung</span> für Ihr Unternehmen
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-7">
+                Professionelle<br />
+                <span className="text-primary">Reinigung</span> für<br />
+                Ihr Unternehmen
               </h1>
-              <p className="text-lg text-muted-foreground mb-8 max-w-xl">
+              <p className="text-base lg:text-lg text-muted-foreground mb-10 max-w-md leading-relaxed">
                 Teppiche, Polster, Matratzen & Hartböden — direkt vor Ort in Dresden, Leipzig &
                 Chemnitz.
               </p>
 
-              <div className="grid grid-cols-3 gap-3 mb-8 max-w-lg">
+              <div className="grid grid-cols-3 gap-4 mb-10 max-w-xl">
                 {[
-                  { t: '✅ Rechnung', s: 'Mit MwSt-Ausweis' },
-                  { t: '⚡ Flexibel', s: 'Auch am Wochenende' },
-                  { t: '📍 Sachsen', s: 'Vor-Ort Service' },
-                ].map((b) => (
+                  { Icon: FileText, t: 'Rechnung', s: 'Mit MwSt-Ausweis' },
+                  { Icon: CalendarClock, t: 'Flexibel', s: 'Auch am Wochenende' },
+                  { Icon: MapPin, t: 'Sachsen', s: 'Vor-Ort Service' },
+                ].map(({ Icon, t, s }) => (
                   <div
-                    key={b.t}
-                    className="bg-card border border-border rounded-xl p-3 text-center shadow-soft"
+                    key={t}
+                    className="bg-card border border-border rounded-2xl p-4 text-center shadow-medium hover:shadow-glow transition-shadow"
                   >
-                    <p className="font-bold text-sm text-foreground">{b.t}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{b.s}</p>
+                    <Icon className="w-6 h-6 text-primary mx-auto mb-2.5" strokeWidth={1.75} />
+                    <p className="font-bold text-sm text-foreground">{t}</p>
+                    <p className="text-[11px] text-muted-foreground mt-1 leading-tight">{s}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button
                   size="lg"
-                  className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold"
+                  className="h-14 flex-1 bg-[#25D366] hover:bg-[#1ea855] hover:shadow-xl text-white rounded-xl shadow-lg font-semibold transition-all hover:-translate-y-0.5"
                   asChild
                 >
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
@@ -247,7 +261,12 @@ const Gewerbe = () => {
                     WhatsApp schreiben
                   </a>
                 </Button>
-                <Button variant="hero" size="lg" asChild>
+                <Button
+                  variant="hero"
+                  size="lg"
+                  className="h-14 flex-1 hover:shadow-xl transition-all hover:-translate-y-0.5"
+                  asChild
+                >
                   <a href={TEL}>
                     <Phone className="w-5 h-5" />
                     {PHONE_DISPLAY}
@@ -257,12 +276,23 @@ const Gewerbe = () => {
             </div>
 
             <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80"
-                alt="Modernes sauberes Büro in Sachsen — Gewerbereinigung ReinWerk"
-                className="w-full h-[450px] object-cover rounded-2xl shadow-medium"
-                loading="eager"
+              <div
+                aria-hidden
+                className="absolute -inset-4 -z-10 rounded-[2rem] opacity-60 blur-2xl"
+                style={{ background: 'radial-gradient(ellipse at center, hsl(var(--primary) / 0.18), transparent 70%)' }}
               />
+              <div className="relative overflow-hidden rounded-3xl shadow-medium">
+                <img
+                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=85"
+                  alt="Helle moderne Büroumgebung — Gewerbereinigung in Sachsen | ReinWerk"
+                  className="w-full h-[460px] lg:h-[520px] object-cover"
+                  loading="eager"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-tr from-background/30 via-transparent to-transparent"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -278,7 +308,7 @@ const Gewerbe = () => {
                 Maßgeschneiderte Lösungen für jeden Unternehmenstyp
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               <ClientCard
                 photo="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80"
                 alt="Hotelzimmer-Reinigung Dresden — Teppiche und Matratzen | ReinWerk"
@@ -316,15 +346,15 @@ const Gewerbe = () => {
         </section>
 
         {/* SERVICES */}
-        <section className="py-16 bg-[#0A1628]">
+        <section className="py-20 bg-[#0F1E36]">
           <div className="container">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3 tracking-tight">
                 Unsere Leistungen für Gewerbekunden
               </h2>
               <p className="text-primary text-lg">Alle Reinigungsarten aus einer Hand</p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
                 alt="Teppichreinigung für Büros und Hotels in Sachsen — ReinWerk"
