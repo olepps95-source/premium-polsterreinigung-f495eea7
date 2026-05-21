@@ -209,6 +209,22 @@ const Gewerbe = () => {
       <main>
         {/* HERO */}
         <section className="relative pt-28 lg:pt-32 pb-20 lg:pb-24 overflow-hidden bg-gradient-to-b from-secondary/40 via-background to-background">
+          {/* Full-width background image, right-anchored */}
+          <div aria-hidden className="absolute inset-0 -z-10">
+            <img
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=85"
+              alt=""
+              className="w-full h-full object-cover object-right"
+              loading="eager"
+            />
+            {/* Left fade to background for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/10" />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/60" />
+            {/* Soft white overlay over image area */}
+            <div className="absolute inset-0 bg-white/30" />
+            {/* Subtle blur transition strip between text and image */}
+            <div className="absolute inset-y-0 left-1/3 w-1/3 backdrop-blur-sm bg-background/10 [mask-image:linear-gradient(to_right,black,transparent)]" />
+          </div>
           {/* soft radial glow */}
           <div
             aria-hidden
@@ -240,7 +256,7 @@ const Gewerbe = () => {
                 ].map(({ Icon, t, s }) => (
                   <div
                     key={t}
-                    className="bg-card border border-border rounded-2xl p-4 text-center shadow-medium hover:shadow-glow transition-shadow"
+                    className="bg-card/90 backdrop-blur-sm border border-border rounded-2xl p-4 text-center shadow-medium hover:shadow-glow transition-shadow"
                   >
                     <Icon className="w-6 h-6 text-primary mx-auto mb-2.5" strokeWidth={1.75} />
                     <p className="font-bold text-sm text-foreground">{t}</p>
@@ -274,27 +290,11 @@ const Gewerbe = () => {
               </div>
             </div>
 
-            <div className="relative">
-              <div
-                aria-hidden
-                className="absolute -inset-4 -z-10 rounded-[2rem] opacity-60 blur-2xl"
-                style={{ background: 'radial-gradient(ellipse at center, hsl(var(--primary) / 0.18), transparent 70%)' }}
-              />
-              <div className="relative overflow-hidden rounded-3xl shadow-medium">
-                <img
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=85"
-                  alt="Helle moderne Büroumgebung — Gewerbereinigung in Sachsen | ReinWerk"
-                  className="w-full h-[460px] lg:h-[520px] object-cover"
-                  loading="eager"
-                />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 bg-gradient-to-tr from-background/30 via-transparent to-transparent"
-                />
-              </div>
-            </div>
+            {/* Right column intentionally empty — image is full-width background */}
+            <div aria-hidden className="hidden lg:block" />
           </div>
         </section>
+
 
         {/* TARGET CLIENTS */}
         <section className="py-16 bg-background">
