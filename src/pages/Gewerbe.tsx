@@ -14,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { MessageCircle, Phone, Check, Hotel, GraduationCap, Stethoscope, Building2, Brush, Sofa, BedDouble, Sparkles, Armchair, Package, type LucideIcon } from 'lucide-react';
+import { MessageCircle, Phone, Check } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
@@ -118,14 +118,14 @@ function useGewerbeHead() {
 
 const ClientCard = ({
   photo,
-  icon: Icon,
+  icon,
   title,
   text,
   badge,
   alt,
 }: {
   photo: string;
-  icon: LucideIcon;
+  icon: string;
   title: string;
   text: string;
   badge: string;
@@ -134,7 +134,7 @@ const ClientCard = ({
   <div className="group bg-card rounded-2xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-medium">
     <img src={photo} alt={alt} loading="lazy" className="w-full h-[200px] object-cover" />
     <div className="p-6">
-      <Icon className="w-9 h-9 text-primary mb-3" strokeWidth={1.5} />
+      <div className="text-4xl mb-3">{icon}</div>
       <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
       <p className="text-muted-foreground mb-4 leading-relaxed">{text}</p>
       <span className="inline-block bg-accent text-accent-foreground text-sm font-semibold px-3 py-1.5 rounded-full">
@@ -146,13 +146,13 @@ const ClientCard = ({
 
 const ServiceCard = ({
   photo,
-  icon: Icon,
+  icon,
   title,
   items,
   alt,
 }: {
   photo: string;
-  icon: LucideIcon;
+  icon: string;
   title: string;
   items: string[];
   alt: string;
@@ -160,7 +160,7 @@ const ServiceCard = ({
   <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300">
     <img src={photo} alt={alt} loading="lazy" className="w-full h-[180px] object-cover" />
     <div className="p-6">
-      <Icon className="w-8 h-8 text-primary mb-2" strokeWidth={1.5} />
+      <div className="text-3xl mb-2">{icon}</div>
       <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
       <ul className="space-y-2">
         {items.map((it) => (
@@ -282,7 +282,7 @@ const Gewerbe = () => {
               <ClientCard
                 photo="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80"
                 alt="Hotelzimmer-Reinigung Dresden — Teppiche und Matratzen | ReinWerk"
-                icon={Hotel}
+                icon="🏨"
                 title="Hotels & Pensionen"
                 text="Zimmerteppiche, Matratzen, Lobby-Sofas & Sessel — diskret und zuverlässig zwischen den Saisons."
                 badge="Ab 299€ pro Termin"
@@ -290,7 +290,7 @@ const Gewerbe = () => {
               <ClientCard
                 photo="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80"
                 alt="Kita-Reinigung Chemnitz — Spielteppiche und Matratzen | ReinWerk"
-                icon={GraduationCap}
+                icon="🏫"
                 title="Kitas & Schulen"
                 text="Spielteppiche, Schlafmatratzen & Sitzmöbel — ideal während der Ferien ohne Betriebsunterbrechung."
                 badge="Ab 199€ pro Termin"
@@ -298,7 +298,7 @@ const Gewerbe = () => {
               <ClientCard
                 photo="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80"
                 alt="Arztpraxis-Reinigung Sachsen — Wartezimmer hygienisch sauber | ReinWerk"
-                icon={Stethoscope}
+                icon="🏥"
                 title="Arztpraxen & Praxen"
                 text="Wartezimmer-Stühle, Teppiche & Hartböden — hygienisch sauber, mit Rechnung für Ihre Buchhaltung."
                 badge="Ab 149€ pro Termin"
@@ -306,7 +306,7 @@ const Gewerbe = () => {
               <ClientCard
                 photo="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80"
                 alt="Büroreinigung Leipzig — Bürostühle und Teppiche | ReinWerk"
-                icon={Building2}
+                icon="🏢"
                 title="Büros & Unternehmen"
                 text="Bürostühle, Konferenzräume, Teppiche & Böden — Termine abends oder am Wochenende möglich."
                 badge="Ab 149€ pro Termin"
@@ -328,7 +328,7 @@ const Gewerbe = () => {
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
                 alt="Teppichreinigung für Büros und Hotels in Sachsen — ReinWerk"
-                icon={Brush}
+                icon="🧹"
                 title="Teppichreinigung"
                 items={[
                   'Büro & Hotel bis 50m² — ab 149€',
@@ -339,7 +339,7 @@ const Gewerbe = () => {
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"
                 alt="Polsterreinigung Bürostühle und Sofas in Sachsen — ReinWerk"
-                icon={Sofa}
+                icon="🛋️"
                 title="Polsterreinigung"
                 items={[
                   'Bürostühle (10 Stück) — ab 149€',
@@ -350,7 +350,7 @@ const Gewerbe = () => {
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1631049552057-403cdb8f0658?w=600&q=80"
                 alt="Matratzenreinigung Hotel und Kita in Sachsen — ReinWerk"
-                icon={BedDouble}
+                icon="🛏️"
                 title="Matratzenreinigung"
                 items={[
                   'Hotel (10 Stück) — ab 299€',
@@ -361,7 +361,7 @@ const Gewerbe = () => {
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80"
                 alt="Hartbodenreinigung Laminat Fliesen Vinyl in Sachsen — ReinWerk"
-                icon={Sparkles}
+                icon="✨"
                 title="Hartbodenreinigung"
                 items={[
                   'Laminat bis 50m² — ab 79€',
@@ -372,7 +372,7 @@ const Gewerbe = () => {
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=600&q=80"
                 alt="Stuhlreinigung Wartezimmer und Konferenz in Sachsen — ReinWerk"
-                icon={Armchair}
+                icon="🪑"
                 title="Stuhlreinigung"
                 items={[
                   'Wartezimmer-Stühle — ab 9€/Stück',
@@ -383,7 +383,7 @@ const Gewerbe = () => {
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1497366754035-f200968a7dd0?w=600&q=80"
                 alt="Kombipaket Polster Teppich Boden Gewerbe Sachsen — ReinWerk"
-                icon={Package}
+                icon="📦"
                 title="Kombipaket"
                 items={[
                   'Polster + Teppich + Boden',
