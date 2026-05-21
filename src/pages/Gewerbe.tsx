@@ -14,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { MessageCircle, Phone, Check } from 'lucide-react';
+import { MessageCircle, Phone, Check, Hotel, GraduationCap, Stethoscope, Building2, Brush, Sofa, BedDouble, Sparkles, Armchair, Package, type LucideIcon } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
