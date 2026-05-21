@@ -11,6 +11,7 @@ import Widerrufsbelehrung from "./pages/Widerrufsbelehrung";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
+import Firmenkunden from "./pages/Firmenkunden";
 import { CookieBanner } from "./components/CookieBanner";
 import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
 import { MetaPixelProvider } from "./components/MetaPixelProvider";
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/widerrufsbelehrung" element={<Widerrufsbelehrung />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/firmenkunden" element={<Firmenkunden />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
