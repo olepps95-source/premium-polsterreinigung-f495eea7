@@ -372,7 +372,7 @@ const Gewerbe = () => {
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=600&q=80"
                 alt="Stuhlreinigung Wartezimmer und Konferenz in Sachsen — ReinWerk"
-                icon="🪑"
+                icon={Armchair}
                 title="Stuhlreinigung"
                 items={[
                   'Wartezimmer-Stühle — ab 9€/Stück',
