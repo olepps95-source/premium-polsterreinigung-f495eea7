@@ -339,7 +339,7 @@ const Gewerbe = () => {
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"
                 alt="Polsterreinigung Bürostühle und Sofas in Sachsen — ReinWerk"
-                icon="🛋️"
+                icon={Sofa}
                 title="Polsterreinigung"
                 items={[
                   'Bürostühle (10 Stück) — ab 149€',
