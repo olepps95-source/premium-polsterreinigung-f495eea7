@@ -346,15 +346,15 @@ const Gewerbe = () => {
         </section>
 
         {/* SERVICES */}
-        <section className="py-16 bg-[#0A1628]">
+        <section className="py-20 bg-[#0F1E36]">
           <div className="container">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3 tracking-tight">
                 Unsere Leistungen für Gewerbekunden
               </h2>
               <p className="text-primary text-lg">Alle Reinigungsarten aus einer Hand</p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <ServiceCard
                 photo="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
                 alt="Teppichreinigung für Büros und Hotels in Sachsen — ReinWerk"
