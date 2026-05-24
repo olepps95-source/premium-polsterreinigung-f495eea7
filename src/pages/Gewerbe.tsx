@@ -88,7 +88,7 @@ function useGewerbeHead() {
       description:
         'Professionelle Polster-, Teppich- und Bodenreinigung für Gewerbekunden in Sachsen',
       url: 'https://reinwerk-service.de',
-      telephone: '+491636986317',
+      telephone: '+491632373108',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Matthesstraße 48',
