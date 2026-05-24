@@ -239,7 +239,7 @@ const Gewerbe = () => {
 
 
 
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 lg:gap-4 mb-6 lg:mb-10 max-w-xl">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 mb-6 lg:mb-10 max-w-xl">
                 {[
                   { Icon: FileText, t: 'Rechnung', s: 'Professionell & transparent' },
                   { Icon: CalendarClock, t: 'Flexibel', s: 'Auch am Wochenende' },
@@ -248,7 +248,7 @@ const Gewerbe = () => {
                   <div
                     key={t}
                     className={`bg-card/90 backdrop-blur-sm border border-border rounded-xl lg:rounded-2xl p-3 lg:p-4 text-center shadow-medium hover:shadow-glow transition-shadow ${
-                      i === 2 ? 'col-span-2 md:col-span-1 mx-auto w-1/2 md:w-auto' : ''
+                      i === 2 ? 'col-span-2 lg:col-span-1 mx-auto w-1/2 lg:w-auto' : ''
                     }`}
                   >
                     <Icon className="w-5 h-5 lg:w-6 lg:h-6 text-primary mx-auto mb-1.5 lg:mb-2.5" strokeWidth={1.75} />
@@ -257,7 +257,6 @@ const Gewerbe = () => {
                   </div>
                 ))}
               </div>
-
 
 
               <div className="flex flex-col lg:flex-row gap-2 lg:gap-3">
