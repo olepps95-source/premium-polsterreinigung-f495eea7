@@ -239,21 +239,19 @@ const Gewerbe = () => {
 
 
 
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 mb-6 lg:mb-10 max-w-xl">
+              <div className="grid grid-cols-3 gap-2 lg:gap-4 mb-6 lg:mb-10 max-w-xl">
                 {[
                   { Icon: FileText, t: 'Rechnung', s: 'Professionell & transparent' },
                   { Icon: CalendarClock, t: 'Flexibel', s: 'Auch am Wochenende' },
                   { Icon: MapPin, t: 'Sachsen', s: 'Vor-Ort Service' },
-                ].map(({ Icon, t, s }, i) => (
+                ].map(({ Icon, t, s }) => (
                   <div
                     key={t}
-                    className={`bg-card/90 backdrop-blur-sm border border-border rounded-xl lg:rounded-2xl p-3 lg:p-4 text-center shadow-medium hover:shadow-glow transition-shadow ${
-                      i === 2 ? 'col-span-2 lg:col-span-1 mx-auto w-1/2 lg:w-auto' : ''
-                    }`}
+                    className="bg-card/90 backdrop-blur-sm border border-border rounded-xl lg:rounded-2xl p-3 lg:p-4 text-center shadow-medium hover:shadow-glow transition-shadow flex flex-col items-center justify-center min-h-[110px] lg:min-h-[130px] w-full"
                   >
-                    <Icon className="w-5 h-5 lg:w-6 lg:h-6 text-primary mx-auto mb-1.5 lg:mb-2.5" strokeWidth={1.75} />
-                    <p className="font-bold text-sm lg:text-sm text-foreground leading-tight">{t}</p>
-                    <p className="text-[11px] lg:text-[11px] text-muted-foreground mt-1 leading-tight">{s}</p>
+                    <Icon className="w-5 h-5 lg:w-6 lg:h-6 text-primary mb-1.5 lg:mb-2.5" strokeWidth={1.75} />
+                    <p className="font-bold text-sm text-foreground leading-tight">{t}</p>
+                    <p className="text-[11px] text-muted-foreground mt-1 leading-tight">{s}</p>
                   </div>
                 ))}
               </div>
