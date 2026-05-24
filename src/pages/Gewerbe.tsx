@@ -137,20 +137,21 @@ const ClientCard = ({
   badge?: string;
   alt: string;
 }) => (
-  <div className="group bg-card rounded-3xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-medium hover:-translate-y-1">
+  <div className="group h-full flex flex-col bg-card rounded-3xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-medium hover:-translate-y-1">
     <div className="overflow-hidden">
       <img
         src={photo}
         alt={alt}
         loading="lazy"
-        className="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-105"
+        className="w-full h-[200px] object-cover transition-transform duration-500 group-hover:scale-105"
       />
     </div>
-    <div className="p-7">
+    <div className="p-7 flex-1 flex flex-col">
       <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">{title}</h3>
       <p className="text-muted-foreground leading-relaxed text-[15px]">{text}</p>
     </div>
   </div>
+
 );
 
 
