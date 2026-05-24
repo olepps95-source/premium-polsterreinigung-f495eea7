@@ -137,20 +137,21 @@ const ClientCard = ({
   badge?: string;
   alt: string;
 }) => (
-  <div className="group bg-card rounded-3xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-medium hover:-translate-y-1">
+  <div className="group h-full flex flex-col bg-card rounded-3xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-medium hover:-translate-y-1">
     <div className="overflow-hidden">
       <img
         src={photo}
         alt={alt}
         loading="lazy"
-        className="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-105"
+        className="w-full h-[200px] object-cover transition-transform duration-500 group-hover:scale-105"
       />
     </div>
-    <div className="p-7">
+    <div className="p-7 flex-1 flex flex-col">
       <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">{title}</h3>
       <p className="text-muted-foreground leading-relaxed text-[15px]">{text}</p>
     </div>
   </div>
+
 );
 
 
@@ -308,14 +309,13 @@ const Gewerbe = () => {
                 Maßgeschneiderte Lösungen für jeden Unternehmenstyp
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
               <ClientCard
                 photo="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80"
                 alt="Hotelzimmer-Reinigung Dresden — Teppiche und Matratzen | ReinWerk"
                 icon="🏨"
                 title="Hotels & Pensionen"
                 text="Zimmerteppiche, Matratzen, Lobby-Sofas & Sessel — diskret und zuverlässig zwischen den Saisons."
-                
               />
               <ClientCard
                 photo={kitaReinigung}
@@ -323,7 +323,6 @@ const Gewerbe = () => {
                 icon="🏫"
                 title="Kitas & Schulen"
                 text="Spielteppiche, Schlafmatratzen & Sitzmöbel — ideal während der Ferien ohne Betriebsunterbrechung."
-                
               />
               <ClientCard
                 photo="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80"
@@ -338,9 +337,23 @@ const Gewerbe = () => {
                 icon="🏢"
                 title="Büros & Unternehmen"
                 text="Bürostühle, Konferenzräume, Teppiche & Böden — Termine abends oder am Wochenende möglich."
-                
+              />
+              <ClientCard
+                photo="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&q=80"
+                alt="Pflegeheim-Reinigung Sachsen — Matratzen und Polstermöbel hygienisch | ReinWerk"
+                icon="🏠"
+                title="Pflegeheime & Seniorenresidenzen"
+                text="Matratzen, Teppiche & Polstermöbel — hygienisch sauber und desinfiziert. Regelmäßige Servicetermine möglich."
+              />
+              <ClientCard
+                photo="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80"
+                alt="Restaurant-Reinigung Chemnitz — Stühle, Bänke und Teppiche | ReinWerk"
+                icon="🍽️"
+                title="Restaurants & Cafés"
+                text="Stühle, Bänke & Teppiche — sauber und einladend für Ihre Gäste. Termine nach Schließungszeit möglich."
               />
             </div>
+
           </div>
         </section>
 
