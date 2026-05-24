@@ -18,8 +18,8 @@ import { MessageCircle, Phone, Check, FileText, CalendarClock, MapPin } from 'lu
 import { toast } from '@/hooks/use-toast';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
-const TEL = 'tel:+491636986317';
-const PHONE_DISPLAY = '+49 163 698 6317';
+const TEL = 'tel:+491632373108';
+const PHONE_DISPLAY = '+49 163 2373108';
 
 const SERVICES = [
   'Teppichreinigung',
@@ -88,7 +88,7 @@ function useGewerbeHead() {
       description:
         'Professionelle Polster-, Teppich- und Bodenreinigung für Gewerbekunden in Sachsen',
       url: 'https://reinwerk-service.de',
-      telephone: '+491636986317',
+      telephone: '+491632373108',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Matthesstraße 48',
