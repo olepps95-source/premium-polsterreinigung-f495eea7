@@ -238,7 +238,7 @@ const Gewerbe = () => {
 
               <div className="grid grid-cols-3 gap-4 mb-10 max-w-xl">
                 {[
-                  { Icon: FileText, t: 'Rechnung', s: 'Mit MwSt-Ausweis' },
+                  { Icon: FileText, t: 'Rechnung', s: 'Professionell & transparent' },
                   { Icon: CalendarClock, t: 'Flexibel', s: 'Auch am Wochenende' },
                   { Icon: MapPin, t: 'Sachsen', s: 'Vor-Ort Service' },
                 ].map(({ Icon, t, s }) => (
