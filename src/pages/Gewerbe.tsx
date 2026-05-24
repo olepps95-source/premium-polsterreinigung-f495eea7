@@ -227,7 +227,7 @@ const Gewerbe = () => {
               <p className="text-xs sm:text-sm font-bold tracking-[0.25em] text-primary uppercase mb-3 lg:mb-5">
                 Für Unternehmen & Gewerbe
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-10 lg:mb-7">
+              <h1 className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-10 lg:mb-7">
                 Professionelle<br />
                 <span className="text-primary">Reinigung</span> für<br />
                 Ihr Unternehmen
