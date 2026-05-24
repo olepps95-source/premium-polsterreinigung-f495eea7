@@ -236,22 +236,25 @@ const Gewerbe = () => {
                 Teppiche, Polster, Matratzen & Hartböden — professioneller Vor-Ort Service in ganz Sachsen.
               </p>
 
-              <div className="grid grid-cols-3 gap-2 lg:gap-4 mb-6 lg:mb-10 max-w-xl">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 mb-6 lg:mb-10 max-w-xl">
                 {[
                   { Icon: FileText, t: 'Rechnung', s: 'Professionell & transparent' },
                   { Icon: CalendarClock, t: 'Flexibel', s: 'Auch am Wochenende' },
                   { Icon: MapPin, t: 'Sachsen', s: 'Vor-Ort Service' },
-                ].map(({ Icon, t, s }) => (
+                ].map(({ Icon, t, s }, i) => (
                   <div
                     key={t}
-                    className="bg-card/90 backdrop-blur-sm border border-border rounded-xl lg:rounded-2xl p-2 lg:p-4 text-center shadow-medium hover:shadow-glow transition-shadow"
+                    className={`bg-card/90 backdrop-blur-sm border border-border rounded-xl lg:rounded-2xl p-3 lg:p-4 text-center shadow-medium hover:shadow-glow transition-shadow ${
+                      i === 2 ? 'col-span-2 lg:col-span-1 mx-auto w-1/2 lg:w-auto' : ''
+                    }`}
                   >
-                    <Icon className="w-4 h-4 lg:w-6 lg:h-6 text-primary mx-auto mb-1 lg:mb-2.5" strokeWidth={1.75} />
-                    <p className="font-bold text-[11px] lg:text-sm text-foreground leading-tight">{t}</p>
-                    <p className="text-[9px] lg:text-[11px] text-muted-foreground mt-0.5 lg:mt-1 leading-tight">{s}</p>
+                    <Icon className="w-5 h-5 lg:w-6 lg:h-6 text-primary mx-auto mb-1.5 lg:mb-2.5" strokeWidth={1.75} />
+                    <p className="font-bold text-sm lg:text-sm text-foreground leading-tight">{t}</p>
+                    <p className="text-[11px] lg:text-[11px] text-muted-foreground mt-1 leading-tight">{s}</p>
                   </div>
                 ))}
               </div>
+
 
               <div className="flex flex-col lg:flex-row gap-2 lg:gap-3">
                 <Button
