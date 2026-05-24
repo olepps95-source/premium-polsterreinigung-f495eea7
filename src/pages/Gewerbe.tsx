@@ -17,6 +17,7 @@ import {
 import { MessageCircle, Phone, Check, FileText, CalendarClock, MapPin } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import heroGewerbe from '@/assets/hero-gewerbe.jpg';
+import kitaReinigung from '@/assets/kita-reinigung.jpeg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 const TEL = 'tel:+491632373108';
@@ -314,7 +315,7 @@ const Gewerbe = () => {
                 badge="Ab 299€ pro Termin"
               />
               <ClientCard
-                photo="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80"
+                photo={kitaReinigung}
                 alt="Kita-Reinigung Chemnitz — Spielteppiche und Matratzen | ReinWerk"
                 icon="🏫"
                 title="Kitas & Schulen"
