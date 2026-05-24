@@ -20,6 +20,7 @@ import heroGewerbe from '@/assets/hero-gewerbe.jpg';
 import kitaReinigung from '@/assets/kita-reinigung.jpeg';
 import teppichreinigungBuero from '@/assets/teppichreinigung-buero.jpg';
 import hartbodenreinigung from '@/assets/hartbodenreinigung.jpg';
+import kombipaket from '@/assets/kombipaket.jpeg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 const TEL = 'tel:+491632373108';
