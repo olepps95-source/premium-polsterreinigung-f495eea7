@@ -227,14 +227,15 @@ const Gewerbe = () => {
               <p className="text-xs sm:text-sm font-bold tracking-[0.25em] text-primary uppercase mb-3 lg:mb-5">
                 Für Unternehmen & Gewerbe
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-4 lg:mb-7">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-10 lg:mb-7">
                 Professionelle<br />
                 <span className="text-primary">Reinigung</span> für<br />
                 Ihr Unternehmen
               </h1>
-              <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 lg:mb-10 max-w-md leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-8 lg:mb-10 max-w-md leading-relaxed">
                 Teppiche, Polster, Matratzen & Hartböden — professioneller Vor-Ort Service in ganz Sachsen.
               </p>
+
 
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 mb-6 lg:mb-10 max-w-xl">
                 {[
