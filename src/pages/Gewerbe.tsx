@@ -209,7 +209,7 @@ const Gewerbe = () => {
       <Header />
       <main>
         {/* HERO */}
-        <section className="relative pt-28 lg:pt-32 pb-20 lg:pb-24 overflow-hidden bg-background">
+        <section className="relative pt-24 lg:pt-32 pb-10 lg:pb-24 overflow-hidden bg-background">
           {/* Full-width background image, right-anchored (homepage style) */}
           <div className="absolute inset-0 z-0">
             <img
@@ -222,21 +222,21 @@ const Gewerbe = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
           </div>
 
-          <div className="container relative z-10 grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+          <div className="container relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
-              <p className="text-xs sm:text-sm font-bold tracking-[0.25em] text-primary uppercase mb-5">
+              <p className="text-xs sm:text-sm font-bold tracking-[0.25em] text-primary uppercase mb-3 lg:mb-5">
                 Für Unternehmen & Gewerbe
               </p>
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-7">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-4 lg:mb-7">
                 Professionelle<br />
                 <span className="text-primary">Reinigung</span> für<br />
                 Ihr Unternehmen
               </h1>
-              <p className="text-base lg:text-lg text-muted-foreground mb-10 max-w-md leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 lg:mb-10 max-w-md leading-relaxed">
                 Teppiche, Polster, Matratzen & Hartböden — professioneller Vor-Ort Service in ganz Sachsen.
               </p>
 
-              <div className="grid grid-cols-3 gap-4 mb-10 max-w-xl">
+              <div className="grid grid-cols-3 gap-2 lg:gap-4 mb-6 lg:mb-10 max-w-xl">
                 {[
                   { Icon: FileText, t: 'Rechnung', s: 'Professionell & transparent' },
                   { Icon: CalendarClock, t: 'Flexibel', s: 'Auch am Wochenende' },
@@ -244,19 +244,19 @@ const Gewerbe = () => {
                 ].map(({ Icon, t, s }) => (
                   <div
                     key={t}
-                    className="bg-card/90 backdrop-blur-sm border border-border rounded-2xl p-4 text-center shadow-medium hover:shadow-glow transition-shadow"
+                    className="bg-card/90 backdrop-blur-sm border border-border rounded-xl lg:rounded-2xl p-2 lg:p-4 text-center shadow-medium hover:shadow-glow transition-shadow"
                   >
-                    <Icon className="w-6 h-6 text-primary mx-auto mb-2.5" strokeWidth={1.75} />
-                    <p className="font-bold text-sm text-foreground">{t}</p>
-                    <p className="text-[11px] text-muted-foreground mt-1 leading-tight">{s}</p>
+                    <Icon className="w-4 h-4 lg:w-6 lg:h-6 text-primary mx-auto mb-1 lg:mb-2.5" strokeWidth={1.75} />
+                    <p className="font-bold text-[11px] lg:text-sm text-foreground leading-tight">{t}</p>
+                    <p className="text-[9px] lg:text-[11px] text-muted-foreground mt-0.5 lg:mt-1 leading-tight">{s}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="flex flex-row gap-3">
+              <div className="flex flex-col lg:flex-row gap-2 lg:gap-3">
                 <Button
                   size="lg"
-                  className="h-14 basis-3/5 bg-[#1E90FF] hover:bg-[#1878d4] hover:shadow-xl text-white rounded-xl shadow-lg font-semibold transition-all hover:-translate-y-0.5"
+                  className="h-12 lg:h-14 w-full lg:basis-3/5 bg-[#1E90FF] hover:bg-[#1878d4] hover:shadow-xl text-white rounded-xl shadow-lg font-semibold transition-all hover:-translate-y-0.5"
                   asChild
                 >
                   <a
@@ -272,7 +272,7 @@ const Gewerbe = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="h-14 basis-2/5 rounded-xl bg-white border-2 border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628] hover:text-white font-semibold transition-all hover:-translate-y-0.5"
+                  className="h-12 lg:h-14 w-full lg:basis-2/5 rounded-xl bg-white border-2 border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628] hover:text-white font-semibold transition-all hover:-translate-y-0.5"
                   asChild
                 >
                   <a href={TEL}>
@@ -286,6 +286,7 @@ const Gewerbe = () => {
             <div aria-hidden className="hidden lg:block" />
           </div>
         </section>
+
 
 
         {/* TARGET CLIENTS */}
