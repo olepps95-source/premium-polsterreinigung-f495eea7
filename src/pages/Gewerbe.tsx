@@ -18,6 +18,7 @@ import { MessageCircle, Phone, Check, FileText, CalendarClock, MapPin } from 'lu
 import { toast } from '@/hooks/use-toast';
 import heroGewerbe from '@/assets/hero-gewerbe.jpg';
 import kitaReinigung from '@/assets/kita-reinigung.jpeg';
+import teppichreinigungBuero from '@/assets/teppichreinigung-buero.jpg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 const TEL = 'tel:+491632373108';
@@ -353,7 +354,7 @@ const Gewerbe = () => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <ServiceCard
-                photo="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+                photo={teppichreinigungBuero}
                 alt="Teppichreinigung für Büros und Hotels in Sachsen — ReinWerk"
                 icon="🧹"
                 title="Teppichreinigung"
