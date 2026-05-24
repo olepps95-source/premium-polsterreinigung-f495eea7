@@ -128,14 +128,13 @@ const ClientCard = ({
   photo,
   title,
   text,
-  badge,
   alt,
 }: {
   photo: string;
   icon?: string;
   title: string;
   text: string;
-  badge: string;
+  badge?: string;
   alt: string;
 }) => (
   <div className="group bg-card rounded-3xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-medium hover:-translate-y-1">
@@ -149,13 +148,11 @@ const ClientCard = ({
     </div>
     <div className="p-7">
       <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">{title}</h3>
-      <p className="text-muted-foreground mb-5 leading-relaxed text-[15px]">{text}</p>
-      <span className="inline-block border border-primary/30 text-primary bg-primary/5 text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
-        {badge}
-      </span>
+      <p className="text-muted-foreground leading-relaxed text-[15px]">{text}</p>
     </div>
   </div>
 );
+
 
 const ServiceCard = ({
   photo,
