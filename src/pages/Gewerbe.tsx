@@ -23,6 +23,7 @@ import hartbodenreinigung from '@/assets/hartbodenreinigung.jpg';
 import kombipaket from '@/assets/kombipaket.jpeg';
 import stuhlreinigung from '@/assets/stuhlreinigung.jpeg';
 import matratzenreinigung from '@/assets/matratzenreinigung.jpg';
+import polsterreinigung from '@/assets/polsterreinigung.jpeg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 const TEL = 'tel:+491632373108';
