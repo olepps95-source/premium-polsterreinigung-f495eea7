@@ -233,9 +233,10 @@ const Gewerbe = () => {
                 <span className="whitespace-nowrap">Ihr Unternehmen</span>
               </h1>
 
-              <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-8 lg:mb-10 max-w-md leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-lg font-semibold text-foreground mb-8 lg:mb-10 max-w-md leading-relaxed">
                 Teppiche, Polster, Matratzen & Hartböden — professioneller Vor-Ort Service in ganz Sachsen.
               </p>
+
 
 
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 mb-6 lg:mb-10 max-w-xl">
