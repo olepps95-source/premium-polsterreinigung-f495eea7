@@ -20,6 +20,7 @@ import heroGewerbe from '@/assets/hero-gewerbe.jpg';
 import kitaReinigung from '@/assets/kita-reinigung.jpeg';
 import teppichreinigungBuero from '@/assets/teppichreinigung-buero.jpg';
 import hartbodenreinigung from '@/assets/hartbodenreinigung.jpg';
+import kombipaket from '@/assets/kombipaket.jpeg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 const TEL = 'tel:+491632373108';
@@ -410,7 +411,7 @@ const Gewerbe = () => {
                 ]}
               />
               <ServiceCard
-                photo="https://images.unsplash.com/photo-1497366754035-f200968a7dd0?w=600&q=80"
+                photo={kombipaket}
                 alt="Kombipaket Polster Teppich Boden Gewerbe Sachsen — ReinWerk"
                 icon="📦"
                 title="Kombipaket"
