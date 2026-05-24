@@ -128,14 +128,13 @@ const ClientCard = ({
   photo,
   title,
   text,
-  badge,
   alt,
 }: {
   photo: string;
   icon?: string;
   title: string;
   text: string;
-  badge: string;
+  badge?: string;
   alt: string;
 }) => (
   <div className="group bg-card rounded-3xl shadow-soft border border-border overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-medium hover:-translate-y-1">
@@ -149,13 +148,11 @@ const ClientCard = ({
     </div>
     <div className="p-7">
       <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">{title}</h3>
-      <p className="text-muted-foreground mb-5 leading-relaxed text-[15px]">{text}</p>
-      <span className="inline-block border border-primary/30 text-primary bg-primary/5 text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
-        {badge}
-      </span>
+      <p className="text-muted-foreground leading-relaxed text-[15px]">{text}</p>
     </div>
   </div>
 );
+
 
 const ServiceCard = ({
   photo,
@@ -318,7 +315,7 @@ const Gewerbe = () => {
                 icon="🏨"
                 title="Hotels & Pensionen"
                 text="Zimmerteppiche, Matratzen, Lobby-Sofas & Sessel — diskret und zuverlässig zwischen den Saisons."
-                badge="Ab 299€ pro Termin"
+                
               />
               <ClientCard
                 photo={kitaReinigung}
@@ -326,7 +323,7 @@ const Gewerbe = () => {
                 icon="🏫"
                 title="Kitas & Schulen"
                 text="Spielteppiche, Schlafmatratzen & Sitzmöbel — ideal während der Ferien ohne Betriebsunterbrechung."
-                badge="Ab 199€ pro Termin"
+                
               />
               <ClientCard
                 photo="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80"
@@ -334,7 +331,6 @@ const Gewerbe = () => {
                 icon="🏥"
                 title="Arztpraxen & Praxen"
                 text="Wartezimmer-Stühle, Teppiche & Hartböden — hygienisch sauber, mit Rechnung für Ihre Buchhaltung."
-                badge="Ab 149€ pro Termin"
               />
               <ClientCard
                 photo="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80"
@@ -342,7 +338,7 @@ const Gewerbe = () => {
                 icon="🏢"
                 title="Büros & Unternehmen"
                 text="Bürostühle, Konferenzräume, Teppiche & Böden — Termine abends oder am Wochenende möglich."
-                badge="Ab 149€ pro Termin"
+                
               />
             </div>
           </div>
