@@ -354,7 +354,7 @@ const Gewerbe = () => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <ServiceCard
-                photo="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+                photo={teppichreinigungBuero}
                 alt="Teppichreinigung für Büros und Hotels in Sachsen — ReinWerk"
                 icon="🧹"
                 title="Teppichreinigung"
