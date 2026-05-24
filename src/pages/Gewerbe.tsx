@@ -265,10 +265,10 @@ const Gewerbe = () => {
                 ))}
               </div>
 
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-row gap-3">
                 <Button
                   size="lg"
-                  className="h-14 w-full bg-[#1E90FF] hover:bg-[#1878d4] hover:shadow-xl text-white rounded-xl shadow-lg font-semibold transition-all hover:-translate-y-0.5"
+                  className="h-14 basis-3/5 bg-[#1E90FF] hover:bg-[#1878d4] hover:shadow-xl text-white rounded-xl shadow-lg font-semibold transition-all hover:-translate-y-0.5"
                   asChild
                 >
                   <a
@@ -281,27 +281,16 @@ const Gewerbe = () => {
                     📋 Angebot anfordern →
                   </a>
                 </Button>
-                <div className="flex flex-row gap-3">
-                  <Button
-                    size="lg"
-                    className="h-14 flex-1 bg-[#25D366] hover:bg-[#1ea855] hover:shadow-xl text-white rounded-xl shadow-lg font-semibold transition-all hover:-translate-y-0.5"
-                    asChild
-                  >
-                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                      💬 WhatsApp
-                    </a>
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="h-14 flex-1 rounded-xl border-2 border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628] hover:text-white font-semibold transition-all hover:-translate-y-0.5"
-                    asChild
-                  >
-                    <a href={TEL}>
-                      📞 Anrufen
-                    </a>
-                  </Button>
-                </div>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="h-14 basis-2/5 rounded-xl bg-white border-2 border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628] hover:text-white font-semibold transition-all hover:-translate-y-0.5"
+                  asChild
+                >
+                  <a href={TEL}>
+                    📞 Anrufen
+                  </a>
+                </Button>
               </div>
             </div>
 
