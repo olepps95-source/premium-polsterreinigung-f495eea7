@@ -260,10 +260,10 @@ const Gewerbe = () => {
                   asChild
                 >
                   <a
-                    href="#kontakt"
+                    href="#angebot-anfordern"
                     onClick={(e) => {
                       e.preventDefault();
-                      document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      document.getElementById('angebot-anfordern')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }}
                   >
                     📋 Angebot anfordern →
