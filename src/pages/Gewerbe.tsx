@@ -248,7 +248,7 @@ const Gewerbe = () => {
                   <div
                     key={t}
                     className={`bg-card/90 backdrop-blur-sm border border-border rounded-xl lg:rounded-2xl p-3 lg:p-4 text-center shadow-medium hover:shadow-glow transition-shadow ${
-                      i === 2 ? 'col-span-2 lg:col-span-1 mx-auto w-1/2 lg:w-auto' : ''
+                      i === 2 ? 'col-span-2 lg:col-span-1 mx-auto w-[calc(50%-0.25rem)] lg:w-auto' : ''
                     }`}
                   >
                     <Icon className="w-5 h-5 lg:w-6 lg:h-6 text-primary mx-auto mb-1.5 lg:mb-2.5" strokeWidth={1.75} />
