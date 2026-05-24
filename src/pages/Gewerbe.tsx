@@ -318,7 +318,7 @@ const Gewerbe = () => {
                 icon="🏨"
                 title="Hotels & Pensionen"
                 text="Zimmerteppiche, Matratzen, Lobby-Sofas & Sessel — diskret und zuverlässig zwischen den Saisons."
-                badge="Ab 299€ pro Termin"
+                
               />
               <ClientCard
                 photo={kitaReinigung}
@@ -326,7 +326,7 @@ const Gewerbe = () => {
                 icon="🏫"
                 title="Kitas & Schulen"
                 text="Spielteppiche, Schlafmatratzen & Sitzmöbel — ideal während der Ferien ohne Betriebsunterbrechung."
-                badge="Ab 199€ pro Termin"
+                
               />
               <ClientCard
                 photo="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80"
@@ -334,7 +334,6 @@ const Gewerbe = () => {
                 icon="🏥"
                 title="Arztpraxen & Praxen"
                 text="Wartezimmer-Stühle, Teppiche & Hartböden — hygienisch sauber, mit Rechnung für Ihre Buchhaltung."
-                badge="Ab 149€ pro Termin"
               />
               <ClientCard
                 photo="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80"
@@ -342,7 +341,7 @@ const Gewerbe = () => {
                 icon="🏢"
                 title="Büros & Unternehmen"
                 text="Bürostühle, Konferenzräume, Teppiche & Böden — Termine abends oder am Wochenende möglich."
-                badge="Ab 149€ pro Termin"
+                
               />
             </div>
           </div>
