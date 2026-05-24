@@ -22,6 +22,7 @@ import teppichreinigungBuero from '@/assets/teppichreinigung-buero.jpg';
 import hartbodenreinigung from '@/assets/hartbodenreinigung.jpg';
 import kombipaket from '@/assets/kombipaket.jpeg';
 import stuhlreinigung from '@/assets/stuhlreinigung.jpeg';
+import matratzenreinigung from '@/assets/matratzenreinigung.jpg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 const TEL = 'tel:+491632373108';
@@ -379,7 +380,7 @@ const Gewerbe = () => {
                 ]}
               />
               <ServiceCard
-                photo="https://images.unsplash.com/photo-1631049552057-403cdb8f0658?w=600&q=80"
+                photo={matratzenreinigung}
                 alt="Matratzenreinigung Hotel und Kita in Sachsen — ReinWerk"
                 icon="🛏️"
                 title="Matratzenreinigung"
