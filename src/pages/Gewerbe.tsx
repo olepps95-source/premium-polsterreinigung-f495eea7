@@ -432,7 +432,7 @@ const Gewerbe = () => {
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                ['Rechnung mit MwSt-Ausweis', 'Für Ihre Buchhaltung und Steuer'],
+                ['Rechnung inklusive', 'Professionell & transparent'],
                 ['Flexible Terminplanung', 'Abends, am Wochenende, in den Ferien'],
                 ['Keine Betriebsunterbrechung', 'Wir arbeiten wenn Sie geschlossen haben'],
                 ['Regelmäßige Serviceverträge', 'Monatlich oder quartalsweise'],
