@@ -315,7 +315,7 @@ const Gewerbe = () => {
                 badge="Ab 299€ pro Termin"
               />
               <ClientCard
-                photo="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80"
+                photo={kitaReinigung}
                 alt="Kita-Reinigung Chemnitz — Spielteppiche und Matratzen | ReinWerk"
                 icon="🏫"
                 title="Kitas & Schulen"
