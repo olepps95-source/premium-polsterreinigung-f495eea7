@@ -23,6 +23,7 @@ import hartbodenreinigung from '@/assets/hartbodenreinigung.jpg';
 import kombipaket from '@/assets/kombipaket.jpeg';
 import stuhlreinigung from '@/assets/stuhlreinigung.jpeg';
 import matratzenreinigung from '@/assets/matratzenreinigung.jpg';
+import polsterreinigung from '@/assets/polsterreinigung.jpeg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 const TEL = 'tel:+491632373108';
@@ -369,7 +370,7 @@ const Gewerbe = () => {
                 ]}
               />
               <ServiceCard
-                photo="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"
+                photo={polsterreinigung}
                 alt="Polsterreinigung Bürostühle und Sofas in Sachsen — ReinWerk"
                 icon="🛋️"
                 title="Polsterreinigung"
