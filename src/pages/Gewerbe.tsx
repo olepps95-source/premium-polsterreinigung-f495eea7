@@ -18,6 +18,7 @@ import { MessageCircle, Phone, Check, FileText, CalendarClock, MapPin } from 'lu
 import { toast } from '@/hooks/use-toast';
 import heroGewerbe from '@/assets/hero-gewerbe.jpg';
 import kitaReinigung from '@/assets/kita-reinigung.jpeg';
+import teppichreinigungBuero from '@/assets/teppichreinigung-buero.jpg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 const TEL = 'tel:+491632373108';
