@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/select';
 import { MessageCircle, Phone, Check, FileText, CalendarClock, MapPin } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import heroGewerbe from '@/assets/hero-gewerbe.jpg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 const TEL = 'tel:+491632373108';
@@ -208,33 +209,20 @@ const Gewerbe = () => {
       <Header />
       <main>
         {/* HERO */}
-        <section className="relative pt-28 lg:pt-32 pb-20 lg:pb-24 overflow-hidden bg-gradient-to-b from-secondary/40 via-background to-background">
-          {/* Full-width background image, right-anchored */}
-          <div aria-hidden className="absolute inset-0 -z-10">
+        <section className="relative pt-28 lg:pt-32 pb-20 lg:pb-24 overflow-hidden bg-background">
+          {/* Full-width background image, right-anchored (homepage style) */}
+          <div className="absolute inset-0 z-0">
             <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=85"
-              alt=""
+              src={heroGewerbe}
+              alt="Professionelle Gewerbereinigung — Teppichreinigung im Büro in Sachsen | ReinWerk"
               className="w-full h-full object-cover object-right"
               loading="eager"
             />
-            {/* Left fade to background for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/10" />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/60" />
-            {/* Soft white overlay over image area */}
-            <div className="absolute inset-0 bg-white/30" />
-            {/* Subtle blur transition strip between text and image */}
-            <div className="absolute inset-y-0 left-1/3 w-1/3 backdrop-blur-sm bg-background/10 [mask-image:linear-gradient(to_right,black,transparent)]" />
+            {/* Left-to-right white fade — keeps text crisp, image visible on right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
           </div>
-          {/* soft radial glow */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 -z-0"
-            style={{
-              background:
-                'radial-gradient(ellipse 60% 50% at 20% 30%, hsl(var(--primary) / 0.10), transparent 60%), radial-gradient(ellipse 50% 40% at 90% 80%, hsl(var(--primary) / 0.06), transparent 60%)',
-            }}
-          />
-          <div className="container relative grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+
+          <div className="container relative z-10 grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
             <div>
               <p className="text-xs sm:text-sm font-bold tracking-[0.25em] text-primary uppercase mb-5">
                 Für Unternehmen & Gewerbe
