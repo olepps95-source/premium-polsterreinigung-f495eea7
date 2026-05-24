@@ -411,7 +411,7 @@ const Gewerbe = () => {
                 ]}
               />
               <ServiceCard
-                photo="https://images.unsplash.com/photo-1497366754035-f200968a7dd0?w=600&q=80"
+                photo={kombipaket}
                 alt="Kombipaket Polster Teppich Boden Gewerbe Sachsen — ReinWerk"
                 icon="📦"
                 title="Kombipaket"
