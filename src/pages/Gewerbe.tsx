@@ -446,7 +446,7 @@ const Gewerbe = () => {
         </section>
 
         {/* CONTACT FORM */}
-        <section className="py-16 bg-[#F0F7FF]">
+        <section id="angebot-anfordern" className="py-16 bg-[#F0F7FF]">
           <div className="container max-w-2xl">
             <div className="text-center mb-8">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-3">
