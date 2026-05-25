@@ -213,6 +213,9 @@ const Gewerbe = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Gewerbereinigung Sachsen | ReinWerk</title>
+      </Helmet>
       <Header />
       <main>
         {/* HERO */}
