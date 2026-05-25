@@ -42,7 +42,7 @@ const SERVICES = [
 function useGewerbeHead() {
   useEffect(() => {
     const prevTitle = document.title;
-    document.title = 'Gewerbereinigung Sachsen — Teppich, Polster & Böden | ReinWerk';
+    document.title = 'Professionelle Gewerbliche Reinigung in Chemnitz & Sachsen | ReinWerk';
 
     const tags: HTMLElement[] = [];
 
@@ -63,18 +63,18 @@ function useGewerbeHead() {
     setMeta(
       'name',
       'description',
-      'Professionelle Reinigung für Hotels, Kitas, Arztpraxen & Büros in Sachsen. Teppiche, Polster, Matratzen & Hartböden. Vor-Ort Service in Dresden, Leipzig & Chemnitz. Angebot in 15 Min — ReinWerk.'
+      'B2B Reinigungsservice für Arztpraxen, Büros & Hotels in Chemnitz, Leipzig & Dresden. Teppich-, Polster- und Hartbodenreinigung ohne Betriebsunterbrechung.'
     );
     setMeta(
       'name',
       'keywords',
-      'Gewerbereinigung Sachsen, Teppichreinigung Hotel Dresden, Polsterreinigung Büro Leipzig, Kita Reinigung Chemnitz, Arztpraxis Reinigung Sachsen, Stuhlreinigung Gewerbe, Hartbodenreinigung Büro, gewerbliche Reinigung Sachsen'
+      'Gewerbliche Reinigung Chemnitz, Praxisreinigung Sachsen, Büroreinigung Chemnitz, Teppichreinigung Büro Leipzig, Polsterreinigung Dresden, Hartbodenreinigung Gewerbe, B2B Reinigung Sachsen, gewerbliche Reinigung Sachsen'
     );
-    setMeta('property', 'og:title', 'ReinWerk — Gewerbereinigung in Sachsen');
+    setMeta('property', 'og:title', 'Professionelle Gewerbliche Reinigung in Chemnitz & Sachsen | ReinWerk');
     setMeta(
       'property',
       'og:description',
-      'Professionelle Reinigung für Hotels, Kitas, Praxen & Büros. Teppiche, Polster, Matratzen & Böden. Vor-Ort in Dresden, Leipzig & Chemnitz.'
+      'B2B Reinigungsservice für Arztpraxen, Büros & Hotels in Chemnitz, Leipzig & Dresden. Teppich-, Polster- und Hartbodenreinigung ohne Betriebsunterbrechung.'
     );
     setMeta('property', 'og:url', 'https://reinwerk-service.de/gewerbe');
 
@@ -92,12 +92,13 @@ function useGewerbeHead() {
     ld.type = 'application/ld+json';
     ld.text = JSON.stringify({
       '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
+      '@type': ['LocalBusiness', 'CleaningService'],
       name: 'ReinWerk',
       description:
-        'Professionelle Polster-, Teppich- und Bodenreinigung für Gewerbekunden in Sachsen',
-      url: 'https://reinwerk-service.de',
+        'Professionelle Teppich-, Polster- und Bodenreinigung für Gewerbekunden (B2B) in Sachsen.',
+      url: 'https://reinwerk-service.de/gewerbe',
       telephone: '+491632373108',
+      priceRange: '€€',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Matthesstraße 48',
@@ -105,8 +106,11 @@ function useGewerbeHead() {
         postalCode: '09113',
         addressCountry: 'DE',
       },
-      areaServed: ['Dresden', 'Leipzig', 'Chemnitz', 'Sachsen'],
+      areaServed: ['Chemnitz', 'Dresden', 'Leipzig', 'Zwickau', 'Sachsen'],
       serviceType: [
+        'Gewerbliche Reinigung',
+        'Praxisreinigung',
+        'Büroreinigung',
         'Teppichreinigung',
         'Polsterreinigung',
         'Matratzenreinigung',
@@ -220,7 +224,7 @@ const Gewerbe = () => {
           <div className="absolute inset-0 z-0">
             <img
               src={heroGewerbe}
-              alt="Professionelle Gewerbereinigung — Teppichreinigung im Büro in Sachsen | ReinWerk"
+              alt="Professionelle Teppichreinigung im Büro mit Waschsauger in Chemnitz"
               className="w-full h-full object-cover object-right"
               loading="eager"
             />
@@ -313,7 +317,7 @@ const Gewerbe = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
               <ClientCard
                 photo="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80"
-                alt="Hotelzimmer-Reinigung Dresden — Teppiche und Matratzen | ReinWerk"
+                alt="Matratzenreinigung und Teppichreinigung für Hotels und Pensionen"
                 icon="🏨"
                 title="Hotels & Pensionen"
                 text="Zimmerteppiche, Matratzen, Lobby-Sofas & Sessel — diskret und zuverlässig zwischen den Saisons."
@@ -327,14 +331,14 @@ const Gewerbe = () => {
               />
               <ClientCard
                 photo="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80"
-                alt="Arztpraxis-Reinigung Sachsen — Wartezimmer hygienisch sauber | ReinWerk"
+                alt="Hygienische Stuhlreinigung und Bodenreinigung für Arztpraxen in Sachsen"
                 icon="🏥"
                 title="Arztpraxen & Praxen"
                 text="Wartezimmer-Stühle, Teppiche & Hartböden — hygienisch sauber, mit Rechnung für Ihre Buchhaltung."
               />
               <ClientCard
                 photo="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80"
-                alt="Büroreinigung Leipzig — Bürostühle und Teppiche | ReinWerk"
+                alt="Teppichbodenreinigung und Polsterreinigung für Büros und Konferenzräume"
                 icon="🏢"
                 title="Büros & Unternehmen"
                 text="Bürostühle, Konferenzräume, Teppiche & Böden — Termine abends oder am Wochenende möglich."
