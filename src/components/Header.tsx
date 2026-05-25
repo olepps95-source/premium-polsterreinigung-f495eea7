@@ -3,6 +3,8 @@ import { Menu, X, Phone, Mail, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { trackGoogleAdsConversion } from '@/lib/google-ads';
+import { trackContact } from '@/lib/meta-pixel';
 import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 
 const defaultNavLinks = [
@@ -169,6 +171,7 @@ export function Header() {
           <div className="flex flex-col gap-3 pt-2">
             <a
               href="tel:+491632373108"
+              onClick={() => { trackGoogleAdsConversion(); trackContact(); }}
               className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-primary hover:bg-secondary/50 transition-all group"
             >
               <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
@@ -182,6 +185,7 @@ export function Header() {
 
             <a
               href="mailto:info@reinwerk-service.de"
+              onClick={() => { trackGoogleAdsConversion(); trackContact(); }}
               className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-primary hover:bg-secondary/50 transition-all group"
             >
               <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
@@ -197,6 +201,7 @@ export function Header() {
               href="https://api.whatsapp.com/send/?phone=491636986317&text&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => { trackGoogleAdsConversion(); trackContact(); }}
               className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-[#25D366] hover:bg-secondary/50 transition-all group"
             >
               <div className="w-11 h-11 rounded-full bg-[#25D366]/10 text-[#25D366] flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors">

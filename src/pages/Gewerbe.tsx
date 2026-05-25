@@ -16,6 +16,8 @@ import {
 } from '@/components/ui/select';
 import { MessageCircle, Phone, Check, Truck, CalendarClock, Calculator } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import { trackGoogleAdsConversion } from '@/lib/google-ads';
+import { trackLead, trackContact } from '@/lib/meta-pixel';
 import heroGewerbe from '@/assets/hero-gewerbe.jpg';
 import kitaReinigung from '@/assets/kita-reinigung.jpeg';
 import teppichreinigungBuero from '@/assets/teppichreinigung-buero.jpg';
@@ -246,6 +248,8 @@ const Gewerbe = () => {
       setForm({ firma: '', name: '', phone: '', email: '', typ: '', nachricht: '' });
       setServices([]);
       setSuccess(true);
+      trackGoogleAdsConversion();
+      trackLead();
       toast({ title: 'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.' });
       formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err) {
@@ -334,7 +338,7 @@ const Gewerbe = () => {
                   className="h-12 lg:h-14 w-full lg:basis-2/5 rounded-xl bg-white border-2 border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628] hover:text-white font-semibold transition-all hover:-translate-y-0.5"
                   asChild
                 >
-                  <a href={TEL}>
+                  <a href={TEL} onClick={() => { trackGoogleAdsConversion(); trackContact(); }}>
                     📞 Anrufen
                   </a>
                 </Button>
@@ -648,7 +652,7 @@ const Gewerbe = () => {
                 className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold"
                 asChild
               >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => { trackGoogleAdsConversion(); trackContact(); }}>
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp schreiben
                 </a>
@@ -659,7 +663,7 @@ const Gewerbe = () => {
                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0A1628]"
                 asChild
               >
-                <a href={TEL}>
+                <a href={TEL} onClick={() => { trackGoogleAdsConversion(); trackContact(); }}>
                   <Phone className="w-5 h-5" />
                   {PHONE_DISPLAY}
                 </a>
