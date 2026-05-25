@@ -14,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { MessageCircle, Phone, Check, FileText, CalendarClock, MapPin } from 'lucide-react';
+import { MessageCircle, Phone, Check, Truck, CalendarClock, Calculator } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import heroGewerbe from '@/assets/hero-gewerbe.jpg';
 import kitaReinigung from '@/assets/kita-reinigung.jpeg';
