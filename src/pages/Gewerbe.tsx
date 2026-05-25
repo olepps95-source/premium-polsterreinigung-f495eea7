@@ -92,12 +92,13 @@ function useGewerbeHead() {
     ld.type = 'application/ld+json';
     ld.text = JSON.stringify({
       '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
+      '@type': ['LocalBusiness', 'CleaningService'],
       name: 'ReinWerk',
       description:
-        'Professionelle Polster-, Teppich- und Bodenreinigung für Gewerbekunden in Sachsen',
-      url: 'https://reinwerk-service.de',
+        'Professionelle Teppich-, Polster- und Bodenreinigung für Gewerbekunden (B2B) in Sachsen.',
+      url: 'https://reinwerk-service.de/gewerbe',
       telephone: '+491632373108',
+      priceRange: '€€',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Matthesstraße 48',
@@ -105,8 +106,11 @@ function useGewerbeHead() {
         postalCode: '09113',
         addressCountry: 'DE',
       },
-      areaServed: ['Dresden', 'Leipzig', 'Chemnitz', 'Sachsen'],
+      areaServed: ['Chemnitz', 'Dresden', 'Leipzig', 'Zwickau', 'Sachsen'],
       serviceType: [
+        'Gewerbliche Reinigung',
+        'Praxisreinigung',
+        'Büroreinigung',
         'Teppichreinigung',
         'Polsterreinigung',
         'Matratzenreinigung',
