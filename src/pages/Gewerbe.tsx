@@ -669,9 +669,6 @@ const Gewerbe = () => {
                 </a>
               </Button>
             </div>
-            <p className="text-sm text-white/60 mt-8">
-              reinwerk-service.de | Sachsen, Deutschland
-            </p>
           </div>
         </section>
       </main>
