@@ -14,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { MessageCircle, Phone, Check, FileText, CalendarClock, MapPin } from 'lucide-react';
+import { MessageCircle, Phone, Check, Truck, CalendarClock, Calculator } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import heroGewerbe from '@/assets/hero-gewerbe.jpg';
 import kitaReinigung from '@/assets/kita-reinigung.jpeg';
@@ -296,9 +296,9 @@ const Gewerbe = () => {
 
               <div className="grid grid-cols-3 gap-2 lg:gap-4 mb-6 lg:mb-10 max-w-xl">
                 {[
-                  { Icon: FileText, t: 'Rechnung', s: 'Professionell & transparent' },
+                  { Icon: Truck, t: '0€ Anfahrt', s: 'Keine versteckten Gebühren' },
                   { Icon: CalendarClock, t: 'Flexibel', s: 'Auch am Wochenende' },
-                  { Icon: MapPin, t: 'Sachsen', s: 'Vor-Ort Service' },
+                  { Icon: Calculator, t: 'Festpreis', s: 'Vorab kalkulierbar' },
                 ].map(({ Icon, t, s }) => (
                   <div
                     key={t}

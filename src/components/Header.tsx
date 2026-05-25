@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 
-const navLinks = [
+const defaultNavLinks = [
   { label: 'Leistungen', href: '#leistungen' },
   { label: 'Gewerbe', href: '/gewerbe' },
   { label: 'Preise', href: '#preise' },
@@ -13,11 +13,19 @@ const navLinks = [
   { label: 'Einsatzgebiet', href: '#einsatzgebiet' },
 ];
 
+const gewerbeNavLinks = [
+  { label: 'Privat', href: '/' },
+  { label: 'Gewerbe', href: '/gewerbe' },
+  { label: 'Bewertungen', href: '#bewertungen' },
+  { label: 'Kontakt', href: '#kontakt' },
+];
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const navLinks = location.pathname === '/gewerbe' ? gewerbeNavLinks : defaultNavLinks;
 
   useEffect(() => {
     const handleScroll = () => {
