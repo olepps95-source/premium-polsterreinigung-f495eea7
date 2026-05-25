@@ -16,6 +16,8 @@ import {
 } from '@/components/ui/select';
 import { MessageCircle, Phone, Check, Truck, CalendarClock, Calculator } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import { trackGoogleAdsConversion } from '@/lib/google-ads';
+import { trackLead, trackContact } from '@/lib/meta-pixel';
 import heroGewerbe from '@/assets/hero-gewerbe.jpg';
 import kitaReinigung from '@/assets/kita-reinigung.jpeg';
 import teppichreinigungBuero from '@/assets/teppichreinigung-buero.jpg';
