@@ -317,7 +317,7 @@ const Gewerbe = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
               <ClientCard
                 photo="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80"
-                alt="Hotelzimmer-Reinigung Dresden — Teppiche und Matratzen | ReinWerk"
+                alt="Matratzenreinigung und Teppichreinigung für Hotels und Pensionen"
                 icon="🏨"
                 title="Hotels & Pensionen"
                 text="Zimmerteppiche, Matratzen, Lobby-Sofas & Sessel — diskret und zuverlässig zwischen den Saisons."
