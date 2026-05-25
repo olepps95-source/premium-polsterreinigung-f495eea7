@@ -533,7 +533,13 @@ const Gewerbe = () => {
                 Kostenlos & unverbindlich — Antwort in 15 Minuten
               </p>
             </div>
+            {success && (
+              <div className="mb-6 p-4 rounded-xl bg-green-50 border border-green-200 text-green-800 text-center">
+                Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.
+              </div>
+            )}
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="bg-card rounded-2xl p-6 md:p-8 shadow-medium border border-border space-y-5"
             >
