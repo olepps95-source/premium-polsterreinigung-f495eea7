@@ -630,8 +630,8 @@ const Gewerbe = () => {
                   className="mt-1.5"
                 />
               </div>
-              <Button type="submit" variant="hero" size="lg" className="w-full">
-                Angebot anfordern →
+              <Button type="submit" variant="hero" size="lg" className="w-full" disabled={submitting}>
+                {submitting ? 'Wird gesendet...' : 'Angebot anfordern →'}
               </Button>
               <div className="text-center text-sm text-muted-foreground pt-2 space-y-1">
                 <p>Oder direkt kontaktieren:</p>
