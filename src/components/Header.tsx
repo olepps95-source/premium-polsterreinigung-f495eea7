@@ -3,6 +3,8 @@ import { Menu, X, Phone, Mail, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { trackGoogleAdsConversion } from '@/lib/google-ads';
+import { trackContact } from '@/lib/meta-pixel';
 import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 
 const defaultNavLinks = [
