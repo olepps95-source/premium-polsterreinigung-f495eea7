@@ -224,7 +224,7 @@ const Gewerbe = () => {
           <div className="absolute inset-0 z-0">
             <img
               src={heroGewerbe}
-              alt="Professionelle Gewerbereinigung — Teppichreinigung im Büro in Sachsen | ReinWerk"
+              alt="Professionelle Teppichreinigung im Büro mit Waschsauger in Chemnitz"
               className="w-full h-full object-cover object-right"
               loading="eager"
             />
