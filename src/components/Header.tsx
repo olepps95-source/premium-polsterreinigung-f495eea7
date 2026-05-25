@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Mail, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 
 const defaultNavLinks = [
@@ -13,19 +14,22 @@ const defaultNavLinks = [
   { label: 'Einsatzgebiet', href: '#einsatzgebiet' },
 ];
 
-const gewerbeNavLinks = [
+type NavLink = { label: string; href: string; action?: 'contact-modal' };
+
+const gewerbeNavLinks: NavLink[] = [
   { label: 'Privat', href: '/' },
   { label: 'Gewerbe', href: '/gewerbe' },
-  { label: 'Bewertungen', href: '#bewertungen' },
-  { label: 'Kontakt', href: '#kontakt' },
+  { label: 'Kontakt', href: '#', action: 'contact-modal' },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const navLinks = location.pathname === '/gewerbe' ? gewerbeNavLinks : defaultNavLinks;
+  const isGewerbe = location.pathname === '/gewerbe';
+  const navLinks: NavLink[] = isGewerbe ? gewerbeNavLinks : defaultNavLinks;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +45,14 @@ export function Header() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       navigate('/');
+    }
+  };
+
+  const handleNavClick = (e: React.MouseEvent, link: NavLink) => {
+    if (link.action === 'contact-modal') {
+      e.preventDefault();
+      setIsContactOpen(true);
+      setIsMobileMenuOpen(false);
     }
   };
 
@@ -68,8 +80,9 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
-              key={link.href}
+              key={link.label}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link)}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {link.label}
@@ -115,9 +128,12 @@ export function Header() {
           <nav className="container mx-auto py-6 flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
-                key={link.href}
+                key={link.label}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  handleNavClick(e, link);
+                  if (link.action !== 'contact-modal') setIsMobileMenuOpen(false);
+                }}
                 className="text-base font-medium text-foreground hover:text-primary transition-colors py-2"
               >
                 {link.label}
@@ -143,6 +159,57 @@ export function Header() {
           </nav>
         </div>
       )}
+
+      {/* Contact Modal */}
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="sm:max-w-md bg-background rounded-2xl shadow-2xl border-0 top-[10%] translate-y-0 sm:top-[15%]">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-foreground">Kontakt</DialogTitle>
+          </DialogHeader>
+          <div className="flex flex-col gap-3 pt-2">
+            <a
+              href="tel:+491632373108"
+              className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-primary hover:bg-secondary/50 transition-all group"
+            >
+              <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <Phone className="w-5 h-5" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs text-muted-foreground">Telefon</span>
+                <span className="text-base font-semibold text-foreground">+49 163 2373108</span>
+              </div>
+            </a>
+
+            <a
+              href="mailto:info@reinwerk-service.de"
+              className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-primary hover:bg-secondary/50 transition-all group"
+            >
+              <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs text-muted-foreground">E-Mail</span>
+                <span className="text-base font-semibold text-foreground">info@reinwerk-service.de</span>
+              </div>
+            </a>
+
+            <a
+              href="https://api.whatsapp.com/send/?phone=491636986317&text&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-[#25D366] hover:bg-secondary/50 transition-all group"
+            >
+              <div className="w-11 h-11 rounded-full bg-[#25D366]/10 text-[#25D366] flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors">
+                <MessageCircle className="w-5 h-5" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs text-muted-foreground">WhatsApp</span>
+                <span className="text-base font-semibold text-foreground">Nachricht senden</span>
+              </div>
+            </a>
+          </div>
+        </DialogContent>
+      </Dialog>
     </header>
   );
 }
