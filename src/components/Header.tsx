@@ -171,6 +171,7 @@ export function Header() {
           <div className="flex flex-col gap-3 pt-2">
             <a
               href="tel:+491632373108"
+              onClick={() => { trackGoogleAdsConversion(); trackContact(); }}
               className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-primary hover:bg-secondary/50 transition-all group"
             >
               <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
