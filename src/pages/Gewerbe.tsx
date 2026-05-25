@@ -248,6 +248,8 @@ const Gewerbe = () => {
       setForm({ firma: '', name: '', phone: '', email: '', typ: '', nachricht: '' });
       setServices([]);
       setSuccess(true);
+      trackGoogleAdsConversion();
+      trackLead();
       toast({ title: 'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.' });
       formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err) {
