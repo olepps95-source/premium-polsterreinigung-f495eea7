@@ -201,6 +201,7 @@ export function Header() {
               href="https://api.whatsapp.com/send/?phone=491636986317&text&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => { trackGoogleAdsConversion(); trackContact(); }}
               className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-[#25D366] hover:bg-secondary/50 transition-all group"
             >
               <div className="w-11 h-11 rounded-full bg-[#25D366]/10 text-[#25D366] flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors">
