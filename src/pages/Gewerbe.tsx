@@ -42,7 +42,7 @@ const SERVICES = [
 function useGewerbeHead() {
   useEffect(() => {
     const prevTitle = document.title;
-    document.title = 'Gewerbereinigung Sachsen — Teppich, Polster & Böden | ReinWerk';
+    document.title = 'Professionelle Gewerbliche Reinigung in Chemnitz & Sachsen | ReinWerk';
 
     const tags: HTMLElement[] = [];
 
@@ -63,18 +63,18 @@ function useGewerbeHead() {
     setMeta(
       'name',
       'description',
-      'Professionelle Reinigung für Hotels, Kitas, Arztpraxen & Büros in Sachsen. Teppiche, Polster, Matratzen & Hartböden. Vor-Ort Service in Dresden, Leipzig & Chemnitz. Angebot in 15 Min — ReinWerk.'
+      'B2B Reinigungsservice für Arztpraxen, Büros & Hotels in Chemnitz, Leipzig & Dresden. Teppich-, Polster- und Hartbodenreinigung ohne Betriebsunterbrechung.'
     );
     setMeta(
       'name',
       'keywords',
-      'Gewerbereinigung Sachsen, Teppichreinigung Hotel Dresden, Polsterreinigung Büro Leipzig, Kita Reinigung Chemnitz, Arztpraxis Reinigung Sachsen, Stuhlreinigung Gewerbe, Hartbodenreinigung Büro, gewerbliche Reinigung Sachsen'
+      'Gewerbliche Reinigung Chemnitz, Praxisreinigung Sachsen, Büroreinigung Chemnitz, Teppichreinigung Büro Leipzig, Polsterreinigung Dresden, Hartbodenreinigung Gewerbe, B2B Reinigung Sachsen, gewerbliche Reinigung Sachsen'
     );
-    setMeta('property', 'og:title', 'ReinWerk — Gewerbereinigung in Sachsen');
+    setMeta('property', 'og:title', 'Professionelle Gewerbliche Reinigung in Chemnitz & Sachsen | ReinWerk');
     setMeta(
       'property',
       'og:description',
-      'Professionelle Reinigung für Hotels, Kitas, Praxen & Büros. Teppiche, Polster, Matratzen & Böden. Vor-Ort in Dresden, Leipzig & Chemnitz.'
+      'B2B Reinigungsservice für Arztpraxen, Büros & Hotels in Chemnitz, Leipzig & Dresden. Teppich-, Polster- und Hartbodenreinigung ohne Betriebsunterbrechung.'
     );
     setMeta('property', 'og:url', 'https://reinwerk-service.de/gewerbe');
 
