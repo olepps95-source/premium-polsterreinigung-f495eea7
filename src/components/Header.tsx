@@ -25,6 +25,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const navLinks = location.pathname === '/gewerbe' ? gewerbeNavLinks : defaultNavLinks;
 
   useEffect(() => {
     const handleScroll = () => {
