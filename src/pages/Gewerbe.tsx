@@ -338,7 +338,7 @@ const Gewerbe = () => {
                   className="h-12 lg:h-14 w-full lg:basis-2/5 rounded-xl bg-white border-2 border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628] hover:text-white font-semibold transition-all hover:-translate-y-0.5"
                   asChild
                 >
-                  <a href={TEL}>
+                  <a href={TEL} onClick={() => { trackGoogleAdsConversion(); trackContact(); }}>
                     📞 Anrufen
                   </a>
                 </Button>
