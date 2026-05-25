@@ -652,7 +652,7 @@ const Gewerbe = () => {
                 className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold"
                 asChild
               >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => { trackGoogleAdsConversion(); trackContact(); }}>
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp schreiben
                 </a>
@@ -663,7 +663,7 @@ const Gewerbe = () => {
                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0A1628]"
                 asChild
               >
-                <a href={TEL}>
+                <a href={TEL} onClick={() => { trackGoogleAdsConversion(); trackContact(); }}>
                   <Phone className="w-5 h-5" />
                   {PHONE_DISPLAY}
                 </a>
