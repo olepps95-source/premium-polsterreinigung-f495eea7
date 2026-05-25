@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
@@ -199,6 +199,9 @@ const Gewerbe = () => {
     nachricht: '',
   });
   const [services, setServices] = useState<string[]>([]);
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const toggleService = (s: string) =>
     setServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
@@ -209,9 +212,57 @@ const Gewerbe = () => {
       toast({ title: 'Bitte alle Pflichtfelder ausfüllen', variant: 'destructive' });
       return;
     }
-    const text = `Neue Gewerbe-Anfrage:%0A%0AFirma: ${form.firma}%0AAnsprechpartner: ${form.name}%0ATelefon: ${form.phone}%0AE-Mail: ${form.email}%0AUnternehmensart: ${form.typ}%0ALeistungen: ${services.join(', ') || '-'}%0ANachricht: ${form.nachricht || '-'}`;
-    window.open(`https://wa.me/491636986317?text=${text}`, '_blank');
-    toast({ title: 'Anfrage wird an WhatsApp übergeben' });
+    if (services.length === 0) {
+      toast({ title: 'Bitte mindestens eine Leistung auswählen', variant: 'destructive' });
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      toast({ title: 'Bitte eine gültige E-Mail-Adresse eingeben', variant: 'destructive' });
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const payload = {
+        source: 'gewerbe',
+        firmenname: form.firma,
+        ansprechpartner: form.name,
+        telefon: form.phone,
+        email: form.email,
+        unternehmensart: form.typ,
+        leistungen: services,
+        nachricht: form.nachricht,
+        page: '/gewerbe',
+        created_at: new Date().toISOString(),
+        // Legacy compatibility fields for existing Make.com scenario
+        name: form.name,
+        phone: form.phone,
+        message: form.nachricht,
+        selected_services: services.join(', '),
+      };
+
+      const response = await fetch('https://hook.eu1.make.com/6qrngo5mu6wekvqwj8eacelu9oefi9sv', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error('Request failed');
+
+      setForm({ firma: '', name: '', phone: '', email: '', typ: '', nachricht: '' });
+      setServices([]);
+      setSuccess(true);
+      toast({ title: 'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.' });
+      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (err) {
+      toast({
+        title: 'Fehler beim Senden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch.',
+        variant: 'destructive',
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -482,7 +533,13 @@ const Gewerbe = () => {
                 Kostenlos & unverbindlich — Antwort in 15 Minuten
               </p>
             </div>
+            {success && (
+              <div className="mb-6 p-4 rounded-xl bg-green-50 border border-green-200 text-green-800 text-center">
+                Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.
+              </div>
+            )}
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="bg-card rounded-2xl p-6 md:p-8 shadow-medium border border-border space-y-5"
             >
@@ -573,8 +630,8 @@ const Gewerbe = () => {
                   className="mt-1.5"
                 />
               </div>
-              <Button type="submit" variant="hero" size="lg" className="w-full">
-                Angebot anfordern →
+              <Button type="submit" variant="hero" size="lg" className="w-full" disabled={submitting}>
+                {submitting ? 'Wird gesendet...' : 'Angebot anfordern →'}
               </Button>
               <div className="text-center text-sm text-muted-foreground pt-2 space-y-1">
                 <p>Oder direkt kontaktieren:</p>
