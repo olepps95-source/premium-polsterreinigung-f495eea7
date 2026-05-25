@@ -235,7 +235,7 @@ const Gewerbe = () => {
         page: 'gewerbe',
       };
 
-      const response = await fetch('https://hook.eu1.make.com/4tg79ipqgen9dvm7yoxuod7d4e1ctc7p', {
+      const response = await fetch('https://hook.eu1.make.com/ewbmeiwq0bhehjki0gwmg1vccjkbjiym', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
