@@ -225,7 +225,6 @@ const Gewerbe = () => {
     setSubmitting(true);
     try {
       const payload = {
-        source: 'gewerbe',
         firmenname: form.firma,
         ansprechpartner: form.name,
         telefon: form.phone,
@@ -233,16 +232,10 @@ const Gewerbe = () => {
         unternehmensart: form.typ,
         leistungen: services,
         nachricht: form.nachricht,
-        page: '/gewerbe',
-        created_at: new Date().toISOString(),
-        // Legacy compatibility fields for existing Make.com scenario
-        name: form.name,
-        phone: form.phone,
-        message: form.nachricht,
-        selected_services: services.join(', '),
+        page: 'gewerbe',
       };
 
-      const response = await fetch('https://hook.eu1.make.com/6qrngo5mu6wekvqwj8eacelu9oefi9sv', {
+      const response = await fetch('https://hook.eu1.make.com/4tg79ipqgen9dvm7yoxuod7d4e1ctc7p', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -257,13 +250,14 @@ const Gewerbe = () => {
       formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err) {
       toast({
-        title: 'Fehler beim Senden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch.',
+        title: 'Fehler beim Senden. Bitte erneut versuchen.',
         variant: 'destructive',
       });
     } finally {
       setSubmitting(false);
     }
   };
+
 
   return (
     <div className="min-h-screen bg-background">
