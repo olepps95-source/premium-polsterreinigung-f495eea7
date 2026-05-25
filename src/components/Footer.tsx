@@ -12,8 +12,7 @@ export function Footer() {
               Rein<span className="text-primary">Werk</span>
             </a>
             <p className="mt-4 text-muted-foreground max-w-sm">
-              Professionelle Polsterreinigung in Sachsen. Wir bringen Ihre Möbel zum Strahlen – 
-              schonend, gründlich und umweltfreundlich.
+              Professionelle Polster-, Teppich- & Bodenreinigung für Privat- und Gewerbekunden in Sachsen. Dresden · Leipzig · Chemnitz & Umgebung.
             </p>
           </div>
 
