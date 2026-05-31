@@ -9,6 +9,7 @@ import Impressum from "./pages/Impressum";
 import AGB from "./pages/AGB";
 import Widerrufsbelehrung from "./pages/Widerrufsbelehrung";
 import Gewerbe from "./pages/Gewerbe";
+import Fensterreinigung from "./pages/Fensterreinigung";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/agb" element={<AGB />} />
             <Route path="/widerrufsbelehrung" element={<Widerrufsbelehrung />} />
             <Route path="/gewerbe" element={<Gewerbe />} />
+            <Route path="/fensterreinigung" element={<Fensterreinigung />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
