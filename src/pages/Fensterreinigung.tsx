@@ -117,7 +117,7 @@ export default function Fensterreinigung() {
           <div className="container mx-auto relative z-10 py-16">
             <div className="max-w-2xl">
               <h1 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-tight">
-                Professionelle Fensterreinigung in Sachsen
+                Professionelle <span className="text-primary">Fensterreinigung</span> in Sachsen
               </h1>
               <p className="mt-4 text-xl md:text-2xl text-foreground/80 font-medium">
                 Streifenfreie Fenster für Privat- und Gewerbekunden.
