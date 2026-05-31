@@ -355,7 +355,7 @@ export default function Fensterreinigung() {
               Schnelle Rückmeldung per WhatsApp oder E-Mail.
             </p>
             <div className="mt-8 flex justify-center">
-              <Button variant="hero" size="xl" asChild>
+              <Button size="xl" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp Anfrage
