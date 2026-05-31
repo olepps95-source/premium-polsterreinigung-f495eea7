@@ -1,29 +1,49 @@
 import { useState, useRef, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { MessageCircle, Check, Home, Building2, Sparkles, Camera, FileText, Calendar, Euro, ShieldCheck, Users, Star, ArrowRight } from 'lucide-react';
+import { MessageCircle, Check, Home, Building2, Sparkles, LayoutGrid, Camera, FileText, Calendar, Star, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { toast } from '@/hooks/use-toast';
 import heroImg from '@/assets/fenster-hero.jpg';
 import dirtyImg from '@/assets/fenster-dirty.jpg';
 import privatImg from '@/assets/fenster-privat.jpg';
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
-import technicianImg from '@/assets/fenster-technician.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
 import beforeImg from '@/assets/fenster-before.jpg';
 import afterImg from '@/assets/fenster-after.jpg';
+import avatarMaria from '@/assets/avatar-maria.jpg';
+import avatarThomas from '@/assets/avatar-thomas.jpg';
+import avatarAnna from '@/assets/avatar-anna.jpg';
+import avatarMichael from '@/assets/avatar-michael.jpg';
 
-const WHATSAPP_URL = 'https://api.whatsapp.com/send/?phone=491636986317&text&type=phone_number&app_absent=0';
+const WHATSAPP_URL = 'https://wa.me/491636986317';
+
+const services = [
+  { icon: Home, title: 'Fensterreinigung Privat', desc: 'Wohnungen, Häuser, Wintergärten', img: privatImg },
+  { icon: Building2, title: 'Fensterreinigung Gewerbe', desc: 'Büros, Praxen, Geschäfte', img: gewerbeImg },
+  { icon: Sparkles, title: 'Wintergartenreinigung', desc: 'Glasdächer, Rahmen und Glasflächen', img: ctaImg },
+  { icon: LayoutGrid, title: 'Glas- & Schaufensterreinigung', desc: 'Schaufenster, Fassaden und große Glasflächen', img: heroImg },
+];
 
 const reviews = [
-  { name: 'Anna K.', text: 'Streifenfrei und super schnell. Die Fenster sehen aus wie neu!', rating: 5 },
-  { name: 'Michael R.', text: 'Sehr professionell, pünktlich und zuverlässig. Klare Empfehlung.', rating: 5 },
-  { name: 'Sabine H.', text: 'Endlich klare Sicht ohne stundenlanges Putzen. Vielen Dank!', rating: 5 },
-  { name: 'Tobias W.', text: 'Top Service für unser Büro – wir buchen jetzt regelmäßig.', rating: 5 },
-  { name: 'Julia M.', text: 'Faire Preise, freundliches Team und perfektes Ergebnis.', rating: 5 },
-  { name: 'Daniel S.', text: 'Auch die Rahmen wurden perfekt gereinigt. Sehr zufrieden.', rating: 5 },
+  { name: 'Maria Schmidt', location: 'Dresden', text: 'Streifenfrei und super schnell. Die Fenster sehen aus wie neu!', avatar: avatarMaria },
+  { name: 'Thomas Müller', location: 'Leipzig', text: 'Sehr professionell, pünktlich und zuverlässig. Klare Empfehlung.', avatar: avatarThomas },
+  { name: 'Anna Weber', location: 'Chemnitz', text: 'Endlich klare Sicht ohne stundenlanges Putzen. Vielen Dank!', avatar: avatarAnna },
+  { name: 'Michael Hoffmann', location: 'Zwickau', text: 'Top Service für unser Büro – wir buchen jetzt regelmäßig.', avatar: avatarMichael },
+  { name: 'Julia Berger', location: 'Chemnitz', text: 'Faire Preise, freundliches Team und perfektes Ergebnis.', avatar: avatarMaria },
+  { name: 'Daniel Krüger', location: 'Dresden', text: 'Auch die Rahmen wurden perfekt gereinigt. Sehr zufrieden.', avatar: avatarMichael },
+];
+
+const beforeAfterPairs = [
+  { before: beforeImg, after: afterImg, alt: 'Fenster Vorher Nachher 1' },
+  { before: dirtyImg, after: privatImg, alt: 'Fenster Vorher Nachher 2' },
+  { before: dirtyImg, after: gewerbeImg, alt: 'Fenster Vorher Nachher 3' },
 ];
 
 const faqs = [
@@ -34,7 +54,7 @@ const faqs = [
   { q: 'Muss ich etwas vorbereiten?', a: 'Nein. Räumen Sie nur empfindliche Gegenstände von den Fensterbänken. Alles Weitere erledigen wir.' },
 ];
 
-function BeforeAfterSlider() {
+function BeforeAfterSlider({ before, after, alt }: { before: string; after: string; alt: string }) {
   const [pos, setPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -68,20 +88,20 @@ function BeforeAfterSlider() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full aspect-[16/10] overflow-hidden rounded-2xl shadow-medium select-none cursor-ew-resize"
+      className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-medium select-none cursor-ew-resize"
       onMouseDown={(e) => { dragging.current = true; setFromClientX(e.clientX); }}
       onTouchStart={(e) => { dragging.current = true; setFromClientX(e.touches[0].clientX); }}
     >
-      <img src={afterImg} alt="Fenster nach professioneller Reinigung" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+      <img src={after} alt={`${alt} – nachher`} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
       <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
-        <img src={beforeImg} alt="Fenster vor der Reinigung" className="absolute inset-0 h-full object-cover" style={{ width: `${100 / (pos / 100)}%`, maxWidth: 'none' }} loading="lazy" />
+        <img src={before} alt={`${alt} – vorher`} className="absolute inset-0 h-full object-cover" style={{ width: `${100 / (pos / 100)}%`, maxWidth: 'none' }} loading="lazy" />
       </div>
-      <div className="absolute top-4 left-4 bg-background/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold text-foreground">Vorher</div>
-      <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">Nachher</div>
+      <div className="absolute top-3 left-3 bg-background/90 backdrop-blur px-2.5 py-1 rounded-full text-[11px] font-semibold text-foreground">Vorher</div>
+      <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-2.5 py-1 rounded-full text-[11px] font-semibold">Nachher</div>
       <div className="absolute top-0 bottom-0 w-1 bg-white shadow-lg" style={{ left: `${pos}%`, transform: 'translateX(-50%)' }}>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center">
-          <ArrowRight className="w-4 h-4 text-foreground -ml-1" />
-          <ArrowRight className="w-4 h-4 text-foreground rotate-180 -mr-1" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center">
+          <ArrowRight className="w-3.5 h-3.5 text-foreground -ml-1" />
+          <ArrowRight className="w-3.5 h-3.5 text-foreground rotate-180 -mr-1" />
         </div>
       </div>
     </div>
@@ -89,18 +109,39 @@ function BeforeAfterSlider() {
 }
 
 export default function Fensterreinigung() {
+  const [form, setForm] = useState({ vorname: '', telefon: '', stadt: '', fensterart: '', nachricht: '' });
+  const [submitting, setSubmitting] = useState(false);
+
   const scrollToContact = () => {
     document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.vorname || !form.telefon || !form.stadt || !form.fensterart) {
+      toast({ title: 'Bitte füllen Sie die Pflichtfelder aus.', variant: 'destructive' });
+      return;
+    }
+    setSubmitting(true);
+    const text = encodeURIComponent(
+      `Hallo, ich interessiere mich für Fensterreinigung.\nName: ${form.vorname}\nTelefon: ${form.telefon}\nStadt: ${form.stadt}\nFensterart: ${form.fensterart}\nNachricht: ${form.nachricht}`
+    );
+    window.open(`https://wa.me/491636986317?text=${text}`, '_blank');
+    setTimeout(() => {
+      setSubmitting(false);
+      toast({ title: 'Vielen Dank! Wir melden uns in Kürze.' });
+      setForm({ vorname: '', telefon: '', stadt: '', fensterart: '', nachricht: '' });
+    }, 600);
   };
 
   return (
     <>
       <Helmet>
-        <title>Fensterreinigung Sachsen | ReinWerk</title>
-        <meta name="description" content="Professionelle Fensterreinigung für Privat- und Gewerbekunden in Sachsen. Streifenfreie Fenster, Glasflächen und Rahmen. Schnelle Terminvergabe und transparente Preise." />
+        <title>Fensterreinigung Sachsen | Privat & Gewerbe | ReinWerk</title>
+        <meta name="description" content="Professionelle Fensterreinigung für Privat & Gewerbe in Sachsen. Streifenfreie Fenster, saubere Rahmen und klare Sicht – zuverlässig vor Ort." />
         <link rel="canonical" href="https://reinwerk-service.de/fensterreinigung" />
         <meta property="og:title" content="Fensterreinigung Sachsen | ReinWerk" />
-        <meta property="og:description" content="Professionelle Fensterreinigung für Privat- und Gewerbekunden in Sachsen. Streifenfreie Fenster, Glasflächen und Rahmen." />
+        <meta property="og:description" content="Streifenfreie Fenster für Privat- und Gewerbekunden in Sachsen." />
         <meta property="og:url" content="https://reinwerk-service.de/fensterreinigung" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -109,37 +150,34 @@ export default function Fensterreinigung() {
 
       <main className="pt-20">
         {/* HERO */}
-        <section className="relative min-h-[80vh] flex items-center overflow-hidden">
+        <section className="relative min-h-[72vh] flex items-center overflow-hidden">
           <div className="absolute inset-0">
-            <img src={heroImg} alt="Vorher-Nachher: schmutziges und sauberes Fenster" className="w-full h-full object-cover" width={1920} height={1080} />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/30" />
+            <img src={heroImg} alt="Saubere Fenster nach professioneller Reinigung" className="w-full h-full object-cover" width={1920} height={1080} />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30" />
           </div>
-          <div className="container mx-auto relative z-10 py-16">
+          <div className="container mx-auto relative z-10 py-12 md:py-16">
             <div className="max-w-2xl">
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-tight">
-                Professionelle <span className="text-primary">Fensterreinigung</span> in Sachsen
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1]">
+                Professionelle <span className="text-primary">Fensterreinigung</span><br className="hidden sm:block" /> für Privat & Gewerbe in Sachsen
               </h1>
-              <p className="mt-4 text-xl md:text-2xl text-foreground/80 font-medium">
-                Streifenfreie Fenster für Privat- und Gewerbekunden.
+              <p className="mt-4 text-base md:text-xl text-foreground/80 font-medium">
+                Streifenfreie Fenster, saubere Rahmen und klare Sicht – zuverlässig vor Ort.
               </p>
-              <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-xl">
-                Wir reinigen Fenster, Rahmen und Glasflächen gründlich und professionell – direkt bei Ihnen vor Ort.
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5" />
-                    WhatsApp Anfrage
+                    Foto senden — Preis in 15 Min
                   </a>
                 </Button>
                 <Button variant="heroOutline" size="lg" onClick={scrollToContact}>
                   Kostenloses Angebot
                 </Button>
               </div>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-2">
                 {['0€ Anfahrt', 'Festpreis möglich', 'Privat & Gewerbe'].map((b) => (
-                  <span key={b} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur border border-border text-sm font-medium text-foreground">
-                    <Check className="w-4 h-4 text-primary" /> {b}
+                  <span key={b} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur border border-border text-xs sm:text-sm font-medium text-foreground">
+                    <Check className="w-3.5 h-3.5 text-primary" /> {b}
                   </span>
                 ))}
               </div>
@@ -147,62 +185,47 @@ export default function Fensterreinigung() {
           </div>
         </section>
 
-        {/* PROBLEM */}
-        <section className="py-12 md:py-16 bg-secondary/30">
-          <div className="container mx-auto grid md:grid-cols-2 gap-10 items-center">
+        {/* PROBLEM / SOLUTION */}
+        <section className="py-12 bg-secondary/30">
+          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
             <img src={dirtyImg} alt="Schmutzige Fenster mit Schlieren" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
                 Schmutzige Fenster wirken ungepflegt.
               </h2>
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-5 space-y-2.5">
                 {['Schlieren und Flecken', 'Zeitaufwendiges Putzen', 'Schwer erreichbare Fenster'].map((t) => (
                   <li key={t} className="flex items-center gap-3 text-base text-foreground">
                     <Check className="w-5 h-5 text-primary shrink-0" /> {t}
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-muted-foreground">
-                Wir übernehmen die Arbeit für Sie und sorgen für klare Sicht ohne Aufwand.
+              <p className="mt-5 text-muted-foreground">
+                Wir übernehmen die Arbeit für Sie und sorgen für klare Sicht – ohne Aufwand.
               </p>
             </div>
           </div>
         </section>
 
-        {/* BEFORE / AFTER */}
-        <section className="py-12 md:py-16">
+        {/* SERVICES — 4 cards */}
+        <section className="py-12">
           <div className="container mx-auto">
-            <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Vorher – Nachher</h2>
-              <p className="mt-3 text-muted-foreground">
-                Sehen Sie selbst den Unterschied. Professionelle Reinigung sorgt für streifenfreie Ergebnisse.
-              </p>
-            </div>
-            <div className="max-w-4xl mx-auto">
-              <BeforeAfterSlider />
-              <p className="text-center text-xs text-muted-foreground mt-3">Schieberegler ziehen zum Vergleichen</p>
-            </div>
-          </div>
-        </section>
-
-        {/* SERVICES */}
-        <section className="py-12 md:py-16 bg-secondary/30">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-10">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
               Unsere Leistungen
             </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { icon: Home, title: 'Fensterreinigung Privat', desc: 'Wohnungen, Häuser, Wintergärten' },
-                { icon: Building2, title: 'Fensterreinigung Gewerbe', desc: 'Büros, Praxen, Geschäfte' },
-                { icon: Sparkles, title: 'Glasflächen', desc: 'Schaufenster, Glasdächer, Glasfassaden' },
-              ].map((s) => (
-                <Card key={s.title} className="p-6 hover:shadow-medium transition-shadow">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
-                    <s.icon className="w-6 h-6" />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {services.map((s) => (
+                <Card key={s.title} className="overflow-hidden hover:shadow-medium transition-shadow group">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img src={s.img} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-2">{s.desc}</p>
+                  <div className="p-5">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3">
+                      <s.icon className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-base font-bold text-foreground">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground mt-1.5">{s.desc}</p>
+                  </div>
                 </Card>
               ))}
             </div>
@@ -210,29 +233,31 @@ export default function Fensterreinigung() {
         </section>
 
         {/* PRIVATE */}
-        <section className="py-12 md:py-16">
-          <div className="container mx-auto grid md:grid-cols-2 gap-10 items-center">
+        <section className="py-12 bg-secondary/30">
+          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
                 Mehr Licht. Weniger Aufwand.
               </h2>
-              <p className="mt-4 text-muted-foreground text-lg">
-                Menschen möchten keine Fenster putzen. Sie möchten saubere Fenster. Genau dafür sind wir da.
-              </p>
+              <div className="mt-5 space-y-3 text-base md:text-lg text-muted-foreground">
+                <p>Sie möchten keine Fenster putzen.</p>
+                <p>Sie möchten saubere Fenster.</p>
+                <p className="text-foreground font-medium">Genau dafür sind wir da.</p>
+              </div>
             </div>
             <img src={privatImg} alt="Helles modernes Wohnzimmer mit sauberen Fenstern" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
           </div>
         </section>
 
         {/* BUSINESS */}
-        <section className="py-12 md:py-16 bg-secondary/30">
-          <div className="container mx-auto grid md:grid-cols-2 gap-10 items-center">
+        <section className="py-12">
+          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
             <img src={gewerbeImg} alt="Modernes Büro mit sauberen Glasflächen" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
             <div className="order-1 md:order-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
-                Ein gepflegter Eindruck beginnt mit sauberen Fenstern.
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
+                Ein professioneller Eindruck<br className="hidden md:block" /> beginnt mit sauberen Fenstern.
               </h2>
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-5 space-y-2.5">
                 {['Regelmäßige Reinigung', 'Flexible Termine', 'Rechnung für Unternehmen', 'Zuverlässige Durchführung'].map((t) => (
                   <li key={t} className="flex items-center gap-3 text-base text-foreground">
                     <Check className="w-5 h-5 text-primary shrink-0" /> {t}
@@ -244,91 +269,106 @@ export default function Fensterreinigung() {
         </section>
 
         {/* HOW IT WORKS */}
-        <section className="py-12 md:py-16">
+        <section className="py-12 bg-secondary/30">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-10">
-              So einfach geht's
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+              So funktioniert's
             </h2>
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto">
               {[
-                { icon: Camera, step: '1', title: 'Foto senden', desc: 'Schicken Sie uns ein Foto Ihrer Fenster per WhatsApp.' },
-                { icon: FileText, step: '2', title: 'Angebot erhalten', desc: 'Wir senden Ihnen einen transparenten Festpreis.' },
-                { icon: Calendar, step: '3', title: 'Termin vereinbaren', desc: 'Wir vereinbaren einen Termin, der zu Ihnen passt.' },
+                { icon: Camera, step: '1', title: 'Foto senden' },
+                { icon: FileText, step: '2', title: 'Preis erhalten' },
+                { icon: Calendar, step: '3', title: 'Termin vereinbaren' },
               ].map((s) => (
                 <div key={s.step} className="text-center">
                   <div className="relative inline-flex">
-                    <div className="w-16 h-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
-                      <s.icon className="w-7 h-7" />
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
+                      <s.icon className="w-6 h-6 md:w-7 md:h-7" />
                     </div>
-                    <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-foreground text-background text-xs font-bold flex items-center justify-center">{s.step}</span>
+                    <span className="absolute -top-2 -right-2 w-6 h-6 md:w-7 md:h-7 rounded-full bg-foreground text-background text-xs font-bold flex items-center justify-center">{s.step}</span>
                   </div>
-                  <h3 className="mt-4 text-lg font-bold text-foreground">{s.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+                  <h3 className="mt-3 text-sm md:text-base font-bold text-foreground">{s.title}</h3>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* REVIEWS */}
-        <section className="py-12 md:py-16 bg-secondary/30">
+        {/* BEFORE / AFTER */}
+        <section className="py-12">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-10">
-              Was unsere Kunden sagen
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+              Vorher – Nachher
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {reviews.map((r) => (
-                <Card key={r.name} className="p-6">
+
+            {/* Desktop: 3 columns */}
+            <div className="hidden md:grid grid-cols-3 gap-5">
+              {beforeAfterPairs.map((p, i) => (
+                <BeforeAfterSlider key={i} before={p.before} after={p.after} alt={p.alt} />
+              ))}
+            </div>
+
+            {/* Mobile: swipeable */}
+            <div className="md:hidden">
+              <Carousel opts={{ align: 'start', loop: true }}>
+                <CarouselContent>
+                  {beforeAfterPairs.map((p, i) => (
+                    <CarouselItem key={i}>
+                      <BeforeAfterSlider before={p.before} after={p.after} alt={p.alt} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+              <p className="text-center text-xs text-muted-foreground mt-3">Wischen zum Vergleichen</p>
+            </div>
+          </div>
+        </section>
+
+        {/* REVIEWS */}
+        <section className="py-12 bg-secondary/30">
+          <div className="container mx-auto">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border shadow-soft">
+                <div className="flex gap-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-[#FFB400] text-[#FFB400]" />
+                  ))}
+                </div>
+                <span className="text-sm font-semibold text-foreground">Google Bewertung 5,0</span>
+              </div>
+              <h2 className="mt-4 text-2xl md:text-4xl font-bold text-foreground tracking-tight">
+                Was unsere Kunden sagen
+              </h2>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {reviews.map((r, i) => (
+                <Card key={i} className="p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">
-                      {r.name.charAt(0)}
-                    </div>
+                    <img src={r.avatar} alt={r.name} className="w-11 h-11 rounded-full object-cover" loading="lazy" />
                     <div>
                       <div className="font-semibold text-foreground text-sm">{r.name}</div>
-                      <div className="flex gap-0.5">
-                        {Array.from({ length: r.rating }).map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 fill-primary text-primary" />
-                        ))}
-                      </div>
+                      <div className="text-xs text-muted-foreground">{r.location}</div>
+                    </div>
+                    <div className="ml-auto flex gap-0.5">
+                      {Array.from({ length: 5 }).map((_, j) => (
+                        <Star key={j} className="w-3.5 h-3.5 fill-[#FFB400] text-[#FFB400]" />
+                      ))}
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground">{r.text}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{r.text}</p>
                 </Card>
               ))}
             </div>
           </div>
         </section>
 
-        {/* WHY REINWERK */}
-        <section className="py-12 md:py-16">
-          <div className="container mx-auto grid md:grid-cols-2 gap-10 items-center">
-            <img src={technicianImg} alt="ReinWerk Mitarbeiter bei der Fensterreinigung" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Warum ReinWerk?</h2>
-              <ul className="mt-6 space-y-3">
-                {[
-                  { icon: Users, text: 'Persönlicher Ansprechpartner' },
-                  { icon: Calendar, text: 'Schnelle Terminvergabe' },
-                  { icon: Euro, text: 'Transparente Preise' },
-                  { icon: ShieldCheck, text: 'Zuverlässiger Service' },
-                  { icon: Building2, text: 'Privat & Gewerbe' },
-                ].map((i) => (
-                  <li key={i.text} className="flex items-center gap-3 text-base text-foreground">
-                    <i.icon className="w-5 h-5 text-primary shrink-0" /> {i.text}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
         {/* FAQ */}
-        <section className="py-12 md:py-16 bg-secondary/30">
+        <section className="py-12">
           <div className="container mx-auto max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-10">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
               Häufige Fragen
             </h2>
-            <Accordion type="single" collapsible className="bg-background rounded-2xl px-6 shadow-soft">
+            <Accordion type="single" collapsible className="bg-background border border-border rounded-2xl px-6 shadow-soft">
               {faqs.map((f, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-border last:border-0">
                   <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline">
@@ -341,24 +381,65 @@ export default function Fensterreinigung() {
           </div>
         </section>
 
+        {/* CONTACT FORM */}
+        <section id="kontakt" className="py-12 bg-secondary/30">
+          <div className="container mx-auto max-w-2xl">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-3">
+              Kostenloses Angebot anfragen
+            </h2>
+            <p className="text-center text-muted-foreground mb-8">
+              Antwort meist innerhalb weniger Minuten.
+            </p>
+            <Card className="p-6 md:p-8 shadow-medium">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="vorname">Vorname *</Label>
+                    <Input id="vorname" value={form.vorname} onChange={(e) => setForm({ ...form, vorname: e.target.value })} className="mt-1.5" required />
+                  </div>
+                  <div>
+                    <Label htmlFor="telefon">Telefonnummer *</Label>
+                    <Input id="telefon" type="tel" value={form.telefon} onChange={(e) => setForm({ ...form, telefon: e.target.value })} className="mt-1.5" required />
+                  </div>
+                  <div>
+                    <Label htmlFor="stadt">Stadt *</Label>
+                    <Input id="stadt" value={form.stadt} onChange={(e) => setForm({ ...form, stadt: e.target.value })} className="mt-1.5" required />
+                  </div>
+                  <div>
+                    <Label htmlFor="fensterart">Fensterart *</Label>
+                    <Input id="fensterart" placeholder="z. B. Wohnung, Büro, Wintergarten" value={form.fensterart} onChange={(e) => setForm({ ...form, fensterart: e.target.value })} className="mt-1.5" required />
+                  </div>
+                </div>
+                <div>
+                  <Label htmlFor="nachricht">Nachricht</Label>
+                  <textarea id="nachricht" rows={3} value={form.nachricht} onChange={(e) => setForm({ ...form, nachricht: e.target.value })} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm text-input-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+                </div>
+                <Button type="submit" size="lg" className="w-full" disabled={submitting}>
+                  {submitting ? 'Wird gesendet…' : 'Anfrage senden'}
+                </Button>
+              </form>
+            </Card>
+          </div>
+        </section>
+
         {/* FINAL CTA */}
-        <section id="kontakt" className="relative py-20 md:py-28 overflow-hidden">
+        <section className="relative py-16 md:py-20 overflow-hidden">
           <div className="absolute inset-0">
             <img src={ctaImg} alt="Panoramafenster mit klarer Sicht" className="w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
           </div>
           <div className="container mx-auto relative z-10 text-center max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight">
+            <h2 className="text-2xl md:text-5xl font-bold text-foreground tracking-tight">
               Jetzt unverbindlich anfragen
             </h2>
-            <p className="mt-4 text-lg text-foreground/80">
-              Schnelle Rückmeldung per WhatsApp oder E-Mail.
+            <p className="mt-3 text-base md:text-lg text-foreground/80">
+              Schnelle Rückmeldung per WhatsApp.
             </p>
-            <div className="mt-8 flex justify-center">
+            <div className="mt-6 flex justify-center">
               <Button size="xl" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />
-                  WhatsApp Anfrage
+                  Foto senden — Preis in 15 Min
                 </a>
               </Button>
             </div>
