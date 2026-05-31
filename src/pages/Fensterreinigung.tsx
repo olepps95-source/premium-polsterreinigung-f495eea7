@@ -126,7 +126,7 @@ export default function Fensterreinigung() {
                 Wir reinigen Fenster, Rahmen und Glasflächen gründlich und professionell – direkt bei Ihnen vor Ort.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <Button variant="hero" size="lg" asChild>
+                <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5" />
                     WhatsApp Anfrage
