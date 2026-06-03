@@ -192,7 +192,7 @@ export function Header() {
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
         <DialogContent className="sm:max-w-md bg-background rounded-2xl shadow-2xl border-0 top-[10%] translate-y-0 sm:top-[15%]">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-foreground">Kontakt</DialogTitle>
+            <DialogTitle className="text-2xl font-bold text-foreground">Kontakt ReinWerk</DialogTitle>
           </DialogHeader>
           <div className="flex flex-col gap-3 pt-2">
             <a
