@@ -269,7 +269,7 @@ export default function Fensterreinigung() {
               {services.map((s) => (
                 <Card key={s.title} className="overflow-hidden hover:shadow-medium transition-shadow group">
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img src={s.img} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                    <img src={s.img} alt={(s as { alt?: string }).alt ?? `${s.title} Sachsen`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                   </div>
                   <div className="p-5">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3">
