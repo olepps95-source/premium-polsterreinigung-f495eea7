@@ -7,20 +7,12 @@ import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { trackContact } from '@/lib/meta-pixel';
 import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 
-const defaultNavLinks = [
-  { label: 'Leistungen', href: '#leistungen' },
-  { label: 'Gewerbe', href: '/gewerbe' },
-  { label: 'Preise', href: '#preise' },
-  { label: 'Vorher–Nachher', href: '#vorher-nachher' },
-  { label: 'Bewertungen', href: '#bewertungen' },
-  { label: 'Einsatzgebiet', href: '#einsatzgebiet' },
-];
-
 type NavLink = { label: string; href: string; action?: 'contact-modal' };
 
-const gewerbeNavLinks: NavLink[] = [
+const navLinks: NavLink[] = [
   { label: 'Privat', href: '/' },
   { label: 'Gewerbe', href: '/gewerbe' },
+  { label: 'Fensterreinigung', href: '/fensterreinigung' },
   { label: 'Kontakt', href: '#', action: 'contact-modal' },
 ];
 
@@ -30,8 +22,8 @@ export function Header() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const isGewerbe = location.pathname === '/gewerbe';
-  const navLinks: NavLink[] = isGewerbe ? gewerbeNavLinks : defaultNavLinks;
+
+  const isActive = (link: NavLink) => !link.action && link.href === location.pathname;
 
   useEffect(() => {
     const handleScroll = () => {
