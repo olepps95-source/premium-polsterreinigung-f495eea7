@@ -350,7 +350,7 @@ export default function Fensterreinigung() {
         <section className="py-12">
           <div className="container mx-auto">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
-              Vorher – Nachher
+              Vorher & Nachher
             </h2>
 
             {/* Desktop: 3 columns */}
