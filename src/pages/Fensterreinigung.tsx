@@ -17,6 +17,7 @@ import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
 import beforeImg from '@/assets/fenster-before.jpg';
 import afterImg from '@/assets/fenster-after.jpg';
+import warumImg from '@/assets/fenster-warum.jpg.asset.json';
 import avatarMaria from '@/assets/avatar-maria.jpg';
 import avatarThomas from '@/assets/avatar-thomas.jpg';
 import avatarAnna from '@/assets/avatar-anna.jpg';
@@ -253,7 +254,7 @@ export default function Fensterreinigung() {
         {/* PROBLEM / SOLUTION */}
         <section className="py-12 bg-secondary/30">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <img src={dirtyImg} alt="Fensterreinigung Vorher Nachher" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
+            <img src={warumImg.url} alt="Schmutziges Fenster mit Schlieren – professionelle Fensterreinigung nötig" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
                 Warum professionelle Fensterreinigung?
