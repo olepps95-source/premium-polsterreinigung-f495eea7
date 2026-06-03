@@ -219,7 +219,7 @@ export default function Fensterreinigung() {
                 <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5" />
-                    Foto senden — Preis in 15 Min
+                    WhatsApp schreiben
                   </a>
                 </Button>
                 <Button variant="heroOutline" size="lg" onClick={scrollToContact}>
