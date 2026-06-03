@@ -226,11 +226,24 @@ export default function Fensterreinigung() {
                   Kostenloses Angebot
                 </Button>
               </div>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {['0€ Anfahrt', 'Festpreis möglich', 'Privat & Gewerbe'].map((b) => (
-                  <span key={b} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur border border-border text-xs sm:text-sm font-medium text-foreground">
-                    <Check className="w-3.5 h-3.5 text-primary" /> {b}
-                  </span>
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {[
+                  { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
+                  { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
+                  { title: 'Privat & Gewerbe', sub: 'flexible Termine' },
+                ].map((badge) => (
+                  <div
+                    key={badge.title}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                      <Check className="w-4 h-4 text-primary" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-bold text-foreground leading-tight">{badge.title}</span>
+                      <span className="text-xs text-muted-foreground leading-tight">{badge.sub}</span>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
