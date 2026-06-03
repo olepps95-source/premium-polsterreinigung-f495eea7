@@ -42,13 +42,6 @@ export function Header() {
     }
   };
 
-  const handleNavClick = (e: React.MouseEvent, link: NavLink) => {
-    if (link.action === 'contact-modal') {
-      e.preventDefault();
-      setIsContactOpen(true);
-      setIsMobileMenuOpen(false);
-    }
-  };
 
   return (
     <header
