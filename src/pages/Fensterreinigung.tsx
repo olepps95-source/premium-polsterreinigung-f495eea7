@@ -389,7 +389,7 @@ export default function Fensterreinigung() {
                 <span className="text-sm font-semibold text-foreground">Google Bewertung 5,0</span>
               </div>
               <h2 className="mt-4 text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Was unsere Kunden sagen
+                Kundenbewertungen
               </h2>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
