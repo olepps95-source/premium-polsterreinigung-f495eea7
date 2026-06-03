@@ -27,7 +27,7 @@ const WHATSAPP_URL = 'https://wa.me/491636986317';
 const services = [
   { icon: Home, title: 'Fensterreinigung Privat', desc: 'Wohnungen, Häuser, Wintergärten', img: privatImg },
   { icon: Building2, title: 'Fensterreinigung Gewerbe', desc: 'Büros, Praxen, Geschäfte', img: gewerbeImg },
-  { icon: Sparkles, title: 'Wintergartenreinigung', desc: 'Glasdächer, Rahmen und Glasflächen', img: ctaImg },
+  { icon: Sparkles, title: 'Wintergartenreinigung', desc: 'Glasdächer, Rahmen und Glasflächen', img: ctaImg, alt: 'Wintergartenreinigung Sachsen' },
   { icon: LayoutGrid, title: 'Glas- & Schaufensterreinigung', desc: 'Schaufenster, Fassaden und große Glasflächen', img: heroImg },
 ];
 
@@ -47,12 +47,62 @@ const beforeAfterPairs = [
 ];
 
 const faqs = [
-  { q: 'Was kostet die Fensterreinigung?', a: 'Die Kosten richten sich nach Anzahl, Größe und Zustand der Fenster. Nach kurzer Foto-Anfrage erhalten Sie einen transparenten Festpreis – ohne versteckte Gebühren.' },
-  { q: 'Reinigen Sie auch Rahmen?', a: 'Ja, Rahmen und Fensterbänke werden standardmäßig mitgereinigt. Auf Wunsch reinigen wir auch Rollladenkästen und Jalousien.' },
-  { q: 'Arbeiten Sie auch bei Firmen?', a: 'Ja. Wir betreuen Büros, Praxen, Geschäfte und Schaufenster – einmalig oder regelmäßig, mit Rechnung für Unternehmen.' },
-  { q: 'In welchen Städten sind Sie tätig?', a: 'Wir sind in ganz Sachsen unterwegs – schwerpunktmäßig in Chemnitz, Dresden, Leipzig und Umgebung.' },
-  { q: 'Muss ich etwas vorbereiten?', a: 'Nein. Räumen Sie nur empfindliche Gegenstände von den Fensterbänken. Alles Weitere erledigen wir.' },
+  { q: 'Was kostet eine Fensterreinigung?', a: 'Die Kosten einer Fensterreinigung richten sich nach Anzahl, Größe und Zustand der Fenster. Nach kurzer Foto-Anfrage erhalten Sie einen transparenten Festpreis – ohne versteckte Gebühren.' },
+  { q: 'Reinigen Sie auch Fensterrahmen?', a: 'Ja, Fensterrahmen und Fensterbänke werden bei jeder Fensterreinigung standardmäßig mitgereinigt. Auf Wunsch reinigen wir auch Rollladenkästen und Jalousien.' },
+  { q: 'Bieten Sie Fensterreinigung für Unternehmen an?', a: 'Ja. Wir bieten Fensterreinigung für Gewerbe in ganz Sachsen – Büros, Praxen, Geschäfte und Schaufenster, einmalig oder regelmäßig, mit Rechnung für Unternehmen.' },
+  { q: 'In welchen Städten arbeiten Sie?', a: 'Wir sind in ganz Sachsen tätig – schwerpunktmäßig Fensterreinigung in Chemnitz, Dresden, Leipzig und Umgebung.' },
+  { q: 'Reinigen Sie auch Wintergärten?', a: 'Ja, Wintergartenreinigung gehört zu unseren Leistungen. Wir reinigen Glasdächer, Rahmen und Glasflächen Ihres Wintergartens streifenfrei und sicher.' },
+  { q: 'Wie schnell erhalte ich ein Angebot?', a: 'In der Regel innerhalb von 15 Minuten. Senden Sie uns einfach ein Foto per WhatsApp – wir antworten meist innerhalb weniger Minuten mit einem Festpreis.' },
 ];
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'ReinWerk – Fensterreinigung Sachsen',
+  description: 'Professionelle Fensterreinigung für Privat- und Gewerbekunden in Sachsen. Streifenfreie Fenster, Glasreinigung, Wintergartenreinigung und Schaufensterreinigung.',
+  url: 'https://reinwerk-service.de/fensterreinigung',
+  telephone: '+491632373108',
+  email: 'info@reinwerk-service.de',
+  image: 'https://reinwerk-service.de/og-image.png',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Matthesstraße 48',
+    addressLocality: 'Chemnitz',
+    postalCode: '09113',
+    addressRegion: 'Sachsen',
+    addressCountry: 'DE',
+  },
+  areaServed: [
+    { '@type': 'State', name: 'Sachsen' },
+    { '@type': 'City', name: 'Chemnitz' },
+    { '@type': 'City', name: 'Dresden' },
+    { '@type': 'City', name: 'Leipzig' },
+  ],
+  priceRange: '€€',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Fensterreinigung Leistungen',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fensterreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glasreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Wintergartenreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Schaufensterreinigung' } },
+    ],
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Was kostet eine Fensterreinigung?', acceptedAnswer: { '@type': 'Answer', text: 'Die Kosten einer Fensterreinigung richten sich nach Anzahl, Größe und Zustand der Fenster. Nach kurzer Foto-Anfrage erhalten Sie einen transparenten Festpreis – ohne versteckte Gebühren.' } },
+    { '@type': 'Question', name: 'Reinigen Sie auch Fensterrahmen?', acceptedAnswer: { '@type': 'Answer', text: 'Ja, Fensterrahmen und Fensterbänke werden bei jeder Fensterreinigung standardmäßig mitgereinigt. Auf Wunsch reinigen wir auch Rollladenkästen und Jalousien.' } },
+    { '@type': 'Question', name: 'Bieten Sie Fensterreinigung für Unternehmen an?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. Wir bieten Fensterreinigung für Gewerbe in ganz Sachsen – Büros, Praxen, Geschäfte und Schaufenster, einmalig oder regelmäßig, mit Rechnung für Unternehmen.' } },
+    { '@type': 'Question', name: 'In welchen Städten arbeiten Sie?', acceptedAnswer: { '@type': 'Answer', text: 'Wir sind in ganz Sachsen tätig – schwerpunktmäßig Fensterreinigung in Chemnitz, Dresden, Leipzig und Umgebung.' } },
+    { '@type': 'Question', name: 'Reinigen Sie auch Wintergärten?', acceptedAnswer: { '@type': 'Answer', text: 'Ja, Wintergartenreinigung gehört zu unseren Leistungen. Wir reinigen Glasdächer, Rahmen und Glasflächen Ihres Wintergartens streifenfrei und sicher.' } },
+    { '@type': 'Question', name: 'Wie schnell erhalte ich ein Angebot?', acceptedAnswer: { '@type': 'Answer', text: 'In der Regel innerhalb von 15 Minuten. Senden Sie uns einfach ein Foto per WhatsApp – wir antworten meist innerhalb weniger Minuten mit einem Festpreis.' } },
+  ],
+};
 
 function BeforeAfterSlider({ before, after, alt }: { before: string; after: string; alt: string }) {
   const [pos, setPos] = useState(50);
@@ -138,12 +188,14 @@ export default function Fensterreinigung() {
     <>
       <Helmet>
         <title>Fensterreinigung Sachsen | Privat & Gewerbe | ReinWerk</title>
-        <meta name="description" content="Professionelle Fensterreinigung für Privat & Gewerbe in Sachsen. Streifenfreie Fenster, saubere Rahmen und klare Sicht – zuverlässig vor Ort." />
+        <meta name="description" content="Professionelle Fensterreinigung in Sachsen. Streifenfreie Fenster für Privat- und Gewerbekunden. Kostenlose Anfrage per WhatsApp. ReinWerk." />
         <link rel="canonical" href="https://reinwerk-service.de/fensterreinigung" />
-        <meta property="og:title" content="Fensterreinigung Sachsen | ReinWerk" />
-        <meta property="og:description" content="Streifenfreie Fenster für Privat- und Gewerbekunden in Sachsen." />
+        <meta property="og:title" content="Fensterreinigung Sachsen | Privat & Gewerbe | ReinWerk" />
+        <meta property="og:description" content="Professionelle Fensterreinigung in Sachsen. Streifenfreie Fenster für Privat- und Gewerbekunden. Kostenlose Anfrage per WhatsApp." />
         <meta property="og:url" content="https://reinwerk-service.de/fensterreinigung" />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       <Header />
@@ -152,13 +204,13 @@ export default function Fensterreinigung() {
         {/* HERO */}
         <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
           <div className="absolute inset-0">
-            <img src={heroImg} alt="Saubere Fenster nach professioneller Reinigung" className="w-full h-full object-cover" width={1920} height={1080} />
+            <img src={heroImg} alt="Professionelle Fensterreinigung in Sachsen" className="w-full h-full object-cover" width={1920} height={1080} />
             <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30" />
           </div>
           <div className="container mx-auto relative z-10 py-16 md:py-20">
             <div className="max-w-2xl">
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1]">
-                Professionelle <span className="text-primary">Fensterreinigung</span><br className="hidden sm:block" /> für Privat & Gewerbe in Sachsen
+                Professionelle <span className="text-primary">Fensterreinigung</span> für Privat & Gewerbe in Sachsen
               </h1>
               <p className="mt-4 text-base md:text-xl text-foreground/80 font-medium">
                 Streifenfreie Fenster, saubere Rahmen und klare Sicht – zuverlässig vor Ort.
@@ -188,10 +240,10 @@ export default function Fensterreinigung() {
         {/* PROBLEM / SOLUTION */}
         <section className="py-12 bg-secondary/30">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <img src={dirtyImg} alt="Schmutzige Fenster mit Schlieren" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
+            <img src={dirtyImg} alt="Fensterreinigung Vorher Nachher" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Schmutzige Fenster wirken ungepflegt.
+                Warum professionelle Fensterreinigung?
               </h2>
               <ul className="mt-5 space-y-2.5">
                 {['Schlieren und Flecken', 'Zeitaufwendiges Putzen', 'Schwer erreichbare Fenster'].map((t) => (
@@ -217,7 +269,7 @@ export default function Fensterreinigung() {
               {services.map((s) => (
                 <Card key={s.title} className="overflow-hidden hover:shadow-medium transition-shadow group">
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img src={s.img} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                    <img src={s.img} alt={(s as { alt?: string }).alt ?? `${s.title} Sachsen`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                   </div>
                   <div className="p-5">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3">
@@ -237,25 +289,25 @@ export default function Fensterreinigung() {
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Mehr Licht. Weniger Aufwand.
+                Fensterreinigung für Privatkunden
               </h2>
               <div className="mt-5 space-y-3 text-base md:text-lg text-muted-foreground">
-                <p>Sie möchten keine Fenster putzen.</p>
-                <p>Sie möchten saubere Fenster.</p>
-                <p className="text-foreground font-medium">Genau dafür sind wir da.</p>
+                <p>Sie möchten Ihre Fenster putzen lassen – ohne Aufwand und ohne Schlieren?</p>
+                <p>Wir übernehmen die Fensterreinigung für Wohnungen, Einfamilienhäuser und Wintergärten in ganz Sachsen.</p>
+                <p className="text-foreground font-medium">Streifenfreie Fenster, freundlich und zuverlässig vor Ort.</p>
               </div>
             </div>
-            <img src={privatImg} alt="Helles modernes Wohnzimmer mit sauberen Fenstern" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
+            <img src={privatImg} alt="Fensterreinigung Einfamilienhaus Sachsen" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
           </div>
         </section>
 
         {/* BUSINESS */}
         <section className="py-12">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <img src={gewerbeImg} alt="Modernes Büro mit sauberen Glasflächen" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
+            <img src={gewerbeImg} alt="Fensterreinigung Bürogebäude Sachsen" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
             <div className="order-1 md:order-2">
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Ein professioneller Eindruck<br className="hidden md:block" /> beginnt mit sauberen Fenstern.
+                Fensterreinigung für Unternehmen
               </h2>
               <ul className="mt-5 space-y-2.5">
                 {['Regelmäßige Reinigung', 'Flexible Termine', 'Rechnung für Unternehmen', 'Zuverlässige Durchführung'].map((t) => (
@@ -298,7 +350,7 @@ export default function Fensterreinigung() {
         <section className="py-12">
           <div className="container mx-auto">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
-              Vorher – Nachher
+              Vorher & Nachher
             </h2>
 
             {/* Desktop: 3 columns */}
@@ -337,7 +389,7 @@ export default function Fensterreinigung() {
                 <span className="text-sm font-semibold text-foreground">Google Bewertung 5,0</span>
               </div>
               <h2 className="mt-4 text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Was unsere Kunden sagen
+                Kundenbewertungen
               </h2>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -362,11 +414,35 @@ export default function Fensterreinigung() {
           </div>
         </section>
 
+        {/* LOCAL SEO */}
+        <section className="py-12">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-6">
+              Fensterreinigung in Chemnitz, Dresden, Leipzig und ganz Sachsen
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-center">
+              ReinWerk bietet professionelle Fensterreinigung für Privat- und Gewerbekunden in ganz Sachsen.
+              Ob <strong className="text-foreground font-semibold">Fensterreinigung Chemnitz</strong>,{' '}
+              <strong className="text-foreground font-semibold">Fensterreinigung Dresden</strong>,{' '}
+              <strong className="text-foreground font-semibold">Fensterreinigung Leipzig</strong> oder Umgebung – wir reinigen Fenster, Rahmen,
+              Wintergärten, Schaufenster und Glasflächen zuverlässig direkt vor Ort. Auch{' '}
+              <strong className="text-foreground font-semibold">Glasreinigung Büro</strong> und{' '}
+              <strong className="text-foreground font-semibold">Wintergartenreinigung</strong> gehören zu unseren Leistungen.
+            </p>
+            <p className="text-sm text-muted-foreground text-center mt-5">
+              Weitere Informationen zu unseren{' '}
+              <a href="/" className="text-primary font-medium underline-offset-4 hover:underline">Gesamte Leistungen von ReinWerk</a>{' '}
+              oder zur{' '}
+              <a href="/gewerbe" className="text-primary font-medium underline-offset-4 hover:underline">Gewerbereinigung in Sachsen</a>.
+            </p>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="py-12">
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
-              Häufige Fragen
+              Häufige Fragen zur Fensterreinigung
             </h2>
             <Accordion type="single" collapsible className="bg-background border border-border rounded-2xl px-6 shadow-soft">
               {faqs.map((f, i) => (
@@ -385,7 +461,7 @@ export default function Fensterreinigung() {
         <section id="kontakt" className="py-12 bg-secondary/30">
           <div className="container mx-auto max-w-2xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-3">
-              Kostenloses Angebot anfragen
+              Jetzt Angebot anfordern
             </h2>
             <p className="text-center text-muted-foreground mb-8">
               Antwort meist innerhalb weniger Minuten.
