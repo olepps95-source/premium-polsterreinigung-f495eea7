@@ -47,12 +47,62 @@ const beforeAfterPairs = [
 ];
 
 const faqs = [
-  { q: 'Was kostet die Fensterreinigung?', a: 'Die Kosten richten sich nach Anzahl, Größe und Zustand der Fenster. Nach kurzer Foto-Anfrage erhalten Sie einen transparenten Festpreis – ohne versteckte Gebühren.' },
-  { q: 'Reinigen Sie auch Rahmen?', a: 'Ja, Rahmen und Fensterbänke werden standardmäßig mitgereinigt. Auf Wunsch reinigen wir auch Rollladenkästen und Jalousien.' },
-  { q: 'Arbeiten Sie auch bei Firmen?', a: 'Ja. Wir betreuen Büros, Praxen, Geschäfte und Schaufenster – einmalig oder regelmäßig, mit Rechnung für Unternehmen.' },
-  { q: 'In welchen Städten sind Sie tätig?', a: 'Wir sind in ganz Sachsen unterwegs – schwerpunktmäßig in Chemnitz, Dresden, Leipzig und Umgebung.' },
-  { q: 'Muss ich etwas vorbereiten?', a: 'Nein. Räumen Sie nur empfindliche Gegenstände von den Fensterbänken. Alles Weitere erledigen wir.' },
+  { q: 'Was kostet eine Fensterreinigung?', a: 'Die Kosten einer Fensterreinigung richten sich nach Anzahl, Größe und Zustand der Fenster. Nach kurzer Foto-Anfrage erhalten Sie einen transparenten Festpreis – ohne versteckte Gebühren.' },
+  { q: 'Reinigen Sie auch Fensterrahmen?', a: 'Ja, Fensterrahmen und Fensterbänke werden bei jeder Fensterreinigung standardmäßig mitgereinigt. Auf Wunsch reinigen wir auch Rollladenkästen und Jalousien.' },
+  { q: 'Bieten Sie Fensterreinigung für Unternehmen an?', a: 'Ja. Wir bieten Fensterreinigung für Gewerbe in ganz Sachsen – Büros, Praxen, Geschäfte und Schaufenster, einmalig oder regelmäßig, mit Rechnung für Unternehmen.' },
+  { q: 'In welchen Städten arbeiten Sie?', a: 'Wir sind in ganz Sachsen tätig – schwerpunktmäßig Fensterreinigung in Chemnitz, Dresden, Leipzig und Umgebung.' },
+  { q: 'Reinigen Sie auch Wintergärten?', a: 'Ja, Wintergartenreinigung gehört zu unseren Leistungen. Wir reinigen Glasdächer, Rahmen und Glasflächen Ihres Wintergartens streifenfrei und sicher.' },
+  { q: 'Wie schnell erhalte ich ein Angebot?', a: 'In der Regel innerhalb von 15 Minuten. Senden Sie uns einfach ein Foto per WhatsApp – wir antworten meist innerhalb weniger Minuten mit einem Festpreis.' },
 ];
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'ReinWerk – Fensterreinigung Sachsen',
+  description: 'Professionelle Fensterreinigung für Privat- und Gewerbekunden in Sachsen. Streifenfreie Fenster, Glasreinigung, Wintergartenreinigung und Schaufensterreinigung.',
+  url: 'https://reinwerk-service.de/fensterreinigung',
+  telephone: '+491632373108',
+  email: 'info@reinwerk-service.de',
+  image: 'https://reinwerk-service.de/og-image.png',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Matthesstraße 48',
+    addressLocality: 'Chemnitz',
+    postalCode: '09113',
+    addressRegion: 'Sachsen',
+    addressCountry: 'DE',
+  },
+  areaServed: [
+    { '@type': 'State', name: 'Sachsen' },
+    { '@type': 'City', name: 'Chemnitz' },
+    { '@type': 'City', name: 'Dresden' },
+    { '@type': 'City', name: 'Leipzig' },
+  ],
+  priceRange: '€€',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Fensterreinigung Leistungen',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fensterreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glasreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Wintergartenreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Schaufensterreinigung' } },
+    ],
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Was kostet eine Fensterreinigung?', acceptedAnswer: { '@type': 'Answer', text: 'Die Kosten einer Fensterreinigung richten sich nach Anzahl, Größe und Zustand der Fenster. Nach kurzer Foto-Anfrage erhalten Sie einen transparenten Festpreis – ohne versteckte Gebühren.' } },
+    { '@type': 'Question', name: 'Reinigen Sie auch Fensterrahmen?', acceptedAnswer: { '@type': 'Answer', text: 'Ja, Fensterrahmen und Fensterbänke werden bei jeder Fensterreinigung standardmäßig mitgereinigt. Auf Wunsch reinigen wir auch Rollladenkästen und Jalousien.' } },
+    { '@type': 'Question', name: 'Bieten Sie Fensterreinigung für Unternehmen an?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. Wir bieten Fensterreinigung für Gewerbe in ganz Sachsen – Büros, Praxen, Geschäfte und Schaufenster, einmalig oder regelmäßig, mit Rechnung für Unternehmen.' } },
+    { '@type': 'Question', name: 'In welchen Städten arbeiten Sie?', acceptedAnswer: { '@type': 'Answer', text: 'Wir sind in ganz Sachsen tätig – schwerpunktmäßig Fensterreinigung in Chemnitz, Dresden, Leipzig und Umgebung.' } },
+    { '@type': 'Question', name: 'Reinigen Sie auch Wintergärten?', acceptedAnswer: { '@type': 'Answer', text: 'Ja, Wintergartenreinigung gehört zu unseren Leistungen. Wir reinigen Glasdächer, Rahmen und Glasflächen Ihres Wintergartens streifenfrei und sicher.' } },
+    { '@type': 'Question', name: 'Wie schnell erhalte ich ein Angebot?', acceptedAnswer: { '@type': 'Answer', text: 'In der Regel innerhalb von 15 Minuten. Senden Sie uns einfach ein Foto per WhatsApp – wir antworten meist innerhalb weniger Minuten mit einem Festpreis.' } },
+  ],
+};
 
 function BeforeAfterSlider({ before, after, alt }: { before: string; after: string; alt: string }) {
   const [pos, setPos] = useState(50);
