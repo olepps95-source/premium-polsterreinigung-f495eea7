@@ -215,7 +215,8 @@ export default function Fensterreinigung() {
               <p className="mt-4 text-base md:text-xl text-foreground/80 font-bold">
                 Streifenfreie Fenster, mehr Tageslicht und ein gepflegter Eindruck – professionell gereinigt direkt bei Ihnen vor Ort.
               </p>
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {/* Desktop trust cards */}
+              <div className="mt-6 hidden sm:grid grid-cols-3 gap-3">
                 {[
                   { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
                   { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
@@ -232,6 +233,23 @@ export default function Fensterreinigung() {
                       <span className="text-sm font-bold text-foreground leading-tight">{badge.title}</span>
                       <span className="text-xs text-muted-foreground leading-tight">{badge.sub}</span>
                     </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile compact badges */}
+              <div className="mt-5 sm:hidden flex flex-wrap gap-2">
+                {[
+                  '0€ Anfahrt',
+                  'Festpreis möglich',
+                  'Privat & Gewerbe',
+                ].map((title) => (
+                  <div
+                    key={title}
+                    className="inline-flex items-center gap-1.5 pl-2.5 pr-3.5 h-[38px] rounded-full bg-white border border-border/40 shadow-sm text-sm font-medium text-foreground"
+                  >
+                    <Check className="w-3.5 h-3.5 text-primary" strokeWidth={3} />
+                    {title}
                   </div>
                 ))}
               </div>
