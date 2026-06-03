@@ -213,7 +213,7 @@ export default function Fensterreinigung() {
                 Professionelle <span className="text-primary">Fensterreinigung</span> für Privat & Gewerbe in Sachsen
               </h1>
               <p className="mt-4 text-base md:text-xl text-foreground/80 font-medium">
-                Streifenfreie Fenster, saubere Rahmen und klare Sicht – zuverlässig vor Ort.
+                Streifenfreie Fenster, mehr Tageslicht und ein gepflegter Eindruck – professionell gereinigt direkt bei Ihnen vor Ort.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
