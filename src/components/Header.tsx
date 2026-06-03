@@ -67,8 +67,8 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => {
             const active = isActive(link);
-            const className = `text-sm font-medium transition-colors ${
-              active ? 'text-primary font-semibold' : 'text-muted-foreground hover:text-foreground'
+            const className = `text-sm font-bold transition-colors ${
+              active ? 'text-primary font-bold' : 'text-muted-foreground hover:text-foreground'
             }`;
             if (link.action === 'contact-modal') {
               return (
@@ -133,8 +133,8 @@ export function Header() {
           <nav className="container mx-auto py-6 flex flex-col gap-4">
             {navLinks.map((link) => {
               const active = isActive(link);
-              const className = `text-base font-medium transition-colors py-2 ${
-                active ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
+              const className = `text-base font-bold transition-colors py-2 ${
+                active ? 'text-primary font-bold' : 'text-foreground hover:text-primary'
               }`;
               if (link.action === 'contact-modal') {
                 return (
