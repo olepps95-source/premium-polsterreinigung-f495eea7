@@ -202,49 +202,20 @@ export default function Fensterreinigung() {
 
       <main>
         {/* HERO */}
-        <section className="relative md:min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
           <div className="absolute inset-0">
-            <img src={heroImg} alt="Professionelle Fensterreinigung in Sachsen" className="w-full h-full object-cover object-[60%_center] md:object-top" width={1920} height={1080} />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background/70 md:bg-gradient-to-r md:from-background/95 md:via-background/75 md:to-background/30" />
+            <img src={heroImg} alt="Professionelle Fensterreinigung in Sachsen" className="w-full h-full object-cover object-top" width={1920} height={1080} />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30" />
           </div>
-          <div className="container mx-auto relative z-10 py-6 md:py-14">
-            <div className="max-w-2xl flex flex-col">
-              {/* H1 */}
-              <h1 className="order-1 text-[26px] sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.15]">
+          <div className="container mx-auto relative z-10 py-10 md:py-14">
+            <div className="max-w-2xl">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1]">
                 Professionelle <span className="text-primary">Fensterreinigung</span> für Privat & Gewerbe in Sachsen
               </h1>
-
-              {/* Trust (mobile only here, desktop hidden — kept compact) */}
-              <div className="order-2 md:hidden mt-3 flex items-center gap-2">
-                <div className="flex items-center gap-0.5 text-[#FFB400]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-                <span className="text-sm font-semibold text-foreground">Professioneller Service in Sachsen</span>
-              </div>
-
-              {/* Description */}
-              <p className="order-3 mt-3 md:mt-4 text-base md:text-xl text-foreground/80 font-bold">
-                <span className="md:hidden">Streifenfreie Fenster und saubere Rahmen – professionell bei Ihnen vor Ort.</span>
-                <span className="hidden md:inline">Streifenfreie Fenster, mehr Tageslicht und ein gepflegter Eindruck – professionell gereinigt direkt bei Ihnen vor Ort.</span>
+              <p className="mt-4 text-base md:text-xl text-foreground/80 font-bold">
+                Streifenfreie Fenster, mehr Tageslicht und ein gepflegter Eindruck – professionell gereinigt direkt bei Ihnen vor Ort.
               </p>
-
-              {/* Buttons — mobile: directly after description (order-4). Desktop: after badges (order-6). */}
-              <div className="order-4 md:order-6 mt-4 md:mt-8 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
-                <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-bold text-base h-14 w-full sm:w-auto" asChild>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="w-5 h-5" />
-                    WhatsApp schreiben
-                  </a>
-                </Button>
-                <Button variant="heroOutline" size="default" className="h-11 md:h-14 md:px-8 md:text-base w-full sm:w-auto" onClick={scrollToContact}>
-                  Kostenloses Angebot
-                </Button>
-              </div>
-
-              {/* Vorteile — mobile: compact badges last (order-5). Desktop: between desc & buttons (order-5). */}
-              <div className="order-5 mt-4 md:mt-6 flex flex-wrap gap-2 md:grid md:grid-cols-3 md:gap-3">
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
                   { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
@@ -252,18 +223,28 @@ export default function Fensterreinigung() {
                 ].map((badge) => (
                   <div
                     key={badge.title}
-                    className="flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-4 md:py-3 rounded-full md:rounded-xl bg-white/85 backdrop-blur-md border border-border/60 shadow-soft"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
                   >
-                    <Check className="w-3.5 h-3.5 md:hidden text-primary shrink-0" />
-                    <div className="hidden md:flex w-8 h-8 rounded-full bg-primary/10 items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4 text-primary" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs md:text-sm font-bold text-foreground leading-tight">{badge.title}</span>
-                      <span className="hidden md:inline text-xs text-muted-foreground leading-tight">{badge.sub}</span>
+                      <span className="text-sm font-bold text-foreground leading-tight">{badge.title}</span>
+                      <span className="text-xs text-muted-foreground leading-tight">{badge.sub}</span>
                     </div>
                   </div>
                 ))}
+              </div>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="w-5 h-5" />
+                    WhatsApp schreiben
+                  </a>
+                </Button>
+                <Button variant="heroOutline" size="lg" onClick={scrollToContact}>
+                  Kostenloses Angebot
+                </Button>
               </div>
             </div>
           </div>
