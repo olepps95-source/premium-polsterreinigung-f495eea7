@@ -202,7 +202,7 @@ export default function Fensterreinigung() {
 
       <main>
         {/* HERO */}
-        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <section className="relative min-h-[88vh] sm:min-h-screen flex items-center pt-20 overflow-hidden">
           <div className="absolute inset-0">
             <img src={heroImg} alt="Professionelle Fensterreinigung in Sachsen" className="w-full h-full object-cover object-top" width={1920} height={1080} />
             <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30" />
