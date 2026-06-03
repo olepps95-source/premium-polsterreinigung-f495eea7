@@ -228,7 +228,7 @@ export function Header() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs text-muted-foreground">WhatsApp</span>
-                <span className="text-base font-semibold text-foreground">Nachricht senden</span>
+                <span className="text-base font-semibold text-foreground">WhatsApp schreiben</span>
               </div>
             </a>
           </div>
