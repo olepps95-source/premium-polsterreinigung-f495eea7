@@ -215,17 +215,6 @@ export default function Fensterreinigung() {
               <p className="mt-4 text-base md:text-xl text-foreground/80 font-bold">
                 Streifenfreie Fenster, mehr Tageslicht und ein gepflegter Eindruck – professionell gereinigt direkt bei Ihnen vor Ort.
               </p>
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="w-5 h-5" />
-                    WhatsApp schreiben
-                  </a>
-                </Button>
-                <Button variant="heroOutline" size="lg" onClick={scrollToContact}>
-                  Kostenloses Angebot
-                </Button>
-              </div>
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
@@ -245,6 +234,17 @@ export default function Fensterreinigung() {
                     </div>
                   </div>
                 ))}
+              </div>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="w-5 h-5" />
+                    WhatsApp schreiben
+                  </a>
+                </Button>
+                <Button variant="heroOutline" size="lg" onClick={scrollToContact}>
+                  Kostenloses Angebot
+                </Button>
               </div>
             </div>
           </div>
