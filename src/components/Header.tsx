@@ -7,20 +7,12 @@ import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { trackContact } from '@/lib/meta-pixel';
 import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 
-const defaultNavLinks = [
-  { label: 'Leistungen', href: '#leistungen' },
-  { label: 'Gewerbe', href: '/gewerbe' },
-  { label: 'Preise', href: '#preise' },
-  { label: 'Vorher–Nachher', href: '#vorher-nachher' },
-  { label: 'Bewertungen', href: '#bewertungen' },
-  { label: 'Einsatzgebiet', href: '#einsatzgebiet' },
-];
-
 type NavLink = { label: string; href: string; action?: 'contact-modal' };
 
-const gewerbeNavLinks: NavLink[] = [
+const navLinks: NavLink[] = [
   { label: 'Privat', href: '/' },
   { label: 'Gewerbe', href: '/gewerbe' },
+  { label: 'Fensterreinigung', href: '/fensterreinigung' },
   { label: 'Kontakt', href: '#', action: 'contact-modal' },
 ];
 
@@ -30,8 +22,8 @@ export function Header() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const isGewerbe = location.pathname === '/gewerbe';
-  const navLinks: NavLink[] = isGewerbe ? gewerbeNavLinks : defaultNavLinks;
+
+  const isActive = (link: NavLink) => !link.action && link.href === location.pathname;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,13 +42,6 @@ export function Header() {
     }
   };
 
-  const handleNavClick = (e: React.MouseEvent, link: NavLink) => {
-    if (link.action === 'contact-modal') {
-      e.preventDefault();
-      setIsContactOpen(true);
-      setIsMobileMenuOpen(false);
-    }
-  };
 
   return (
     <header
@@ -80,16 +65,34 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const active = isActive(link);
+            const className = `text-sm font-medium transition-colors ${
+              active ? 'text-primary font-semibold' : 'text-muted-foreground hover:text-foreground'
+            }`;
+            if (link.action === 'contact-modal') {
+              return (
+                <button
+                  key={link.label}
+                  type="button"
+                  onClick={() => setIsContactOpen(true)}
+                  className={className}
+                >
+                  {link.label}
+                </button>
+              );
+            }
+            return (
+              <Link
+                key={link.label}
+                to={link.href}
+                aria-current={active ? 'page' : undefined}
+                className={className}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
@@ -128,19 +131,35 @@ export function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-background/98 backdrop-blur-lg border-t border-border animate-fade-in">
           <nav className="container mx-auto py-6 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => {
-                  handleNavClick(e, link);
-                  if (link.action !== 'contact-modal') setIsMobileMenuOpen(false);
-                }}
-                className="text-base font-medium text-foreground hover:text-primary transition-colors py-2"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const active = isActive(link);
+              const className = `text-base font-medium transition-colors py-2 ${
+                active ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
+              }`;
+              if (link.action === 'contact-modal') {
+                return (
+                  <button
+                    key={link.label}
+                    type="button"
+                    onClick={() => { setIsContactOpen(true); setIsMobileMenuOpen(false); }}
+                    className={`${className} text-left`}
+                  >
+                    {link.label}
+                  </button>
+                );
+              }
+              return (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-current={active ? 'page' : undefined}
+                  className={className}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <div className="pt-4 border-t border-border flex flex-col gap-3">
               <Button variant="hero" className="w-full" asChild>
                 <a
@@ -166,7 +185,7 @@ export function Header() {
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
         <DialogContent className="sm:max-w-md bg-background rounded-2xl shadow-2xl border-0 top-[10%] translate-y-0 sm:top-[15%]">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-foreground">Kontakt</DialogTitle>
+            <DialogTitle className="text-2xl font-bold text-foreground">Kontakt ReinWerk</DialogTitle>
           </DialogHeader>
           <div className="flex flex-col gap-3 pt-2">
             <a
