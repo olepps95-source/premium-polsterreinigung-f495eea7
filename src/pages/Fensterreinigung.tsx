@@ -240,10 +240,10 @@ export default function Fensterreinigung() {
         {/* PROBLEM / SOLUTION */}
         <section className="py-12 bg-secondary/30">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <img src={dirtyImg} alt="Schmutzige Fenster mit Schlieren" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
+            <img src={dirtyImg} alt="Fensterreinigung Vorher Nachher" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Schmutzige Fenster wirken ungepflegt.
+                Warum professionelle Fensterreinigung?
               </h2>
               <ul className="mt-5 space-y-2.5">
                 {['Schlieren und Flecken', 'Zeitaufwendiges Putzen', 'Schwer erreichbare Fenster'].map((t) => (
