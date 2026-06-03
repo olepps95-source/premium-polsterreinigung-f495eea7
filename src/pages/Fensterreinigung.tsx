@@ -304,10 +304,10 @@ export default function Fensterreinigung() {
         {/* BUSINESS */}
         <section className="py-12">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <img src={gewerbeImg} alt="Modernes Büro mit sauberen Glasflächen" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
+            <img src={gewerbeImg} alt="Fensterreinigung Bürogebäude Sachsen" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
             <div className="order-1 md:order-2">
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Ein professioneller Eindruck<br className="hidden md:block" /> beginnt mit sauberen Fenstern.
+                Fensterreinigung für Unternehmen
               </h2>
               <ul className="mt-5 space-y-2.5">
                 {['Regelmäßige Reinigung', 'Flexible Termine', 'Rechnung für Unternehmen', 'Zuverlässige Durchführung'].map((t) => (
