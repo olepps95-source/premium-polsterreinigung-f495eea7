@@ -72,16 +72,34 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const active = isActive(link);
+            const className = `text-sm font-medium transition-colors ${
+              active ? 'text-primary font-semibold' : 'text-muted-foreground hover:text-foreground'
+            }`;
+            if (link.action === 'contact-modal') {
+              return (
+                <button
+                  key={link.label}
+                  type="button"
+                  onClick={() => setIsContactOpen(true)}
+                  className={className}
+                >
+                  {link.label}
+                </button>
+              );
+            }
+            return (
+              <Link
+                key={link.label}
+                to={link.href}
+                aria-current={active ? 'page' : undefined}
+                className={className}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
