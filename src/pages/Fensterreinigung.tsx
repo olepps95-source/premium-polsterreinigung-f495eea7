@@ -202,12 +202,12 @@ export default function Fensterreinigung() {
 
       <main>
         {/* HERO */}
-        <section className="relative min-h-[88vh] sm:min-h-screen flex items-center pt-20 overflow-hidden">
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
           <div className="absolute inset-0">
             <img src={heroImg} alt="Professionelle Fensterreinigung in Sachsen" className="w-full h-full object-cover object-top" width={1920} height={1080} />
             <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30" />
           </div>
-          <div className="container mx-auto relative z-10 py-6 sm:py-10 md:py-14">
+          <div className="container mx-auto relative z-10 py-10 md:py-14">
             <div className="max-w-2xl">
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1]">
                 Professionelle <span className="text-primary">Fensterreinigung</span> für Privat & Gewerbe in Sachsen
@@ -215,8 +215,7 @@ export default function Fensterreinigung() {
               <p className="mt-4 text-base md:text-xl text-foreground/80 font-bold">
                 Streifenfreie Fenster, mehr Tageslicht und ein gepflegter Eindruck – professionell gereinigt direkt bei Ihnen vor Ort.
               </p>
-              {/* Desktop trust cards */}
-              <div className="mt-6 hidden sm:grid grid-cols-3 gap-3">
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
                   { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
@@ -236,24 +235,7 @@ export default function Fensterreinigung() {
                   </div>
                 ))}
               </div>
-
-              {/* Mobile compact badges */}
-              <div className="mt-5 sm:hidden flex flex-wrap gap-2">
-                {[
-                  '0€ Anfahrt',
-                  'Festpreis möglich',
-                  'Privat & Gewerbe',
-                ].map((title) => (
-                  <div
-                    key={title}
-                    className="inline-flex items-center gap-1.5 pl-2.5 pr-3.5 h-[38px] rounded-full bg-white border border-border/40 shadow-sm text-sm font-medium text-foreground"
-                  >
-                    <Check className="w-3.5 h-3.5 text-primary" strokeWidth={3} />
-                    {title}
-                  </div>
-                ))}
-              </div>
-              <div className="mt-5 sm:mt-8 flex flex-col sm:flex-row gap-3">
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5" />
