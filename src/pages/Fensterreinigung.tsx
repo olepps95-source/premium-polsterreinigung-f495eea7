@@ -17,6 +17,7 @@ import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
 import beforeImg from '@/assets/fenster-before.jpg';
 import afterImg from '@/assets/fenster-after.jpg';
+import warumImg from '@/assets/fenster-warum.jpg.asset.json';
 import avatarMaria from '@/assets/avatar-maria.jpg';
 import avatarThomas from '@/assets/avatar-thomas.jpg';
 import avatarAnna from '@/assets/avatar-anna.jpg';
