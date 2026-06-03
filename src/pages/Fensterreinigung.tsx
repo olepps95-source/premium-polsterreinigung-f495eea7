@@ -204,13 +204,13 @@ export default function Fensterreinigung() {
         {/* HERO */}
         <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
           <div className="absolute inset-0">
-            <img src={heroImg} alt="Saubere Fenster nach professioneller Reinigung" className="w-full h-full object-cover" width={1920} height={1080} />
+            <img src={heroImg} alt="Professionelle Fensterreinigung in Sachsen" className="w-full h-full object-cover" width={1920} height={1080} />
             <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30" />
           </div>
           <div className="container mx-auto relative z-10 py-16 md:py-20">
             <div className="max-w-2xl">
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1]">
-                Professionelle <span className="text-primary">Fensterreinigung</span><br className="hidden sm:block" /> für Privat & Gewerbe in Sachsen
+                Professionelle <span className="text-primary">Fensterreinigung</span> für Privat & Gewerbe in Sachsen
               </h1>
               <p className="mt-4 text-base md:text-xl text-foreground/80 font-medium">
                 Streifenfreie Fenster, saubere Rahmen und klare Sicht – zuverlässig vor Ort.
