@@ -461,7 +461,7 @@ export default function Fensterreinigung() {
         <section id="kontakt" className="py-12 bg-secondary/30">
           <div className="container mx-auto max-w-2xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-3">
-              Kostenloses Angebot anfragen
+              Jetzt Angebot anfordern
             </h2>
             <p className="text-center text-muted-foreground mb-8">
               Antwort meist innerhalb weniger Minuten.
