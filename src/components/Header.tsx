@@ -10,7 +10,7 @@ import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 type NavLink = { label: string; href: string; action?: 'contact-modal' };
 
 const navLinks: NavLink[] = [
-  { label: 'Privat', href: '/' },
+  { label: 'Polsterreinigung', href: '/' },
   { label: 'Gewerbe', href: '/gewerbe' },
   { label: 'Fensterreinigung', href: '/fensterreinigung' },
   { label: 'Kontakt', href: '#', action: 'contact-modal' },
