@@ -207,7 +207,7 @@ export default function Fensterreinigung() {
             <img src={heroImg} alt="Professionelle Fensterreinigung in Sachsen" className="w-full h-full object-cover" width={1920} height={1080} />
             <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30" />
           </div>
-          <div className="container mx-auto relative z-10 py-16 md:py-20">
+          <div className="container mx-auto relative z-10 py-10 md:py-14">
             <div className="max-w-2xl">
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1]">
                 Professionelle <span className="text-primary">Fensterreinigung</span> für Privat & Gewerbe in Sachsen
