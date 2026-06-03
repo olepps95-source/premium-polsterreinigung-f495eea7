@@ -414,11 +414,35 @@ export default function Fensterreinigung() {
           </div>
         </section>
 
+        {/* LOCAL SEO */}
+        <section className="py-12">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-6">
+              Fensterreinigung in Chemnitz, Dresden, Leipzig und ganz Sachsen
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-center">
+              ReinWerk bietet professionelle Fensterreinigung für Privat- und Gewerbekunden in ganz Sachsen.
+              Ob <strong className="text-foreground font-semibold">Fensterreinigung Chemnitz</strong>,{' '}
+              <strong className="text-foreground font-semibold">Fensterreinigung Dresden</strong>,{' '}
+              <strong className="text-foreground font-semibold">Fensterreinigung Leipzig</strong> oder Umgebung – wir reinigen Fenster, Rahmen,
+              Wintergärten, Schaufenster und Glasflächen zuverlässig direkt vor Ort. Auch{' '}
+              <strong className="text-foreground font-semibold">Glasreinigung Büro</strong> und{' '}
+              <strong className="text-foreground font-semibold">Wintergartenreinigung</strong> gehören zu unseren Leistungen.
+            </p>
+            <p className="text-sm text-muted-foreground text-center mt-5">
+              Weitere Informationen zu unseren{' '}
+              <a href="/" className="text-primary font-medium underline-offset-4 hover:underline">Gesamte Leistungen von ReinWerk</a>{' '}
+              oder zur{' '}
+              <a href="/gewerbe" className="text-primary font-medium underline-offset-4 hover:underline">Gewerbereinigung in Sachsen</a>.
+            </p>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="py-12">
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
-              Häufige Fragen
+              Häufige Fragen zur Fensterreinigung
             </h2>
             <Accordion type="single" collapsible className="bg-background border border-border rounded-2xl px-6 shadow-soft">
               {faqs.map((f, i) => (
