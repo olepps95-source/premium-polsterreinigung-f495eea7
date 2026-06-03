@@ -29,7 +29,6 @@ const services = [
   { icon: LayoutGrid, title: 'Glas- & Schaufensterreinigung', desc: 'Schaufenster, Fassaden und große Glasflächen', img: heroImg },
 ];
 
-
 const faqs = [
   { q: 'Was kostet eine Fensterreinigung?', a: 'Die Kosten einer Fensterreinigung richten sich nach Anzahl, Größe und Zustand der Fenster. Nach kurzer Foto-Anfrage erhalten Sie einen transparenten Festpreis – ohne versteckte Gebühren.' },
   { q: 'Reinigen Sie auch Fensterrahmen?', a: 'Ja, Fensterrahmen und Fensterbänke werden bei jeder Fensterreinigung standardmäßig mitgereinigt. Auf Wunsch reinigen wir auch Rollladenkästen und Jalousien.' },
