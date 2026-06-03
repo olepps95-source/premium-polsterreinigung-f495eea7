@@ -289,7 +289,6 @@ export default function Fensterreinigung() {
           </div>
         </section>
 
-
         {/* LOCAL SEO */}
         <section className="py-12">
           <div className="container mx-auto max-w-3xl">
