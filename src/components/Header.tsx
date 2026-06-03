@@ -212,7 +212,7 @@ export function Header() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs text-muted-foreground">E-Mail</span>
-                <span className="text-base font-semibold text-foreground">info@reinwerk-service.de</span>
+                <span className="text-base font-semibold text-foreground">E-Mail senden</span>
               </div>
             </a>
 
