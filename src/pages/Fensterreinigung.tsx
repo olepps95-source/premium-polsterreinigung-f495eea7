@@ -188,12 +188,14 @@ export default function Fensterreinigung() {
     <>
       <Helmet>
         <title>Fensterreinigung Sachsen | Privat & Gewerbe | ReinWerk</title>
-        <meta name="description" content="Professionelle Fensterreinigung für Privat & Gewerbe in Sachsen. Streifenfreie Fenster, saubere Rahmen und klare Sicht – zuverlässig vor Ort." />
+        <meta name="description" content="Professionelle Fensterreinigung in Sachsen. Streifenfreie Fenster für Privat- und Gewerbekunden. Kostenlose Anfrage per WhatsApp. ReinWerk." />
         <link rel="canonical" href="https://reinwerk-service.de/fensterreinigung" />
-        <meta property="og:title" content="Fensterreinigung Sachsen | ReinWerk" />
-        <meta property="og:description" content="Streifenfreie Fenster für Privat- und Gewerbekunden in Sachsen." />
+        <meta property="og:title" content="Fensterreinigung Sachsen | Privat & Gewerbe | ReinWerk" />
+        <meta property="og:description" content="Professionelle Fensterreinigung in Sachsen. Streifenfreie Fenster für Privat- und Gewerbekunden. Kostenlose Anfrage per WhatsApp." />
         <meta property="og:url" content="https://reinwerk-service.de/fensterreinigung" />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       <Header />
