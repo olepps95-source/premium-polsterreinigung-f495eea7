@@ -1,12 +1,12 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { MessageCircle, Check, Home, Building2, Sparkles, LayoutGrid, Camera, FileText, Calendar, Star, ArrowRight } from 'lucide-react';
+import { MessageCircle, Check, Home, Building2, Sparkles, LayoutGrid, Camera, FileText, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { toast } from '@/hooks/use-toast';
@@ -18,13 +18,7 @@ import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
 import wintergartenImgJson from '@/assets/wintergarten.png.asset.json';
 const wintergartenImg = wintergartenImgJson.url;
-import beforeImg from '@/assets/fenster-before.jpg';
-import afterImg from '@/assets/fenster-after.jpg';
 import warumImg from '@/assets/fenster-warum.jpg.asset.json';
-import avatarMaria from '@/assets/avatar-maria.jpg';
-import avatarThomas from '@/assets/avatar-thomas.jpg';
-import avatarAnna from '@/assets/avatar-anna.jpg';
-import avatarMichael from '@/assets/avatar-michael.jpg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 
@@ -33,21 +27,6 @@ const services = [
   { icon: Building2, title: 'Fensterreinigung Gewerbe', desc: 'Büros, Praxen, Geschäfte', img: gewerbeImg },
   { icon: Sparkles, title: 'Wintergartenreinigung', desc: 'Glasdächer, Rahmen und Glasflächen', img: wintergartenImg, alt: 'Wintergartenreinigung Sachsen' },
   { icon: LayoutGrid, title: 'Glas- & Schaufensterreinigung', desc: 'Schaufenster, Fassaden und große Glasflächen', img: heroImg },
-];
-
-const reviews = [
-  { name: 'Maria Schmidt', location: 'Dresden', text: 'Streifenfrei und super schnell. Die Fenster sehen aus wie neu!', avatar: avatarMaria },
-  { name: 'Thomas Müller', location: 'Leipzig', text: 'Sehr professionell, pünktlich und zuverlässig. Klare Empfehlung.', avatar: avatarThomas },
-  { name: 'Anna Weber', location: 'Chemnitz', text: 'Endlich klare Sicht ohne stundenlanges Putzen. Vielen Dank!', avatar: avatarAnna },
-  { name: 'Michael Hoffmann', location: 'Zwickau', text: 'Top Service für unser Büro – wir buchen jetzt regelmäßig.', avatar: avatarMichael },
-  { name: 'Julia Berger', location: 'Chemnitz', text: 'Faire Preise, freundliches Team und perfektes Ergebnis.', avatar: avatarMaria },
-  { name: 'Daniel Krüger', location: 'Dresden', text: 'Auch die Rahmen wurden perfekt gereinigt. Sehr zufrieden.', avatar: avatarMichael },
-];
-
-const beforeAfterPairs = [
-  { before: beforeImg, after: afterImg, alt: 'Fenster Vorher Nachher 1' },
-  { before: dirtyImg, after: privatImg, alt: 'Fenster Vorher Nachher 2' },
-  { before: dirtyImg, after: gewerbeImg, alt: 'Fenster Vorher Nachher 3' },
 ];
 
 const faqs = [
@@ -108,59 +87,6 @@ const faqSchema = {
   ],
 };
 
-function BeforeAfterSlider({ before, after, alt }: { before: string; after: string; alt: string }) {
-  const [pos, setPos] = useState(50);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const dragging = useRef(false);
-
-  const setFromClientX = (clientX: number) => {
-    const rect = containerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const x = ((clientX - rect.left) / rect.width) * 100;
-    setPos(Math.max(0, Math.min(100, x)));
-  };
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent | TouchEvent) => {
-      if (!dragging.current) return;
-      const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-      setFromClientX(clientX);
-    };
-    const onUp = () => { dragging.current = false; };
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('touchmove', onMove);
-    window.addEventListener('mouseup', onUp);
-    window.addEventListener('touchend', onUp);
-    return () => {
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('touchmove', onMove);
-      window.removeEventListener('mouseup', onUp);
-      window.removeEventListener('touchend', onUp);
-    };
-  }, []);
-
-  return (
-    <div
-      ref={containerRef}
-      className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-medium select-none cursor-ew-resize"
-      onMouseDown={(e) => { dragging.current = true; setFromClientX(e.clientX); }}
-      onTouchStart={(e) => { dragging.current = true; setFromClientX(e.touches[0].clientX); }}
-    >
-      <img src={after} alt={`${alt} – nachher`} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-      <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
-        <img src={before} alt={`${alt} – vorher`} className="absolute inset-0 h-full object-cover" style={{ width: `${100 / (pos / 100)}%`, maxWidth: 'none' }} loading="lazy" />
-      </div>
-      <div className="absolute top-3 left-3 bg-background/90 backdrop-blur px-2.5 py-1 rounded-full text-[11px] font-semibold text-foreground">Vorher</div>
-      <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-2.5 py-1 rounded-full text-[11px] font-semibold">Nachher</div>
-      <div className="absolute top-0 bottom-0 w-1 bg-white shadow-lg" style={{ left: `${pos}%`, transform: 'translateX(-50%)' }}>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center">
-          <ArrowRight className="w-3.5 h-3.5 text-foreground -ml-1" />
-          <ArrowRight className="w-3.5 h-3.5 text-foreground rotate-180 -mr-1" />
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function Fensterreinigung() {
   const [form, setForm] = useState({ vorname: '', telefon: '', stadt: '', fensterart: '', nachricht: '' });
@@ -358,74 +284,6 @@ export default function Fensterreinigung() {
                   </div>
                   <h3 className="mt-3 text-sm md:text-base font-bold text-foreground">{s.title}</h3>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* BEFORE / AFTER */}
-        <section className="py-12">
-          <div className="container mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
-              Vorher & Nachher
-            </h2>
-
-            {/* Desktop: 3 columns */}
-            <div className="hidden md:grid grid-cols-3 gap-5">
-              {beforeAfterPairs.map((p, i) => (
-                <BeforeAfterSlider key={i} before={p.before} after={p.after} alt={p.alt} />
-              ))}
-            </div>
-
-            {/* Mobile: swipeable */}
-            <div className="md:hidden">
-              <Carousel opts={{ align: 'start', loop: true }}>
-                <CarouselContent>
-                  {beforeAfterPairs.map((p, i) => (
-                    <CarouselItem key={i}>
-                      <BeforeAfterSlider before={p.before} after={p.after} alt={p.alt} />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-              </Carousel>
-              <p className="text-center text-xs text-muted-foreground mt-3">Wischen zum Vergleichen</p>
-            </div>
-          </div>
-        </section>
-
-        {/* REVIEWS */}
-        <section className="py-12 bg-secondary/30">
-          <div className="container mx-auto">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border shadow-soft">
-                <div className="flex gap-0.5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#FFB400] text-[#FFB400]" />
-                  ))}
-                </div>
-                <span className="text-sm font-semibold text-foreground">Google Bewertung 5,0</span>
-              </div>
-              <h2 className="mt-4 text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Kundenbewertungen
-              </h2>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {reviews.map((r, i) => (
-                <Card key={i} className="p-5">
-                  <div className="flex items-center gap-3 mb-3">
-                    <img src={r.avatar} alt={r.name} className="w-11 h-11 rounded-full object-cover" loading="lazy" />
-                    <div>
-                      <div className="font-semibold text-foreground text-sm">{r.name}</div>
-                      <div className="text-xs text-muted-foreground">{r.location}</div>
-                    </div>
-                    <div className="ml-auto flex gap-0.5">
-                      {Array.from({ length: 5 }).map((_, j) => (
-                        <Star key={j} className="w-3.5 h-3.5 fill-[#FFB400] text-[#FFB400]" />
-                      ))}
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{r.text}</p>
-                </Card>
               ))}
             </div>
           </div>
