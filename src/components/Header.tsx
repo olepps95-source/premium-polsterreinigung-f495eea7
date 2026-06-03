@@ -10,7 +10,7 @@ import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 type NavLink = { label: string; href: string; action?: 'contact-modal' };
 
 const navLinks: NavLink[] = [
-  { label: 'Privat', href: '/' },
+  { label: 'Polsterreinigung', href: '/' },
   { label: 'Gewerbe', href: '/gewerbe' },
   { label: 'Fensterreinigung', href: '/fensterreinigung' },
   { label: 'Kontakt', href: '#', action: 'contact-modal' },
@@ -198,7 +198,7 @@ export function Header() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs text-muted-foreground">Telefon</span>
-                <span className="text-base font-semibold text-foreground">+49 163 2373108</span>
+                <span className="text-base font-semibold text-foreground">Jetzt anrufen</span>
               </div>
             </a>
 
@@ -212,7 +212,7 @@ export function Header() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs text-muted-foreground">E-Mail</span>
-                <span className="text-base font-semibold text-foreground">info@reinwerk-service.de</span>
+                <span className="text-base font-semibold text-foreground">E-Mail senden</span>
               </div>
             </a>
 
@@ -228,7 +228,7 @@ export function Header() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs text-muted-foreground">WhatsApp</span>
-                <span className="text-base font-semibold text-foreground">Nachricht senden</span>
+                <span className="text-base font-semibold text-foreground">WhatsApp schreiben</span>
               </div>
             </a>
           </div>
