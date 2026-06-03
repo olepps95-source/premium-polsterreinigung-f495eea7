@@ -289,15 +289,15 @@ export default function Fensterreinigung() {
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Mehr Licht. Weniger Aufwand.
+                Fensterreinigung für Privatkunden
               </h2>
               <div className="mt-5 space-y-3 text-base md:text-lg text-muted-foreground">
-                <p>Sie möchten keine Fenster putzen.</p>
-                <p>Sie möchten saubere Fenster.</p>
-                <p className="text-foreground font-medium">Genau dafür sind wir da.</p>
+                <p>Sie möchten Ihre Fenster putzen lassen – ohne Aufwand und ohne Schlieren?</p>
+                <p>Wir übernehmen die Fensterreinigung für Wohnungen, Einfamilienhäuser und Wintergärten in ganz Sachsen.</p>
+                <p className="text-foreground font-medium">Streifenfreie Fenster, freundlich und zuverlässig vor Ort.</p>
               </div>
             </div>
-            <img src={privatImg} alt="Helles modernes Wohnzimmer mit sauberen Fenstern" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
+            <img src={privatImg} alt="Fensterreinigung Einfamilienhaus Sachsen" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
           </div>
         </section>
 
