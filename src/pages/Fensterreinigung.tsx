@@ -200,11 +200,11 @@ export default function Fensterreinigung() {
 
       <Header />
 
-      <main className="pt-20">
+      <main>
         {/* HERO */}
-        <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
           <div className="absolute inset-0">
-            <img src={heroImg} alt="Professionelle Fensterreinigung in Sachsen" className="w-full h-full object-cover" width={1920} height={1080} />
+            <img src={heroImg} alt="Professionelle Fensterreinigung in Sachsen" className="w-full h-full object-cover object-top" width={1920} height={1080} />
             <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30" />
           </div>
           <div className="container mx-auto relative z-10 py-10 md:py-14">
