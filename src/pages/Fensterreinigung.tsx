@@ -12,7 +12,7 @@ import { Footer } from '@/components/Footer';
 import { toast } from '@/hooks/use-toast';
 import heroImg from '@/assets/fenster-hero.jpg';
 import dirtyImg from '@/assets/fenster-dirty.jpg';
-import privatImgJson from '@/assets/fenster-privat.webp.asset.json';
+import privatImgJson from '@/assets/fenster-privat-v2.webp.asset.json';
 const privatImg = privatImgJson.url;
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
