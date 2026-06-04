@@ -18,7 +18,7 @@ import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
 import wintergartenImgJson from '@/assets/wintergarten.webp.asset.json';
 const wintergartenImg = wintergartenImgJson.url;
-import warumImg from '@/assets/fenster-warum.jpg.asset.json';
+import warumImg from '@/assets/fenster-warum.webp.asset.json';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 
