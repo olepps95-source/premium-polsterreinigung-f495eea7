@@ -16,7 +16,7 @@ import privatImgJson from '@/assets/fenster-privat-v2.webp.asset.json';
 const privatImg = privatImgJson.url;
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
-import wintergartenImgJson from '@/assets/wintergarten.webp.asset.json';
+import wintergartenImgJson from '@/assets/wintergarten-v2.jpg.asset.json';
 const wintergartenImg = wintergartenImgJson.url;
 import warumImgJson from '@/assets/fenster-warum.webp.asset.json';
 const warumImg = warumImgJson.url;
