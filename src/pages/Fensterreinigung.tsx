@@ -94,23 +94,42 @@ export default function Fensterreinigung() {
     document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.vorname || !form.telefon || !form.stadt || !form.fensterart) {
       toast({ title: 'Bitte füllen Sie die Pflichtfelder aus.', variant: 'destructive' });
       return;
     }
     setSubmitting(true);
-    const text = encodeURIComponent(
-      `Hallo, ich interessiere mich für Fensterreinigung.\nName: ${form.vorname}\nTelefon: ${form.telefon}\nStadt: ${form.stadt}\nFensterart: ${form.fensterart}\nNachricht: ${form.nachricht}`
-    );
-    window.open(`https://wa.me/491636986317?text=${text}`, '_blank');
-    setTimeout(() => {
-      setSubmitting(false);
-      toast({ title: 'Vielen Dank! Wir melden uns in Kürze.' });
+    try {
+      const payload = {
+        source: 'fensterreinigung',
+        vorname: form.vorname,
+        telefon: form.telefon,
+        stadt: form.stadt,
+        fensterart: form.fensterart,
+        nachricht: form.nachricht,
+        page: '/fensterreinigung',
+        created_at: new Date().toISOString(),
+      };
+      const response = await fetch('https://hook.eu1.make.com/ewbmeiwq0bhehjki0gwmg1vccjkbjiym', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) throw new Error('Request failed');
+      toast({ title: 'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.' });
       setForm({ vorname: '', telefon: '', stadt: '', fensterart: '', nachricht: '' });
-    }, 600);
+    } catch (err) {
+      toast({
+        title: 'Fehler beim Senden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns per WhatsApp.',
+        variant: 'destructive',
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
+
 
   return (
     <>
