@@ -12,14 +12,11 @@ import { Footer } from '@/components/Footer';
 import { toast } from '@/hooks/use-toast';
 import heroImg from '@/assets/fenster-hero.jpg';
 import dirtyImg from '@/assets/fenster-dirty.jpg';
-import privatImgJson from '@/assets/fenster-privat-v2.webp.asset.json';
-const privatImg = privatImgJson.url;
+import privatImg from '@/assets/fenster-privat.webp';
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
-import wintergartenImgJson from '@/assets/wintergarten-v3.jpg.asset.json';
-const wintergartenImg = wintergartenImgJson.url;
-import warumImgJson from '@/assets/fenster-warum.webp.asset.json';
-const warumImg = warumImgJson.url;
+import wintergartenImg from '@/assets/wintergarten.jpg';
+import warumImg from '@/assets/fenster-warum.webp';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 
