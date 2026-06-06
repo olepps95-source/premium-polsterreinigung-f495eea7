@@ -110,9 +110,8 @@ export default function Fensterreinigung() {
         fensterart: form.fensterart,
         nachricht: form.nachricht,
         page: '/fensterreinigung',
-        created_at: new Date().toISOString(),
       };
-      const response = await fetch('https://hook.eu1.make.com/ewbmeiwq0bhehjki0gwmg1vccjkbjiym', {
+      const response = await fetch('https://hook.eu1.make.com/81hzpicl2zd6d8qsoh5ki43wbw62if58', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -122,7 +121,7 @@ export default function Fensterreinigung() {
       setForm({ vorname: '', telefon: '', stadt: '', fensterart: '', nachricht: '' });
     } catch (err) {
       toast({
-        title: 'Fehler beim Senden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns per WhatsApp.',
+        title: 'Fehler beim Senden. Bitte versuchen Sie es erneut.',
         variant: 'destructive',
       });
     } finally {
