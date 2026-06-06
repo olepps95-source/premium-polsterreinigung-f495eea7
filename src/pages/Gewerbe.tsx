@@ -227,6 +227,7 @@ const Gewerbe = () => {
     setSubmitting(true);
     try {
       const payload = {
+        source: 'gewerbe',
         firmenname: form.firma,
         ansprechpartner: form.name,
         telefon: form.phone,
@@ -234,16 +235,16 @@ const Gewerbe = () => {
         unternehmensart: form.typ,
         leistungen: services,
         nachricht: form.nachricht,
-        page: 'gewerbe',
+        page: '/gewerbe',
+        created_at: new Date().toISOString(),
       };
 
-      const response = await fetch('https://hook.eu1.make.com/ewbmeiwq0bhehjki0gwmg1vccjkbjiym', {
+      await fetch('https://hook.eu1.make.com/4tg79ipqgen9dvm7yoxuod7d4e1ctc7p', {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-
-      if (!response.ok) throw new Error('Request failed');
 
       setForm({ firma: '', name: '', phone: '', email: '', typ: '', nachricht: '' });
       setServices([]);
@@ -254,7 +255,7 @@ const Gewerbe = () => {
       formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err) {
       toast({
-        title: 'Fehler beim Senden. Bitte erneut versuchen.',
+        title: 'Fehler beim Senden. Bitte versuchen Sie es erneut.',
         variant: 'destructive',
       });
     } finally {
