@@ -239,7 +239,7 @@ const Gewerbe = () => {
         created_at: new Date().toISOString(),
       };
 
-      await fetch('https://hook.eu1.make.com/4tg79ipqgen9dvm7yoxuod7d4e1ctc7p', {
+      await fetch('https://hook.eu1.make.com/t2dbg2rwiiqf62wwgdq4dogdod7ag52x', {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
