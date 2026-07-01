@@ -17,6 +17,7 @@ import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
 import wintergartenImg from '@/assets/wintergarten.jpg';
 import warumImg from '@/assets/fenster-warum.webp';
+import schaufensterImg from '@/assets/schaufenster.jpg.asset.json';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 
@@ -24,7 +25,7 @@ const services = [
   { icon: Home, title: 'Fensterreinigung Privat', desc: 'Wohnungen, Häuser, Wintergärten', img: privatImg },
   { icon: Building2, title: 'Fensterreinigung Gewerbe', desc: 'Büros, Praxen, Geschäfte', img: gewerbeImg },
   { icon: Sparkles, title: 'Wintergartenreinigung', desc: 'Glasdächer, Rahmen und Glasflächen', img: wintergartenImg, alt: 'Wintergartenreinigung Sachsen' },
-  { icon: LayoutGrid, title: 'Glas- & Schaufensterreinigung', desc: 'Schaufenster, Fassaden und große Glasflächen', img: heroImg },
+  { icon: LayoutGrid, title: 'Glas- & Schaufensterreinigung', desc: 'Schaufenster, Fassaden und große Glasflächen', img: schaufensterImg.url, alt: 'Schaufensterreinigung Sachsen' },
 ];
 
 const faqs = [
