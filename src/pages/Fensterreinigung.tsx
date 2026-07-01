@@ -17,6 +17,7 @@ import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
 import wintergartenImg from '@/assets/wintergarten.jpg';
 import warumImg from '@/assets/fenster-warum.webp';
+import schaufensterImg from '@/assets/schaufenster.jpg.asset.json';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 
