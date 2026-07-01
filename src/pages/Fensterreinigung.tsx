@@ -25,7 +25,7 @@ const services = [
   { icon: Home, title: 'Fensterreinigung Privat', desc: 'Wohnungen, Häuser, Wintergärten', img: privatImg },
   { icon: Building2, title: 'Fensterreinigung Gewerbe', desc: 'Büros, Praxen, Geschäfte', img: gewerbeImg },
   { icon: Sparkles, title: 'Wintergartenreinigung', desc: 'Glasdächer, Rahmen und Glasflächen', img: wintergartenImg, alt: 'Wintergartenreinigung Sachsen' },
-  { icon: LayoutGrid, title: 'Glas- & Schaufensterreinigung', desc: 'Schaufenster, Fassaden und große Glasflächen', img: schaufensterImg.url, alt: 'Schaufensterreinigung Sachsen' },
+  { icon: LayoutGrid, title: 'Glas- & Schaufensterreinigung', desc: 'Schaufenster, Fassaden und große Glasflächen', img: schaufensterImg, alt: 'Schaufensterreinigung Sachsen' },
 ];
 
 const faqs = [
