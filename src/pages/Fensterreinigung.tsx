@@ -156,7 +156,7 @@ export default function Fensterreinigung() {
           </div>
           <div className="container mx-auto relative z-10 pt-4 pb-10 md:py-14">
             <div className="max-w-2xl">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1]">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1] text-center md:text-left">
                 Professionelle <span className="text-primary">Fensterreinigung</span> für Privat & Gewerbe in Sachsen
               </h1>
               <p className="mt-4 text-base md:text-xl text-foreground/80 font-bold">
