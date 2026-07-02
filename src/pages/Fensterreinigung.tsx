@@ -380,9 +380,9 @@ export default function Fensterreinigung() {
             </h2>
             <p className="text-base md:text-lg text-primary leading-relaxed text-center">
               ReinWerk bietet professionelle Fensterreinigung für Privat- und Gewerbekunden in ganz Sachsen.
-              Ob <strong className="text-foreground font-semibold">Fensterreinigung Chemnitz</strong>,{' '}
-              <strong className="text-foreground font-semibold">Fensterreinigung Dresden</strong>,{' '}
-              <strong className="text-foreground font-semibold">Fensterreinigung Leipzig</strong> oder Umgebung – wir reinigen Fenster, Rahmen,
+              Ob <strong className="text-primary font-semibold">Fensterreinigung Chemnitz</strong>,{' '}
+              <strong className="text-primary font-semibold">Fensterreinigung Dresden</strong>,{' '}
+              <strong className="text-primary font-semibold">Fensterreinigung Leipzig</strong> oder Umgebung – wir reinigen Fenster, Rahmen,
               Wintergärten, Schaufenster und Glasfassaden zuverlässig direkt vor Ort.
             </p>
           </div>
