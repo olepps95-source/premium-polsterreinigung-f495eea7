@@ -395,7 +395,7 @@ export default function Fensterreinigung() {
         <section className="py-12">
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
-              Häufige Fragen zur Fensterreinigung in Chemnitz
+              Häufige Fragen zur Fensterreinigung
             </h2>
             <Accordion type="single" collapsible className="bg-background border border-border rounded-2xl px-6 shadow-soft">
               {faqs.map((f, i) => (
