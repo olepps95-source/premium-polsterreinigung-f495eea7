@@ -12,7 +12,7 @@ export function Footer() {
               Rein<span className="text-primary">Werk</span>
             </a>
             <p className="mt-4 text-muted-foreground max-w-sm">
-              Professionelle Polster-, Teppich- & Bodenreinigung für Privat- und Gewerbekunden in Sachsen. Dresden · Leipzig · Chemnitz & Umgebung.
+              Professionelle Polster-, Teppich-, Fenster- und Bodenreinigung für Privat- und Gewerbekunden in Sachsen. Chemnitz · Dresden · Leipzig & Umgebung.
             </p>
           </div>
 
