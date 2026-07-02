@@ -383,10 +383,7 @@ export default function Fensterreinigung() {
               Ob <strong className="text-foreground font-semibold">Fensterreinigung Chemnitz</strong>,{' '}
               <strong className="text-foreground font-semibold">Fensterreinigung Dresden</strong>,{' '}
               <strong className="text-foreground font-semibold">Fensterreinigung Leipzig</strong> oder Umgebung – wir reinigen Fenster, Rahmen,
-              Wintergärten, Schaufenster und Glasfassaden zuverlässig direkt vor Ort. Auch{' '}
-              <strong className="text-foreground font-semibold">Glasreinigung Chemnitz</strong>,{' '}
-              <strong className="text-foreground font-semibold">Schaufensterreinigung Chemnitz</strong> und{' '}
-              <strong className="text-foreground font-semibold">Wintergarten Reinigung</strong> gehören zu unseren Leistungen.
+              Wintergärten, Schaufenster und Glasfassaden zuverlässig direkt vor Ort.
             </p>
           </div>
         </section>
