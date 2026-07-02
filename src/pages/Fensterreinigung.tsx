@@ -11,7 +11,6 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { toast } from '@/hooks/use-toast';
 import heroImg from '@/assets/fenster-hero.jpg';
-import dirtyImg from '@/assets/fenster-dirty.jpg';
 import privatImg from '@/assets/fenster-privat.webp';
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
@@ -20,32 +19,63 @@ import warumImg from '@/assets/fenster-warum.webp';
 import schaufensterImg from '@/assets/fenster-schaufenster.jpg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
+const PAGE_URL = 'https://reinwerk-service.de/fensterreinigung';
+const OG_IMAGE = 'https://reinwerk-service.de/og-image.png';
 
 const services = [
-  { icon: Home, title: 'Fensterreinigung Privat', desc: 'Wohnungen, Häuser, Wintergärten', img: privatImg },
-  { icon: Building2, title: 'Fensterreinigung Gewerbe', desc: 'Büros, Praxen, Geschäfte', img: gewerbeImg },
-  { icon: Sparkles, title: 'Wintergartenreinigung', desc: 'Glasdächer, Rahmen und Glasflächen', img: wintergartenImg, alt: 'Wintergartenreinigung Sachsen' },
-  { icon: LayoutGrid, title: 'Glas- & Schaufensterreinigung', desc: 'Schaufenster, Fassaden und große Glasflächen', img: schaufensterImg, alt: 'Schaufensterreinigung Sachsen' },
+  {
+    icon: Home,
+    title: 'Fensterreinigung Privat',
+    desc: 'Wohnungen, Häuser, Wintergärten in Chemnitz & Sachsen',
+    img: privatImg,
+    alt: 'Fensterreinigung Privat in Chemnitz – Wohnhaus mit klaren Fenstern',
+    imgTitle: 'Fensterreinigung Privat Chemnitz',
+  },
+  {
+    icon: Building2,
+    title: 'Fensterreinigung Gewerbe',
+    desc: 'Büros, Praxen und Geschäfte in Chemnitz & Sachsen',
+    img: gewerbeImg,
+    alt: 'Fensterreinigung Gewerbe Chemnitz – Bürogebäude mit gereinigten Fenstern',
+    imgTitle: 'Fensterreinigung Gewerbe Chemnitz',
+  },
+  {
+    icon: Sparkles,
+    title: 'Wintergartenreinigung',
+    desc: 'Glasdächer, Rahmen und Glasflächen streifenfrei gereinigt',
+    img: wintergartenImg,
+    alt: 'Wintergarten Reinigung Sachsen – Glasdach und Rahmen professionell gereinigt',
+    imgTitle: 'Wintergarten Reinigung Sachsen',
+  },
+  {
+    icon: LayoutGrid,
+    title: 'Glas- & Schaufensterreinigung',
+    desc: 'Schaufenster, Glasfassaden und große Glasflächen in Chemnitz',
+    img: schaufensterImg,
+    alt: 'Schaufensterreinigung Chemnitz – klares Schaufenster nach Glasreinigung',
+    imgTitle: 'Schaufensterreinigung Chemnitz',
+  },
 ];
 
 const faqs = [
-  { q: 'Was kostet eine Fensterreinigung?', a: 'Die Kosten einer Fensterreinigung richten sich nach Anzahl, Größe und Zustand der Fenster. Nach kurzer Foto-Anfrage erhalten Sie einen transparenten Festpreis – ohne versteckte Gebühren.' },
-  { q: 'Reinigen Sie auch Fensterrahmen?', a: 'Ja, Fensterrahmen und Fensterbänke werden bei jeder Fensterreinigung standardmäßig mitgereinigt. Auf Wunsch reinigen wir auch Rollladenkästen und Jalousien.' },
-  { q: 'Bieten Sie Fensterreinigung für Unternehmen an?', a: 'Ja. Wir bieten Fensterreinigung für Gewerbe in ganz Sachsen – Büros, Praxen, Geschäfte und Schaufenster, einmalig oder regelmäßig, mit Rechnung für Unternehmen.' },
-  { q: 'In welchen Städten arbeiten Sie?', a: 'Wir sind in ganz Sachsen tätig – schwerpunktmäßig Fensterreinigung in Chemnitz, Dresden, Leipzig und Umgebung.' },
-  { q: 'Reinigen Sie auch Wintergärten?', a: 'Ja, Wintergartenreinigung gehört zu unseren Leistungen. Wir reinigen Glasdächer, Rahmen und Glasflächen Ihres Wintergartens streifenfrei und sicher.' },
-  { q: 'Wie schnell erhalte ich ein Angebot?', a: 'In der Regel innerhalb von 15 Minuten. Senden Sie uns einfach ein Foto per WhatsApp – wir antworten meist innerhalb weniger Minuten mit einem Festpreis.' },
+  { q: 'Was kostet eine Fensterreinigung in Chemnitz?', a: 'Die Kosten einer Fensterreinigung in Chemnitz richten sich nach Anzahl, Größe und Zustand der Fenster. Nach kurzer Foto-Anfrage per WhatsApp erhalten Sie einen transparenten Festpreis – ohne versteckte Gebühren.' },
+  { q: 'Wie oft sollte man Fenster reinigen lassen?', a: 'Für Privathaushalte empfehlen wir eine professionelle Fensterreinigung 2–4 Mal im Jahr. Gewerbliche Objekte, Schaufenster und Büros in Chemnitz profitieren von einer monatlichen oder vierteljährlichen Reinigung.' },
+  { q: 'Reinigen Sie auch Wintergärten?', a: 'Ja, Wintergartenreinigung gehört zu unseren Leistungen. Wir reinigen Glasdächer, Rahmen und alle Glasflächen Ihres Wintergartens streifenfrei und sicher – auch schwer erreichbare Bereiche.' },
+  { q: 'Arbeiten Sie auch bei Unternehmen?', a: 'Ja. ReinWerk bietet Fensterreinigung für Unternehmen in Chemnitz und ganz Sachsen – Büros, Praxen, Geschäfte und Schaufenster, einmalig oder regelmäßig, mit Rechnung für Unternehmen.' },
+  { q: 'Reinigen Sie Schaufenster?', a: 'Ja, Schaufensterreinigung in Chemnitz ist einer unserer Schwerpunkte. Wir reinigen Schaufenster, Glasfassaden und große Glasflächen für Einzelhandel, Gastronomie und Dienstleister – auf Wunsch außerhalb der Öffnungszeiten.' },
+  { q: 'In welchen Städten arbeiten Sie?', a: 'Wir sind in ganz Sachsen tätig – schwerpunktmäßig Fensterreinigung in Chemnitz, Dresden, Leipzig, Zwickau und Umgebung.' },
 ];
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'ReinWerk – Fensterreinigung Sachsen',
-  description: 'Professionelle Fensterreinigung für Privat- und Gewerbekunden in Sachsen. Streifenfreie Fenster, Glasreinigung, Wintergartenreinigung und Schaufensterreinigung.',
-  url: 'https://reinwerk-service.de/fensterreinigung',
+  '@type': ['ProfessionalService', 'LocalBusiness'],
+  '@id': PAGE_URL,
+  name: 'ReinWerk – Fensterreinigung Chemnitz',
+  description: 'Professionelle Fensterreinigung in Chemnitz und ganz Sachsen. Glasreinigung, Wintergartenreinigung und Schaufensterreinigung für Privat- und Gewerbekunden.',
+  url: PAGE_URL,
   telephone: '+491632373108',
   email: 'info@reinwerk-service.de',
-  image: 'https://reinwerk-service.de/og-image.png',
+  image: OG_IMAGE,
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Matthesstraße 48',
@@ -59,31 +89,54 @@ const localBusinessSchema = {
     { '@type': 'City', name: 'Chemnitz' },
     { '@type': 'City', name: 'Dresden' },
     { '@type': 'City', name: 'Leipzig' },
+    { '@type': 'City', name: 'Zwickau' },
   ],
   priceRange: '€€',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Fensterreinigung Leistungen',
     itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fensterreinigung' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glasreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fensterreinigung Chemnitz' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glasreinigung Chemnitz' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Wintergartenreinigung' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Schaufensterreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Schaufensterreinigung Chemnitz' } },
     ],
   },
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Fensterreinigung',
+  name: 'Fensterreinigung Chemnitz – Privat & Gewerbe',
+  description: 'Professionelle Fensterreinigung, Glasreinigung, Wintergartenreinigung und Schaufensterreinigung in Chemnitz und Sachsen.',
+  provider: { '@type': 'LocalBusiness', name: 'ReinWerk', '@id': PAGE_URL },
+  areaServed: [
+    { '@type': 'City', name: 'Chemnitz' },
+    { '@type': 'City', name: 'Dresden' },
+    { '@type': 'City', name: 'Leipzig' },
+    { '@type': 'State', name: 'Sachsen' },
+  ],
+  url: PAGE_URL,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://reinwerk-service.de/' },
+    { '@type': 'ListItem', position: 2, name: 'Fensterreinigung Chemnitz', item: PAGE_URL },
+  ],
 };
 
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: 'Was kostet eine Fensterreinigung?', acceptedAnswer: { '@type': 'Answer', text: 'Die Kosten einer Fensterreinigung richten sich nach Anzahl, Größe und Zustand der Fenster. Nach kurzer Foto-Anfrage erhalten Sie einen transparenten Festpreis – ohne versteckte Gebühren.' } },
-    { '@type': 'Question', name: 'Reinigen Sie auch Fensterrahmen?', acceptedAnswer: { '@type': 'Answer', text: 'Ja, Fensterrahmen und Fensterbänke werden bei jeder Fensterreinigung standardmäßig mitgereinigt. Auf Wunsch reinigen wir auch Rollladenkästen und Jalousien.' } },
-    { '@type': 'Question', name: 'Bieten Sie Fensterreinigung für Unternehmen an?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. Wir bieten Fensterreinigung für Gewerbe in ganz Sachsen – Büros, Praxen, Geschäfte und Schaufenster, einmalig oder regelmäßig, mit Rechnung für Unternehmen.' } },
-    { '@type': 'Question', name: 'In welchen Städten arbeiten Sie?', acceptedAnswer: { '@type': 'Answer', text: 'Wir sind in ganz Sachsen tätig – schwerpunktmäßig Fensterreinigung in Chemnitz, Dresden, Leipzig und Umgebung.' } },
-    { '@type': 'Question', name: 'Reinigen Sie auch Wintergärten?', acceptedAnswer: { '@type': 'Answer', text: 'Ja, Wintergartenreinigung gehört zu unseren Leistungen. Wir reinigen Glasdächer, Rahmen und Glasflächen Ihres Wintergartens streifenfrei und sicher.' } },
-    { '@type': 'Question', name: 'Wie schnell erhalte ich ein Angebot?', acceptedAnswer: { '@type': 'Answer', text: 'In der Regel innerhalb von 15 Minuten. Senden Sie uns einfach ein Foto per WhatsApp – wir antworten meist innerhalb weniger Minuten mit einem Festpreis.' } },
-  ],
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
 };
 
 
@@ -134,14 +187,23 @@ export default function Fensterreinigung() {
   return (
     <>
       <Helmet>
-        <title>Fensterreinigung Sachsen | Privat & Gewerbe | ReinWerk</title>
-        <meta name="description" content="Professionelle Fensterreinigung in Sachsen. Streifenfreie Fenster für Privat- und Gewerbekunden. Kostenlose Anfrage per WhatsApp. ReinWerk." />
-        <link rel="canonical" href="https://reinwerk-service.de/fensterreinigung" />
-        <meta property="og:title" content="Fensterreinigung Sachsen | Privat & Gewerbe | ReinWerk" />
-        <meta property="og:description" content="Professionelle Fensterreinigung in Sachsen. Streifenfreie Fenster für Privat- und Gewerbekunden. Kostenlose Anfrage per WhatsApp." />
-        <meta property="og:url" content="https://reinwerk-service.de/fensterreinigung" />
+        <title>Fensterreinigung Chemnitz | ReinWerk – Privat & Gewerbe</title>
+        <meta name="description" content="Fensterreinigung Chemnitz von ReinWerk: streifenfreie Glasreinigung für Privat & Gewerbe in Sachsen. Wintergärten, Schaufenster & Büros. Jetzt Festpreis!" />
+        <meta name="keywords" content="Fensterreinigung Chemnitz, Fensterputzer Chemnitz, Glasreinigung Chemnitz, Schaufensterreinigung Chemnitz, Fensterreinigung Sachsen, Wintergarten Reinigung, Fensterreinigung Privat, Fensterreinigung Gewerbe, ReinWerk Fensterreinigung" />
+        <link rel="canonical" href={PAGE_URL} />
+        <meta property="og:title" content="Fensterreinigung Chemnitz | ReinWerk – Privat & Gewerbe" />
+        <meta property="og:description" content="Fensterreinigung Chemnitz von ReinWerk: streifenfreie Glasreinigung für Privat & Gewerbe in Sachsen. Wintergärten, Schaufenster & Büros." />
+        <meta property="og:url" content={PAGE_URL} />
         <meta property="og:type" content="website" />
+        <meta property="og:locale" content="de_DE" />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Fensterreinigung Chemnitz | ReinWerk – Privat & Gewerbe" />
+        <meta name="twitter:description" content="Fensterreinigung Chemnitz von ReinWerk: streifenfreie Glasreinigung für Privat & Gewerbe in Sachsen." />
+        <meta name="twitter:image" content={OG_IMAGE} />
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
@@ -151,16 +213,16 @@ export default function Fensterreinigung() {
         {/* HERO */}
         <section className="relative min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
           <div className="absolute inset-0">
-            <img src={heroImg} alt="Professionelle Fensterreinigung in Sachsen" className="w-full h-full object-cover object-top" width={1920} height={1080} />
+            <img src={heroImg} alt="Fensterreinigung Chemnitz – ReinWerk reinigt Fenster streifenfrei in Sachsen" title="Fensterreinigung Chemnitz – ReinWerk" className="w-full h-full object-cover object-top" width={1920} height={1080} />
             <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30" />
           </div>
           <div className="container mx-auto relative z-10 pt-4 pb-10 md:py-14">
             <div className="max-w-2xl">
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1] text-center md:text-left">
-                Professionelle <span className="text-primary">Fensterreinigung</span> für Privat & Gewerbe in Sachsen
+                <span className="text-primary">Fensterreinigung</span> in Chemnitz für Privat & Gewerbe
               </h1>
               <p className="mt-4 text-base md:text-xl text-foreground font-bold">
-                Streifenfreie Fenster, mehr Tageslicht und ein gepflegter Eindruck – professionell gereinigt direkt bei Ihnen vor Ort.
+                Streifenfreie Fenster, mehr Tageslicht und ein gepflegter Eindruck – professionelle Fensterreinigung direkt bei Ihnen vor Ort in Chemnitz, Dresden, Leipzig und ganz Sachsen.
               </p>
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
@@ -184,7 +246,7 @@ export default function Fensterreinigung() {
               </div>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Fensterreinigung Chemnitz per WhatsApp anfragen">
                     <MessageCircle className="w-5 h-5" />
                     WhatsApp schreiben
                   </a>
@@ -200,10 +262,10 @@ export default function Fensterreinigung() {
         {/* PROBLEM / SOLUTION */}
         <section className="py-12 bg-secondary/30">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <img src={warumImg} alt="Schmutziges Fenster mit Schlieren – professionelle Fensterreinigung nötig" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
+            <img src={warumImg} alt="Fensterputzer Chemnitz reinigt Fenster mit Schlieren streifenfrei" title="Fensterputzer Chemnitz – ReinWerk" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Warum professionelle Fensterreinigung?
+                Warum ReinWerk – Ihr Fensterputzer in Chemnitz
               </h2>
               <ul className="mt-5 space-y-2.5">
                 {['Schlieren und Flecken', 'Zeitaufwendiges Putzen', 'Schwer erreichbare Fenster'].map((t) => (
@@ -213,7 +275,7 @@ export default function Fensterreinigung() {
                 ))}
               </ul>
               <p className="mt-5 text-muted-foreground">
-                Wir übernehmen die Arbeit für Sie und sorgen für klare Sicht – ohne Aufwand.
+                Als erfahrener Fensterputzer in Chemnitz übernehmen wir die Arbeit für Sie und sorgen für streifenfreie, klare Sicht – ohne Aufwand.
               </p>
             </div>
           </div>
@@ -223,13 +285,13 @@ export default function Fensterreinigung() {
         <section className="py-12">
           <div className="container mx-auto">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
-              Unsere Leistungen
+              Unsere Leistungen der Fensterreinigung
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {services.map((s) => (
                 <Card key={s.title} className="overflow-hidden hover:shadow-medium transition-shadow group">
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img src={s.img} alt={(s as { alt?: string }).alt ?? `${s.title} Sachsen`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                    <img src={s.img} alt={s.alt} title={s.imgTitle} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                   </div>
                   <div className="p-5">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3">
@@ -249,25 +311,25 @@ export default function Fensterreinigung() {
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Fensterreinigung für Privatkunden
+                Fensterreinigung für Privatkunden in Chemnitz
               </h2>
               <div className="mt-5 space-y-3 text-base md:text-lg text-muted-foreground">
-                <p>Sie möchten Ihre Fenster putzen lassen – ohne Aufwand und ohne Schlieren?</p>
-                <p>Wir übernehmen die Fensterreinigung für Wohnungen, Einfamilienhäuser und Wintergärten in ganz Sachsen.</p>
+                <p>Sie möchten Ihre Fenster reinigen lassen – ohne Aufwand und ohne Schlieren?</p>
+                <p>Wir übernehmen die Fensterreinigung Privat für Wohnungen, Einfamilienhäuser und Wintergärten in Chemnitz, Dresden, Leipzig und ganz Sachsen.</p>
                 <p className="text-foreground font-medium">Streifenfreie Fenster, freundlich und zuverlässig vor Ort.</p>
               </div>
             </div>
-            <img src={privatImg} alt="Fensterreinigung Einfamilienhaus Sachsen" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
+            <img src={privatImg} alt="Fensterreinigung Privat Chemnitz – Einfamilienhaus mit sauberen Fenstern" title="Fensterreinigung Privat Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
           </div>
         </section>
 
         {/* BUSINESS */}
         <section className="py-12">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <img src={gewerbeImg} alt="Fensterreinigung Bürogebäude Sachsen" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
+            <img src={gewerbeImg} alt="Glasreinigung Büro Chemnitz – Fensterreinigung Gewerbe für Unternehmen" title="Glasreinigung Büro Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
             <div className="order-1 md:order-2">
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Fensterreinigung für Unternehmen
+                Fensterreinigung für Unternehmen in Sachsen
               </h2>
               <ul className="mt-5 space-y-2.5">
                 {['Regelmäßige Reinigung', 'Flexible Termine', 'Rechnung für Unternehmen', 'Zuverlässige Durchführung'].map((t) => (
@@ -276,6 +338,9 @@ export default function Fensterreinigung() {
                   </li>
                 ))}
               </ul>
+              <p className="mt-5 text-muted-foreground">
+                Ob Büro, Praxis, Geschäft, Schaufenster oder Glasfassade – wir bieten Fensterreinigung Gewerbe in Chemnitz und ganz Sachsen, einmalig oder regelmäßig.
+              </p>
             </div>
           </div>
         </section>
@@ -284,7 +349,7 @@ export default function Fensterreinigung() {
         <section className="py-12 bg-secondary/30">
           <div className="container mx-auto">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
-              So funktioniert's
+              So funktioniert Ihre Fensterreinigung
             </h2>
             <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto">
               {[
@@ -310,20 +375,21 @@ export default function Fensterreinigung() {
         <section className="py-12">
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-6">
-              Fensterreinigung in Chemnitz, Dresden, Leipzig und ganz Sachsen
+              Fensterreinigung Chemnitz, Dresden, Leipzig – in ganz Sachsen
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-center">
               ReinWerk bietet professionelle Fensterreinigung für Privat- und Gewerbekunden in ganz Sachsen.
               Ob <strong className="text-foreground font-semibold">Fensterreinigung Chemnitz</strong>,{' '}
               <strong className="text-foreground font-semibold">Fensterreinigung Dresden</strong>,{' '}
               <strong className="text-foreground font-semibold">Fensterreinigung Leipzig</strong> oder Umgebung – wir reinigen Fenster, Rahmen,
-              Wintergärten, Schaufenster und Glasflächen zuverlässig direkt vor Ort. Auch{' '}
-              <strong className="text-foreground font-semibold">Glasreinigung Büro</strong> und{' '}
-              <strong className="text-foreground font-semibold">Wintergartenreinigung</strong> gehören zu unseren Leistungen.
+              Wintergärten, Schaufenster und Glasfassaden zuverlässig direkt vor Ort. Auch{' '}
+              <strong className="text-foreground font-semibold">Glasreinigung Chemnitz</strong>,{' '}
+              <strong className="text-foreground font-semibold">Schaufensterreinigung Chemnitz</strong> und{' '}
+              <strong className="text-foreground font-semibold">Wintergarten Reinigung</strong> gehören zu unseren Leistungen.
             </p>
             <p className="text-sm text-muted-foreground text-center mt-5">
               Weitere Informationen zu unseren{' '}
-              <a href="/" className="text-primary font-medium underline-offset-4 hover:underline">Gesamte Leistungen von ReinWerk</a>{' '}
+              <a href="/" className="text-primary font-medium underline-offset-4 hover:underline">Reinigungsleistungen von ReinWerk</a>{' '}
               oder zur{' '}
               <a href="/gewerbe" className="text-primary font-medium underline-offset-4 hover:underline">Gewerbereinigung in Sachsen</a>.
             </p>
@@ -334,7 +400,7 @@ export default function Fensterreinigung() {
         <section className="py-12">
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
-              Häufige Fragen zur Fensterreinigung
+              Häufige Fragen zur Fensterreinigung in Chemnitz
             </h2>
             <Accordion type="single" collapsible className="bg-background border border-border rounded-2xl px-6 shadow-soft">
               {faqs.map((f, i) => (
@@ -353,7 +419,7 @@ export default function Fensterreinigung() {
         <section id="kontakt" className="py-12 bg-secondary/30">
           <div className="container mx-auto max-w-2xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-3">
-              Jetzt Angebot anfordern
+              Kostenloses Angebot für Ihre Fensterreinigung
             </h2>
             <p className="text-center text-muted-foreground mb-8">
               Antwort meist innerhalb weniger Minuten.
@@ -393,19 +459,19 @@ export default function Fensterreinigung() {
         {/* FINAL CTA */}
         <section className="relative py-16 md:py-20 overflow-hidden">
           <div className="absolute inset-0">
-            <img src={ctaImg} alt="Panoramafenster mit klarer Sicht" className="w-full h-full object-cover" loading="lazy" />
+            <img src={ctaImg} alt="Fensterreinigung Chemnitz – Panoramafenster mit streifenfreier Sicht" title="Fensterreinigung Chemnitz Panoramafenster" className="w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
           </div>
           <div className="container mx-auto relative z-10 text-center max-w-2xl">
             <h2 className="text-2xl md:text-5xl font-bold text-foreground tracking-tight">
-              Jetzt unverbindlich anfragen
+              Jetzt Fensterreinigung in Chemnitz anfragen
             </h2>
             <p className="mt-3 text-base md:text-lg text-foreground/80">
               Schnelle Rückmeldung per WhatsApp.
             </p>
             <div className="mt-6 flex justify-center">
               <Button size="xl" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Fensterreinigung Chemnitz per WhatsApp anfragen">
                   <MessageCircle className="w-5 h-5" />
                   Foto senden — Preis in 15 Min
                 </a>
