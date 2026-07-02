@@ -388,12 +388,6 @@ export default function Fensterreinigung() {
               <strong className="text-foreground font-semibold">Schaufensterreinigung Chemnitz</strong> und{' '}
               <strong className="text-foreground font-semibold">Wintergarten Reinigung</strong> gehören zu unseren Leistungen.
             </p>
-            <p className="text-sm text-muted-foreground text-center mt-5">
-              Weitere Informationen zu unseren{' '}
-              <a href="/" className="text-primary font-medium underline-offset-4 hover:underline">Reinigungsleistungen von ReinWerk</a>{' '}
-              oder zur{' '}
-              <a href="/gewerbe" className="text-primary font-medium underline-offset-4 hover:underline">Gewerbereinigung in Sachsen</a>.
-            </p>
           </div>
         </section>
 
