@@ -59,7 +59,7 @@ const services = [
 
 const faqs = [
   { q: 'Was kostet eine Fensterreinigung?', a: 'Die Kosten einer Fensterreinigung richten sich nach Anzahl, Größe und Zustand der Fenster. Nach kurzer Foto-Anfrage per WhatsApp erhalten Sie einen transparenten Festpreis – ohne versteckte Gebühren.' },
-  { q: 'Wie oft sollte man Fenster reinigen lassen?', a: 'Für Privathaushalte empfehlen wir eine professionelle Fensterreinigung 2–4 Mal im Jahr. Gewerbliche Objekte, Schaufenster und Büros in Chemnitz profitieren von einer monatlichen oder vierteljährlichen Reinigung.' },
+  { q: 'Wie oft sollte man Fenster reinigen lassen?', a: 'Für Privathaushalte empfehlen wir eine professionelle Fensterreinigung 2–4 Mal im Jahr. Gewerbliche Objekte, Schaufenster und Büros profitieren von einer monatlichen oder vierteljährlichen Reinigung.' },
   { q: 'Reinigen Sie auch Wintergärten?', a: 'Ja, Wintergartenreinigung gehört zu unseren Leistungen. Wir reinigen Glasdächer, Rahmen und alle Glasflächen Ihres Wintergartens streifenfrei und sicher – auch schwer erreichbare Bereiche.' },
   { q: 'Arbeiten Sie auch bei Unternehmen?', a: 'Ja. ReinWerk bietet Fensterreinigung für Unternehmen in ganz Sachsen – Büros, Praxen, Geschäfte und Schaufenster, einmalig oder regelmäßig, mit Rechnung für Unternehmen.' },
   { q: 'Reinigen Sie Schaufenster?', a: 'Ja, Schaufensterreinigung ist einer unserer Schwerpunkte. Wir reinigen Schaufenster, Glasfassaden und große Glasflächen für Einzelhandel, Gastronomie und Dienstleister – auf Wunsch außerhalb der Öffnungszeiten.' },
