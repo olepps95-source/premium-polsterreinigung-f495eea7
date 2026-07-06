@@ -262,7 +262,7 @@ export default function Fensterreinigung() {
         </section>
 
         {/* PROBLEM / SOLUTION */}
-        <section className="py-12 bg-secondary/30">
+        <section className="py-6 bg-secondary/30">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
             <img src={warumImg} alt="Fensterputzer Chemnitz reinigt Fenster mit Schlieren streifenfrei" title="Fensterputzer Chemnitz – ReinWerk" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
             <div>
@@ -284,7 +284,7 @@ export default function Fensterreinigung() {
         </section>
 
         {/* SERVICES — 4 cards */}
-        <section className="py-12">
+        <section className="py-6">
           <div className="container mx-auto">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
               Unsere Leistungen der Fensterreinigung
@@ -309,7 +309,7 @@ export default function Fensterreinigung() {
         </section>
 
         {/* PRIVATE */}
-        <section className="py-12 bg-secondary/30">
+        <section className="py-6 bg-secondary/30">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
@@ -326,7 +326,7 @@ export default function Fensterreinigung() {
         </section>
 
         {/* BUSINESS */}
-        <section className="py-12">
+        <section className="py-6">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
             <img src={gewerbeSectionImg} alt="Glasreinigung Büro Chemnitz – Fensterreinigung Gewerbe für Unternehmen" title="Glasreinigung Büro Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
             <div className="order-1 md:order-2">
@@ -348,7 +348,7 @@ export default function Fensterreinigung() {
         </section>
 
         {/* HOW IT WORKS */}
-        <section className="py-12 bg-secondary/30">
+        <section className="py-6 bg-secondary/30">
           <div className="container mx-auto">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
               So funktioniert Ihre Fensterreinigung
@@ -374,7 +374,7 @@ export default function Fensterreinigung() {
         </section>
 
         {/* LOCAL SEO */}
-        <section className="py-12">
+        <section className="py-6">
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-6">
               Fensterreinigung Chemnitz, Dresden, Leipzig – in ganz Sachsen
@@ -390,7 +390,7 @@ export default function Fensterreinigung() {
         </section>
 
         {/* FAQ */}
-        <section className="py-12">
+        <section className="py-6">
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
               Häufige Fragen zur Fensterreinigung
@@ -409,7 +409,7 @@ export default function Fensterreinigung() {
         </section>
 
         {/* CONTACT FORM */}
-        <section id="kontakt" className="py-12 bg-secondary/30">
+        <section id="kontakt" className="py-6 bg-secondary/30">
           <div className="container mx-auto max-w-2xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-3">
               Kostenloses Angebot für Ihre Fensterreinigung
@@ -450,7 +450,7 @@ export default function Fensterreinigung() {
         </section>
 
         {/* FINAL CTA */}
-        <section className="relative py-16 md:py-20 overflow-hidden">
+        <section className="relative py-8 md:py-10 overflow-hidden">
           <div className="absolute inset-0">
             <img src={ctaImg} alt="Fensterreinigung Chemnitz – Panoramafenster mit streifenfreier Sicht" title="Fensterreinigung Chemnitz Panoramafenster" className="w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
