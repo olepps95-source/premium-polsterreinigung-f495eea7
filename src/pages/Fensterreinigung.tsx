@@ -13,6 +13,7 @@ import { toast } from '@/hooks/use-toast';
 import heroImg from '@/assets/fenster-hero.jpg';
 import privatImg from '@/assets/fenster-privat.webp';
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
+import gewerbeSectionImg from '@/assets/fenster-gewerbe-neu.jpg.asset.json';
 import ctaImg from '@/assets/fenster-cta.jpg';
 import wintergartenImg from '@/assets/wintergarten.jpg';
 import warumImg from '@/assets/fenster-warum.webp';
