@@ -13,7 +13,7 @@ import { toast } from '@/hooks/use-toast';
 import heroImg from '@/assets/fenster-hero.jpg';
 import privatImg from '@/assets/fenster-privat.webp';
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
-import gewerbeSectionImg from '@/assets/fenster-gewerbe-neu.jpg.asset.json';
+import gewerbeSectionImg from '@/assets/fenster-gewerbe-neu.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
 import wintergartenImg from '@/assets/wintergarten.jpg';
 import warumImg from '@/assets/fenster-warum.webp';
@@ -328,7 +328,7 @@ export default function Fensterreinigung() {
         {/* BUSINESS */}
         <section className="py-12">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <img src={gewerbeSectionImg.url} alt="Glasreinigung Büro Chemnitz – Fensterreinigung Gewerbe für Unternehmen" title="Glasreinigung Büro Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
+            <img src={gewerbeSectionImg} alt="Glasreinigung Büro Chemnitz – Fensterreinigung Gewerbe für Unternehmen" title="Glasreinigung Büro Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
             <div className="order-1 md:order-2">
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
                 Fensterreinigung für Unternehmen in Sachsen
