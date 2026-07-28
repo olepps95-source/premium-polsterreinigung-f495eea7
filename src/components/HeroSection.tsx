@@ -150,7 +150,6 @@ export function HeroSection() {
                 rel="noopener noreferrer"
                 onClick={() => {
                   trackContact();
-                  trackGoogleAdsConversion();
                 }}
               >
                 <MessageCircle className="w-6 h-6" />
