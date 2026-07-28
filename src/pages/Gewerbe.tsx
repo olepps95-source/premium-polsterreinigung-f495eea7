@@ -1,123 +1,116 @@
-import { useEffect, useRef, useState } from 'react';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
-import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Checkbox } from '@/components/ui/checkbox';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { MessageCircle, Phone, Check, Truck, CalendarClock, Calculator } from 'lucide-react';
-import { toast } from '@/hooks/use-toast';
-import { trackGoogleAdsConversion } from '@/lib/google-ads';
-import { trackLead, trackContact } from '@/lib/meta-pixel';
-import heroGewerbe from '@/assets/hero-gewerbe.jpg';
-import kitaReinigung from '@/assets/kita-reinigung.jpeg';
-import teppichreinigungBuero from '@/assets/teppichreinigung-buero.jpg';
-import hartbodenreinigung from '@/assets/hartbodenreinigung.jpg';
-import kombipaket from '@/assets/kombipaket.jpeg';
-import stuhlreinigung from '@/assets/stuhlreinigung.jpeg';
-import matratzenreinigung from '@/assets/matratzenreinigung.jpg';
-import polsterreinigung from '@/assets/polsterreinigung.jpeg';
-import pflegeheime from '@/assets/pflegeheime.jpg';
+import { useEffect, useRef, useState } from "react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { MessageCircle, Phone, Check, Truck, CalendarClock, Calculator } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
+import { trackGoogleAdsConversion } from "@/lib/google-ads";
+import { trackLead, trackContact } from "@/lib/meta-pixel";
+import heroGewerbe from "@/assets/hero-gewerbe.jpg";
+import kitaReinigung from "@/assets/kita-reinigung.jpeg";
+import teppichreinigungBuero from "@/assets/teppichreinigung-buero.jpg";
+import hartbodenreinigung from "@/assets/hartbodenreinigung.jpg";
+import kombipaket from "@/assets/kombipaket.jpeg";
+import stuhlreinigung from "@/assets/stuhlreinigung.jpeg";
+import matratzenreinigung from "@/assets/matratzenreinigung.jpg";
+import polsterreinigung from "@/assets/polsterreinigung.jpeg";
+import pflegeheime from "@/assets/pflegeheime.jpg";
 
-const WHATSAPP_URL = 'https://wa.me/491636986317';
-const TEL = 'tel:+491632373108';
-const PHONE_DISPLAY = '+49 163 2373108';
+const WHATSAPP_URL = "https://wa.me/491636986317";
+const TEL = "tel:+491632373108";
+const PHONE_DISPLAY = "+49 163 2373108";
 
 const SERVICES = [
-  'Teppichreinigung',
-  'Polsterreinigung',
-  'Matratzenreinigung',
-  'Hartbodenreinigung',
-  'Stuhlreinigung',
-  'Kombipaket',
+  "Teppichreinigung",
+  "Polsterreinigung",
+  "Matratzenreinigung",
+  "Hartbodenreinigung",
+  "Stuhlreinigung",
+  "Kombipaket",
 ];
 
 function useGewerbeHead() {
   useEffect(() => {
     const prevTitle = document.title;
-    document.title = 'Professionelle Gewerbliche Reinigung in Chemnitz & Sachsen | ReinWerk';
+    document.title = "Professionelle Gewerbliche Reinigung in Chemnitz & Sachsen | ReinWerk";
 
     const tags: HTMLElement[] = [];
 
-    const setMeta = (attr: 'name' | 'property', key: string, content: string) => {
+    const setMeta = (attr: "name" | "property", key: string, content: string) => {
       let el = document.querySelector(`meta[${attr}="${key}"]`) as HTMLMetaElement | null;
       const created = !el;
       if (!el) {
-        el = document.createElement('meta');
+        el = document.createElement("meta");
         el.setAttribute(attr, key);
         document.head.appendChild(el);
       }
-      const prev = el.getAttribute('content');
-      el.setAttribute('content', content);
+      const prev = el.getAttribute("content");
+      el.setAttribute("content", content);
       if (created) tags.push(el);
       else (el as any).__prev = prev;
     };
 
     setMeta(
-      'name',
-      'description',
-      'B2B Reinigungsservice für Arztpraxen, Büros & Hotels in Chemnitz, Leipzig & Dresden. Teppich-, Polster- und Hartbodenreinigung ohne Betriebsunterbrechung.'
+      "name",
+      "description",
+      "B2B Reinigungsservice für Arztpraxen, Büros & Hotels in Chemnitz, Leipzig & Dresden. Teppich-, Polster- und Hartbodenreinigung ohne Betriebsunterbrechung.",
     );
     setMeta(
-      'name',
-      'keywords',
-      'Gewerbliche Reinigung Chemnitz, Praxisreinigung Sachsen, Büroreinigung Chemnitz, Teppichreinigung Büro Leipzig, Polsterreinigung Dresden, Hartbodenreinigung Gewerbe, B2B Reinigung Sachsen, gewerbliche Reinigung Sachsen'
+      "name",
+      "keywords",
+      "Gewerbliche Reinigung Chemnitz, Praxisreinigung Sachsen, Büroreinigung Chemnitz, Teppichreinigung Büro Leipzig, Polsterreinigung Dresden, Hartbodenreinigung Gewerbe, B2B Reinigung Sachsen, gewerbliche Reinigung Sachsen",
     );
-    setMeta('property', 'og:title', 'Professionelle Gewerbliche Reinigung in Chemnitz & Sachsen | ReinWerk');
+    setMeta("property", "og:title", "Professionelle Gewerbliche Reinigung in Chemnitz & Sachsen | ReinWerk");
     setMeta(
-      'property',
-      'og:description',
-      'B2B Reinigungsservice für Arztpraxen, Büros & Hotels in Chemnitz, Leipzig & Dresden. Teppich-, Polster- und Hartbodenreinigung ohne Betriebsunterbrechung.'
+      "property",
+      "og:description",
+      "B2B Reinigungsservice für Arztpraxen, Büros & Hotels in Chemnitz, Leipzig & Dresden. Teppich-, Polster- und Hartbodenreinigung ohne Betriebsunterbrechung.",
     );
-    setMeta('property', 'og:url', 'https://reinwerk-service.de/gewerbe');
+    setMeta("property", "og:url", "https://reinwerk-service.de/gewerbe");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    const prevCanonical = canonical?.getAttribute('href') ?? null;
+    const prevCanonical = canonical?.getAttribute("href") ?? null;
     if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
       document.head.appendChild(canonical);
       tags.push(canonical);
     }
-    canonical.setAttribute('href', 'https://reinwerk-service.de/gewerbe');
+    canonical.setAttribute("href", "https://reinwerk-service.de/gewerbe");
 
-    const ld = document.createElement('script');
-    ld.type = 'application/ld+json';
+    const ld = document.createElement("script");
+    ld.type = "application/ld+json";
     ld.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': ['LocalBusiness', 'CleaningService'],
-      name: 'ReinWerk',
-      description:
-        'Professionelle Teppich-, Polster- und Bodenreinigung für Gewerbekunden (B2B) in Sachsen.',
-      url: 'https://reinwerk-service.de/gewerbe',
-      telephone: '+491632373108',
-      priceRange: '€€',
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "CleaningService"],
+      name: "ReinWerk",
+      description: "Professionelle Teppich-, Polster- und Bodenreinigung für Gewerbekunden (B2B) in Sachsen.",
+      url: "https://reinwerk-service.de/gewerbe",
+      telephone: "+491632373108",
+      priceRange: "€€",
       address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Matthesstraße 48',
-        addressLocality: 'Chemnitz',
-        postalCode: '09113',
-        addressCountry: 'DE',
+        "@type": "PostalAddress",
+        streetAddress: "Matthesstraße 48",
+        addressLocality: "Chemnitz",
+        postalCode: "09113",
+        addressCountry: "DE",
       },
-      areaServed: ['Chemnitz', 'Dresden', 'Leipzig', 'Zwickau', 'Sachsen'],
+      areaServed: ["Chemnitz", "Dresden", "Leipzig", "Zwickau", "Sachsen"],
       serviceType: [
-        'Gewerbliche Reinigung',
-        'Praxisreinigung',
-        'Büroreinigung',
-        'Teppichreinigung',
-        'Polsterreinigung',
-        'Matratzenreinigung',
-        'Hartbodenreinigung',
-        'Stuhlreinigung',
+        "Gewerbliche Reinigung",
+        "Praxisreinigung",
+        "Büroreinigung",
+        "Teppichreinigung",
+        "Polsterreinigung",
+        "Matratzenreinigung",
+        "Hartbodenreinigung",
+        "Stuhlreinigung",
       ],
     });
     document.head.appendChild(ld);
@@ -126,7 +119,7 @@ function useGewerbeHead() {
     return () => {
       document.title = prevTitle;
       tags.forEach((t) => t.remove());
-      if (canonical && prevCanonical !== null) canonical.setAttribute('href', prevCanonical);
+      if (canonical && prevCanonical !== null) canonical.setAttribute("href", prevCanonical);
     };
   }, []);
 }
@@ -158,9 +151,7 @@ const ClientCard = ({
       <p className="text-muted-foreground leading-relaxed text-[15px]">{text}</p>
     </div>
   </div>
-
 );
-
 
 const ServiceCard = ({
   photo,
@@ -193,12 +184,12 @@ const Gewerbe = () => {
   useGewerbeHead();
 
   const [form, setForm] = useState({
-    firma: '',
-    name: '',
-    phone: '',
-    email: '',
-    typ: '',
-    nachricht: '',
+    firma: "",
+    name: "",
+    phone: "",
+    email: "",
+    typ: "",
+    nachricht: "",
   });
   const [services, setServices] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
@@ -211,23 +202,23 @@ const Gewerbe = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.firma || !form.name || !form.phone || !form.email || !form.typ) {
-      toast({ title: 'Bitte alle Pflichtfelder ausfüllen', variant: 'destructive' });
+      toast({ title: "Bitte alle Pflichtfelder ausfüllen", variant: "destructive" });
       return;
     }
     if (services.length === 0) {
-      toast({ title: 'Bitte mindestens eine Leistung auswählen', variant: 'destructive' });
+      toast({ title: "Bitte mindestens eine Leistung auswählen", variant: "destructive" });
       return;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(form.email)) {
-      toast({ title: 'Bitte eine gültige E-Mail-Adresse eingeben', variant: 'destructive' });
+      toast({ title: "Bitte eine gültige E-Mail-Adresse eingeben", variant: "destructive" });
       return;
     }
 
     setSubmitting(true);
     try {
       const payload = {
-        source: 'gewerbe',
+        source: "gewerbe",
         firmenname: form.firma,
         ansprechpartner: form.name,
         telefon: form.phone,
@@ -235,34 +226,33 @@ const Gewerbe = () => {
         unternehmensart: form.typ,
         leistungen: services,
         nachricht: form.nachricht,
-        page: '/gewerbe',
+        page: "/gewerbe",
         created_at: new Date().toISOString(),
       };
 
-      await fetch('https://hook.eu1.make.com/t2dbg2rwiiqf62wwgdq4dogdod7ag52x', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+      await fetch("https://hook.eu1.make.com/t2dbg2rwiiqf62wwgdq4dogdod7ag52x", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
-      setForm({ firma: '', name: '', phone: '', email: '', typ: '', nachricht: '' });
+      setForm({ firma: "", name: "", phone: "", email: "", typ: "", nachricht: "" });
       setServices([]);
       setSuccess(true);
       trackGoogleAdsConversion();
       trackLead();
-      toast({ title: 'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.' });
-      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      toast({ title: "Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet." });
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     } catch (err) {
       toast({
-        title: 'Fehler beim Senden. Bitte versuchen Sie es erneut.',
-        variant: 'destructive',
+        title: "Fehler beim Senden. Bitte versuchen Sie es erneut.",
+        variant: "destructive",
       });
     } finally {
       setSubmitting(false);
     }
   };
-
 
   return (
     <div className="min-h-screen bg-background">
@@ -288,8 +278,10 @@ const Gewerbe = () => {
                 Für Unternehmen & Gewerbe
               </p>
               <h1 className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-10 lg:mb-7">
-                Professionelle<br />
-                <span className="text-primary">Reinigung</span> für<br />
+                Professionelle
+                <br />
+                <span className="text-primary">Reinigung</span> für
+                <br />
                 <span className="whitespace-nowrap">Ihr Unternehmen</span>
               </h1>
 
@@ -297,13 +289,11 @@ const Gewerbe = () => {
                 Teppiche, Polster, Matratzen & Hartböden — professioneller Vor-Ort Service in ganz Sachsen.
               </p>
 
-
-
               <div className="grid grid-cols-3 gap-2 lg:gap-4 mb-6 lg:mb-10 max-w-xl">
                 {[
-                  { Icon: Truck, t: '0€ Anfahrt', s: 'Keine versteckten Gebühren' },
-                  { Icon: CalendarClock, t: 'Flexibel', s: 'Auch am Wochenende' },
-                  { Icon: Calculator, t: 'Festpreis', s: 'Vorab kalkulierbar' },
+                  { Icon: Truck, t: "0€ Anfahrt", s: "Keine versteckten Gebühren" },
+                  { Icon: CalendarClock, t: "Flexibel", s: "Auch am Wochenende" },
+                  { Icon: Calculator, t: "Festpreis", s: "Vorab kalkulierbar" },
                 ].map(({ Icon, t, s }) => (
                   <div
                     key={t}
@@ -316,7 +306,6 @@ const Gewerbe = () => {
                 ))}
               </div>
 
-
               <div className="flex flex-col lg:flex-row gap-2 lg:gap-3">
                 <Button
                   size="lg"
@@ -327,7 +316,9 @@ const Gewerbe = () => {
                     href="#angebot-anfordern"
                     onClick={(e) => {
                       e.preventDefault();
-                      document.getElementById('angebot-anfordern')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      document
+                        .getElementById("angebot-anfordern")
+                        ?.scrollIntoView({ behavior: "smooth", block: "start" });
                     }}
                   >
                     📋 Angebot anfordern →
@@ -339,7 +330,12 @@ const Gewerbe = () => {
                   className="h-12 lg:h-14 w-full lg:basis-2/5 rounded-xl bg-white border-2 border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628] hover:text-white font-semibold transition-all hover:-translate-y-0.5"
                   asChild
                 >
-                  <a href={TEL} onClick={() => { trackGoogleAdsConversion(); trackContact(); }}>
+                  <a
+                    href={TEL}
+                    onClick={() => {
+                      trackContact();
+                    }}
+                  >
                     📞 Anrufen
                   </a>
                 </Button>
@@ -351,18 +347,12 @@ const Gewerbe = () => {
           </div>
         </section>
 
-
-
         {/* TARGET CLIENTS */}
         <section className="py-16 bg-background">
           <div className="container">
             <div className="text-center mb-10">
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-3">
-                Wir reinigen für
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                Maßgeschneiderte Lösungen für jeden Unternehmenstyp
-              </p>
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-3">Wir reinigen für</h2>
+              <p className="text-muted-foreground text-lg">Maßgeschneiderte Lösungen für jeden Unternehmenstyp</p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
               <ClientCard
@@ -408,7 +398,6 @@ const Gewerbe = () => {
                 text="Stühle, Bänke & Teppiche — sauber und einladend für Ihre Gäste. Termine nach Schließungszeit möglich."
               />
             </div>
-
           </div>
         </section>
 
@@ -428,9 +417,9 @@ const Gewerbe = () => {
                 icon="🧹"
                 title="Teppichreinigung"
                 items={[
-                  'Büro & Hotel bis 50m² — ab 149€',
-                  'Büro & Hotel 50-100m² — ab 249€',
-                  'Über 100m² — auf Anfrage',
+                  "Büro & Hotel bis 50m² — ab 149€",
+                  "Büro & Hotel 50-100m² — ab 249€",
+                  "Über 100m² — auf Anfrage",
                 ]}
               />
               <ServiceCard
@@ -438,33 +427,21 @@ const Gewerbe = () => {
                 alt="Polsterreinigung Bürostühle und Sofas in Sachsen — ReinWerk"
                 icon="🛋️"
                 title="Polsterreinigung"
-                items={[
-                  'Bürostühle (10 Stück) — ab 149€',
-                  'Wartezimmer-Sofas — ab 99€',
-                  'Lobby-Sessel — ab 79€',
-                ]}
+                items={["Bürostühle (10 Stück) — ab 149€", "Wartezimmer-Sofas — ab 99€", "Lobby-Sessel — ab 79€"]}
               />
               <ServiceCard
                 photo={matratzenreinigung}
                 alt="Matratzenreinigung Hotel und Kita in Sachsen — ReinWerk"
                 icon="🛏️"
                 title="Matratzenreinigung"
-                items={[
-                  'Hotel (10 Stück) — ab 299€',
-                  'Kita (alle Matratzen) — ab 199€',
-                  'Einzeln — ab 39€',
-                ]}
+                items={["Hotel (10 Stück) — ab 299€", "Kita (alle Matratzen) — ab 199€", "Einzeln — ab 39€"]}
               />
               <ServiceCard
                 photo={hartbodenreinigung}
                 alt="Hartbodenreinigung Laminat Fliesen Vinyl in Sachsen — ReinWerk"
                 icon="✨"
                 title="Hartbodenreinigung"
-                items={[
-                  'Laminat bis 50m² — ab 79€',
-                  'Fliesen bis 50m² — ab 89€',
-                  'Vinyl & PVC — ab 79€',
-                ]}
+                items={["Laminat bis 50m² — ab 79€", "Fliesen bis 50m² — ab 89€", "Vinyl & PVC — ab 79€"]}
               />
               <ServiceCard
                 photo={stuhlreinigung}
@@ -472,9 +449,9 @@ const Gewerbe = () => {
                 icon="🪑"
                 title="Stuhlreinigung"
                 items={[
-                  'Wartezimmer-Stühle — ab 9€/Stück',
-                  'Konferenzstühle — ab 9€/Stück',
-                  'Mindeststückzahl: 10 Stühle',
+                  "Wartezimmer-Stühle — ab 9€/Stück",
+                  "Konferenzstühle — ab 9€/Stück",
+                  "Mindeststückzahl: 10 Stühle",
                 ]}
               />
               <ServiceCard
@@ -482,11 +459,7 @@ const Gewerbe = () => {
                 alt="Kombipaket Polster Teppich Boden Gewerbe Sachsen — ReinWerk"
                 icon="📦"
                 title="Kombipaket"
-                items={[
-                  'Polster + Teppich + Boden',
-                  '15% Rabatt auf Gesamtpreis',
-                  'Regelmäßiger Vertrag: -20%',
-                ]}
+                items={["Polster + Teppich + Boden", "15% Rabatt auf Gesamtpreis", "Regelmäßiger Vertrag: -20%"]}
               />
             </div>
           </div>
@@ -500,12 +473,12 @@ const Gewerbe = () => {
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                ['Rechnung inklusive', 'Professionell & transparent'],
-                ['Flexible Terminplanung', 'Abends, am Wochenende, in den Ferien'],
-                ['Keine Betriebsunterbrechung', 'Wir arbeiten wenn Sie geschlossen haben'],
-                ['Regelmäßige Serviceverträge', 'Monatlich oder quartalsweise'],
-                ['Sachsen-weit verfügbar', 'Dresden, Leipzig, Chemnitz & Umgebung'],
-                ['Schnelle Reaktionszeit', 'Angebot innerhalb von 15 Minuten'],
+                ["Rechnung inklusive", "Professionell & transparent"],
+                ["Flexible Terminplanung", "Abends, am Wochenende, in den Ferien"],
+                ["Keine Betriebsunterbrechung", "Wir arbeiten wenn Sie geschlossen haben"],
+                ["Regelmäßige Serviceverträge", "Monatlich oder quartalsweise"],
+                ["Sachsen-weit verfügbar", "Dresden, Leipzig, Chemnitz & Umgebung"],
+                ["Schnelle Reaktionszeit", "Angebot innerhalb von 15 Minuten"],
               ].map(([t, s]) => (
                 <div key={t} className="flex gap-4 items-start">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent flex items-center justify-center">
@@ -525,12 +498,8 @@ const Gewerbe = () => {
         <section id="angebot-anfordern" className="py-16 bg-[#F0F7FF]">
           <div className="container max-w-2xl">
             <div className="text-center mb-8">
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-3">
-                Jetzt Angebot anfordern
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                Kostenlos & unverbindlich — Antwort in 15 Minuten
-              </p>
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-3">Jetzt Angebot anfordern</h2>
+              <p className="text-muted-foreground text-lg">Kostenlos & unverbindlich — Antwort in 15 Minuten</p>
             </div>
             {success && (
               <div className="mb-6 p-4 rounded-xl bg-green-50 border border-green-200 text-green-800 text-center">
@@ -605,14 +574,8 @@ const Gewerbe = () => {
                 <Label>Gewünschte Leistung *</Label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
                   {SERVICES.map((s) => (
-                    <label
-                      key={s}
-                      className="flex items-center gap-2 cursor-pointer text-sm text-foreground"
-                    >
-                      <Checkbox
-                        checked={services.includes(s)}
-                        onCheckedChange={() => toggleService(s)}
-                      />
+                    <label key={s} className="flex items-center gap-2 cursor-pointer text-sm text-foreground">
+                      <Checkbox checked={services.includes(s)} onCheckedChange={() => toggleService(s)} />
                       {s}
                     </label>
                   ))}
@@ -630,7 +593,7 @@ const Gewerbe = () => {
                 />
               </div>
               <Button type="submit" variant="hero" size="lg" className="w-full" disabled={submitting}>
-                {submitting ? 'Wird gesendet...' : 'Angebot anfordern →'}
+                {submitting ? "Wird gesendet..." : "Angebot anfordern →"}
               </Button>
               <div className="text-center text-sm text-muted-foreground pt-2 space-y-1">
                 <p>Oder direkt kontaktieren:</p>
@@ -644,16 +607,22 @@ const Gewerbe = () => {
         {/* FOOTER CTA */}
         <section className="py-16 bg-[#0A1628] text-white">
           <div className="container text-center max-w-3xl">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-8">
-              Bereit für saubere Geschäftsräume?
-            </h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-8">Bereit für saubere Geschäftsräume?</h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
                 className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold"
                 asChild
               >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => { trackGoogleAdsConversion(); trackContact(); }}>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    trackGoogleAdsConversion();
+                    trackContact();
+                  }}
+                >
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp schreiben
                 </a>
@@ -664,7 +633,13 @@ const Gewerbe = () => {
                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0A1628]"
                 asChild
               >
-                <a href={TEL} onClick={() => { trackGoogleAdsConversion(); trackContact(); }}>
+                <a
+                  href={TEL}
+                  onClick={() => {
+                    trackGoogleAdsConversion();
+                    trackContact();
+                  }}
+                >
                   <Phone className="w-5 h-5" />
                   {PHONE_DISPLAY}
                 </a>
