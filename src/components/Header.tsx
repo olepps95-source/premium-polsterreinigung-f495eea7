@@ -215,7 +215,6 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
-                trackGoogleAdsConversion();
                 trackContact();
               }}
               className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-[#25D366] hover:bg-secondary/50 transition-all group"
