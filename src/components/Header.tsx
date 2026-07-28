@@ -197,7 +197,6 @@ export function Header() {
             <a
               href="mailto:info@reinwerk-service.de"
               onClick={() => {
-                trackGoogleAdsConversion();
                 trackContact();
               }}
               className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-primary hover:bg-secondary/50 transition-all group"
