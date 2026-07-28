@@ -54,7 +54,6 @@ export function HeroSection() {
                         event_label: "phone_click",
                       });
                     }
-                    trackGoogleAdsConversion();
                   }}
                 >
                   <Phone className="w-6 h-6" />
