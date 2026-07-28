@@ -1,22 +1,14 @@
-import { useState, forwardRef, useImperativeHandle } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { MessageCircle, Send } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-import { trackLead, trackContact } from '@/lib/meta-pixel';
-import { trackGoogleAdsConversion } from '@/lib/google-ads';
-import { useSelectedServices } from '@/contexts/SelectedServicesContext';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-  TableFooter,
-} from '@/components/ui/table';
+import { useState, forwardRef, useImperativeHandle } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { MessageCircle, Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { trackLead, trackContact } from "@/lib/meta-pixel";
+import { trackGoogleAdsConversion } from "@/lib/google-ads";
+import { useSelectedServices } from "@/contexts/SelectedServicesContext";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableFooter } from "@/components/ui/table";
 
 export interface CTAFormHandle {
   setSelectedProduct: (product: string) => void;
@@ -31,9 +23,9 @@ const parseNumericPrice = (priceString: string): number => {
 
 export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    message: '',
+    name: "",
+    phone: "",
+    message: "",
   });
   const [validationError, setValidationError] = useState<string | null>(null);
   const { toast } = useToast();
@@ -41,11 +33,11 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
 
   const selectedServices = getSelectedServices();
   const totalQuantity = getTotalQuantity();
-  
+
   // Calculate total price from selected services
   const totalPrice = selectedServices.reduce((sum, service) => {
     const numericPrice = parseNumericPrice(service.price);
-    return sum + (numericPrice * service.quantity);
+    return sum + numericPrice * service.quantity;
   }, 0);
 
   useImperativeHandle(ref, () => ({
@@ -56,28 +48,30 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   // Generate human-readable summary of selected services
   const formatSelectedServicesText = (): string => {
-    if (selectedServices.length === 0) return '';
-    
-    return selectedServices.map(service => {
-      const numericPrice = parseNumericPrice(service.price);
-      const rowTotal = service.quantity * numericPrice;
-      const priceText = rowTotal > 0 ? `${rowTotal} €` : 'Preis nach Absprache';
-      return `${service.title} ×${service.quantity} – ${priceText}`;
-    }).join('\n');
+    if (selectedServices.length === 0) return "";
+
+    return selectedServices
+      .map((service) => {
+        const numericPrice = parseNumericPrice(service.price);
+        const rowTotal = service.quantity * numericPrice;
+        const priceText = rowTotal > 0 ? `${rowTotal} €` : "Preis nach Absprache";
+        return `${service.title} ×${service.quantity} – ${priceText}`;
+      })
+      .join("\n");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setValidationError(null);
-    
+
     // Validate required fields: Name and Phone are required
     if (!formData.name.trim() || !formData.phone.trim()) {
-      setValidationError('Bitte füllen Sie die Kontaktdaten aus, damit wir Sie erreichen können.');
+      setValidationError("Bitte füllen Sie die Kontaktdaten aus, damit wir Sie erreichen können.");
       return;
     }
 
@@ -90,7 +84,7 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
       phone: formData.phone,
       message: formData.message,
       selected_services: selectedServicesText,
-      services: selectedServices.map(service => {
+      services: selectedServices.map((service) => {
         const numericPrice = parseNumericPrice(service.price);
         return {
           title: service.title,
@@ -105,10 +99,10 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
     };
 
     try {
-      const response = await fetch('https://hook.eu1.make.com/6qrngo5mu6wekvqwj8eacelu9oefi9sv', {
-        method: 'POST',
+      const response = await fetch("https://hook.eu1.make.com/6qrngo5mu6wekvqwj8eacelu9oefi9sv", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
       });
@@ -127,9 +121,9 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
 
         // Clear form and selections
         setFormData({
-          name: '',
-          phone: '',
-          message: '',
+          name: "",
+          phone: "",
+          message: "",
         });
         clearSelections();
       } else {
@@ -152,20 +146,16 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
     <section id="kontakt" className="py-16 bg-foreground text-primary-foreground">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Bereit für saubere Polster?
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Bereit für saubere Polster?</h2>
           <p className="text-lg text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            Kontaktieren Sie uns noch heute und sichern Sie sich Ihren Wunschtermin. 
-            Wir beraten Sie gerne unverbindlich.
+            Kontaktieren Sie uns noch heute und sichern Sie sich Ihren Wunschtermin. Wir beraten Sie gerne
+            unverbindlich.
           </p>
 
           {/* Contact Form */}
           <div id="kontaktformular" className="bg-background rounded-2xl p-8 md:p-10 mb-8 text-left">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-foreground mb-2">
-                Kontaktdaten
-              </h3>
+              <h3 className="text-2xl font-bold text-foreground mb-2">Kontaktdaten</h3>
               <p className="text-muted-foreground">
                 Füllen Sie das Formular aus und wir melden uns schnellstmöglich bei Ihnen.
               </p>
@@ -193,7 +183,7 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
                           <TableCell className="text-foreground text-center">{service.quantity}</TableCell>
                           <TableCell className="text-foreground text-right">{service.price}</TableCell>
                           <TableCell className="text-foreground text-right font-medium">
-                            {rowTotal > 0 ? `${rowTotal} €` : 'Nach Absprache'}
+                            {rowTotal > 0 ? `${rowTotal} €` : "Nach Absprache"}
                           </TableCell>
                         </TableRow>
                       );
@@ -205,12 +195,11 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
                       <TableCell className="text-foreground font-bold text-center">{totalQuantity}</TableCell>
                       <TableCell></TableCell>
                       <TableCell className="text-primary font-bold text-right">
-                        {totalPrice > 0 ? `${totalPrice} €` : 'Nach Absprache'}
+                        {totalPrice > 0 ? `${totalPrice} €` : "Nach Absprache"}
                       </TableCell>
                     </TableRow>
                   </TableFooter>
                 </Table>
-
               </div>
             )}
 
@@ -266,19 +255,16 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
               </div>
 
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Mit dem Absenden des Formulars erkläre ich mich damit einverstanden, dass meine angegebenen Daten zum Zweck der Kontaktaufnahme und Bearbeitung meiner Anfrage verarbeitet werden. Ich kann diese Einwilligung jederzeit per E-Mail an{' '}
+                Mit dem Absenden des Formulars erkläre ich mich damit einverstanden, dass meine angegebenen Daten zum
+                Zweck der Kontaktaufnahme und Bearbeitung meiner Anfrage verarbeitet werden. Ich kann diese Einwilligung
+                jederzeit per E-Mail an{" "}
                 <a href="mailto:info@reinwerk-service.de" className="text-primary hover:underline">
                   info@reinwerk-service.de
-                </a>{' '}
+                </a>{" "}
                 widerrufen.
               </p>
 
-              <Button
-                type="submit"
-                variant="cta"
-                size="xl"
-                className="w-full"
-              >
+              <Button type="submit" variant="cta" size="xl" className="w-full">
                 <Send className="w-5 h-5" />
                 Anfrage senden
               </Button>
@@ -288,13 +274,12 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
           {/* WhatsApp Button */}
           <div className="flex justify-center mb-8">
             <Button variant="hero" size="xl" className="bg-[#25D366] text-white hover:bg-[#25D366]" asChild>
-              <a 
-                href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0" 
-                target="_blank" 
+              <a
+                href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0"
+                target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
                   trackContact();
-                  trackGoogleAdsConversion();
                 }}
               >
                 <MessageCircle className="w-6 h-6" />
@@ -312,4 +297,4 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
   );
 });
 
-CTASection.displayName = 'CTASection';
+CTASection.displayName = "CTASection";
