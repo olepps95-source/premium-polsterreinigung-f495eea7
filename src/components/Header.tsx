@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail, MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { trackGoogleAdsConversion } from '@/lib/google-ads';
-import { trackContact } from '@/lib/meta-pixel';
-import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
+import { useState, useEffect } from "react";
+import { Menu, X, Phone, Mail, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { trackGoogleAdsConversion } from "@/lib/google-ads";
+import { trackContact } from "@/lib/meta-pixel";
+import reinwerkLogo from "@/assets/reinwerk-logo.jpg";
 
-type NavLink = { label: string; href: string; action?: 'contact-modal' };
+type NavLink = { label: string; href: string; action?: "contact-modal" };
 
 const navLinks: NavLink[] = [
-  { label: 'Polsterreinigung', href: '/' },
-  { label: 'Gewerbe', href: '/gewerbe' },
-  { label: 'Fensterreinigung', href: '/fensterreinigung' },
-  { label: 'Kontakt', href: '#', action: 'contact-modal' },
+  { label: "Polsterreinigung", href: "/" },
+  { label: "Gewerbe", href: "/gewerbe" },
+  { label: "Fensterreinigung", href: "/fensterreinigung" },
+  { label: "Kontakt", href: "#", action: "contact-modal" },
 ];
 
 export function Header() {
@@ -29,33 +29,30 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      navigate('/');
+      navigate("/");
     }
   };
-
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-soft border-b border-border/50'
-          : 'bg-transparent'
+        isScrolled ? "bg-background/95 backdrop-blur-md shadow-soft border-b border-border/50" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between py-4">
         <a href="/" onClick={handleLogoClick} className="flex items-center gap-3 cursor-pointer">
-          <img 
-            src={reinwerkLogo} 
-            alt="ReinWerk Logo – Polsterreinigung Sachsen" 
+          <img
+            src={reinwerkLogo}
+            alt="ReinWerk Logo – Polsterreinigung Sachsen"
             className="h-8 w-8 md:h-10 md:w-10 object-contain"
           />
           <span className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
@@ -68,27 +65,17 @@ export function Header() {
           {navLinks.map((link) => {
             const active = isActive(link);
             const className = `text-sm font-bold transition-colors ${
-              active ? 'text-primary font-bold' : 'text-muted-foreground hover:text-foreground'
+              active ? "text-primary font-bold" : "text-muted-foreground hover:text-foreground"
             }`;
-            if (link.action === 'contact-modal') {
+            if (link.action === "contact-modal") {
               return (
-                <button
-                  key={link.label}
-                  type="button"
-                  onClick={() => setIsContactOpen(true)}
-                  className={className}
-                >
+                <button key={link.label} type="button" onClick={() => setIsContactOpen(true)} className={className}>
                   {link.label}
                 </button>
               );
             }
             return (
-              <Link
-                key={link.label}
-                to={link.href}
-                aria-current={active ? 'page' : undefined}
-                className={className}
-              >
+              <Link key={link.label} to={link.href} aria-current={active ? "page" : undefined} className={className}>
                 {link.label}
               </Link>
             );
@@ -100,13 +87,13 @@ export function Header() {
             <a
               href="tel:+491632373108"
               onClick={() => {
-                if (typeof window !== 'undefined' && (window as any).gtag) {
-                  (window as any).gtag('event', 'click_call', {
-                    event_category: 'contact',
-                    event_label: 'phone_click',
+                if (typeof window !== "undefined" && (window as any).gtag) {
+                  (window as any).gtag("event", "click_call", {
+                    event_category: "contact",
+                    event_label: "phone_click",
                   });
-                  (window as any).gtag('event', 'conversion', {
-                    send_to: 'AW-18104648983/Y5YPCM_pwZ8cEJeK_LhD',
+                  (window as any).gtag("event", "conversion", {
+                    send_to: "AW-18104648983/Y5YPCM_pwZ8cEJeK_LhD",
                   });
                 }
               }}
@@ -134,14 +121,17 @@ export function Header() {
             {navLinks.map((link) => {
               const active = isActive(link);
               const className = `text-base font-bold transition-colors py-2 ${
-                active ? 'text-primary font-bold' : 'text-foreground hover:text-primary'
+                active ? "text-primary font-bold" : "text-foreground hover:text-primary"
               }`;
-              if (link.action === 'contact-modal') {
+              if (link.action === "contact-modal") {
                 return (
                   <button
                     key={link.label}
                     type="button"
-                    onClick={() => { setIsContactOpen(true); setIsMobileMenuOpen(false); }}
+                    onClick={() => {
+                      setIsContactOpen(true);
+                      setIsMobileMenuOpen(false);
+                    }}
                     className={`${className} text-left`}
                   >
                     {link.label}
@@ -153,7 +143,7 @@ export function Header() {
                   key={link.label}
                   to={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  aria-current={active ? 'page' : undefined}
+                  aria-current={active ? "page" : undefined}
                   className={className}
                 >
                   {link.label}
@@ -165,9 +155,9 @@ export function Header() {
                 <a
                   href="tel:+491632373108"
                   onClick={() => {
-                    if (typeof window !== 'undefined' && (window as any).gtag) {
-                      (window as any).gtag('event', 'conversion', {
-                        send_to: 'AW-18104648983/Y5YPCM_pwZ8cEJeK_LhD',
+                    if (typeof window !== "undefined" && (window as any).gtag) {
+                      (window as any).gtag("event", "conversion", {
+                        send_to: "AW-18104648983/Y5YPCM_pwZ8cEJeK_LhD",
                       });
                     }
                   }}
@@ -190,7 +180,9 @@ export function Header() {
           <div className="flex flex-col gap-3 pt-2">
             <a
               href="tel:+491632373108"
-              onClick={() => { trackGoogleAdsConversion(); trackContact(); }}
+              onClick={() => {
+                trackContact();
+              }}
               className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-primary hover:bg-secondary/50 transition-all group"
             >
               <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
@@ -204,7 +196,10 @@ export function Header() {
 
             <a
               href="mailto:info@reinwerk-service.de"
-              onClick={() => { trackGoogleAdsConversion(); trackContact(); }}
+              onClick={() => {
+                trackGoogleAdsConversion();
+                trackContact();
+              }}
               className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-primary hover:bg-secondary/50 transition-all group"
             >
               <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
@@ -220,7 +215,10 @@ export function Header() {
               href="https://api.whatsapp.com/send/?phone=491636986317&text&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => { trackGoogleAdsConversion(); trackContact(); }}
+              onClick={() => {
+                trackGoogleAdsConversion();
+                trackContact();
+              }}
               className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-[#25D366] hover:bg-secondary/50 transition-all group"
             >
               <div className="w-11 h-11 rounded-full bg-[#25D366]/10 text-[#25D366] flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors">
