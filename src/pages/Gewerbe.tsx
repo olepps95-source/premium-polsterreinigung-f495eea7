@@ -636,7 +636,6 @@ const Gewerbe = () => {
                 <a
                   href={TEL}
                   onClick={() => {
-                    trackGoogleAdsConversion();
                     trackContact();
                   }}
                 >
