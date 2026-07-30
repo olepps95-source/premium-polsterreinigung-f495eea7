@@ -231,7 +231,7 @@ const Gewerbe = () => {
         created_at: new Date().toISOString(),
       };
 
-      const response = await fetch("https://hook.eu1.make.com/hh2707i9ei6rb1s2a5uayx93uxw8nhqo", {
+      const response = await fetch("https://hook.eu1.make.com/81hzpicl2zd6d8qsoh5ki43wbw62if58", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
