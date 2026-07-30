@@ -427,6 +427,13 @@ export default function Fensterreinigung() {
                   <Label htmlFor="nachricht">Nachricht</Label>
                   <textarea id="nachricht" rows={3} value={form.nachricht} onChange={(e) => setForm({ ...form, nachricht: e.target.value })} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm text-input-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
                 </div>
+                <p className="text-[13px] text-muted-foreground text-left leading-relaxed">
+                  Mit dem Absenden des Formulars erkläre ich mich damit einverstanden, dass meine angegebenen Daten zum Zweck der Kontaktaufnahme und Bearbeitung meiner Anfrage verarbeitet werden. Ich kann diese Einwilligung jederzeit mit Wirkung für die Zukunft per E-Mail an{" "}
+                  <a href="mailto:info@reinwerk-service.de" className="underline hover:text-foreground transition-colors">
+                    info@reinwerk-service.de
+                  </a>{" "}
+                  widerrufen.
+                </p>
                 <Button type="submit" size="lg" className="w-full" disabled={submitting}>
                   {submitting ? 'Wird gesendet…' : 'Anfrage senden'}
                 </Button>
