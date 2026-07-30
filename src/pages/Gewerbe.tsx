@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
@@ -17,7 +18,7 @@ import kitaReinigung from "@/assets/kita-reinigung.jpeg";
 import teppichreinigungBuero from "@/assets/teppichreinigung-buero.jpg";
 import hartbodenreinigung from "@/assets/hartbodenreinigung.jpg";
 import kombipaket from "@/assets/kombipaket.jpeg";
-import stuhlreinigung from "@/assets/stuhlreinigung.jpeg";
+import fensterGewerbeImg from "@/assets/fenster-gewerbe.jpg";
 import matratzenreinigung from "@/assets/matratzenreinigung.jpg";
 import polsterreinigung from "@/assets/polsterreinigung.jpeg";
 import pflegeheime from "@/assets/pflegeheime.jpg";
@@ -445,17 +446,19 @@ const Gewerbe = () => {
                 title="Hartbodenreinigung"
                 items={["Laminat bis 50m² — ab 79€", "Fliesen bis 50m² — ab 89€", "Vinyl & PVC — ab 79€"]}
               />
-              <ServiceCard
-                photo={stuhlreinigung}
-                alt="Stuhlreinigung Wartezimmer und Konferenz in Sachsen — ReinWerk"
-                icon="🪑"
-                title="Stuhlreinigung"
-                items={[
-                  "Wartezimmer-Stühle — ab 9€/Stück",
-                  "Konferenzstühle — ab 9€/Stück",
-                  "Mindeststückzahl: 10 Stühle",
-                ]}
-              />
+              <Link to="/fensterreinigung" className="block">
+                <ServiceCard
+                  photo={fensterGewerbeImg}
+                  alt="Fensterreinigung für Gewerbekunden in Sachsen – Büros, Praxen und Schaufenster | ReinWerk"
+                  icon="🪟"
+                  title="Fensterreinigung"
+                  items={[
+                    "Büros & Praxen – auf Anfrage",
+                    "Schaufenster & Glasflächen – auf Anfrage",
+                    "Regelmäßige Reinigung – individuelle Angebote",
+                  ]}
+                />
+              </Link>
               <ServiceCard
                 photo={kombipaket}
                 alt="Kombipaket Polster Teppich Boden Gewerbe Sachsen — ReinWerk"
