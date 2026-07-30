@@ -446,17 +446,19 @@ const Gewerbe = () => {
                 title="Hartbodenreinigung"
                 items={["Laminat bis 50m² — ab 79€", "Fliesen bis 50m² — ab 89€", "Vinyl & PVC — ab 79€"]}
               />
-              <ServiceCard
-                photo={stuhlreinigung}
-                alt="Stuhlreinigung Wartezimmer und Konferenz in Sachsen — ReinWerk"
-                icon="🪑"
-                title="Stuhlreinigung"
-                items={[
-                  "Wartezimmer-Stühle — ab 9€/Stück",
-                  "Konferenzstühle — ab 9€/Stück",
-                  "Mindeststückzahl: 10 Stühle",
-                ]}
-              />
+              <Link to="/fensterreinigung" className="block">
+                <ServiceCard
+                  photo={fensterGewerbeImg}
+                  alt="Fensterreinigung für Gewerbekunden in Sachsen – Büros, Praxen und Schaufenster | ReinWerk"
+                  icon="🪟"
+                  title="Fensterreinigung"
+                  items={[
+                    "Büros & Praxen – auf Anfrage",
+                    "Schaufenster & Glasflächen – auf Anfrage",
+                    "Regelmäßige Reinigung – individuelle Angebote",
+                  ]}
+                />
+              </Link>
               <ServiceCard
                 photo={kombipaket}
                 alt="Kombipaket Polster Teppich Boden Gewerbe Sachsen — ReinWerk"
