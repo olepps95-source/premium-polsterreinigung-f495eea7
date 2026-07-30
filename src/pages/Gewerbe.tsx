@@ -215,6 +215,7 @@ const Gewerbe = () => {
       return;
     }
 
+    if (submitting) return;
     setSubmitting(true);
     try {
       const payload = {
@@ -230,12 +231,13 @@ const Gewerbe = () => {
         created_at: new Date().toISOString(),
       };
 
-      await fetch("https://hook.eu1.make.com/t2dbg2rwiiqf62wwgdq4dogdod7ag52x", {
+      const response = await fetch("https://hook.eu1.make.com/hh2707i9ei6rb1s2a5uayx93uxw8nhqo", {
         method: "POST",
-        mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+
+      if (!response.ok) throw new Error("Request failed");
 
       setForm({ firma: "", name: "", phone: "", email: "", typ: "", nachricht: "" });
       setServices([]);
