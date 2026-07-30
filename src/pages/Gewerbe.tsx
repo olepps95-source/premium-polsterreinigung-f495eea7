@@ -32,7 +32,7 @@ const SERVICES = [
   "Polsterreinigung",
   "Matratzenreinigung",
   "Hartbodenreinigung",
-  "Stuhlreinigung",
+  "Fensterreinigung",
   "Kombipaket",
 ];
 
