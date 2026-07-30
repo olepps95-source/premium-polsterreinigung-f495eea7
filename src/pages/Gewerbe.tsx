@@ -594,6 +594,13 @@ const Gewerbe = () => {
                   className="mt-1.5"
                 />
               </div>
+              <p className="text-[13px] text-muted-foreground text-left leading-relaxed">
+                Mit dem Absenden des Formulars erkläre ich mich damit einverstanden, dass meine angegebenen Daten zum Zweck der Kontaktaufnahme und Bearbeitung meiner Anfrage verarbeitet werden. Ich kann diese Einwilligung jederzeit mit Wirkung für die Zukunft per E-Mail an{" "}
+                <a href="mailto:info@reinwerk-service.de" className="underline hover:text-foreground transition-colors">
+                  info@reinwerk-service.de
+                </a>{" "}
+                widerrufen.
+              </p>
               <Button type="submit" variant="hero" size="lg" className="w-full" disabled={submitting}>
                 {submitting ? "Wird gesendet..." : "Angebot anfordern →"}
               </Button>
