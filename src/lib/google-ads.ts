@@ -6,16 +6,19 @@ declare global {
   }
 }
 
-const CONVERSION_SEND_TO = 'AW-18104648983/Y5YPCM_pwZ8cEJeK_LhD';
+const CONVERSION_ID = 'AW-18104648983';
+const DEFAULT_CONVERSION_LABEL = 'Y5YPCM_pwZ8cEJeK_LhD';
 
 /**
  * Fires a Google Ads conversion event.
  * Safely no-ops if gtag is unavailable.
+ * @param label Optional conversion label. Defaults to the site-wide label.
  */
-export function trackGoogleAdsConversion() {
+export function trackGoogleAdsConversion(label = DEFAULT_CONVERSION_LABEL) {
   if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
     window.gtag('event', 'conversion', {
-      send_to: CONVERSION_SEND_TO,
+      send_to: `${CONVERSION_ID}/${label}`,
     });
   }
 }
+

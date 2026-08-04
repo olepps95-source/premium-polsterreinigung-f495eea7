@@ -173,7 +173,7 @@ export default function Fensterreinigung() {
         body: JSON.stringify(payload),
       });
       if (!response.ok) throw new Error('Request failed');
-      trackGoogleAdsConversion();
+      trackGoogleAdsConversion('Ty4ACPHIodscEJeK_LhD');
       toast({ title: 'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.' });
       setForm({ vorname: '', telefon: '', stadt: '', fensterart: '', nachricht: '' });
     } catch (err) {
