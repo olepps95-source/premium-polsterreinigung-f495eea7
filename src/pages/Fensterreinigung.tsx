@@ -10,6 +10,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { toast } from '@/hooks/use-toast';
+import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import heroImg from '@/assets/fenster-hero.jpg';
 import privatImg from '@/assets/fenster-privat.webp';
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
@@ -172,6 +173,7 @@ export default function Fensterreinigung() {
         body: JSON.stringify(payload),
       });
       if (!response.ok) throw new Error('Request failed');
+      trackGoogleAdsConversion();
       toast({ title: 'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.' });
       setForm({ vorname: '', telefon: '', stadt: '', fensterart: '', nachricht: '' });
     } catch (err) {
