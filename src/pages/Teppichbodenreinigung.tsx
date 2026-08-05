@@ -327,7 +327,7 @@ export default function Teppichbodenreinigung() {
             role="img"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/50 md:from-background md:via-background/60 md:to-transparent" />
-          <div className="container mx-auto relative z-10 px-4 flex flex-col md:h-full md:flex-1 md:justify-between">
+          <div className="container mx-auto relative z-10 px-4 flex flex-col md:h-full md:flex-1 md:justify-start">
             <div className="max-w-xl md:max-w-2xl w-full">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[1.1] text-left">
                 Professionelle
@@ -341,6 +341,8 @@ export default function Teppichbodenreinigung() {
                 Ort.
               </p>
             </div>
+
+            <div className="hidden md:block flex-1 min-h-[80px]" />
 
             <div className="max-w-xl md:max-w-2xl w-full mt-6 md:mt-0 md:mb-6">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
