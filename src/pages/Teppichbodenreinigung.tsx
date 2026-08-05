@@ -641,7 +641,7 @@ export default function Teppichbodenreinigung() {
               ))}
             </div>
 
-            <div className="mt-8 text-center">
+            <div className="mt-[30px] text-center">
               <Button variant="outline" size="lg" className="font-semibold" asChild>
                 <a href="https://maps.app.goo.gl/HeEVeeSDaEnruM2Z6" target="_blank" rel="noopener noreferrer">
                   Alle Bewertungen auf Google ansehen
