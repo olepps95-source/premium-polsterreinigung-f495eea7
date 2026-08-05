@@ -606,16 +606,16 @@ export default function Teppichbodenreinigung() {
             <div className="flex md:grid md:grid-cols-3 md:items-start gap-6 overflow-x-auto md:overflow-visible pb-3 md:pb-0 snap-x snap-mandatory">
               {[
                 {
+                  name: 'Dagmar Espig',
+                  text: 'Am 27.07., pünktlich 14.00 Uhr, wie vereinbart, kam Herr Pshenychnyi um unser Sofa zu reinigen. Er hat hat zügig gearbeitet und nach 3 Stunden sieht unser Ecksofa und der dazugehörige Hocker wie neu aus. Wir sind sehr angenehm überrascht und können das Unternehmen weiterempfehlen. Wir werden die Möglichkeit weiterer Angebote nutzen. Dagmar Espig',
+                },
+                {
                   name: 'Robby Schlesinger',
                   text: 'Super Arbeit! Netter Kontakt! Schnell und unkompliziert! Top Preis! Sehr zu empfehlen!',
                 },
                 {
                   name: 'Uwe Fischer',
                   text: 'Absprachen im Vorfeld liefen super und die Reinigung selbst ist ebenfalls top. Gern wieder!',
-                },
-                {
-                  name: 'Dagmar Espig',
-                  text: 'Am 27.07., pünktlich 14.00 Uhr, wie vereinbart, kam Herr Pshenychnyi um unser Sofa zu reinigen. Er hat hat zügig gearbeitet und nach 3 Stunden sieht unser Ecksofa und der dazugehörige Hocker wie neu aus. Wir sind sehr angenehm überrascht und können das Unternehmen weiterempfehlen. Wir werden die Möglichkeit weiterer Angebote nutzen. Dagmar Espig',
                 },
               ].map((review) => (
                 <Card
