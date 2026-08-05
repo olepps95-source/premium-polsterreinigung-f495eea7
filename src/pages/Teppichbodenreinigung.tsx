@@ -40,12 +40,6 @@ const PAGE_URL = 'https://reinwerk-service.de/teppichbodenreinigung';
 const OG_IMAGE = 'https://reinwerk-service.de/og-image.png';
 const WEBHOOK_URL = 'https://hook.eu1.make.com/81hzpicl2zd6d8qsoh5ki43wbw62if58';
 
-const heroBenefits = [
-  { title: 'Tiefenreinigung vor Ort', sub: 'ohne Ausbau des Teppichbodens' },
-  { title: 'Flecken- & Geruchsbehandlung', sub: 'gezielte Vorbehandlung' },
-  { title: 'Für Privat & Gewerbe', sub: 'Auch größere Flächen' },
-  { title: 'Kostenlose Anfahrt', sub: 'im Einsatzgebiet' },
-];
 
 const problems = [
   'Stark beanspruchte Laufwege und dunkle Trittspuren',
@@ -341,19 +335,16 @@ export default function Teppichbodenreinigung() {
                 Ort.
               </p>
 
-              <div className="mt-3 md:mt-5 grid grid-cols-2 gap-2 md:gap-2.5">
-                {heroBenefits.map((b) => (
-                  <div
-                    key={b.title}
-                    className="flex items-center gap-2.5 px-2.5 py-1.5 md:px-4 md:py-3 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
-                  >
-                    <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <Check className="w-4 h-4 text-primary" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-bold text-foreground leading-tight">{b.title}</span>
-                      <span className="text-xs text-muted-foreground leading-tight">{b.sub}</span>
-                    </div>
+              <div className="mt-3 md:mt-4 flex flex-col sm:flex-row sm:flex-wrap gap-y-1.5 gap-x-4 md:gap-x-5">
+                {[
+                  'Tiefenreinigung vor Ort',
+                  'Fleckenbehandlung',
+                  'Privat & Gewerbe',
+                  'Kostenlose Anfahrt',
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2 text-sm md:text-base text-foreground">
+                    <Check className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0" />
+                    <span>{item}</span>
                   </div>
                 ))}
               </div>
