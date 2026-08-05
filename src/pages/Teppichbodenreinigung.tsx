@@ -23,7 +23,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Footer } from '@/components/Footer';
-import { ReviewsSection } from '@/components/ReviewsSection';
 import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { trackLead, trackContact } from '@/lib/meta-pixel';
@@ -553,8 +552,6 @@ export default function Teppichbodenreinigung() {
             </div>
           </div>
         </section>
-
-        <ReviewsSection />
 
         {/* KONTAKTFORMULAR */}
         <section id="kontakt" className="py-8 md:py-12 bg-secondary/30">
