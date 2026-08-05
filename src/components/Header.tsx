@@ -57,8 +57,8 @@ export function Header() {
             alt="ReinWerk Logo – Polsterreinigung Sachsen"
             className={`object-contain ${isTeppich ? "h-7 w-7 md:h-10 md:w-10" : "h-8 w-8 md:h-10 md:w-10"}`}
           />
-          <span className="font-bold text-white tracking-tight text-2xl md:text-3xl whitespace-nowrap">
-            Rein<span className="text-primary">Werk</span>
+          <span className="font-bold text-rw-dark tracking-tight text-2xl md:text-3xl whitespace-nowrap">
+            Rein<span className="text-rw-blue">Werk</span>
           </span>
         </a>
 
