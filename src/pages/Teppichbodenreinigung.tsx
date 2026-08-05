@@ -27,7 +27,7 @@ import { ReviewsSection } from '@/components/ReviewsSection';
 import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { trackLead, trackContact } from '@/lib/meta-pixel';
-import heroImg from '@/assets/teppichreinigung-buero.jpg';
+import heroImg from '@/assets/teppichbodenreinigung-hero.jpg.asset.json';
 import problemImg from '@/assets/teppichboden-problem.jpg';
 import wohnraumImg from '@/assets/teppichboden-wohnraum.jpg';
 import gewerbeImg from '@/assets/hero-gewerbe.jpg';
