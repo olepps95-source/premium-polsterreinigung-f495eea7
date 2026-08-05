@@ -322,7 +322,7 @@ export default function Teppichbodenreinigung() {
         <section className="relative pt-20 md:pt-24 pb-10 md:pb-16 overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src={heroImg}
+              src={heroImg.url}
               alt="Teppichbodenreinigung Chemnitz – Tiefenreinigung eines Teppichbodens im Büro"
               title="Teppichbodenreinigung Chemnitz – ReinWerk"
               className="w-full h-full object-cover object-center"
