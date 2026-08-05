@@ -288,7 +288,7 @@ export default function Teppichbodenreinigung() {
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
-      <style>{`@media (max-width: 767px){header:not(.bg-background\\/95) span{color:#fff}header:not(.bg-background\\/95) span.text-primary{color:#1598D4}header:not(.bg-background\\/95) button[aria-label="Menü öffnen"]{color:#fff}}`}</style>
+      <style>{`@media (max-width: 767px){header:not(.bg-background\\/95) span{color:#fff}header:not(.bg-background\\/95) span.text-primary{color:#1598D4}header:not(.bg-background\\/95) button[aria-label="Menü öffnen"]{color:#fff}header.bg-background\\/95 span{color:#20242C}header.bg-background\\/95 span.text-primary{color:#1598D4}header.bg-background\\/95 button[aria-label="Menü öffnen"]{color:#20242C}}`}</style>
       <Header />
 
 
