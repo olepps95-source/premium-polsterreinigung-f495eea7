@@ -319,19 +319,14 @@ export default function Teppichbodenreinigung() {
 
       <main className="pb-20 md:pb-0">
         {/* HERO */}
-        <section className="relative pt-20 md:pt-24 pb-10 md:pb-16 overflow-hidden">
-          <div className="absolute inset-0">
-            <img
-              src={heroImg.url}
-              alt="Teppichbodenreinigung Chemnitz – Tiefenreinigung eines Teppichbodens im Büro"
-              title="Teppichbodenreinigung Chemnitz – ReinWerk"
-              className="w-full h-full object-cover object-center"
-              width={1920}
-              height={1080}
-              loading="eager"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/40" />
-          </div>
+        <section className="relative w-full min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-64px)] pt-20 md:pt-24 pb-10 md:pb-16 overflow-hidden flex items-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${heroImg.url})` }}
+            aria-label="Teppichbodenreinigung Chemnitz – Tiefenreinigung eines Teppichbodens im Büro"
+            role="img"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/40" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-2xl">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[1.15] text-center md:text-left">
