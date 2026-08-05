@@ -319,7 +319,7 @@ export default function Teppichbodenreinigung() {
 
       <main className="pb-20 md:pb-0">
         {/* HERO */}
-        <section className="relative w-full min-h-[calc(100vh-56px)] md:h-[calc(100vh-64px)] mt-14 md:mt-16 overflow-hidden flex items-center md:items-start md:pt-20 md:pb-12">
+        <section className="relative w-full min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-64px)] mt-14 md:mt-16 overflow-hidden flex items-center md:items-start md:pt-20 md:pb-12">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImg})`, backgroundPosition: 'center center' }}
@@ -342,9 +342,7 @@ export default function Teppichbodenreinigung() {
               </p>
             </div>
 
-            <div className="hidden md:block flex-1 min-h-[80px]" />
-
-            <div className="max-w-xl md:max-w-2xl w-full mt-6 md:mt-0 md:mb-6">
+            <div className="max-w-xl md:max-w-2xl w-full mt-6 md:mt-20 md:mb-8">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { title: '0 € Anfahrt', sub: 'im Einsatzgebiet' },
