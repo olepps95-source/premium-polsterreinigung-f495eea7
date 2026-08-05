@@ -29,7 +29,7 @@ import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { trackLead, trackContact } from '@/lib/meta-pixel';
 import heroImg from '@/assets/teppichbodenreinigung-hero.jpg.asset.json';
 import problemImg from '@/assets/teppichreinigung-problem.jpeg.asset.json';
-import wohnraumImg from '@/assets/teppichboden-wohnraum.jpg';
+import wohnraumImg from '@/assets/teppichboden-dresden.jpeg.asset.json';
 import gewerbeImg from '@/assets/hero-gewerbe.jpg';
 import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 
@@ -431,7 +431,7 @@ export default function Teppichbodenreinigung() {
               <Card className="overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
-                    src={wohnraumImg}
+                    src={wohnraumImg.url}
                     alt="Teppichbodenreinigung Privat – Wohnzimmer mit gereinigtem Teppichboden"
                     className="w-full h-full object-cover"
                     loading="lazy"
