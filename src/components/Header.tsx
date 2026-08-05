@@ -62,7 +62,7 @@ export function Header() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-4 lg:gap-8">
           {navLinks.map((link) => {
             const active = isActive(link);
             const className = `text-sm font-bold transition-colors ${
