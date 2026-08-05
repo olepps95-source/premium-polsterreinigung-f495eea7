@@ -603,7 +603,7 @@ export default function Teppichbodenreinigung() {
               </div>
             </div>
 
-            <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto md:overflow-visible pb-3 md:pb-0 snap-x snap-mandatory scrollbar-hide">
+            <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto md:overflow-visible pb-3 md:pb-0 snap-x snap-mandatory">
               {[1, 2, 3].map((i) => (
                 <Card
                   key={i}
