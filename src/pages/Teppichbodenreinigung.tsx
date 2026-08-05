@@ -46,7 +46,7 @@ const WEBHOOK_URL = 'https://hook.eu1.make.com/81hzpicl2zd6d8qsoh5ki43wbw62if58'
 const heroBenefits = [
   { title: 'Tiefenreinigung vor Ort', sub: 'ohne Ausbau des Teppichbodens' },
   { title: 'Für Privat & Gewerbe', sub: 'Auch größere Flächen' },
-  { title: 'Flecken- & Geruchsbehandlung', sub: 'gezielte Vorbehandlung' },
+  { title: 'Kostenlose Anfahrt', sub: 'im Einsatzgebiet' },
   { title: 'Kostenlose Anfahrt', sub: 'im Einsatzgebiet' },
 ];
 
