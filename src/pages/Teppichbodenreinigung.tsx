@@ -320,7 +320,8 @@ export default function Teppichbodenreinigung() {
                 Ort.
               </p>
 
-              <div className="mt-3 md:mt-14 grid grid-cols-2 gap-2 md:gap-2.5">
+              {/* Desktop/Tablet USP cards */}
+              <div className="mt-3 md:mt-14 hidden md:grid grid-cols-2 gap-2 md:gap-2.5">
                 {heroBenefits.map((b) => (
                   <div
                     key={b.title}
@@ -332,6 +333,24 @@ export default function Teppichbodenreinigung() {
                     <div className="flex flex-col">
                       <span className="text-sm font-bold text-foreground leading-tight">{b.title}</span>
                       <span className="text-xs text-muted-foreground leading-tight">{b.sub}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile USP list */}
+              <div className="md:hidden mt-4 space-y-0">
+                {heroBenefits.slice(0, 3).map((b, idx) => (
+                  <div
+                    key={b.title}
+                    className={`flex items-center gap-3 py-2.5 ${idx < 2 ? 'border-b border-white/10' : ''}`}
+                  >
+                    <div className="w-8 h-8 rounded-full bg-slate-900/80 flex items-center justify-center shrink-0">
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-semibold text-white leading-tight">{b.title}</span>
+                      <span className="text-xs text-gray-300 leading-tight">{b.sub}</span>
                     </div>
                   </div>
                 ))}
