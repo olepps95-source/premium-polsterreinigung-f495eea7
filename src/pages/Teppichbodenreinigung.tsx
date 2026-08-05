@@ -295,7 +295,7 @@ export default function Teppichbodenreinigung() {
 
       <main className="pb-20 md:pb-0">
         {/* HERO */}
-        <section className="relative w-full min-h-[100svh] md:min-h-screen overflow-hidden flex items-center md:items-start pt-16 md:pt-32 md:pb-12">
+        <section className="relative w-full min-h-[100svh] md:min-h-screen overflow-hidden flex items-center md:items-start pt-16 md:pt-32 md:pb-6">
 
           {/* Mobile hero background (new uploaded image) */}
           <div
@@ -366,7 +366,7 @@ export default function Teppichbodenreinigung() {
               </div>
 
               {/* Desktop CTA buttons */}
-              <div className="hidden md:flex mt-10 flex-row gap-3">
+              <div className="hidden md:flex mt-5 flex-row gap-3">
                 <Button size="lg" onClick={scrollToContact} className="font-semibold h-11 md:h-14">
                   Kostenloses Angebot erhalten
                 </Button>
@@ -434,10 +434,10 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* GOOGLE BEWERTUNGEN */}
-        <section className="pt-8 md:pt-12 pb-8 md:pb-20 bg-background">
+        <section className="pt-4 md:pt-6 pb-4 md:pb-10 bg-background">
           <div className="mx-auto w-[90%] max-w-[1450px]">
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4 md:mb-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-2 md:mb-4">
 
               <div className="flex items-center gap-2.5">
                 <svg
@@ -476,7 +476,7 @@ export default function Teppichbodenreinigung() {
               </div>
             </div>
 
-            <div className="flex md:grid md:grid-cols-3 md:items-start gap-4 md:gap-6 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x snap-mandatory">
+            <div className="flex md:grid md:grid-cols-3 md:items-start gap-2 md:gap-3 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x snap-mandatory">
               {[
                 {
                   name: 'Dagmar Espig',
@@ -514,7 +514,7 @@ export default function Teppichbodenreinigung() {
               ))}
             </div>
 
-            <div className="mt-4 md:mt-[30px] text-center">
+            <div className="mt-2 md:mt-[15px] text-center">
               <Button variant="outline" size="lg" className="font-semibold max-md:h-10 max-md:px-4 max-md:text-sm" asChild>
 
                 <a href="https://maps.app.goo.gl/HeEVeeSDaEnruM2Z6" target="_blank" rel="noopener noreferrer">
@@ -526,7 +526,7 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* PREISE */}
-        <section className="py-8 md:py-12 bg-secondary/30">
+        <section className="py-4 md:py-6 bg-secondary/30">
           <div className="container mx-auto max-w-3xl">
             <Card className="p-6 md:p-8 text-center bg-gradient-to-b from-white to-blue-soft border border-border/50 shadow-soft rounded-2xl">
               <div className="flex flex-col items-center justify-center gap-2 md:gap-3">
@@ -544,7 +544,7 @@ export default function Teppichbodenreinigung() {
                   Der endgültige Preis richtet sich nach Fläche, Verschmutzungsgrad und Aufwand.
                 </p>
               </div>
-              <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
+              <div className="mt-3 flex flex-col sm:flex-row justify-center gap-3">
                 <Button size="lg" onClick={scrollToContact} className="font-semibold">
                   Kostenloses Angebot erhalten
                 </Button>
@@ -555,20 +555,20 @@ export default function Teppichbodenreinigung() {
 
         {/* PROBLEM / NUTZEN */}
 
-        <section className="py-8 md:py-12 bg-secondary/30">
-          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <section className="py-4 md:py-6 bg-secondary/30">
+          <div className="container mx-auto grid md:grid-cols-2 gap-4 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
                 Wenn der Teppichboden nicht mehr sauber wirkt
               </h2>
-              <ul className="mt-5 space-y-2.5">
+              <ul className="mt-3 space-y-2.5">
                 {problems.map((p) => (
                   <li key={p} className="flex items-start gap-3 text-base text-foreground">
                     <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" /> {p}
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-muted-foreground">
+              <p className="mt-3 text-muted-foreground">
                 ReinWerk behandelt Ihren Teppichboden professionell vor Ort: Wir lösen tief sitzende Verschmutzungen aus
                 den Fasern, behandeln Flecken gezielt vor und saugen Schmutz und Reinigungsmittel wieder ab. Das
                 Ergebnis ist ein sichtbar frischerer, hygienisch gereinigter Teppichboden – ohne Ausbau und ohne
@@ -586,12 +586,12 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* PRIVAT & GEWERBE */}
-        <section className="py-8 md:py-12">
+        <section className="py-4 md:py-6">
           <div className="container mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
               Teppichbodenreinigung für Privat &amp; Gewerbe
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-3">
               <Card className="overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
@@ -639,12 +639,12 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* ABLAUF */}
-        <section className="py-8 md:py-12 bg-secondary/30">
+        <section className="py-4 md:py-6 bg-secondary/30">
           <div className="container mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
               So läuft die Teppichbodenreinigung ab
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-2">
               {steps.map((s, i) => (
                 <div key={s.title} className="bg-background rounded-2xl p-5 shadow-soft text-center">
                   <div className="relative inline-flex">
@@ -666,12 +666,12 @@ export default function Teppichbodenreinigung() {
 
 
         {/* VERTRAUEN */}
-        <section className="py-8 md:py-12">
+        <section className="py-4 md:py-6">
           <div className="container mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
               ReinWerk – Ihr lokaler Reinigungspartner in Sachsen
             </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-2">
               {trustItems.map((t) => (
                 <div key={t.title} className="bg-secondary/40 rounded-2xl p-5 text-center">
                   <div className="w-10 h-10 mx-auto rounded-lg bg-primary/10 text-primary flex items-center justify-center">
@@ -686,12 +686,12 @@ export default function Teppichbodenreinigung() {
 
 
         {/* KONTAKTFORMULAR */}
-        <section id="kontakt" className="pt-12 md:pt-20 pb-8 md:pb-12 bg-blue-soft">
+        <section id="kontakt" className="pt-6 md:pt-10 pb-4 md:pb-6 bg-blue-soft">
           <div className="container mx-auto max-w-2xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-3">
               Kostenloses Angebot für Ihre Teppichbodenreinigung
             </h2>
-            <p className="text-center text-muted-foreground mb-8">
+            <p className="text-center text-muted-foreground mb-4">
               Kurz ausfüllen – wir melden uns zeitnah mit einem transparenten Angebot.
             </p>
             <Card className="p-6 md:p-8 shadow-medium">
@@ -821,9 +821,9 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* FAQ */}
-        <section className="py-8 md:py-12">
+        <section className="py-4 md:py-6">
           <div className="container mx-auto max-w-3xl">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
               Häufige Fragen zur Teppichbodenreinigung
             </h2>
             <Accordion type="single" collapsible className="bg-background border border-border rounded-2xl px-6 shadow-soft">
@@ -840,7 +840,7 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* FINAL CTA */}
-        <section className="py-8 md:py-12 bg-secondary/30">
+        <section className="py-4 md:py-6 bg-secondary/30">
           <div className="container mx-auto text-center max-w-2xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
               Jetzt Teppichbodenreinigung in Chemnitz anfragen
@@ -848,7 +848,7 @@ export default function Teppichbodenreinigung() {
             <p className="mt-3 text-base md:text-lg text-muted-foreground">
               Kostenlose Einschätzung für Privat- und Gewerbeflächen.
             </p>
-            <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
+            <div className="mt-3 flex flex-col sm:flex-row justify-center gap-3">
               <Button size="lg" onClick={scrollToContact} className="font-semibold">
                 Kostenloses Angebot erhalten
               </Button>
