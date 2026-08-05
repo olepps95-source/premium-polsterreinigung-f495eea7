@@ -603,7 +603,7 @@ export default function Teppichbodenreinigung() {
               </div>
             </div>
 
-            <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible pb-3 md:pb-0 snap-x snap-mandatory">
+            <div className="flex md:grid md:grid-cols-3 md:items-start gap-6 overflow-x-auto md:overflow-visible pb-3 md:pb-0 snap-x snap-mandatory">
               {[
                 {
                   name: 'Robby Schlesinger',
@@ -620,7 +620,7 @@ export default function Teppichbodenreinigung() {
               ].map((review) => (
                 <Card
                   key={review.name}
-                  className="min-w-[280px] md:min-w-0 snap-start p-5 bg-background border border-border shadow-soft h-full flex flex-col"
+                  className="min-w-[280px] md:min-w-0 snap-start p-5 bg-background border border-border shadow-soft"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2.5">
@@ -636,7 +636,7 @@ export default function Teppichbodenreinigung() {
                       <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed grow">{review.text}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{review.text}</p>
                 </Card>
               ))}
             </div>
