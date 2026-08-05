@@ -124,4 +124,12 @@
   .glass-card {
     @apply bg-card/80 backdrop-blur-xl border border-border/50;
   }
+
+  .text-rw-dark {
+    color: #20242C;
+  }
+
+  .text-rw-blue {
+    color: #1598D4;
+  }
 }
