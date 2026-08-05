@@ -366,7 +366,7 @@ export default function Teppichbodenreinigung() {
               </div>
 
               {/* Desktop CTA buttons */}
-              <div className="hidden md:flex mt-10 flex-row gap-3">
+              <div className="hidden md:flex mt-5 flex-row gap-3">
                 <Button size="lg" onClick={scrollToContact} className="font-semibold h-11 md:h-14">
                   Kostenloses Angebot erhalten
                 </Button>
@@ -476,7 +476,7 @@ export default function Teppichbodenreinigung() {
               </div>
             </div>
 
-            <div className="flex md:grid md:grid-cols-3 md:items-start gap-4 md:gap-6 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x snap-mandatory">
+            <div className="flex md:grid md:grid-cols-3 md:items-start gap-2 md:gap-3 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x snap-mandatory">
               {[
                 {
                   name: 'Dagmar Espig',
@@ -644,7 +644,7 @@ export default function Teppichbodenreinigung() {
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
               So läuft die Teppichbodenreinigung ab
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-2">
               {steps.map((s, i) => (
                 <div key={s.title} className="bg-background rounded-2xl p-5 shadow-soft text-center">
                   <div className="relative inline-flex">
@@ -671,7 +671,7 @@ export default function Teppichbodenreinigung() {
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
               ReinWerk – Ihr lokaler Reinigungspartner in Sachsen
             </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-2">
               {trustItems.map((t) => (
                 <div key={t.title} className="bg-secondary/40 rounded-2xl p-5 text-center">
                   <div className="w-10 h-10 mx-auto rounded-lg bg-primary/10 text-primary flex items-center justify-center">
