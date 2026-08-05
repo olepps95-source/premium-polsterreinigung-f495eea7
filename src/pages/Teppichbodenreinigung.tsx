@@ -639,9 +639,9 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* ABLAUF */}
-        <section className="py-8 md:py-12 bg-secondary/30">
+        <section className="py-4 md:py-6 bg-secondary/30">
           <div className="container mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
               So läuft die Teppichbodenreinigung ab
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -666,9 +666,9 @@ export default function Teppichbodenreinigung() {
 
 
         {/* VERTRAUEN */}
-        <section className="py-8 md:py-12">
+        <section className="py-4 md:py-6">
           <div className="container mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
               ReinWerk – Ihr lokaler Reinigungspartner in Sachsen
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
