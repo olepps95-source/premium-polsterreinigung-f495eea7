@@ -10,6 +10,7 @@ import AGB from "./pages/AGB";
 import Widerrufsbelehrung from "./pages/Widerrufsbelehrung";
 import Gewerbe from "./pages/Gewerbe";
 import Fensterreinigung from "./pages/Fensterreinigung";
+import Teppichbodenreinigung from "./pages/Teppichbodenreinigung";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
