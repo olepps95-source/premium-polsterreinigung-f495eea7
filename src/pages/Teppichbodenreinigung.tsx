@@ -553,8 +553,6 @@ export default function Teppichbodenreinigung() {
           </div>
         </section>
 
-        <ReviewsSection />
-
         {/* KONTAKTFORMULAR */}
         <section id="kontakt" className="py-8 md:py-12 bg-secondary/30">
           <div className="container mx-auto max-w-2xl">
