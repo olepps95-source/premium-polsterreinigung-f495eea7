@@ -319,7 +319,7 @@ export default function Teppichbodenreinigung() {
 
       <main className="pb-20 md:pb-0">
         {/* HERO */}
-        <section className="relative w-full min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-64px)] pt-14 md:pt-16 pb-0 overflow-hidden flex items-center">
+        <section className="relative w-full min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-64px)] mt-14 md:mt-16 overflow-hidden flex items-center">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImg.url})`, backgroundPosition: 'center center' }}
@@ -336,16 +336,16 @@ export default function Teppichbodenreinigung() {
                 <br />
                 Chemnitz
               </h1>
-              <p className="mt-3 md:mt-4 text-base md:text-xl text-foreground font-semibold text-left">
+              <p className="mt-2 md:mt-4 text-base md:text-xl text-foreground font-semibold text-left">
                 Tiefenreinigung für Teppichböden in Wohnungen, Büros, Praxen und Gewerberäumen – direkt bei Ihnen vor
                 Ort.
               </p>
 
-              <div className="mt-5 grid grid-cols-2 gap-2.5">
+              <div className="mt-4 md:mt-5 grid grid-cols-2 gap-2.5">
                 {heroBenefits.map((b) => (
                   <div
                     key={b.title}
-                    className="flex items-center gap-2.5 px-3 py-2.5 md:px-4 md:py-3 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
+                    className="flex items-center gap-2.5 px-2.5 py-2 md:px-4 md:py-3 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
                   >
                     <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4 text-primary" />
@@ -358,7 +358,7 @@ export default function Teppichbodenreinigung() {
                 ))}
               </div>
 
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <div className="mt-4 md:mt-6 flex flex-col sm:flex-row gap-3">
                 <Button size="lg" onClick={scrollToContact} className="font-semibold">
                   Kostenloses Angebot erhalten
                 </Button>
@@ -380,7 +380,7 @@ export default function Teppichbodenreinigung() {
                 </Button>
               </div>
 
-              <p className="mt-3 text-sm text-muted-foreground text-left">
+              <p className="mt-2 md:mt-3 text-sm text-muted-foreground text-left">
                 Oder direkt anrufen:{' '}
                 <a href={`tel:${PHONE}`} className="font-semibold text-foreground hover:text-primary transition-colors">
                   {PHONE_DISPLAY}
