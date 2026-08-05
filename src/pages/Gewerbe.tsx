@@ -13,7 +13,7 @@ import { MessageCircle, Phone, Check, Truck, CalendarClock, Calculator } from "l
 import { toast } from "@/hooks/use-toast";
 import { trackGoogleAdsConversion } from "@/lib/google-ads";
 import { trackLead, trackContact } from "@/lib/meta-pixel";
-import heroGewerbe from "@/assets/teppichboden-buero.jpeg.asset.json";
+import heroGewerbe from "@/assets/teppichboden-buero.jpeg";
 import kitaReinigung from "@/assets/kita-reinigung.jpeg";
 import teppichreinigungBuero from "@/assets/teppichreinigung-buero.jpg";
 import hartbodenreinigung from "@/assets/hartbodenreinigung.jpg";
