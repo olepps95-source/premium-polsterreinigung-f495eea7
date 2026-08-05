@@ -58,7 +58,7 @@ export function Header() {
             className={`object-contain ${isTeppich ? "h-7 w-7 md:h-10 md:w-10" : "h-8 w-8 md:h-10 md:w-10"}`}
           />
           <span className="font-bold text-white tracking-tight text-2xl md:text-3xl whitespace-nowrap">
-            Rein<span className="text-primary">Werk</span>
+            Rein<span className="text-[#1598D4] md:text-primary">Werk</span>
           </span>
         </a>
 
