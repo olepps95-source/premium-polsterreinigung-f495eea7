@@ -562,7 +562,7 @@ export default function Teppichbodenreinigung() {
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-5 gap-2">
               {trustItems.map((t) => (
-                <div key={t.title} className="bg-secondary/40 rounded-2xl p-5 text-center">
+                <div key={t.title} className="bg-secondary/40 rounded-2xl p-5 text-center last:col-span-2 sm:last:col-span-1">
                   <div className="w-10 h-10 mx-auto rounded-lg bg-primary/10 text-primary flex items-center justify-center">
                     <t.icon className="w-5 h-5" />
                   </div>
