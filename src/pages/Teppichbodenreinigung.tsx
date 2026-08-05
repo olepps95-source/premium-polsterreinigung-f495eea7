@@ -30,7 +30,7 @@ import { trackLead, trackContact } from '@/lib/meta-pixel';
 import heroImg from '@/assets/teppichbodenreinigung-hero.jpg.asset.json';
 import problemImg from '@/assets/teppichreinigung-problem.jpeg.asset.json';
 import wohnraumImg from '@/assets/teppichboden-dresden.jpeg.asset.json';
-import gewerbeImg from '@/assets/hero-gewerbe.jpg';
+import gewerbeImg from '@/assets/teppichboden-buero.jpeg.asset.json';
 import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
@@ -452,7 +452,7 @@ export default function Teppichbodenreinigung() {
               <Card className="overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
-                    src={gewerbeImg}
+                    src={gewerbeImg.url}
                     alt="Teppichbodenreinigung Büro und Gewerbe in Chemnitz"
                     className="w-full h-full object-cover"
                     loading="lazy"
