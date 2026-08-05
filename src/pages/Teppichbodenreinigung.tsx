@@ -436,12 +436,6 @@ export default function Teppichbodenreinigung() {
         {/* GOOGLE BEWERTUNGEN */}
         <section className="pt-8 md:pt-12 pb-12 md:pb-20 bg-background">
           <div className="mx-auto w-[90%] max-w-[1450px]">
-            <p className="text-center text-sm font-semibold uppercase tracking-wider text-primary mb-2">
-              KUNDENBEWERTUNGEN
-            </p>
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
-              Das sagen unsere Kunden auf Google
-            </h2>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
               <div className="flex items-center gap-2.5">
