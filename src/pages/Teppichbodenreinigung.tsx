@@ -34,7 +34,7 @@ import heroImg from '@/assets/teppichbodenreinigung-hero.jpg';
 import problemImg from '@/assets/teppichreinigung-problem.jpeg';
 import wohnraumImg from '@/assets/teppichboden-dresden.jpeg';
 import gewerbeImg from '@/assets/teppichboden-buero.jpeg';
-import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
+import reinwerkLogo from '@/assets/reinwerk-logo.png';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 const PHONE = '+491632373108';
