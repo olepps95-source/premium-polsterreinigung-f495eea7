@@ -17,6 +17,7 @@ import {
   Truck,
   Upload,
   Star,
+  FileText,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -356,7 +357,8 @@ export default function Teppichbodenreinigung() {
                 ))}
               </div>
 
-              <div className="mt-3 md:mt-10 flex flex-col sm:flex-row gap-3">
+              {/* Desktop CTA buttons */}
+              <div className="hidden md:flex mt-10 flex-row gap-3">
                 <Button size="lg" onClick={scrollToContact} className="font-semibold h-11 md:h-14">
                   Kostenloses Angebot erhalten
                 </Button>
@@ -378,7 +380,42 @@ export default function Teppichbodenreinigung() {
                 </Button>
               </div>
 
-              <p className="mt-2 md:mt-4 text-sm text-muted-foreground text-left">
+              {/* Mobile CTA buttons */}
+              <div className="md:hidden mt-3 flex flex-col gap-2">
+                <Button
+                  size="lg"
+                  onClick={scrollToContact}
+                  className="w-full min-h-[4rem] h-auto py-3.5 px-4 font-semibold justify-start gap-4 rounded-xl"
+                >
+                  <FileText className="w-6 h-6 text-white shrink-0" />
+                  <div className="flex flex-col items-start text-left">
+                    <span className="text-white font-bold text-base leading-tight">Kostenloses Angebot erhalten</span>
+                    <span className="text-white/80 text-xs leading-tight">Unverbindlich anfragen</span>
+                  </div>
+                </Button>
+
+                <Button
+                  size="lg"
+                  className="w-full min-h-[4rem] h-auto py-3.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
+                  asChild
+                >
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackContact()}
+                    aria-label="Teppichbodenreinigung per WhatsApp anfragen"
+                  >
+                    <MessageCircle className="w-6 h-6 text-white shrink-0" />
+                    <div className="flex flex-col items-start text-left">
+                      <span className="text-white font-bold text-base leading-tight">WhatsApp-Anfrage</span>
+                      <span className="text-white/80 text-xs leading-tight">Direkt & unkompliziert</span>
+                    </div>
+                  </a>
+                </Button>
+              </div>
+
+              <p className="hidden md:block mt-4 text-sm text-muted-foreground text-left">
                 Oder direkt anrufen:{' '}
                 <a href={`tel:${PHONE}`} className="font-semibold text-foreground hover:text-primary transition-colors">
                   {PHONE_DISPLAY}
