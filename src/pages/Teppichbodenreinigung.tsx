@@ -327,7 +327,7 @@ export default function Teppichbodenreinigung() {
             role="img"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/50 md:from-background md:via-background/60 md:to-transparent" />
-          <div className="container mx-auto relative z-10 px-4 flex flex-col md:h-full md:flex-1 md:justify-start">
+          <div className="container mx-auto relative z-10 px-4">
             <div className="max-w-xl md:max-w-2xl w-full">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[1.1] text-left">
                 Professionelle
@@ -336,35 +336,29 @@ export default function Teppichbodenreinigung() {
                 <br />
                 in Sachsen
               </h1>
-              <p className="mt-4 md:mt-6 text-base md:text-xl text-foreground font-semibold text-left">
+              <p className="mt-2 md:mt-6 text-base md:text-xl text-foreground font-semibold text-left">
                 Tiefenreinigung für Teppichböden in Wohnungen, Büros, Praxen und Gewerberäumen – direkt bei Ihnen vor
                 Ort.
               </p>
-            </div>
 
-            <div className="max-w-xl md:max-w-2xl w-full mt-6 md:mt-20 md:mb-8">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {[
-                  { title: '0 € Anfahrt', sub: 'im Einsatzgebiet' },
-                  { title: 'Tiefenreinigung vor Ort', sub: 'ohne Ausbau' },
-                  { title: 'Privat & Gewerbe', sub: 'auch größere Flächen' },
-                ].map((badge) => (
+              <div className="mt-3 md:mt-14 grid grid-cols-2 gap-2 md:gap-2.5">
+                {heroBenefits.map((b) => (
                   <div
-                    key={badge.title}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
+                    key={b.title}
+                    className="flex items-center gap-2.5 px-2.5 py-1.5 md:px-4 md:py-3 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
                   >
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4 text-primary" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-sm font-bold text-foreground leading-tight">{badge.title}</span>
-                      <span className="text-xs text-muted-foreground leading-tight">{badge.sub}</span>
+                      <span className="text-sm font-bold text-foreground leading-tight">{b.title}</span>
+                      <span className="text-xs text-muted-foreground leading-tight">{b.sub}</span>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <div className="mt-3 md:mt-10 flex flex-col sm:flex-row gap-3">
                 <Button size="lg" onClick={scrollToContact} className="font-semibold h-11 md:h-14">
                   Kostenloses Angebot erhalten
                 </Button>
@@ -385,6 +379,13 @@ export default function Teppichbodenreinigung() {
                   </a>
                 </Button>
               </div>
+
+              <p className="mt-2 md:mt-4 text-sm text-muted-foreground text-left">
+                Oder direkt anrufen:{' '}
+                <a href={`tel:${PHONE}`} className="font-semibold text-foreground hover:text-primary transition-colors">
+                  {PHONE_DISPLAY}
+                </a>
+              </p>
             </div>
           </div>
         </section>
