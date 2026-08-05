@@ -528,7 +528,7 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* GOOGLE BEWERTUNGEN */}
-        <section className="py-8 md:py-12 bg-secondary/30">
+        <section className="pt-8 md:pt-12 pb-12 md:pb-20 bg-background">
           <div className="mx-auto w-[90%] max-w-[1450px]">
             <p className="text-center text-sm font-semibold uppercase tracking-wider text-primary mb-2">
               KUNDENBEWERTUNGEN
@@ -624,7 +624,7 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* KONTAKTFORMULAR */}
-        <section id="kontakt" className="py-8 md:py-12 bg-secondary/30">
+        <section id="kontakt" className="pt-12 md:pt-20 pb-8 md:pb-12 bg-blue-soft">
           <div className="container mx-auto max-w-2xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-3">
               Kostenloses Angebot für Ihre Teppichbodenreinigung
