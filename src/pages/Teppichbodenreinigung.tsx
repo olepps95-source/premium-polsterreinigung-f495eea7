@@ -319,7 +319,7 @@ export default function Teppichbodenreinigung() {
 
       <main className="pb-20 md:pb-0">
         {/* HERO */}
-        <section className="relative w-full min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-64px)] mt-14 md:mt-16 overflow-hidden flex items-center">
+        <section className="relative w-full min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-64px)] mt-14 md:mt-16 overflow-hidden flex items-center md:items-start md:pt-20 md:pb-12">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImg})`, backgroundPosition: 'center center' }}
