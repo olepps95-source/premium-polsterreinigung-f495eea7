@@ -305,14 +305,17 @@ export default function Teppichbodenreinigung() {
 
           <div className="container mx-auto relative z-10 px-4">
             <div className="max-w-xl md:max-w-2xl w-full md:pt-16">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[1.1] text-left">
+              <h1 className="text-4xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.05] text-left text-white md:text-foreground">
                 Professionelle
                 <br />
-                <span className="text-primary">Teppichbodenreinigung</span>
+                <span className="text-primary">
+                  <span className="inline sm:hidden">Teppichboden-<br />reinigung</span>
+                  <span className="hidden sm:inline">Teppichbodenreinigung</span>
+                </span>
                 <br />
                 in Sachsen
               </h1>
-              <p className="mt-2 md:mt-6 text-base md:text-xl text-foreground font-semibold text-left">
+              <p className="mt-3 md:mt-6 text-base sm:text-lg md:text-xl text-white md:text-foreground font-medium md:font-semibold text-left max-w-[300px] sm:max-w-[360px] md:max-w-none leading-snug">
                 Tiefenreinigung für Teppichböden in Wohnungen, Büros, Praxen und Gewerberäumen – direkt bei Ihnen vor
                 Ort.
               </p>
