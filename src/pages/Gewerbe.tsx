@@ -13,7 +13,7 @@ import { MessageCircle, Phone, Check, Truck, CalendarClock, Calculator } from "l
 import { toast } from "@/hooks/use-toast";
 import { trackGoogleAdsConversion } from "@/lib/google-ads";
 import { trackLead, trackContact } from "@/lib/meta-pixel";
-import heroGewerbe from "@/assets/hero-gewerbe.jpg";
+import heroGewerbe from "@/assets/teppichboden-buero.jpeg.asset.json";
 import kitaReinigung from "@/assets/kita-reinigung.jpeg";
 import teppichreinigungBuero from "@/assets/teppichreinigung-buero.jpg";
 import hartbodenreinigung from "@/assets/hartbodenreinigung.jpg";
@@ -266,7 +266,7 @@ const Gewerbe = () => {
           {/* Full-width background image, right-anchored (homepage style) */}
           <div className="absolute inset-0 z-0">
             <img
-              src={heroGewerbe}
+              src={heroGewerbe.url}
               alt="Professionelle Teppichreinigung im Büro mit Waschsauger in Chemnitz"
               className="w-full h-full object-cover object-right"
               loading="eager"
