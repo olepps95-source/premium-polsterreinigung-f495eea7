@@ -412,8 +412,8 @@ export default function Teppichbodenreinigung() {
               </p>
             </div>
             <img
-              src={problemImg}
-              alt="Teppichboden reinigen lassen – frisch gereinigter Teppichboden im Wohnraum"
+              src={problemImg.url}
+              alt="Professionelle Teppichbodenreinigung im Büro mit Extraktionsmaschine"
               title="Teppichboden Tiefenreinigung Chemnitz"
               className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover"
               loading="lazy"
