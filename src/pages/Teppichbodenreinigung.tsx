@@ -556,7 +556,7 @@ export default function Teppichbodenreinigung() {
 
         {/* GOOGLE BEWERTUNGEN */}
         <section className="py-8 md:py-12 bg-secondary/30">
-          <div className="container mx-auto max-w-5xl">
+          <div className="mx-auto w-[90%] max-w-[1450px]">
             <p className="text-center text-sm font-semibold uppercase tracking-wider text-primary mb-2">
               KUNDENBEWERTUNGEN
             </p>
@@ -603,7 +603,7 @@ export default function Teppichbodenreinigung() {
               </div>
             </div>
 
-            <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto md:overflow-visible pb-3 md:pb-0 snap-x snap-mandatory">
+            <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible pb-3 md:pb-0 snap-x snap-mandatory">
               {[
                 {
                   name: 'Robby Schlesinger',
