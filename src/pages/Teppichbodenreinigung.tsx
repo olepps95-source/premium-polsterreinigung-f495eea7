@@ -332,9 +332,9 @@ export default function Teppichbodenreinigung() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[1.1] text-left">
                 Professionelle
                 <br />
-                <span className="text-primary">Teppichbodenreinigung</span> in
+                <span className="text-primary">Teppichbodenreinigung</span>
                 <br />
-                Chemnitz
+                in Sachsen
               </h1>
               <p className="mt-2 md:mt-4 text-base md:text-xl text-foreground font-semibold text-left">
                 Tiefenreinigung für Teppichböden in Wohnungen, Büros, Praxen und Gewerberäumen – direkt bei Ihnen vor
