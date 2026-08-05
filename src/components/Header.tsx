@@ -11,6 +11,7 @@ type NavLink = { label: string; href: string; action?: "contact-modal" };
 
 const navLinks: NavLink[] = [
   { label: "Polsterreinigung", href: "/" },
+  { label: "Teppichbodenreinigung", href: "/teppichbodenreinigung" },
   { label: "Gewerbe", href: "/gewerbe" },
   { label: "Fensterreinigung", href: "/fensterreinigung" },
   { label: "Kontakt", href: "#", action: "contact-modal" },
