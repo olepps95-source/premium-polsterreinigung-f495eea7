@@ -686,12 +686,12 @@ export default function Teppichbodenreinigung() {
 
 
         {/* KONTAKTFORMULAR */}
-        <section id="kontakt" className="pt-12 md:pt-20 pb-8 md:pb-12 bg-blue-soft">
+        <section id="kontakt" className="pt-6 md:pt-10 pb-4 md:pb-6 bg-blue-soft">
           <div className="container mx-auto max-w-2xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-3">
               Kostenloses Angebot für Ihre Teppichbodenreinigung
             </h2>
-            <p className="text-center text-muted-foreground mb-8">
+            <p className="text-center text-muted-foreground mb-4">
               Kurz ausfüllen – wir melden uns zeitnah mit einem transparenten Angebot.
             </p>
             <Card className="p-6 md:p-8 shadow-medium">
