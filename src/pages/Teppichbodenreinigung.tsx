@@ -748,42 +748,6 @@ export default function Teppichbodenreinigung() {
                   />
                 </div>
 
-                <div>
-                  <Label htmlFor="fotos" className="flex items-center gap-2">
-                    <Upload className="w-4 h-4 text-primary" />
-                    Fotos hochladen (optional)
-                  </Label>
-                  <Input
-                    id="fotos"
-                    type="file"
-                    accept="image/*"
-                    multiple
-                    onChange={handleFiles}
-                    className="sr-only"
-                  />
-                  <label
-                    htmlFor="fotos"
-                    className="mt-1.5 inline-flex cursor-pointer items-center gap-2 rounded-md border border-input bg-background px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
-                  >
-                    <Upload className="w-4 h-4" />
-                    Fotos auswählen
-                  </label>
-                  {files.length === 0 && (
-                    <span className="ml-3 text-xs text-muted-foreground">Keine Datei ausgewählt</span>
-                  )}
-                  <p className="mt-1.5 text-xs text-muted-foreground">
-                    Bis zu {MAX_FILES} Fotos, je max. 4 MB. Fotos helfen uns bei einer genaueren Einschätzung.
-                  </p>
-                  {files.length > 0 && (
-                    <ul className="mt-2 space-y-1">
-                      {files.map((f) => (
-                        <li key={f.name} className="text-xs text-muted-foreground truncate">
-                          • {f.name}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
 
                 <p className="text-[13px] text-muted-foreground text-left leading-relaxed">
                   Mit dem Absenden des Formulars erkläre ich mich damit einverstanden, dass meine angegebenen Daten zum
