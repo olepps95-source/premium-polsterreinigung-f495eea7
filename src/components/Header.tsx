@@ -65,7 +65,7 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-4 lg:gap-8">
           {navLinks.map((link) => {
             const active = isActive(link);
-            const className = `text-sm font-bold transition-colors ${
+            const className = `text-xs lg:text-sm font-bold whitespace-nowrap transition-colors ${
               active ? "text-primary font-bold" : "text-muted-foreground hover:text-foreground"
             }`;
             if (link.action === "contact-modal") {
