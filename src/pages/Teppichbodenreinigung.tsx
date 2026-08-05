@@ -553,37 +553,6 @@ export default function Teppichbodenreinigung() {
           </div>
         </section>
 
-        {/* PROBLEM / NUTZEN */}
-
-        <section className="py-4 md:py-6 bg-secondary/30">
-          <div className="container mx-auto grid md:grid-cols-2 gap-4 items-center">
-            <div>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Wenn der Teppichboden nicht mehr sauber wirkt
-              </h2>
-              <ul className="mt-3 space-y-2.5">
-                {problems.map((p) => (
-                  <li key={p} className="flex items-start gap-3 text-base text-foreground">
-                    <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" /> {p}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-3 text-muted-foreground">
-                ReinWerk behandelt Ihren Teppichboden professionell vor Ort: Wir lösen tief sitzende Verschmutzungen aus
-                den Fasern, behandeln Flecken gezielt vor und saugen Schmutz und Reinigungsmittel wieder ab. Das
-                Ergebnis ist ein sichtbar frischerer, hygienisch gereinigter Teppichboden – ohne Ausbau und ohne
-                Abtransport.
-              </p>
-            </div>
-            <img
-              src={problemImg}
-              alt="Professionelle Teppichbodenreinigung im Büro mit Extraktionsmaschine"
-              title="Teppichboden Tiefenreinigung Chemnitz"
-              className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover"
-              loading="lazy"
-            />
-          </div>
-        </section>
 
         {/* PRIVAT & GEWERBE */}
         <section className="py-4 md:py-6">
