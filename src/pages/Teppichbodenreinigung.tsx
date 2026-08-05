@@ -586,12 +586,12 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* PRIVAT & GEWERBE */}
-        <section className="py-8 md:py-12">
+        <section className="py-4 md:py-6">
           <div className="container mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
               Teppichbodenreinigung für Privat &amp; Gewerbe
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-3">
               <Card className="overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
