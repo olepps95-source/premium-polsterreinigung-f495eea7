@@ -40,12 +40,6 @@ const PAGE_URL = 'https://reinwerk-service.de/teppichbodenreinigung';
 const OG_IMAGE = 'https://reinwerk-service.de/og-image.png';
 const WEBHOOK_URL = 'https://hook.eu1.make.com/81hzpicl2zd6d8qsoh5ki43wbw62if58';
 
-const heroBenefits = [
-  { title: 'Tiefenreinigung vor Ort', sub: 'ohne Ausbau des Teppichbodens' },
-  { title: 'Flecken- & Geruchsbehandlung', sub: 'gezielte Vorbehandlung' },
-  { title: 'Für Privat & Gewerbe', sub: 'Auch größere Flächen' },
-  { title: 'Kostenlose Anfahrt', sub: 'im Einsatzgebiet' },
-];
 
 const problems = [
   'Stark beanspruchte Laufwege und dunkle Trittspuren',
