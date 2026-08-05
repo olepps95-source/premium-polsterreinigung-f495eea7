@@ -285,41 +285,12 @@ export default function Teppichbodenreinigung() {
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
-        <div className="container mx-auto flex items-center justify-between py-3">
-          <div className="flex items-center gap-2.5">
-            <img src={reinwerkLogo} alt="ReinWerk Logo" className="h-8 w-8 md:h-10 md:w-10 object-contain" />
-            <span className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
-              Rein<span className="text-primary">Werk</span>
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button variant="hero" size="sm" asChild>
-              <a href={`tel:${PHONE}`} onClick={() => trackContact()} aria-label="ReinWerk anrufen">
-                <Phone className="w-4 h-4" />
-                <span className="hidden sm:inline">{PHONE_DISPLAY}</span>
-                <span className="sm:hidden">Anrufen</span>
-              </a>
-            </Button>
-            <Button size="sm" className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold" asChild>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackContact()}
-                aria-label="ReinWerk per WhatsApp kontaktieren"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span className="hidden sm:inline">WhatsApp</span>
-              </a>
-            </Button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main className="pb-20 md:pb-0">
         {/* HERO */}
-        <section className="relative w-full min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-64px)] mt-14 md:mt-16 overflow-hidden flex items-center md:items-start md:pt-20 md:pb-12">
+        <section className="relative w-full min-h-screen overflow-hidden flex items-center md:items-start pt-20 md:pt-32 md:pb-12">
+
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImg})`, backgroundPosition: 'center center' }}
