@@ -298,7 +298,7 @@ export default function Teppichbodenreinigung() {
 
           <div
             className="absolute inset-0 bg-cover bg-no-repeat bg-[position:72%_center] md:bg-center"
-            style={{ backgroundImage: `url(${heroImg})` }}
+            style={{ backgroundImage: `url(${heroImg.url})` }}
             aria-label="Teppichbodenreinigung Sachsen – Tiefenreinigung eines Teppichbodens im Büro"
             role="img"
           />
