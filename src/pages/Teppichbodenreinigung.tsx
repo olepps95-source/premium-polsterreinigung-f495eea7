@@ -341,11 +341,11 @@ export default function Teppichbodenreinigung() {
                 Ort.
               </p>
 
-              <div className="mt-4 md:mt-5 grid grid-cols-2 gap-2.5">
+              <div className="mt-3 md:mt-5 grid grid-cols-2 gap-2 md:gap-2.5">
                 {heroBenefits.map((b) => (
                   <div
                     key={b.title}
-                    className="flex items-center gap-2.5 px-2.5 py-2 md:px-4 md:py-3 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
+                    className="flex items-center gap-2.5 px-2.5 py-1.5 md:px-4 md:py-3 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
                   >
                     <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4 text-primary" />
@@ -358,13 +358,13 @@ export default function Teppichbodenreinigung() {
                 ))}
               </div>
 
-              <div className="mt-4 md:mt-6 flex flex-col sm:flex-row gap-3">
-                <Button size="lg" onClick={scrollToContact} className="font-semibold">
+              <div className="mt-3 md:mt-5 flex flex-col sm:flex-row gap-3">
+                <Button size="lg" onClick={scrollToContact} className="font-semibold h-11 md:h-14">
                   Kostenloses Angebot erhalten
                 </Button>
                 <Button
                   size="lg"
-                  className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold"
+                  className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold h-11 md:h-14"
                   asChild
                 >
                   <a
