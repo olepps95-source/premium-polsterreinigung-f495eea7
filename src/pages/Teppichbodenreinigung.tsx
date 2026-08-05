@@ -257,26 +257,26 @@ export default function Teppichbodenreinigung() {
   return (
     <>
       <Helmet>
-        <title>Teppichbodenreinigung Chemnitz | ReinWerk</title>
+        <title>Teppichbodenreinigung Sachsen | ReinWerk</title>
         <meta
           name="description"
-          content="Professionelle Teppichbodenreinigung in Chemnitz für Privat & Gewerbe. Tiefenreinigung, Fleckenbehandlung und kostenlose Anfahrt. Jetzt Angebot anfragen."
+          content="Professionelle Teppichbodenreinigung in Sachsen für Privat & Gewerbe. Tiefenreinigung, Fleckenbehandlung und kostenlose Anfahrt. Jetzt Angebot anfragen."
         />
         <link rel="canonical" href={PAGE_URL} />
-        <meta property="og:title" content="Teppichbodenreinigung Chemnitz | ReinWerk" />
+        <meta property="og:title" content="Teppichbodenreinigung Sachsen | ReinWerk" />
         <meta
           property="og:description"
-          content="Tiefenreinigung fest verlegter Teppichböden in Wohnungen, Büros und Praxen – direkt vor Ort in Chemnitz und Sachsen."
+          content="Tiefenreinigung fest verlegter Teppichböden in Wohnungen, Büros und Praxen – direkt vor Ort in Sachsen."
         />
         <meta property="og:url" content={PAGE_URL} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="de_DE" />
         <meta property="og:image" content={OG_IMAGE} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Teppichbodenreinigung Chemnitz | ReinWerk" />
+        <meta name="twitter:title" content="Teppichbodenreinigung Sachsen | ReinWerk" />
         <meta
           name="twitter:description"
-          content="Tiefenreinigung fest verlegter Teppichböden für Privat & Gewerbe in Chemnitz."
+          content="Tiefenreinigung fest verlegter Teppichböden für Privat & Gewerbe in Sachsen."
         />
         <meta name="twitter:image" content={OG_IMAGE} />
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
@@ -323,7 +323,7 @@ export default function Teppichbodenreinigung() {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImg})`, backgroundPosition: 'center center' }}
-            aria-label="Teppichbodenreinigung Chemnitz – Tiefenreinigung eines Teppichbodens im Büro"
+            aria-label="Teppichbodenreinigung Sachsen – Tiefenreinigung eines Teppichbodens im Büro"
             role="img"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/50 md:from-background md:via-background/60 md:to-transparent" />
@@ -332,9 +332,9 @@ export default function Teppichbodenreinigung() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[1.1] text-left">
                 Professionelle
                 <br />
-                <span className="text-primary">Teppichbodenreinigung</span> in
+                <span className="text-primary">Teppichbodenreinigung</span>
                 <br />
-                Chemnitz
+                in Sachsen
               </h1>
               <p className="mt-2 md:mt-4 text-base md:text-xl text-foreground font-semibold text-left">
                 Tiefenreinigung für Teppichböden in Wohnungen, Büros, Praxen und Gewerberäumen – direkt bei Ihnen vor
