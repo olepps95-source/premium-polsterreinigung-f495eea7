@@ -266,7 +266,7 @@ const Gewerbe = () => {
           {/* Full-width background image, right-anchored (homepage style) */}
           <div className="absolute inset-0 z-0">
             <img
-              src={heroGewerbe.url}
+              src={heroGewerbe}
               alt="Professionelle Teppichreinigung im Büro mit Waschsauger in Chemnitz"
               className="w-full h-full object-cover object-right"
               loading="eager"
