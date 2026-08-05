@@ -554,31 +554,6 @@ export default function Teppichbodenreinigung() {
         </section>
 
 
-        {/* ABLAUF */}
-        <section className="py-4 md:py-6 bg-secondary/30">
-          <div className="container mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
-              So läuft die Teppichbodenreinigung ab
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-2">
-              {steps.map((s, i) => (
-                <div key={s.title} className="bg-background rounded-2xl p-5 shadow-soft text-center">
-                  <div className="relative inline-flex">
-                    <div className="w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
-                      <s.icon className="w-6 h-6" />
-                    </div>
-                    <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-foreground text-background text-xs font-bold flex items-center justify-center">
-                      {i + 1}
-                    </span>
-                  </div>
-                  <h3 className="mt-3 text-base font-bold text-foreground">{s.title}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* PRIVAT & GEWERBE */}
         <section className="py-4 md:py-6">
           <div className="container mx-auto">
@@ -632,6 +607,30 @@ export default function Teppichbodenreinigung() {
           </div>
         </section>
 
+        {/* ABLAUF */}
+        <section className="py-4 md:py-6 bg-secondary/30">
+          <div className="container mx-auto">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
+              So läuft die Teppichbodenreinigung ab
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+              {steps.map((s, i) => (
+                <div key={s.title} className="bg-background rounded-2xl p-5 shadow-soft text-center">
+                  <div className="relative inline-flex">
+                    <div className="w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
+                      <s.icon className="w-6 h-6" />
+                    </div>
+                    <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-foreground text-background text-xs font-bold flex items-center justify-center">
+                      {i + 1}
+                    </span>
+                  </div>
+                  <h3 className="mt-3 text-base font-bold text-foreground">{s.title}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
 
 
