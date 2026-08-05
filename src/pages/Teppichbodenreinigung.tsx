@@ -468,9 +468,6 @@ export default function Teppichbodenreinigung() {
                     größere Flächen sind kein Problem – Termine außerhalb der üblichen Geschäftszeiten sind nach
                     Absprache möglich.
                   </p>
-                  <Button onClick={scrollToContact} className="mt-4 font-semibold w-full sm:w-auto">
-                    Angebot für Gewerbefläche anfragen
-                  </Button>
                 </div>
               </Card>
             </div>
