@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { trackGoogleAdsConversion } from "@/lib/google-ads";
 import { trackContact } from "@/lib/meta-pixel";
-import reinwerkLogo from "@/assets/reinwerk-logo.jpg";
+import reinwerkLogo from "@/assets/reinwerk-logo.png";
 
 type NavLink = { label: string; href: string; action?: "contact-modal" };
 
