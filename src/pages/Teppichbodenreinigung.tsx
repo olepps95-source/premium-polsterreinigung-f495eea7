@@ -142,9 +142,9 @@ const serviceSchema = {
   url: PAGE_URL,
   offers: {
     '@type': 'Offer',
-    price: '10',
+    price: '8',
     priceCurrency: 'EUR',
-    description: 'Teppichbodenreinigung ab 10 € pro m², abhängig von Fläche und Verschmutzungsgrad.',
+    description: 'Teppichbodenreinigung ab 8 € pro m², abhängig von Fläche und Verschmutzungsgrad.',
   },
 };
 
@@ -508,7 +508,7 @@ export default function Teppichbodenreinigung() {
             </h2>
             <Card className="p-6 md:p-8 text-center shadow-medium">
               <p className="text-lg text-muted-foreground">Teppichbodenreinigung</p>
-              <p className="mt-1 text-4xl md:text-5xl font-bold text-primary">ab 10 € / m²</p>
+              <p className="mt-1 text-4xl md:text-5xl font-bold text-primary">ab 8 € / m²</p>
               <p className="mt-3 text-base font-medium text-foreground">
                 Für größere Flächen und Gewerbekunden erstellen wir ein individuelles Angebot.
               </p>
