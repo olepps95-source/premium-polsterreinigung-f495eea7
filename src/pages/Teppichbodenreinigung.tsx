@@ -476,7 +476,7 @@ export default function Teppichbodenreinigung() {
               </div>
             </div>
 
-            <div className="flex md:grid md:grid-cols-3 md:items-start gap-6 overflow-x-auto md:overflow-visible pb-3 md:pb-0 snap-x snap-mandatory">
+            <div className="flex md:grid md:grid-cols-3 md:items-start gap-4 md:gap-6 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x snap-mandatory">
               {[
                 {
                   name: 'Dagmar Espig',
@@ -493,9 +493,9 @@ export default function Teppichbodenreinigung() {
               ].map((review) => (
                 <Card
                   key={review.name}
-                  className="min-w-[280px] md:min-w-0 snap-start p-5 bg-background border border-border shadow-soft"
+                  className="min-w-[260px] md:min-w-0 snap-start p-4 md:p-5 bg-background border border-border shadow-soft"
                 >
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between mb-2 md:mb-3">
                     <div className="flex items-center gap-2.5">
                       <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-sm font-semibold text-foreground">
                         {review.name.charAt(0)}
@@ -504,18 +504,19 @@ export default function Teppichbodenreinigung() {
                     </div>
                     <span className="text-xs text-muted-foreground">Google Bewertung</span>
                   </div>
-                  <div className="flex mb-3">
+                  <div className="flex mb-2 md:mb-3">
                     {[...Array(5)].map((_, j) => (
                       <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{review.text}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed max-md:line-clamp-6 max-md:leading-snug">{review.text}</p>
                 </Card>
               ))}
             </div>
 
-            <div className="mt-[30px] text-center">
-              <Button variant="outline" size="lg" className="font-semibold" asChild>
+            <div className="mt-4 md:mt-[30px] text-center">
+              <Button variant="outline" size="lg" className="font-semibold max-md:h-10 max-md:px-4 max-md:text-sm" asChild>
+
                 <a href="https://maps.app.goo.gl/HeEVeeSDaEnruM2Z6" target="_blank" rel="noopener noreferrer">
                   Alle Bewertungen auf Google ansehen
                 </a>
