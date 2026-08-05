@@ -603,7 +603,7 @@ export default function Teppichbodenreinigung() {
               </div>
             </div>
 
-            <div className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto md:overflow-visible pb-3 md:pb-0 snap-x snap-mandatory">
+            <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto md:overflow-visible pb-3 md:pb-0 snap-x snap-mandatory">
               {[
                 {
                   name: 'Robby Schlesinger',
@@ -617,14 +617,10 @@ export default function Teppichbodenreinigung() {
                   name: 'Dagmar Espig',
                   text: 'Am 27.07., pünktlich 14.00 Uhr, wie vereinbart, kam Herr Pshenychnyi um unser Sofa zu reinigen. Er hat hat zügig gearbeitet und nach 3 Stunden sieht unser Ecksofa und der dazugehörige Hocker wie neu aus. Wir sind sehr angenehm überrascht und können das Unternehmen weiterempfehlen. Wir werden die Möglichkeit weiterer Angebote nutzen. Dagmar Espig',
                 },
-                {
-                  name: 'Monika Malz',
-                  text: 'Schnell einen Termin bekommen. Super freundliches Auftreten. Kosten und mögliche Zeit wurden vorher genannt. Saubere und erfolgreiche Erledigung. Nachfrage am nächsten Tag über Zufriedenheit. Kann man nur empfehlen.',
-                },
               ].map((review) => (
                 <Card
                   key={review.name}
-                  className="min-w-[280px] md:min-w-0 snap-start p-5 bg-background border border-border shadow-soft"
+                  className="min-w-[280px] md:min-w-0 snap-start p-5 bg-background border border-border shadow-soft h-full flex flex-col"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2.5">
@@ -640,7 +636,7 @@ export default function Teppichbodenreinigung() {
                       <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{review.text}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed grow">{review.text}</p>
                 </Card>
               ))}
             </div>
