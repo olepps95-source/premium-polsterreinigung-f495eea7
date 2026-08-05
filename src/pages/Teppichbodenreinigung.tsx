@@ -31,6 +31,7 @@ import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { trackLead, trackContact } from '@/lib/meta-pixel';
 import heroImg from '@/assets/teppichreinigung-kita.png.asset.json';
+import heroDesktop from '@/assets/teppichbodenreinigung-hero.jpg';
 import problemImg from '@/assets/teppichreinigung-problem.jpeg';
 import wohnraumImg from '@/assets/teppichboden-dresden.jpeg';
 import gewerbeImg from '@/assets/teppichboden-buero.jpeg';
@@ -296,9 +297,16 @@ export default function Teppichbodenreinigung() {
         {/* HERO */}
         <section className="relative w-full min-h-[100svh] md:min-h-screen overflow-hidden flex items-center md:items-start pt-16 md:pt-32 md:pb-12">
 
+          {/* Mobile hero background (new uploaded image) */}
           <div
-            className="absolute inset-0 bg-cover bg-no-repeat bg-[position:72%_center] md:bg-center"
+            className="absolute inset-0 md:hidden bg-cover bg-no-repeat bg-[position:72%_center]"
             style={{ backgroundImage: `url(${heroImg.url})` }}
+            aria-hidden="true"
+          />
+          {/* Desktop/Tablet hero background (original image) */}
+          <div
+            className="absolute inset-0 hidden md:block bg-cover bg-no-repeat bg-center"
+            style={{ backgroundImage: `url(${heroDesktop})` }}
             aria-label="Teppichbodenreinigung Sachsen – Tiefenreinigung eines Teppichbodens im Büro"
             role="img"
           />
