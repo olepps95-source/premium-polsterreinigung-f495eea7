@@ -27,7 +27,7 @@ import { ReviewsSection } from '@/components/ReviewsSection';
 import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { trackLead, trackContact } from '@/lib/meta-pixel';
-import heroImg from '@/assets/teppichreinigung-buero.jpg';
+import heroImg from '@/assets/teppichbodenreinigung-hero.jpg.asset.json';
 import problemImg from '@/assets/teppichboden-problem.jpg';
 import wohnraumImg from '@/assets/teppichboden-wohnraum.jpg';
 import gewerbeImg from '@/assets/hero-gewerbe.jpg';
@@ -322,7 +322,7 @@ export default function Teppichbodenreinigung() {
         <section className="relative pt-20 md:pt-24 pb-10 md:pb-16 overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src={heroImg}
+              src={heroImg.url}
               alt="Teppichbodenreinigung Chemnitz – Tiefenreinigung eines Teppichbodens im Büro"
               title="Teppichbodenreinigung Chemnitz – ReinWerk"
               className="w-full h-full object-cover object-center"
