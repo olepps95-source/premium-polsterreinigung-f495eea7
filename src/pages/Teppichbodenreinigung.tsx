@@ -528,8 +528,8 @@ export default function Teppichbodenreinigung() {
         {/* PREISE */}
         <section className="py-8 md:py-12 bg-secondary/30">
           <div className="container mx-auto max-w-3xl">
-            <Card className="p-4 md:p-8 text-center bg-gradient-to-b from-white to-blue-soft border border-border/50 shadow-soft rounded-2xl">
-              <div className="flex flex-col items-center justify-center gap-1.5 md:gap-3">
+            <Card className="p-6 md:p-8 text-center bg-gradient-to-b from-white to-blue-soft border border-border/50 shadow-soft rounded-2xl">
+              <div className="flex flex-col items-center justify-center gap-2 md:gap-3">
                 <h3 className="text-sm md:text-base font-bold text-foreground uppercase tracking-wide">
                   Transparente Preise
                 </h3>
@@ -544,7 +544,7 @@ export default function Teppichbodenreinigung() {
                   Der endgültige Preis richtet sich nach Fläche, Verschmutzungsgrad und Aufwand.
                 </p>
               </div>
-              <div className="mt-4 md:mt-6 flex flex-col sm:flex-row justify-center gap-3">
+              <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
                 <Button size="lg" onClick={scrollToContact} className="font-semibold">
                   Kostenloses Angebot erhalten
                 </Button>
