@@ -603,14 +603,36 @@ export default function Teppichbodenreinigung() {
               </div>
             </div>
 
-            <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto md:overflow-visible pb-3 md:pb-0 snap-x snap-mandatory">
-              {[1, 2, 3].map((i) => (
+            <div className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto md:overflow-visible pb-3 md:pb-0 snap-x snap-mandatory">
+              {[
+                {
+                  name: 'Robby Schlesinger',
+                  text: 'Super Arbeit! Netter Kontakt! Schnell und unkompliziert! Top Preis! Sehr zu empfehlen!',
+                },
+                {
+                  name: 'Uwe Fischer',
+                  text: 'Absprachen im Vorfeld liefen super und die Reinigung selbst ist ebenfalls top. Gern wieder!',
+                },
+                {
+                  name: 'Dagmar Espig',
+                  text: 'Am 27.07., pünktlich 14.00 Uhr, wie vereinbart, kam Herr Pshenychnyi um unser Sofa zu reinigen. Er hat hat zügig gearbeitet und nach 3 Stunden sieht unser Ecksofa und der dazugehörige Hocker wie neu aus. Wir sind sehr angenehm überrascht und können das Unternehmen weiterempfehlen. Wir werden die Möglichkeit weiterer Angebote nutzen. Dagmar Espig',
+                },
+                {
+                  name: 'Monika Malz',
+                  text: 'Schnell einen Termin bekommen. Super freundliches Auftreten. Kosten und mögliche Zeit wurden vorher genannt. Saubere und erfolgreiche Erledigung. Nachfrage am nächsten Tag über Zufriedenheit. Kann man nur empfehlen.',
+                },
+              ].map((review) => (
                 <Card
-                  key={i}
+                  key={review.name}
                   className="min-w-[280px] md:min-w-0 snap-start p-5 bg-background border border-border shadow-soft"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-semibold text-foreground">[Vorname]</span>
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-sm font-semibold text-foreground">
+                        {review.name.charAt(0)}
+                      </div>
+                      <span className="text-sm font-semibold text-foreground">{review.name}</span>
+                    </div>
                     <span className="text-xs text-muted-foreground">Google Bewertung</span>
                   </div>
                   <div className="flex mb-3">
@@ -618,7 +640,7 @@ export default function Teppichbodenreinigung() {
                       <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">[Bewertungstext]</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{review.text}</p>
                 </Card>
               ))}
             </div>
