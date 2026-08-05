@@ -341,7 +341,7 @@ export default function Teppichbodenreinigung() {
                 Ort.
               </p>
 
-              <div className="mt-3 md:mt-8 grid grid-cols-2 gap-2 md:gap-2.5">
+              <div className="mt-3 md:mt-14 grid grid-cols-2 gap-2 md:gap-2.5">
                 {heroBenefits.map((b) => (
                   <div
                     key={b.title}
@@ -358,7 +358,7 @@ export default function Teppichbodenreinigung() {
                 ))}
               </div>
 
-              <div className="mt-3 md:mt-16 flex flex-col sm:flex-row gap-3">
+              <div className="mt-3 md:mt-10 flex flex-col sm:flex-row gap-3">
                 <Button size="lg" onClick={scrollToContact} className="font-semibold h-11 md:h-14">
                   Kostenloses Angebot erhalten
                 </Button>
