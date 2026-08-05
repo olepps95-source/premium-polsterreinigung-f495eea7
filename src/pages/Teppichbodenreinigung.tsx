@@ -624,8 +624,10 @@ export default function Teppichbodenreinigung() {
             </div>
 
             <div className="mt-8 text-center">
-              <Button variant="outline" size="lg" className="font-semibold">
-                Alle Bewertungen auf Google ansehen
+              <Button variant="outline" size="lg" className="font-semibold" asChild>
+                <a href="https://share.google/UdKpD4zXXsilugW7n" target="_blank" rel="noopener noreferrer">
+                  Alle Bewertungen auf Google ansehen
+                </a>
               </Button>
             </div>
           </div>
