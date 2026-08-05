@@ -323,7 +323,7 @@ export default function Teppichbodenreinigung() {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImg})`, backgroundPosition: 'center center' }}
-            aria-label="Teppichbodenreinigung Chemnitz – Tiefenreinigung eines Teppichbodens im Büro"
+            aria-label="Teppichbodenreinigung Sachsen – Tiefenreinigung eines Teppichbodens im Büro"
             role="img"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/50 md:from-background md:via-background/60 md:to-transparent" />
