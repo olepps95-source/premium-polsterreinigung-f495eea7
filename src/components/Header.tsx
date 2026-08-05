@@ -127,7 +127,11 @@ export function Header() {
             {navLinks.map((link) => {
               const active = isActive(link);
               const className = `text-base font-bold transition-colors py-2 ${
-                active ? "text-primary font-bold" : "text-foreground hover:text-primary"
+                active
+                  ? "text-primary font-bold"
+                  : isTeppich
+                    ? "text-white hover:text-white focus:text-white active:text-white"
+                    : "text-foreground hover:text-primary"
               }`;
               if (link.action === "contact-modal") {
                 return (
