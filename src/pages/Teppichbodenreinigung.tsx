@@ -22,19 +22,16 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ReviewsSection } from '@/components/ReviewsSection';
 import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { trackLead, trackContact } from '@/lib/meta-pixel';
 import heroImg from '@/assets/teppichreinigung-buero.jpg';
-import privatImg from '@/assets/hero-living-room.jpg';
+import problemImg from '@/assets/teppichboden-problem.jpg';
+import wohnraumImg from '@/assets/teppichboden-wohnraum.jpg';
 import gewerbeImg from '@/assets/hero-gewerbe.jpg';
-import ba1 from '@/assets/before-after-1.jpg';
-import ba2 from '@/assets/before-after-13.jpg';
-import ba3 from '@/assets/before-after-14.jpg';
-import ba4 from '@/assets/before-after-15.jpg';
+import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 const PHONE = '+491632373108';
@@ -46,7 +43,7 @@ const WEBHOOK_URL = 'https://hook.eu1.make.com/81hzpicl2zd6d8qsoh5ki43wbw62if58'
 const heroBenefits = [
   { title: 'Tiefenreinigung vor Ort', sub: 'ohne Ausbau des Teppichbodens' },
   { title: 'Flecken- & Geruchsbehandlung', sub: 'gezielte Vorbehandlung' },
-  { title: 'Für Privat & Gewerbe', sub: 'Wohnung, Büro, Praxis' },
+  { title: 'Für Privat & Gewerbe', sub: 'Auch größere Flächen' },
   { title: 'Kostenlose Anfahrt', sub: 'im Einsatzgebiet' },
 ];
 
@@ -74,12 +71,6 @@ const trustItems = [
   { icon: Home, title: 'Reinigung direkt beim Kunden' },
 ];
 
-const beforeAfter = [
-  { img: ba1, alt: 'Teppichbodenreinigung Chemnitz – Ergebnis einer Tiefenreinigung vor Ort' },
-  { img: ba2, alt: 'Teppichboden reinigen lassen – Vorher-Nachher-Ergebnis von ReinWerk' },
-  { img: ba3, alt: 'Fleckenentfernung im Teppichboden durch ReinWerk Chemnitz' },
-  { img: ba4, alt: 'Teppichboden Tiefenreinigung – Ergebnis nach der Reinigung' },
-];
 
 const faqs = [
   {
@@ -294,7 +285,37 @@ export default function Teppichbodenreinigung() {
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
-      <Header />
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
+        <div className="container mx-auto flex items-center justify-between py-3">
+          <div className="flex items-center gap-2.5">
+            <img src={reinwerkLogo} alt="ReinWerk Logo" className="h-8 w-8 md:h-10 md:w-10 object-contain" />
+            <span className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
+              Rein<span className="text-primary">Werk</span>
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button variant="hero" size="sm" asChild>
+              <a href={`tel:${PHONE}`} onClick={() => trackContact()} aria-label="ReinWerk anrufen">
+                <Phone className="w-4 h-4" />
+                <span className="hidden sm:inline">{PHONE_DISPLAY}</span>
+                <span className="sm:hidden">Anrufen</span>
+              </a>
+            </Button>
+            <Button size="sm" className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold" asChild>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackContact()}
+                aria-label="ReinWerk per WhatsApp kontaktieren"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span className="hidden sm:inline">WhatsApp</span>
+              </a>
+            </Button>
+          </div>
+        </div>
+      </header>
 
       <main className="pb-20 md:pb-0">
         {/* HERO */}
@@ -392,7 +413,7 @@ export default function Teppichbodenreinigung() {
               </p>
             </div>
             <img
-              src={privatImg}
+              src={problemImg}
               alt="Teppichboden reinigen lassen – frisch gereinigter Teppichboden im Wohnraum"
               title="Teppichboden Tiefenreinigung Chemnitz"
               className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover"
@@ -411,7 +432,7 @@ export default function Teppichbodenreinigung() {
               <Card className="overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
-                    src={privatImg}
+                    src={wohnraumImg}
                     alt="Teppichbodenreinigung Privat – Wohnzimmer mit gereinigtem Teppichboden"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -448,6 +469,9 @@ export default function Teppichbodenreinigung() {
                     größere Flächen sind kein Problem – Termine außerhalb der üblichen Geschäftszeiten sind nach
                     Absprache möglich.
                   </p>
+                  <Button onClick={scrollToContact} className="mt-4 font-semibold w-full sm:w-auto">
+                    Angebot für Gewerbefläche anfragen
+                  </Button>
                 </div>
               </Card>
             </div>
@@ -479,22 +503,6 @@ export default function Teppichbodenreinigung() {
           </div>
         </section>
 
-        {/* VORHER / NACHHER */}
-        <section className="py-8 md:py-12">
-          <div className="container mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-3">
-              Vorher &amp; Nachher – Ergebnisse aus der Praxis
-            </h2>
-            <p className="text-center text-muted-foreground mb-8">Echte Aufnahmen aus ReinWerk-Aufträgen in Sachsen.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {beforeAfter.map((b, i) => (
-                <Card key={i} className="overflow-hidden">
-                  <img src={b.img} alt={b.alt} className="w-full h-auto object-cover" loading="lazy" />
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* PREISE */}
         <section className="py-8 md:py-12 bg-secondary/30">
@@ -505,7 +513,10 @@ export default function Teppichbodenreinigung() {
             <Card className="p-6 md:p-8 text-center shadow-medium">
               <p className="text-lg text-muted-foreground">Teppichbodenreinigung</p>
               <p className="mt-1 text-4xl md:text-5xl font-bold text-primary">ab 10 € / m²</p>
-              <p className="mt-4 text-muted-foreground">
+              <p className="mt-3 text-base font-medium text-foreground">
+                Für größere Flächen und Gewerbekunden erstellen wir ein individuelles Angebot.
+              </p>
+              <p className="mt-3 text-muted-foreground">
                 Der endgültige Preis richtet sich nach Fläche, Verschmutzungsgrad und Aufwand. Kostenlose Anfahrt im
                 Einsatzgebiet.
               </p>
@@ -640,8 +651,18 @@ export default function Teppichbodenreinigung() {
                     accept="image/*"
                     multiple
                     onChange={handleFiles}
-                    className="mt-1.5 file:mr-3 file:text-sm file:font-medium"
+                    className="sr-only"
                   />
+                  <label
+                    htmlFor="fotos"
+                    className="mt-1.5 inline-flex cursor-pointer items-center gap-2 rounded-md border border-input bg-background px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                  >
+                    <Upload className="w-4 h-4" />
+                    Fotos auswählen
+                  </label>
+                  {files.length === 0 && (
+                    <span className="ml-3 text-xs text-muted-foreground">Keine Datei ausgewählt</span>
+                  )}
                   <p className="mt-1.5 text-xs text-muted-foreground">
                     Bis zu {MAX_FILES} Fotos, je max. 4 MB. Fotos helfen uns bei einer genaueren Einschätzung.
                   </p>
