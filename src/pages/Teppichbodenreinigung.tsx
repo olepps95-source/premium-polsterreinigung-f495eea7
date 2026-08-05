@@ -295,7 +295,7 @@ export default function Teppichbodenreinigung() {
 
       <main className="pb-20 md:pb-0">
         {/* HERO */}
-        <section className="relative w-full min-h-[100svh] md:min-h-screen overflow-hidden flex items-center md:items-start pt-16 md:pt-32 md:pb-12">
+        <section className="relative w-full min-h-[100svh] md:min-h-screen overflow-hidden flex items-center md:items-start pt-16 md:pt-32 md:pb-6">
 
           {/* Mobile hero background (new uploaded image) */}
           <div
