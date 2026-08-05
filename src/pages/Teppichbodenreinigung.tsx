@@ -342,7 +342,7 @@ export default function Teppichbodenreinigung() {
               </p>
             </div>
 
-            <div className="max-w-xl md:max-w-2xl w-full mt-6 md:mt-0">
+            <div className="max-w-xl md:max-w-2xl w-full mt-6 md:mt-0 md:mb-6">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { title: '0 € Anfahrt', sub: 'im Einsatzgebiet' },
