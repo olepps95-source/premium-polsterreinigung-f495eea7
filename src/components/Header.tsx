@@ -23,6 +23,7 @@ export function Header() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const isTeppich = location.pathname === "/teppichbodenreinigung";
 
   const isActive = (link: NavLink) => !link.action && link.href === location.pathname;
 
@@ -49,14 +50,14 @@ export function Header() {
         isScrolled ? "bg-background/95 backdrop-blur-md shadow-soft border-b border-border/50" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between py-4">
-        <a href="/" onClick={handleLogoClick} className="flex items-center gap-3 cursor-pointer">
+      <div className={`container mx-auto flex items-center justify-between ${isTeppich ? "py-2 md:py-4" : "py-4"}`}>
+        <a href="/" onClick={handleLogoClick} className={`flex items-center cursor-pointer ${isTeppich ? "gap-2 md:gap-3" : "gap-3"}`}>
           <img
             src={reinwerkLogo}
             alt="ReinWerk Logo – Polsterreinigung Sachsen"
-            className="h-8 w-8 md:h-10 md:w-10 object-contain"
+            className={`object-contain ${isTeppich ? "h-7 w-7 md:h-10 md:w-10" : "h-8 w-8 md:h-10 md:w-10"}`}
           />
-          <span className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
+          <span className={`font-bold text-foreground tracking-tight ${isTeppich ? "text-lg md:text-2xl" : "text-xl md:text-2xl"}`}>
             Rein<span className="text-primary">Werk</span>
           </span>
         </a>
@@ -108,10 +109,14 @@ export function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 text-foreground"
+          className={`md:hidden flex items-center justify-center text-foreground min-w-[44px] min-h-[44px] ${isTeppich ? "p-1.5" : "p-2"}`}
           aria-label="Menü öffnen"
         >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isMobileMenuOpen ? (
+            <X className={isTeppich ? "w-5 h-5" : "w-6 h-6"} />
+          ) : (
+            <Menu className={isTeppich ? "w-5 h-5" : "w-6 h-6"} />
+          )}
         </button>
       </div>
 
