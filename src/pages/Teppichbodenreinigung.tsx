@@ -528,9 +528,6 @@ export default function Teppichbodenreinigung() {
         {/* PREISE */}
         <section className="py-8 md:py-12 bg-secondary/30">
           <div className="container mx-auto max-w-3xl">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
-              Preise für die Teppichbodenreinigung
-            </h2>
             <Card className="p-6 md:p-8 text-center shadow-medium">
               <p className="text-lg text-muted-foreground">Teppichbodenreinigung</p>
               <p className="mt-1 text-4xl md:text-5xl font-bold text-primary">ab 8 € / m²</p>
