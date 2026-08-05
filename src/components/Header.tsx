@@ -11,6 +11,7 @@ type NavLink = { label: string; href: string; action?: "contact-modal" };
 
 const navLinks: NavLink[] = [
   { label: "Polsterreinigung", href: "/" },
+  { label: "Teppichbodenreinigung", href: "/teppichbodenreinigung" },
   { label: "Gewerbe", href: "/gewerbe" },
   { label: "Fensterreinigung", href: "/fensterreinigung" },
   { label: "Kontakt", href: "#", action: "contact-modal" },
@@ -61,10 +62,10 @@ export function Header() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-4 lg:gap-8">
           {navLinks.map((link) => {
             const active = isActive(link);
-            const className = `text-sm font-bold transition-colors ${
+            const className = `text-xs lg:text-sm font-bold whitespace-nowrap transition-colors ${
               active ? "text-primary font-bold" : "text-muted-foreground hover:text-foreground"
             }`;
             if (link.action === "contact-modal") {
