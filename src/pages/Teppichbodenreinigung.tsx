@@ -434,10 +434,11 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* GOOGLE BEWERTUNGEN */}
-        <section className="pt-8 md:pt-12 pb-12 md:pb-20 bg-background">
+        <section className="pt-8 md:pt-12 pb-8 md:pb-20 bg-background">
           <div className="mx-auto w-[90%] max-w-[1450px]">
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4 md:mb-8">
+
               <div className="flex items-center gap-2.5">
                 <svg
                   className="w-6 h-6"
