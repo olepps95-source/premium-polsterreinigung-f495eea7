@@ -542,16 +542,6 @@ export default function Teppichbodenreinigung() {
                 <Button size="lg" onClick={scrollToContact} className="font-semibold">
                   Kostenloses Angebot erhalten
                 </Button>
-                <Button
-                  size="lg"
-                  variant="heroOutline"
-                  asChild
-                >
-                  <a href={`tel:${PHONE}`} onClick={() => trackContact()}>
-                    <Phone className="w-5 h-5" />
-                    {PHONE_DISPLAY}
-                  </a>
-                </Button>
               </div>
             </Card>
           </div>
