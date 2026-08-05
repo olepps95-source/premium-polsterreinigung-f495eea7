@@ -27,10 +27,10 @@ import { ReviewsSection } from '@/components/ReviewsSection';
 import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { trackLead, trackContact } from '@/lib/meta-pixel';
-import heroImg from '@/assets/teppichbodenreinigung-hero.jpg.asset.json';
-import problemImg from '@/assets/teppichreinigung-problem.jpeg.asset.json';
-import wohnraumImg from '@/assets/teppichboden-dresden.jpeg.asset.json';
-import gewerbeImg from '@/assets/teppichboden-buero.jpeg.asset.json';
+import heroImg from '@/assets/teppichbodenreinigung-hero.jpg';
+import problemImg from '@/assets/teppichreinigung-problem.jpeg';
+import wohnraumImg from '@/assets/teppichboden-dresden.jpeg';
+import gewerbeImg from '@/assets/teppichboden-buero.jpeg';
 import reinwerkLogo from '@/assets/reinwerk-logo.jpg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
@@ -322,7 +322,7 @@ export default function Teppichbodenreinigung() {
         <section className="relative w-full min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-64px)] mt-14 md:mt-16 overflow-hidden flex items-center">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroImg.url})`, backgroundPosition: 'center center' }}
+            style={{ backgroundImage: `url(${heroImg})`, backgroundPosition: 'center center' }}
             aria-label="Teppichbodenreinigung Chemnitz – Tiefenreinigung eines Teppichbodens im Büro"
             role="img"
           />
@@ -412,7 +412,7 @@ export default function Teppichbodenreinigung() {
               </p>
             </div>
             <img
-              src={problemImg.url}
+              src={problemImg}
               alt="Professionelle Teppichbodenreinigung im Büro mit Extraktionsmaschine"
               title="Teppichboden Tiefenreinigung Chemnitz"
               className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover"
@@ -431,7 +431,7 @@ export default function Teppichbodenreinigung() {
               <Card className="overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
-                    src={wohnraumImg.url}
+                    src={wohnraumImg}
                     alt="Teppichbodenreinigung Privat – Wohnzimmer mit gereinigtem Teppichboden"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -452,7 +452,7 @@ export default function Teppichbodenreinigung() {
               <Card className="overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
-                    src={gewerbeImg.url}
+                    src={gewerbeImg}
                     alt="Teppichbodenreinigung Büro und Gewerbe in Chemnitz"
                     className="w-full h-full object-cover"
                     loading="lazy"
