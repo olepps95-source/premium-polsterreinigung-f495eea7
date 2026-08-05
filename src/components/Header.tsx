@@ -57,7 +57,9 @@ export function Header() {
             alt="ReinWerk Logo – Polsterreinigung Sachsen"
             className={`object-contain ${isTeppich ? "h-7 w-7 md:h-10 md:w-10" : "h-8 w-8 md:h-10 md:w-10"}`}
           />
-          <span className="font-bold text-rw-dark tracking-tight text-2xl md:text-3xl whitespace-nowrap">
+          <span className={`font-bold tracking-tight text-2xl md:text-3xl whitespace-nowrap ${
+            isTeppich && isScrolled ? "text-black md:text-rw-dark" : "text-rw-dark"
+          }`}>
             Rein<span className="text-rw-blue">Werk</span>
           </span>
         </a>
@@ -109,7 +111,9 @@ export function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`md:hidden flex items-center justify-center text-foreground min-w-[44px] min-h-[44px] ${isTeppich ? "p-1.5" : "p-2"}`}
+          className={`md:hidden flex items-center justify-center min-w-[44px] min-h-[44px] ${isTeppich ? "p-1.5" : "p-2"} ${
+            isTeppich && isScrolled ? "text-black" : "text-foreground"
+          }`}
           aria-label="Menü öffnen"
         >
           {isMobileMenuOpen ? (
@@ -129,9 +133,11 @@ export function Header() {
               const className = `text-base font-bold transition-colors py-2 ${
                 active
                   ? "text-primary font-bold"
-                  : isTeppich
-                    ? "text-white hover:text-white focus:text-white active:text-white"
-                    : "text-foreground hover:text-primary"
+                  : isTeppich && isScrolled
+                    ? "text-rw-dark hover:text-black focus:text-black active:text-black"
+                    : isTeppich
+                      ? "text-white hover:text-white focus:text-white active:text-white"
+                      : "text-foreground hover:text-primary"
               }`;
               if (link.action === "contact-modal") {
                 return (
