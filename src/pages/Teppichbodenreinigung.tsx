@@ -319,7 +319,7 @@ export default function Teppichbodenreinigung() {
 
       <main className="pb-20 md:pb-0">
         {/* HERO */}
-        <section className="relative w-full min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-64px)] mt-14 md:mt-16 overflow-hidden flex items-center">
+        <section className="relative w-full min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-64px)] mt-14 md:mt-16 overflow-hidden flex items-center md:items-start md:pt-20 md:pb-12">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImg})`, backgroundPosition: 'center center' }}
@@ -336,12 +336,12 @@ export default function Teppichbodenreinigung() {
                 <br />
                 in Sachsen
               </h1>
-              <p className="mt-2 md:mt-4 text-base md:text-xl text-foreground font-semibold text-left">
+              <p className="mt-2 md:mt-6 text-base md:text-xl text-foreground font-semibold text-left">
                 Tiefenreinigung für Teppichböden in Wohnungen, Büros, Praxen und Gewerberäumen – direkt bei Ihnen vor
                 Ort.
               </p>
 
-              <div className="mt-3 md:mt-5 grid grid-cols-2 gap-2 md:gap-2.5">
+              <div className="mt-3 md:mt-8 grid grid-cols-2 gap-2 md:gap-2.5">
                 {heroBenefits.map((b) => (
                   <div
                     key={b.title}
@@ -358,7 +358,7 @@ export default function Teppichbodenreinigung() {
                 ))}
               </div>
 
-              <div className="mt-3 md:mt-5 flex flex-col sm:flex-row gap-3">
+              <div className="mt-3 md:mt-16 flex flex-col sm:flex-row gap-3">
                 <Button size="lg" onClick={scrollToContact} className="font-semibold h-11 md:h-14">
                   Kostenloses Angebot erhalten
                 </Button>
@@ -380,7 +380,7 @@ export default function Teppichbodenreinigung() {
                 </Button>
               </div>
 
-              <p className="mt-2 md:mt-3 text-sm text-muted-foreground text-left">
+              <p className="mt-2 md:mt-4 text-sm text-muted-foreground text-left">
                 Oder direkt anrufen:{' '}
                 <a href={`tel:${PHONE}`} className="font-semibold text-foreground hover:text-primary transition-colors">
                   {PHONE_DISPLAY}
