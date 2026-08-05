@@ -513,7 +513,10 @@ export default function Teppichbodenreinigung() {
             <Card className="p-6 md:p-8 text-center shadow-medium">
               <p className="text-lg text-muted-foreground">Teppichbodenreinigung</p>
               <p className="mt-1 text-4xl md:text-5xl font-bold text-primary">ab 10 € / m²</p>
-              <p className="mt-4 text-muted-foreground">
+              <p className="mt-3 text-base font-medium text-foreground">
+                Für größere Flächen und Gewerbekunden erstellen wir ein individuelles Angebot.
+              </p>
+              <p className="mt-3 text-muted-foreground">
                 Der endgültige Preis richtet sich nach Fläche, Verschmutzungsgrad und Aufwand. Kostenlose Anfahrt im
                 Einsatzgebiet.
               </p>
@@ -648,8 +651,18 @@ export default function Teppichbodenreinigung() {
                     accept="image/*"
                     multiple
                     onChange={handleFiles}
-                    className="mt-1.5 file:mr-3 file:text-sm file:font-medium"
+                    className="sr-only"
                   />
+                  <label
+                    htmlFor="fotos"
+                    className="mt-1.5 inline-flex cursor-pointer items-center gap-2 rounded-md border border-input bg-background px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                  >
+                    <Upload className="w-4 h-4" />
+                    Fotos auswählen
+                  </label>
+                  {files.length === 0 && (
+                    <span className="ml-3 text-xs text-muted-foreground">Keine Datei ausgewählt</span>
+                  )}
                   <p className="mt-1.5 text-xs text-muted-foreground">
                     Bis zu {MAX_FILES} Fotos, je max. 4 MB. Fotos helfen uns bei einer genaueren Einschätzung.
                   </p>
