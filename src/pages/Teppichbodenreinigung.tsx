@@ -632,7 +632,9 @@ export default function Teppichbodenreinigung() {
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
               So läuft die Teppichbodenreinigung ab
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+
+            {/* Desktop */}
+            <div className="hidden sm:grid grid-cols-3 lg:grid-cols-5 gap-2">
               {steps.map((s, i) => (
                 <div key={s.title} className="bg-background rounded-2xl p-5 shadow-soft text-center">
                   <div className="relative inline-flex">
@@ -647,6 +649,24 @@ export default function Teppichbodenreinigung() {
                   <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Mobile Timeline */}
+            <div className="sm:hidden relative">
+              <div className="absolute left-5 top-1 bottom-1 w-0.5 bg-primary" />
+              <div className="space-y-6">
+                {steps.map((s, i) => (
+                  <div key={s.title} className="relative flex items-start gap-4">
+                    <div className="relative z-10 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shrink-0 shadow-sm">
+                      {i + 1}
+                    </div>
+                    <div className="flex-1 pt-1">
+                      <h3 className="text-base font-bold text-foreground leading-tight">{s.title}</h3>
+                      <p className="mt-0.5 text-sm text-muted-foreground leading-snug">{s.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
