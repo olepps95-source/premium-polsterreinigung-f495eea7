@@ -721,16 +721,10 @@ export default function Teppichbodenreinigung() {
         </section>
       </main>
 
-      {/* MOBILE STICKY CTA */}
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-border bg-background/95 backdrop-blur px-3 py-2.5 flex gap-2">
-        <Button className="flex-1 font-semibold" onClick={scrollToContact}>
-          Angebot erhalten
-        </Button>
-        <Button className="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold" asChild>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackContact()}>
-            <MessageCircle className="w-5 h-5" />
-            WhatsApp
-          </a>
+      {/* MOBILE STICKY CTA (right side kept free for the floating WhatsApp button) */}
+      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-border bg-background/95 backdrop-blur pl-3 pr-24 py-2.5 pb-[calc(env(safe-area-inset-bottom,0px)+10px)]">
+        <Button className="w-full font-semibold" onClick={scrollToContact}>
+          Kostenloses Angebot erhalten
         </Button>
       </div>
 
