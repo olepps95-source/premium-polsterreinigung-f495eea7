@@ -5,7 +5,6 @@ import {
   Check,
   Phone,
   Home,
-  Building2,
   Search,
   Droplets,
   Sparkles,
