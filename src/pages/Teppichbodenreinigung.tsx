@@ -434,10 +434,10 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* GOOGLE BEWERTUNGEN */}
-        <section className="pt-8 md:pt-12 pb-8 md:pb-20 bg-background">
+        <section className="pt-4 md:pt-6 pb-4 md:pb-10 bg-background">
           <div className="mx-auto w-[90%] max-w-[1450px]">
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4 md:mb-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-2 md:mb-4">
 
               <div className="flex items-center gap-2.5">
                 <svg
@@ -514,7 +514,7 @@ export default function Teppichbodenreinigung() {
               ))}
             </div>
 
-            <div className="mt-4 md:mt-[30px] text-center">
+            <div className="mt-2 md:mt-[15px] text-center">
               <Button variant="outline" size="lg" className="font-semibold max-md:h-10 max-md:px-4 max-md:text-sm" asChild>
 
                 <a href="https://maps.app.goo.gl/HeEVeeSDaEnruM2Z6" target="_blank" rel="noopener noreferrer">
