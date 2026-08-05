@@ -599,7 +599,6 @@ export default function Teppichbodenreinigung() {
                   ))}
                 </div>
                 <span className="text-base font-semibold text-foreground">5,0</span>
-                <span className="text-sm text-muted-foreground">· XXX Bewertungen</span>
               </div>
             </div>
 
