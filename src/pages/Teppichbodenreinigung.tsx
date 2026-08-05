@@ -805,12 +805,6 @@ export default function Teppichbodenreinigung() {
         </section>
       </main>
 
-      {/* MOBILE STICKY CTA (right side kept free for the floating WhatsApp button) */}
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-border bg-background/95 backdrop-blur pl-3 pr-24 py-2.5 pb-[calc(env(safe-area-inset-bottom,0px)+10px)]">
-        <Button className="w-full font-semibold" onClick={scrollToContact}>
-          Kostenloses Angebot erhalten
-        </Button>
-      </div>
 
       <Footer />
     </>
