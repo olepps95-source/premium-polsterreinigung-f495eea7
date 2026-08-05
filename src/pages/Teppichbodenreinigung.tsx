@@ -431,7 +431,7 @@ export default function Teppichbodenreinigung() {
               <Card className="overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
-                    src={wohnraumImg}
+                    src={wohnraumImg.url}
                     alt="Teppichbodenreinigung Privat – Wohnzimmer mit gereinigtem Teppichboden"
                     className="w-full h-full object-cover"
                     loading="lazy"
