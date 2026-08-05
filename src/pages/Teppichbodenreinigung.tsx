@@ -287,19 +287,22 @@ export default function Teppichbodenreinigung() {
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
+      <style>{`@media (max-width: 767px){header:not(.bg-background\\/95) span{color:#fff}header:not(.bg-background\\/95) button[aria-label="Menü öffnen"]{color:#fff}}`}</style>
       <Header />
+
 
       <main className="pb-20 md:pb-0">
         {/* HERO */}
-        <section className="relative w-full min-h-screen overflow-hidden flex items-center md:items-start pt-20 md:pt-32 md:pb-12">
+        <section className="relative w-full min-h-[100svh] md:min-h-screen overflow-hidden flex items-center md:items-start pt-16 md:pt-32 md:pb-12">
 
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroImg})`, backgroundPosition: 'center center' }}
+            className="absolute inset-0 bg-cover bg-no-repeat bg-[position:72%_center] md:bg-center"
+            style={{ backgroundImage: `url(${heroImg})` }}
             aria-label="Teppichbodenreinigung Sachsen – Tiefenreinigung eines Teppichbodens im Büro"
             role="img"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/50 md:from-background md:via-background/60 md:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/25 md:from-background md:via-background/60 md:to-transparent" />
+
           <div className="container mx-auto relative z-10 px-4">
             <div className="max-w-xl md:max-w-2xl w-full md:pt-16">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[1.1] text-left">
