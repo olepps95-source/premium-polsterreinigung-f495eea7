@@ -526,7 +526,7 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* PREISE */}
-        <section className="py-8 md:py-12 bg-secondary/30">
+        <section className="py-4 md:py-6 bg-secondary/30">
           <div className="container mx-auto max-w-3xl">
             <Card className="p-6 md:p-8 text-center bg-gradient-to-b from-white to-blue-soft border border-border/50 shadow-soft rounded-2xl">
               <div className="flex flex-col items-center justify-center gap-2 md:gap-3">
@@ -544,7 +544,7 @@ export default function Teppichbodenreinigung() {
                   Der endgültige Preis richtet sich nach Fläche, Verschmutzungsgrad und Aufwand.
                 </p>
               </div>
-              <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
+              <div className="mt-3 flex flex-col sm:flex-row justify-center gap-3">
                 <Button size="lg" onClick={scrollToContact} className="font-semibold">
                   Kostenloses Angebot erhalten
                 </Button>
@@ -555,7 +555,7 @@ export default function Teppichbodenreinigung() {
 
         {/* PROBLEM / NUTZEN */}
 
-        <section className="py-8 md:py-12 bg-secondary/30">
+        <section className="py-4 md:py-6 bg-secondary/30">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
