@@ -31,6 +31,7 @@ import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { trackLead, trackContact } from '@/lib/meta-pixel';
 import heroImg from '@/assets/teppichreinigung-kita.png.asset.json';
+import heroDesktop from '@/assets/teppichbodenreinigung-hero.jpg';
 import problemImg from '@/assets/teppichreinigung-problem.jpeg';
 import wohnraumImg from '@/assets/teppichboden-dresden.jpeg';
 import gewerbeImg from '@/assets/teppichboden-buero.jpeg';
