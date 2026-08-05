@@ -326,7 +326,7 @@ export default function Teppichbodenreinigung() {
             aria-label="Teppichbodenreinigung Chemnitz – Tiefenreinigung eines Teppichbodens im Büro"
             role="img"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/40" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-2xl">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[1.15] text-center md:text-left">
