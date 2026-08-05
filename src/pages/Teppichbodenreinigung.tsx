@@ -821,9 +821,9 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* FAQ */}
-        <section className="py-8 md:py-12">
+        <section className="py-4 md:py-6">
           <div className="container mx-auto max-w-3xl">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-4">
               Häufige Fragen zur Teppichbodenreinigung
             </h2>
             <Accordion type="single" collapsible className="bg-background border border-border rounded-2xl px-6 shadow-soft">
@@ -840,7 +840,7 @@ export default function Teppichbodenreinigung() {
         </section>
 
         {/* FINAL CTA */}
-        <section className="py-8 md:py-12 bg-secondary/30">
+        <section className="py-4 md:py-6 bg-secondary/30">
           <div className="container mx-auto text-center max-w-2xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
               Jetzt Teppichbodenreinigung in Chemnitz anfragen
@@ -848,7 +848,7 @@ export default function Teppichbodenreinigung() {
             <p className="mt-3 text-base md:text-lg text-muted-foreground">
               Kostenlose Einschätzung für Privat- und Gewerbeflächen.
             </p>
-            <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
+            <div className="mt-3 flex flex-col sm:flex-row justify-center gap-3">
               <Button size="lg" onClick={scrollToContact} className="font-semibold">
                 Kostenloses Angebot erhalten
               </Button>
