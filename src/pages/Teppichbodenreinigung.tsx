@@ -257,26 +257,26 @@ export default function Teppichbodenreinigung() {
   return (
     <>
       <Helmet>
-        <title>Teppichbodenreinigung Chemnitz | ReinWerk</title>
+        <title>Teppichbodenreinigung Sachsen | ReinWerk</title>
         <meta
           name="description"
-          content="Professionelle Teppichbodenreinigung in Chemnitz für Privat & Gewerbe. Tiefenreinigung, Fleckenbehandlung und kostenlose Anfahrt. Jetzt Angebot anfragen."
+          content="Professionelle Teppichbodenreinigung in Sachsen für Privat & Gewerbe. Tiefenreinigung, Fleckenbehandlung und kostenlose Anfahrt. Jetzt Angebot anfragen."
         />
         <link rel="canonical" href={PAGE_URL} />
-        <meta property="og:title" content="Teppichbodenreinigung Chemnitz | ReinWerk" />
+        <meta property="og:title" content="Teppichbodenreinigung Sachsen | ReinWerk" />
         <meta
           property="og:description"
-          content="Tiefenreinigung fest verlegter Teppichböden in Wohnungen, Büros und Praxen – direkt vor Ort in Chemnitz und Sachsen."
+          content="Tiefenreinigung fest verlegter Teppichböden in Wohnungen, Büros und Praxen – direkt vor Ort in Sachsen."
         />
         <meta property="og:url" content={PAGE_URL} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="de_DE" />
         <meta property="og:image" content={OG_IMAGE} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Teppichbodenreinigung Chemnitz | ReinWerk" />
+        <meta name="twitter:title" content="Teppichbodenreinigung Sachsen | ReinWerk" />
         <meta
           name="twitter:description"
-          content="Tiefenreinigung fest verlegter Teppichböden für Privat & Gewerbe in Chemnitz."
+          content="Tiefenreinigung fest verlegter Teppichböden für Privat & Gewerbe in Sachsen."
         />
         <meta name="twitter:image" content={OG_IMAGE} />
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
