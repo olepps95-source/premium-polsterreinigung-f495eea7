@@ -17,7 +17,11 @@ const reviews = [
   },
 ];
 
-export function GoogleReviews() {
+interface GoogleReviewsProps {
+  useMobileGoogleLogo?: boolean;
+}
+
+export function GoogleReviews({ useMobileGoogleLogo = false }: GoogleReviewsProps) {
   return (
     <section className="pt-4 md:pt-6 pb-4 md:pb-10 bg-background">
       <div className="mx-auto w-[90%] max-w-[1450px]">
