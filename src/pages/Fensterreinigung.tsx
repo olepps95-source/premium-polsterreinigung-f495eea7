@@ -222,8 +222,17 @@ export default function Fensterreinigung() {
           </div>
           <div className="container mx-auto relative z-10 px-4 pt-4 pb-10 md:py-14">
             <div className="max-w-xl md:max-w-2xl">
-              <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold md:font-bold text-white md:text-foreground tracking-tight leading-[1.05] md:leading-[1.1] text-left">
-                <span className="text-primary">Fensterreinigung</span> in Chemnitz – streifenfrei &amp; professionell
+              <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold md:font-bold tracking-tight leading-[1.05] md:leading-[1.1] text-left text-white md:text-foreground">
+                <span className="md:hidden">
+                  Professionelle
+                  <br />
+                  <span className="text-primary">Fensterreinigung</span>
+                  <br />
+                  in Sachsen
+                </span>
+                <span className="hidden md:inline">
+                  <span className="text-primary">Fensterreinigung</span> in Chemnitz – streifenfrei &amp; professionell
+                </span>
               </h1>
               <p className="mt-3 md:mt-4 text-base md:text-xl text-white md:text-foreground font-medium md:font-bold text-left max-w-[320px] sm:max-w-[380px] md:max-w-none leading-snug">
                 Streifenfreie Fenster, mehr Tageslicht und ein gepflegter Eindruck – professionelle Fensterreinigung direkt bei Ihnen vor Ort in Chemnitz, Dresden, Leipzig und ganz Sachsen.
