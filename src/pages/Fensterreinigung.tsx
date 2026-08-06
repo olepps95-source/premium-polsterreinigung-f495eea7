@@ -251,7 +251,7 @@ export default function Fensterreinigung() {
               </p>
 
               {/* Desktop/Tablet USP cards */}
-              <div className="mt-6 hidden md:grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="mt-4 hidden md:grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
                   { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
@@ -259,7 +259,7 @@ export default function Fensterreinigung() {
                 ].map((badge) => (
                   <div
                     key={badge.title}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
+                    className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
                   >
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4 text-primary" />
