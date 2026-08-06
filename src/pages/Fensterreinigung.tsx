@@ -383,44 +383,6 @@ export default function Fensterreinigung() {
           </div>
         </section>
 
-        {/* PRIVATE */}
-        <section className="py-6 bg-secondary/30">
-          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Fensterreinigung für Privatkunden in Chemnitz
-              </h2>
-              <div className="mt-5 space-y-3 text-base md:text-lg text-muted-foreground">
-                <p>Sie möchten Ihre Fenster reinigen lassen – ohne Aufwand und ohne Schlieren?</p>
-                <p>Wir übernehmen die Fensterreinigung Privat für Wohnungen, Einfamilienhäuser und Wintergärten in Chemnitz, Dresden, Leipzig und ganz Sachsen.</p>
-                <p className="text-foreground font-medium">Streifenfreie Fenster, freundlich und zuverlässig vor Ort.</p>
-              </div>
-            </div>
-            <img src={privatImg} alt="Fensterreinigung Privat Chemnitz – Einfamilienhaus mit sauberen Fenstern" title="Fensterreinigung Privat Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
-          </div>
-        </section>
-
-        {/* BUSINESS */}
-        <section className="py-6">
-          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <img src={gewerbeSectionImg} alt="Glasreinigung Büro Chemnitz – Fensterreinigung Gewerbe für Unternehmen" title="Glasreinigung Büro Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
-            <div className="order-1 md:order-2">
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Fensterreinigung für Unternehmen in Sachsen
-              </h2>
-              <ul className="mt-5 space-y-2.5">
-                {['Regelmäßige Reinigung', 'Flexible Termine', 'Rechnung für Unternehmen', 'Zuverlässige Durchführung'].map((t) => (
-                  <li key={t} className="flex items-center gap-3 text-base text-foreground">
-                    <Check className="w-5 h-5 text-primary shrink-0" /> {t}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 text-muted-foreground">
-                Ob Büro, Praxis, Geschäft, Schaufenster oder Glasfassade – wir bieten Fensterreinigung Gewerbe in Chemnitz und ganz Sachsen, einmalig oder regelmäßig.
-              </p>
-            </div>
-          </div>
-        </section>
 
         {/* HOW IT WORKS */}
         <section className="py-6 bg-secondary/30">
@@ -514,6 +476,45 @@ export default function Fensterreinigung() {
                 </Button>
               </form>
             </Card>
+          </div>
+        </section>
+
+        {/* PRIVATE */}
+        <section className="py-6 bg-secondary/30">
+          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
+                Fensterreinigung für Privatkunden in Chemnitz
+              </h2>
+              <div className="mt-5 space-y-3 text-base md:text-lg text-muted-foreground">
+                <p>Sie möchten Ihre Fenster reinigen lassen – ohne Aufwand und ohne Schlieren?</p>
+                <p>Wir übernehmen die Fensterreinigung Privat für Wohnungen, Einfamilienhäuser und Wintergärten in Chemnitz, Dresden, Leipzig und ganz Sachsen.</p>
+                <p className="text-foreground font-medium">Streifenfreie Fenster, freundlich und zuverlässig vor Ort.</p>
+              </div>
+            </div>
+            <img src={privatImg} alt="Fensterreinigung Privat Chemnitz – Einfamilienhaus mit sauberen Fenstern" title="Fensterreinigung Privat Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
+          </div>
+        </section>
+
+        {/* BUSINESS */}
+        <section className="py-6">
+          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
+            <img src={gewerbeSectionImg} alt="Glasreinigung Büro Chemnitz – Fensterreinigung Gewerbe für Unternehmen" title="Glasreinigung Büro Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
+            <div className="order-1 md:order-2">
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
+                Fensterreinigung für Unternehmen in Sachsen
+              </h2>
+              <ul className="mt-5 space-y-2.5">
+                {['Regelmäßige Reinigung', 'Flexible Termine', 'Rechnung für Unternehmen', 'Zuverlässige Durchführung'].map((t) => (
+                  <li key={t} className="flex items-center gap-3 text-base text-foreground">
+                    <Check className="w-5 h-5 text-primary shrink-0" /> {t}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-muted-foreground">
+                Ob Büro, Praxis, Geschäft, Schaufenster oder Glasfassade – wir bieten Fensterreinigung Gewerbe in Chemnitz und ganz Sachsen, einmalig oder regelmäßig.
+              </p>
+            </div>
           </div>
         </section>
 
