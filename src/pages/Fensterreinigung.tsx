@@ -344,7 +344,7 @@ export default function Fensterreinigung() {
           </div>
         </section>
 
-        <GoogleReviews />
+        <GoogleReviews useMobileGoogleLogo />
 
         {/* PROBLEM / SOLUTION */}
         <section className="py-6 bg-secondary/30">
