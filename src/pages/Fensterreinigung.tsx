@@ -412,6 +412,24 @@ export default function Fensterreinigung() {
             </div>
           </div>
         </section>
+        {/* FAQ */}
+        <section className="py-4">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5">
+              Häufige Fragen zur Fensterreinigung
+            </h2>
+            <Accordion type="single" collapsible className="bg-background border border-border rounded-2xl px-4 md:px-6 shadow-soft">
+              {faqs.map((f, i) => (
+                <AccordionItem key={i} value={`item-${i}`} className="border-border last:border-0">
+                  <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline">
+                    {f.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
 
         {/* PROBLEM / SOLUTION */}
         <section className="py-4 bg-secondary/30">
@@ -432,27 +450,6 @@ export default function Fensterreinigung() {
                 Als erfahrener Fensterputzer in Chemnitz übernehmen wir die Arbeit für Sie und sorgen für streifenfreie, klare Sicht – ohne Aufwand.
               </p>
             </div>
-          </div>
-        </section>
-
-
-
-        {/* FAQ */}
-        <section className="py-4">
-          <div className="container mx-auto max-w-3xl">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5">
-              Häufige Fragen zur Fensterreinigung
-            </h2>
-            <Accordion type="single" collapsible className="bg-background border border-border rounded-2xl px-4 md:px-6 shadow-soft">
-              {faqs.map((f, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-border last:border-0">
-                  <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline">
-                    {f.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
           </div>
         </section>
 
