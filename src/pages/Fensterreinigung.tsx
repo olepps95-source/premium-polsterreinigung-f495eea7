@@ -221,7 +221,7 @@ export default function Fensterreinigung() {
         <section className="relative min-h-[100svh] md:min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
           {/* Mobile hero background */}
           <div
-            className="absolute inset-0 md:hidden bg-cover bg-no-repeat bg-top"
+            className="absolute inset-0 md:hidden bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroMobile})` }}
             aria-hidden="true"
           />
