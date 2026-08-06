@@ -33,15 +33,6 @@ export function EinsatzgebietSachsen() {
   return (
     <section id="einsatzgebiet-sachsen" className="py-8 md:py-14 bg-background">
       <div className="container">
-        <div className="text-center mb-6 md:mb-10">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground">
-            Unser Einsatzgebiet in Sachsen
-          </h2>
-          <p className="mt-2 text-muted-foreground text-sm md:text-lg">
-            Professionelle Reinigung direkt bei Ihnen vor Ort
-          </p>
-        </div>
-
         <div className="grid md:grid-cols-[11fr_9fr] gap-6 md:gap-12 items-center">
           {/* Map */}
           <div className="flex justify-center items-center h-full">
