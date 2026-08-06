@@ -376,9 +376,9 @@ export default function Fensterreinigung() {
               {services.map((s) => (
                 <div key={s.title} className="relative w-full h-[180px] rounded-[22px] overflow-hidden shadow-soft">
                   <img src={s.img} alt={s.alt} title={s.imgTitle} className="absolute inset-0 w-full h-full object-cover object-[80%_25%]" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-background via-background via-[60%] via-background/90 via-[68%] to-transparent to-[70%]" />
-                  <div className="absolute top-0 left-0 right-[28%] pl-[18px] pr-[12px] pt-[12px]">
-                    <h3 className="text-[20px] font-bold text-[#20242C] leading-tight">{s.title}</h3>
+                  <div className="absolute inset-0 bg-gradient-to-r from-background via-background via-[60%] via-background/95 via-[70%] to-transparent to-[72%]" />
+                  <div className="absolute top-0 left-0 right-[25%] pl-[18px] pr-[12px] pt-[12px]">
+                    <h3 className="text-[20px] font-bold tracking-tight text-[#20242C] leading-tight">{s.title}</h3>
                     <p className="text-[13px] text-muted-foreground mt-[7px] leading-snug">{s.desc}</p>
                   </div>
                   <div className="absolute bottom-0 left-0 bg-primary text-primary-foreground font-bold text-xs px-3 py-1.5 rounded-tr-[14px]">
