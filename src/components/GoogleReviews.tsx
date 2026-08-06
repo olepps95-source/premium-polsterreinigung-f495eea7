@@ -67,7 +67,7 @@ export function GoogleReviews({ useMobileGoogleLogo = false }: GoogleReviewsProp
           {reviews.map((review) => (
             <Card
               key={review.name}
-              className="min-w-[260px] md:min-w-0 snap-start p-4 md:p-5 bg-background border border-border shadow-soft"
+              className="min-w-[260px] md:min-w-0 snap-start p-3 md:p-4 bg-background border border-border shadow-soft"
             >
               <div className={`flex items-center mb-2 md:mb-3 ${useMobileGoogleLogo ? 'gap-2.5' : 'justify-between'}`}>
                 <div className="flex items-center gap-2.5 min-w-0">
