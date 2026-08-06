@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { MessageCircle, Check, Home, Building2, Sparkles, LayoutGrid, Camera, FileText, Calendar } from 'lucide-react';
+import { MessageCircle, Check, Camera, FileText, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
