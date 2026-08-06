@@ -349,7 +349,7 @@ export default function Fensterreinigung() {
         {/* SERVICES — 4 cards */}
         <section className="py-4">
           <div className="container mx-auto max-sm:px-3">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5">
+            <h2 className="hidden sm:block text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5">
               Unsere Leistungen der Fensterreinigung
             </h2>
             {/* Mobile: kompakte horizontale Servicekarten */}
