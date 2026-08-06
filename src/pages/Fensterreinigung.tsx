@@ -19,7 +19,7 @@ import privatImg from '@/assets/fenster-privat.webp';
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import gewerbeSectionImg from '@/assets/fenster-gewerbe-neu.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
-import wintergartenImgAsset from '@/assets/wintergarten-dresden.jpg.asset.json';
+import wintergartenImgAsset from '@/assets/wintergartenreinigung-leipzig.jpg.asset.json';
 import warumImg from '@/assets/fenster-warum.webp';
 import schaufensterImg from '@/assets/fenster-schaufenster.jpg';
 
