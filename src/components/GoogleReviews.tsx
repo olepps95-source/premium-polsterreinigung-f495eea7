@@ -23,9 +23,9 @@ interface GoogleReviewsProps {
 
 export function GoogleReviews({ useMobileGoogleLogo = false }: GoogleReviewsProps) {
   return (
-    <section className="pt-4 md:pt-6 pb-4 md:pb-10 bg-background">
+    <section className="py-3 md:pt-4 md:pb-6 bg-background">
       <div className="mx-auto w-[90%] max-w-[1450px]">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-2 md:mb-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 md:gap-3 mb-2 md:mb-3">
           <div className="flex items-center gap-2.5">
             <svg
               className="w-6 h-6"
