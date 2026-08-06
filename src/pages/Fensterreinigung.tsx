@@ -423,7 +423,7 @@ export default function Fensterreinigung() {
               ].map((s) => (
                 <div key={s.step} className="text-center">
                   <div className="relative inline-flex">
-                    <div className="w-13 h-13 md:w-16 md:h-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
                       <s.icon className="w-6 h-6 md:w-7 md:h-7" />
                     </div>
                     <span className="absolute -top-2 -right-2 w-6 h-6 md:w-7 md:h-7 rounded-full bg-foreground text-background text-xs font-bold flex items-center justify-center">{s.step}</span>
