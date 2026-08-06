@@ -47,7 +47,7 @@ export function EinsatzgebietSachsen() {
           <div className="flex justify-center">
             <div className="w-[75%] md:w-full max-w-[380px] md:max-w-none">
               <img
-                src={mapAsset.url}
+                src={mapAsset}
                 alt="Karte von Deutschland mit hervorgehobenem Einsatzgebiet Sachsen"
                 className="w-full h-auto object-contain"
                 loading="lazy"
