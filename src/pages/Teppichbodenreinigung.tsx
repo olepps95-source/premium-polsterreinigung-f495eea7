@@ -823,10 +823,7 @@ export default function Teppichbodenreinigung() {
         {/* FINAL CTA */}
         <section className="py-4 md:py-6 bg-secondary/30">
           <div className="container mx-auto text-center max-w-2xl">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-              Jetzt Teppichbodenreinigung in Chemnitz anfragen
-            </h2>
-            <p className="mt-3 text-base md:text-lg text-muted-foreground">
+            <p className="text-base md:text-lg text-muted-foreground">
               Kostenlose Einschätzung für Privat- und Gewerbeflächen.
             </p>
             <div className="mt-3 flex flex-col sm:flex-row justify-center gap-3">
