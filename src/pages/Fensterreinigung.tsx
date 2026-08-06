@@ -9,6 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { EinsatzgebietSachsen } from '@/components/EinsatzgebietSachsen';
 import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import heroImg from '@/assets/fenster-hero.jpg';
@@ -469,6 +470,12 @@ export default function Fensterreinigung() {
             </p>
           </div>
         </section>
+
+        <EinsatzgebietSachsen
+          heading="Unser Einsatzgebiet in Sachsen"
+          subtitle="Professionelle Fensterreinigung direkt bei Ihnen vor Ort"
+          description="Wir sind in ganz Sachsen für Sie unterwegs. Professionelle Fensterreinigung für Privat- und Gewerbekunden – von Chemnitz über Dresden und Leipzig bis in kleinere Städte und Gemeinden."
+        />
       </main>
 
       <Footer />

@@ -27,12 +27,28 @@ const regions = [
 const mobileMainCities = 'Chemnitz · Dresden · Leipzig · Zwickau · Freiberg · Plauen · Bautzen · Görlitz';
 
 
-export function EinsatzgebietSachsen() {
+interface EinsatzgebietSachsenProps {
+  heading?: string;
+  subtitle?: string;
+  description?: string;
+}
+
+export function EinsatzgebietSachsen({ heading, subtitle, description }: EinsatzgebietSachsenProps = {}) {
   const [open, setOpen] = useState(false);
 
   return (
     <section id="einsatzgebiet-sachsen" className="py-8 md:py-14 bg-background">
       <div className="container">
+        {(heading || subtitle) && (
+          <div className="text-center mb-6 md:mb-10">
+            {heading && (
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-2">{heading}</h2>
+            )}
+            {subtitle && (
+              <p className="text-muted-foreground text-sm md:text-base">{subtitle}</p>
+            )}
+          </div>
+        )}
         <div className="grid md:grid-cols-[11fr_9fr] gap-6 md:gap-12 items-center">
           {/* Map */}
           <div className="flex justify-center items-center h-full">
@@ -52,9 +68,8 @@ export function EinsatzgebietSachsen() {
               Rein<span className="text-rw-blue">Werk</span> in ganz Sachsen
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-5 text-sm md:text-base">
-              Wir sind in ganz Sachsen für Sie unterwegs. Professionelle Teppichbodenreinigung für
-              Privat- und Gewerbekunden – von Chemnitz über Dresden und Leipzig bis in kleinere
-              Städte und Gemeinden.
+              {description ??
+                'Wir sind in ganz Sachsen für Sie unterwegs. Professionelle Teppichbodenreinigung für Privat- und Gewerbekunden – von Chemnitz über Dresden und Leipzig bis in kleinere Städte und Gemeinden.'}
             </p>
 
             {/* Mobile short list */}
