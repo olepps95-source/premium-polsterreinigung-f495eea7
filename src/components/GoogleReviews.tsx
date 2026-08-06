@@ -23,9 +23,9 @@ interface GoogleReviewsProps {
 
 export function GoogleReviews({ useMobileGoogleLogo = false }: GoogleReviewsProps) {
   return (
-    <section className="pt-4 md:pt-6 pb-4 md:pb-10 bg-background">
+    <section className="py-3 md:pt-4 md:pb-6 bg-background">
       <div className="mx-auto w-[90%] max-w-[1450px]">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-2 md:mb-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 md:gap-3 mb-2 md:mb-3">
           <div className="flex items-center gap-2.5">
             <svg
               className="w-6 h-6"
@@ -67,7 +67,7 @@ export function GoogleReviews({ useMobileGoogleLogo = false }: GoogleReviewsProp
           {reviews.map((review) => (
             <Card
               key={review.name}
-              className="min-w-[260px] md:min-w-0 snap-start p-4 md:p-5 bg-background border border-border shadow-soft"
+              className="min-w-[260px] md:min-w-0 snap-start p-3 md:p-4 bg-background border border-border shadow-soft"
             >
               <div className={`flex items-center mb-2 md:mb-3 ${useMobileGoogleLogo ? 'gap-2.5' : 'justify-between'}`}>
                 <div className="flex items-center gap-2.5 min-w-0">
@@ -116,8 +116,8 @@ export function GoogleReviews({ useMobileGoogleLogo = false }: GoogleReviewsProp
           ))}
         </div>
 
-        <div className="mt-2 md:mt-[15px] text-center">
-          <Button variant="outline" size="lg" className="font-semibold max-md:h-10 max-md:px-4 max-md:text-sm" asChild>
+        <div className="mt-2 md:mt-3 text-center">
+          <Button variant="outline" size="lg" className="font-semibold max-md:h-9 max-md:px-3 max-md:text-sm" asChild>
             <a href="https://maps.app.goo.gl/HeEVeeSDaEnruM2Z6" target="_blank" rel="noopener noreferrer">
               Alle Bewertungen auf Google ansehen
             </a>

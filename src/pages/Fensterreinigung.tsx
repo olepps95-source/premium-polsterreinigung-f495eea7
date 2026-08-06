@@ -232,7 +232,7 @@ export default function Fensterreinigung() {
             role="img"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/25 md:from-background/95 md:via-background/75 md:to-background/30" />
-          <div className="container mx-auto relative z-10 px-4 pt-4 pb-10 md:py-14">
+          <div className="container mx-auto relative z-10 px-4 pt-3 pb-6 md:py-10">
             <div className="max-w-xl md:max-w-2xl">
               <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold md:font-bold tracking-tight leading-[1.05] md:leading-[1.1] text-left text-white md:text-foreground">
                 <span className="md:hidden">
@@ -246,12 +246,12 @@ export default function Fensterreinigung() {
                   <span className="text-primary">Fensterreinigung</span> in Chemnitz – streifenfrei &amp; professionell
                 </span>
               </h1>
-              <p className="mt-3 md:mt-4 text-base md:text-xl text-white md:text-foreground font-medium md:font-bold text-left max-w-[320px] sm:max-w-[380px] md:max-w-none leading-snug">
+              <p className="mt-2 md:mt-3 text-base md:text-xl text-white md:text-foreground font-medium md:font-bold text-left max-w-[320px] sm:max-w-[380px] md:max-w-none leading-snug">
                 Streifenfreie Fenster, mehr Tageslicht und ein gepflegter Eindruck – professionelle Fensterreinigung direkt bei Ihnen vor Ort in Chemnitz, Dresden, Leipzig und ganz Sachsen.
               </p>
 
               {/* Desktop/Tablet USP cards */}
-              <div className="mt-6 hidden md:grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="mt-4 hidden md:grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
                   { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
@@ -259,7 +259,7 @@ export default function Fensterreinigung() {
                 ].map((badge) => (
                   <div
                     key={badge.title}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
+                    className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
                   >
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4 text-primary" />
@@ -273,7 +273,7 @@ export default function Fensterreinigung() {
               </div>
 
               {/* Mobile USP list */}
-              <div className="md:hidden mt-4 space-y-0">
+              <div className="md:hidden mt-3 space-y-0">
                 {[
                   { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
                   { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
@@ -281,7 +281,7 @@ export default function Fensterreinigung() {
                 ].map((badge, idx) => (
                   <div
                     key={badge.title}
-                    className={`flex items-center gap-3 py-2.5 ${idx < 2 ? 'border-b border-white/10' : ''}`}
+                    className={`flex items-center gap-3 py-2 ${idx < 2 ? 'border-b border-white/10' : ''}`}
                   >
                     <div className="w-8 h-8 rounded-full bg-slate-900/80 flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4 text-white" />
@@ -295,7 +295,7 @@ export default function Fensterreinigung() {
               </div>
 
               {/* Desktop CTA buttons */}
-              <div className="hidden md:flex mt-6 md:mt-8 flex-row gap-3">
+              <div className="hidden md:flex mt-5 md:mt-6 flex-row gap-3">
                 <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Fensterreinigung Chemnitz per WhatsApp anfragen">
                     <MessageCircle className="w-5 h-5" />
@@ -308,11 +308,11 @@ export default function Fensterreinigung() {
               </div>
 
               {/* Mobile CTA buttons */}
-              <div className="md:hidden mt-6 flex flex-col gap-2">
+              <div className="md:hidden mt-4 flex flex-col gap-2">
                 <Button
                   size="lg"
                   onClick={scrollToContact}
-                  className="w-full min-h-[4rem] h-auto py-3.5 px-4 font-semibold justify-start gap-4 rounded-xl"
+                  className="w-full min-h-[3.5rem] h-auto py-3 px-4 font-semibold justify-start gap-4 rounded-xl"
                 >
                   <FileText className="w-6 h-6 text-white shrink-0" />
                   <div className="flex flex-col items-start text-left">
@@ -323,7 +323,7 @@ export default function Fensterreinigung() {
 
                 <Button
                   size="lg"
-                  className="w-full min-h-[4rem] h-auto py-3.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
+                  className="w-full min-h-[3.5rem] h-auto py-3 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
                   asChild
                 >
                   <a
@@ -347,21 +347,21 @@ export default function Fensterreinigung() {
         <GoogleReviews useMobileGoogleLogo />
 
         {/* PROBLEM / SOLUTION */}
-        <section className="py-6 bg-secondary/30">
-          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <section className="py-4 bg-secondary/30">
+          <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center">
             <img src={warumImg} alt="Fensterputzer Chemnitz reinigt Fenster mit Schlieren streifenfrei" title="Fensterputzer Chemnitz – ReinWerk" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
                 Warum ReinWerk – Ihr Fensterputzer in Sachsen
               </h2>
-              <ul className="mt-5 space-y-2.5">
+              <ul className="mt-3 space-y-2">
                 {['Schlieren und Flecken', 'Zeitaufwendiges Putzen', 'Schwer erreichbare Fenster'].map((t) => (
                   <li key={t} className="flex items-center gap-3 text-base text-foreground">
                     <Check className="w-5 h-5 text-primary shrink-0" /> {t}
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-muted-foreground">
+              <p className="mt-3 text-muted-foreground">
                 Als erfahrener Fensterputzer in Chemnitz übernehmen wir die Arbeit für Sie und sorgen für streifenfreie, klare Sicht – ohne Aufwand.
               </p>
             </div>
@@ -369,9 +369,9 @@ export default function Fensterreinigung() {
         </section>
 
         {/* SERVICES — 4 cards */}
-        <section className="py-6">
+        <section className="py-4">
           <div className="container mx-auto max-sm:px-3">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5">
               Unsere Leistungen der Fensterreinigung
             </h2>
             {/* Mobile: kompakte horizontale Servicekarten */}
@@ -391,15 +391,15 @@ export default function Fensterreinigung() {
               ))}
             </div>
 
-            <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {services.map((s) => (
                 <Card key={s.title} className="overflow-hidden hover:shadow-medium transition-shadow group">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img src={s.img} alt={s.alt} title={s.imgTitle} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                   </div>
-                  <div className="p-5">
+                  <div className="p-4">
                     <h3 className="text-base font-bold text-foreground">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1.5">{s.desc}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
                   </div>
                 </Card>
               ))}
@@ -410,12 +410,12 @@ export default function Fensterreinigung() {
 
 
         {/* HOW IT WORKS */}
-        <section className="py-6 bg-secondary/30">
+        <section className="py-4 bg-secondary/30">
           <div className="container mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5">
               So funktioniert Ihre Fensterreinigung
             </h2>
-            <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto">
+            <div className="grid grid-cols-3 gap-3 md:gap-5 max-w-3xl mx-auto">
               {[
                 { icon: Camera, step: '1', title: 'Foto senden' },
                 { icon: FileText, step: '2', title: 'Preis erhalten' },
@@ -428,7 +428,7 @@ export default function Fensterreinigung() {
                     </div>
                     <span className="absolute -top-2 -right-2 w-6 h-6 md:w-7 md:h-7 rounded-full bg-foreground text-background text-xs font-bold flex items-center justify-center">{s.step}</span>
                   </div>
-                  <h3 className="mt-3 text-sm md:text-base font-bold text-foreground">{s.title}</h3>
+                  <h3 className="mt-2 text-sm md:text-base font-bold text-foreground">{s.title}</h3>
                 </div>
               ))}
             </div>
@@ -438,12 +438,12 @@ export default function Fensterreinigung() {
 
 
         {/* FAQ */}
-        <section className="py-6">
+        <section className="py-4">
           <div className="container mx-auto max-w-3xl">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5">
               Häufige Fragen zur Fensterreinigung
             </h2>
-            <Accordion type="single" collapsible className="bg-background border border-border rounded-2xl px-6 shadow-soft">
+            <Accordion type="single" collapsible className="bg-background border border-border rounded-2xl px-4 md:px-6 shadow-soft">
               {faqs.map((f, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-border last:border-0">
                   <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline">
@@ -457,37 +457,37 @@ export default function Fensterreinigung() {
         </section>
 
         {/* CONTACT FORM */}
-        <section id="kontakt" className="py-6 bg-secondary/30">
+        <section id="kontakt" className="py-4 bg-secondary/30">
           <div className="container mx-auto max-w-2xl">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-3">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-2">
               Kostenloses Angebot für Ihre Fensterreinigung
             </h2>
-            <p className="text-center text-muted-foreground mb-8">
+            <p className="text-center text-muted-foreground mb-5">
               Antwort meist innerhalb weniger Minuten.
             </p>
-            <Card className="p-6 md:p-8 shadow-medium">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
+            <Card className="p-4 md:p-6 shadow-medium">
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <div className="grid sm:grid-cols-2 gap-3">
                   <div>
                     <Label htmlFor="vorname">Vorname *</Label>
-                    <Input id="vorname" value={form.vorname} onChange={(e) => setForm({ ...form, vorname: e.target.value })} className="mt-1.5" required />
+                    <Input id="vorname" value={form.vorname} onChange={(e) => setForm({ ...form, vorname: e.target.value })} className="mt-1" required />
                   </div>
                   <div>
                     <Label htmlFor="telefon">Telefonnummer *</Label>
-                    <Input id="telefon" type="tel" value={form.telefon} onChange={(e) => setForm({ ...form, telefon: e.target.value })} className="mt-1.5" required />
+                    <Input id="telefon" type="tel" value={form.telefon} onChange={(e) => setForm({ ...form, telefon: e.target.value })} className="mt-1" required />
                   </div>
                   <div>
                     <Label htmlFor="stadt">Stadt *</Label>
-                    <Input id="stadt" value={form.stadt} onChange={(e) => setForm({ ...form, stadt: e.target.value })} className="mt-1.5" required />
+                    <Input id="stadt" value={form.stadt} onChange={(e) => setForm({ ...form, stadt: e.target.value })} className="mt-1" required />
                   </div>
                   <div>
                     <Label htmlFor="fensterart">Fensterart *</Label>
-                    <Input id="fensterart" placeholder="z. B. Wohnung, Büro, Wintergarten" value={form.fensterart} onChange={(e) => setForm({ ...form, fensterart: e.target.value })} className="mt-1.5" required />
+                    <Input id="fensterart" placeholder="z. B. Wohnung, Büro, Wintergarten" value={form.fensterart} onChange={(e) => setForm({ ...form, fensterart: e.target.value })} className="mt-1" required />
                   </div>
                 </div>
                 <div>
                   <Label htmlFor="nachricht">Nachricht</Label>
-                  <textarea id="nachricht" rows={3} value={form.nachricht} onChange={(e) => setForm({ ...form, nachricht: e.target.value })} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm text-input-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+                  <textarea id="nachricht" rows={3} value={form.nachricht} onChange={(e) => setForm({ ...form, nachricht: e.target.value })} className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm text-input-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
                 </div>
                 <p className="text-[13px] text-muted-foreground text-left leading-relaxed">
                   Mit dem Absenden des Formulars erkläre ich mich damit einverstanden, dass meine angegebenen Daten zum Zweck der Kontaktaufnahme und Bearbeitung meiner Anfrage verarbeitet werden. Ich kann diese Einwilligung jederzeit mit Wirkung für die Zukunft per E-Mail an{" "}
@@ -505,13 +505,13 @@ export default function Fensterreinigung() {
         </section>
 
         {/* PRIVATE */}
-        <section className="py-6 bg-secondary/30">
-          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <section className="py-4 bg-secondary/30">
+          <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
                 Fensterreinigung für Privatkunden in Chemnitz
               </h2>
-              <div className="mt-5 space-y-3 text-base md:text-lg text-muted-foreground">
+              <div className="mt-3 space-y-2 text-base md:text-lg text-muted-foreground">
                 <p>Sie möchten Ihre Fenster reinigen lassen – ohne Aufwand und ohne Schlieren?</p>
                 <p>Wir übernehmen die Fensterreinigung Privat für Wohnungen, Einfamilienhäuser und Wintergärten in Chemnitz, Dresden, Leipzig und ganz Sachsen.</p>
                 <p className="text-foreground font-medium">Streifenfreie Fenster, freundlich und zuverlässig vor Ort.</p>
@@ -522,21 +522,21 @@ export default function Fensterreinigung() {
         </section>
 
         {/* BUSINESS */}
-        <section className="py-6">
-          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <section className="py-4">
+          <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center">
             <img src={gewerbeSectionImg} alt="Glasreinigung Büro Chemnitz – Fensterreinigung Gewerbe für Unternehmen" title="Glasreinigung Büro Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
             <div className="order-1 md:order-2">
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
                 Fensterreinigung für Unternehmen in Sachsen
               </h2>
-              <ul className="mt-5 space-y-2.5">
+              <ul className="mt-3 space-y-2">
                 {['Regelmäßige Reinigung', 'Flexible Termine', 'Rechnung für Unternehmen', 'Zuverlässige Durchführung'].map((t) => (
                   <li key={t} className="flex items-center gap-3 text-base text-foreground">
                     <Check className="w-5 h-5 text-primary shrink-0" /> {t}
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-muted-foreground">
+              <p className="mt-3 text-muted-foreground">
                 Ob Büro, Praxis, Geschäft, Schaufenster oder Glasfassade – wir bieten Fensterreinigung Gewerbe in Chemnitz und ganz Sachsen, einmalig oder regelmäßig.
               </p>
             </div>
@@ -548,7 +548,7 @@ export default function Fensterreinigung() {
         />
 
         {/* FINAL CTA */}
-        <section className="relative py-8 md:py-10 overflow-hidden">
+        <section className="relative py-6 md:py-8 overflow-hidden">
           <div className="absolute inset-0">
             <img src={ctaImg} alt="Fensterreinigung Chemnitz – Panoramafenster mit streifenfreier Sicht" title="Fensterreinigung Chemnitz Panoramafenster" className="w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
@@ -557,10 +557,10 @@ export default function Fensterreinigung() {
             <h2 className="text-2xl md:text-5xl font-bold text-foreground tracking-tight">
               Jetzt Fensterreinigung in Chemnitz anfragen
             </h2>
-            <p className="mt-3 text-base md:text-lg text-foreground/80">
+            <p className="mt-2 text-base md:text-lg text-foreground/80">
               Schnelle Rückmeldung per WhatsApp.
             </p>
-            <div className="mt-6 flex justify-center">
+            <div className="mt-4 flex justify-center">
               <Button size="xl" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Fensterreinigung Chemnitz per WhatsApp anfragen">
                   <MessageCircle className="w-5 h-5" />
@@ -568,7 +568,7 @@ export default function Fensterreinigung() {
                 </a>
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-3 text-sm text-muted-foreground">
               Antwort meist innerhalb weniger Minuten.
             </p>
           </div>
