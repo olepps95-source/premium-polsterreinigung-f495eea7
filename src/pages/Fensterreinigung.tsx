@@ -505,13 +505,13 @@ export default function Fensterreinigung() {
         </section>
 
         {/* PRIVATE */}
-        <section className="py-6 bg-secondary/30">
-          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <section className="py-4 bg-secondary/30">
+          <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
                 Fensterreinigung für Privatkunden in Chemnitz
               </h2>
-              <div className="mt-5 space-y-3 text-base md:text-lg text-muted-foreground">
+              <div className="mt-3 space-y-2 text-base md:text-lg text-muted-foreground">
                 <p>Sie möchten Ihre Fenster reinigen lassen – ohne Aufwand und ohne Schlieren?</p>
                 <p>Wir übernehmen die Fensterreinigung Privat für Wohnungen, Einfamilienhäuser und Wintergärten in Chemnitz, Dresden, Leipzig und ganz Sachsen.</p>
                 <p className="text-foreground font-medium">Streifenfreie Fenster, freundlich und zuverlässig vor Ort.</p>
