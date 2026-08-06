@@ -300,6 +300,18 @@ export default function Fensterreinigung() {
               <div className="md:hidden mt-6 flex flex-col gap-2">
                 <Button
                   size="lg"
+                  onClick={scrollToContact}
+                  className="w-full min-h-[4rem] h-auto py-3.5 px-4 font-semibold justify-start gap-4 rounded-xl"
+                >
+                  <FileText className="w-6 h-6 text-white shrink-0" />
+                  <div className="flex flex-col items-start text-left">
+                    <span className="text-white font-bold text-base leading-tight">Kostenloses Angebot</span>
+                    <span className="text-white/80 text-xs leading-tight">Unverbindlich anfragen</span>
+                  </div>
+                </Button>
+
+                <Button
+                  size="lg"
                   className="w-full min-h-[4rem] h-auto py-3.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
                   asChild
                 >
@@ -315,18 +327,6 @@ export default function Fensterreinigung() {
                       <span className="text-white/80 text-xs leading-tight">Direkt & unkompliziert</span>
                     </div>
                   </a>
-                </Button>
-
-                <Button
-                  size="lg"
-                  onClick={scrollToContact}
-                  className="w-full min-h-[4rem] h-auto py-3.5 px-4 font-semibold justify-start gap-4 rounded-xl"
-                >
-                  <FileText className="w-6 h-6 text-white shrink-0" />
-                  <div className="flex flex-col items-start text-left">
-                    <span className="text-white font-bold text-base leading-tight">Kostenloses Angebot</span>
-                    <span className="text-white/80 text-xs leading-tight">Unverbindlich anfragen</span>
-                  </div>
                 </Button>
               </div>
             </div>
