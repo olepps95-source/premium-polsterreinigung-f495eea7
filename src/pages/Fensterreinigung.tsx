@@ -346,28 +346,6 @@ export default function Fensterreinigung() {
 
         <GoogleReviews useMobileGoogleLogo />
 
-        {/* PROBLEM / SOLUTION */}
-        <section className="py-4 bg-secondary/30">
-          <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center">
-            <img src={warumImg} alt="Fensterputzer Chemnitz reinigt Fenster mit Schlieren streifenfrei" title="Fensterputzer Chemnitz – ReinWerk" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
-            <div>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Warum ReinWerk – Ihr Fensterputzer in Sachsen
-              </h2>
-              <ul className="mt-3 space-y-2">
-                {['Schlieren und Flecken', 'Zeitaufwendiges Putzen', 'Schwer erreichbare Fenster'].map((t) => (
-                  <li key={t} className="flex items-center gap-3 text-base text-foreground">
-                    <Check className="w-5 h-5 text-primary shrink-0" /> {t}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-3 text-muted-foreground">
-                Als erfahrener Fensterputzer in Chemnitz übernehmen wir die Arbeit für Sie und sorgen für streifenfreie, klare Sicht – ohne Aufwand.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* SERVICES — 4 cards */}
         <section className="py-4">
           <div className="container mx-auto max-sm:px-3">
@@ -431,6 +409,28 @@ export default function Fensterreinigung() {
                   <h3 className="mt-2 text-sm md:text-base font-bold text-foreground">{s.title}</h3>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* PROBLEM / SOLUTION */}
+        <section className="py-4 bg-secondary/30">
+          <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center">
+            <img src={warumImg} alt="Fensterputzer Chemnitz reinigt Fenster mit Schlieren streifenfrei" title="Fensterputzer Chemnitz – ReinWerk" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
+            <div>
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
+                Warum ReinWerk – Ihr Fensterputzer in Sachsen
+              </h2>
+              <ul className="mt-3 space-y-2">
+                {['Schlieren und Flecken', 'Zeitaufwendiges Putzen', 'Schwer erreichbare Fenster'].map((t) => (
+                  <li key={t} className="flex items-center gap-3 text-base text-foreground">
+                    <Check className="w-5 h-5 text-primary shrink-0" /> {t}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-3 text-muted-foreground">
+                Als erfahrener Fensterputzer in Chemnitz übernehmen wir die Arbeit für Sie und sorgen für streifenfreie, klare Sicht – ohne Aufwand.
+              </p>
             </div>
           </div>
         </section>
