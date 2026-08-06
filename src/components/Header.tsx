@@ -24,6 +24,7 @@ export function Header() {
   const location = useLocation();
   const navigate = useNavigate();
   const isTeppich = location.pathname === "/teppichbodenreinigung";
+  const isFenster = location.pathname === "/fensterreinigung";
 
   const isActive = (link: NavLink) => !link.action && link.href === location.pathname;
 
@@ -58,7 +59,7 @@ export function Header() {
             className={`object-contain ${isTeppich ? "h-7 w-7 md:h-10 md:w-10" : "h-8 w-8 md:h-10 md:w-10"}`}
           />
           <span className={`font-bold tracking-tight text-2xl md:text-3xl whitespace-nowrap ${
-            isTeppich && isScrolled ? "text-black md:text-rw-dark" : "text-rw-dark"
+            isTeppich && isScrolled ? "text-black md:text-rw-dark" : isFenster && !isScrolled ? "text-white md:text-rw-dark" : "text-rw-dark"
           }`}>
             Rein<span className="text-rw-blue">Werk</span>
           </span>
@@ -112,7 +113,7 @@ export function Header() {
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className={`md:hidden flex items-center justify-center min-w-[44px] min-h-[44px] ${isTeppich ? "p-1.5" : "p-2"} ${
-            isTeppich && isScrolled ? "text-black" : "text-foreground"
+            isTeppich && isScrolled ? "text-black" : isFenster && !isScrolled ? "text-white md:text-foreground" : "text-foreground"
           }`}
           aria-label="Menü öffnen"
         >
@@ -135,7 +136,7 @@ export function Header() {
                   ? "text-primary font-bold"
                   : isTeppich && isScrolled
                     ? "text-rw-dark hover:text-black focus:text-black active:text-black"
-                    : isTeppich
+                    : (isTeppich || (isFenster && !isScrolled))
                       ? "text-white hover:text-white focus:text-white active:text-white"
                       : "text-foreground hover:text-primary"
               }`;
