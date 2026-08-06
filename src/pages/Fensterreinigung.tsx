@@ -12,8 +12,10 @@ import { Footer } from '@/components/Footer';
 import { EinsatzgebietSachsen } from '@/components/EinsatzgebietSachsen';
 import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
-import heroImgAsset from '@/assets/fensterreinigung-in-chemnitz.png.asset.json';
-const heroImg = heroImgAsset.url;
+import heroDesktopAsset from '@/assets/fensterreinigung-in-chemnitz.png.asset.json';
+const heroDesktop = heroDesktopAsset.url;
+import heroMobileAsset from '@/assets/fensterreinigung-hero-mobile.png.asset.json';
+const heroMobile = heroMobileAsset.url;
 import privatImg from '@/assets/fenster-privat.webp';
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import gewerbeSectionImg from '@/assets/fenster-gewerbe-neu.jpg';
@@ -217,10 +219,20 @@ export default function Fensterreinigung() {
       <main>
         {/* HERO */}
         <section className="relative min-h-[100svh] md:min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
-          <div className="absolute inset-0">
-            <img src={heroImg} alt="Fensterreinigung Chemnitz – ReinWerk reinigt Fenster streifenfrei in Sachsen" title="Fensterreinigung Chemnitz – ReinWerk" className="w-full h-full object-cover object-top" width={1920} height={1080} />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/25 md:from-background/95 md:via-background/75 md:to-background/30" />
-          </div>
+          {/* Mobile hero background */}
+          <div
+            className="absolute inset-0 md:hidden bg-cover bg-no-repeat bg-top"
+            style={{ backgroundImage: `url(${heroMobile})` }}
+            aria-hidden="true"
+          />
+          {/* Desktop/Tablet hero background */}
+          <div
+            className="absolute inset-0 hidden md:block bg-cover bg-no-repeat bg-top"
+            style={{ backgroundImage: `url(${heroDesktop})` }}
+            aria-label="Fensterreinigung Chemnitz – ReinWerk reinigt Fenster streifenfrei in Sachsen"
+            role="img"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/25 md:from-background/95 md:via-background/75 md:to-background/30" />
           <div className="container mx-auto relative z-10 px-4 pt-4 pb-10 md:py-14">
             <div className="max-w-xl md:max-w-2xl">
               <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold md:font-bold tracking-tight leading-[1.05] md:leading-[1.1] text-left text-white md:text-foreground">
