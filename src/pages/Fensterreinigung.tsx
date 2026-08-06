@@ -9,6 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { EinsatzgebietSachsen } from '@/components/EinsatzgebietSachsen';
 import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import heroImg from '@/assets/fenster-hero.jpg';
