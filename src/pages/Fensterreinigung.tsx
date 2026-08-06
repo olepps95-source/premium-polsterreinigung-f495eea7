@@ -343,6 +343,8 @@ export default function Fensterreinigung() {
           </div>
         </section>
 
+        <GoogleReviews />
+
         {/* PROBLEM / SOLUTION */}
         <section className="py-6 bg-secondary/30">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
