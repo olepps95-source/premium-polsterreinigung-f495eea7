@@ -522,21 +522,21 @@ export default function Fensterreinigung() {
         </section>
 
         {/* BUSINESS */}
-        <section className="py-6">
-          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <section className="py-4">
+          <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center">
             <img src={gewerbeSectionImg} alt="Glasreinigung Büro Chemnitz – Fensterreinigung Gewerbe für Unternehmen" title="Glasreinigung Büro Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
             <div className="order-1 md:order-2">
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
                 Fensterreinigung für Unternehmen in Sachsen
               </h2>
-              <ul className="mt-5 space-y-2.5">
+              <ul className="mt-3 space-y-2">
                 {['Regelmäßige Reinigung', 'Flexible Termine', 'Rechnung für Unternehmen', 'Zuverlässige Durchführung'].map((t) => (
                   <li key={t} className="flex items-center gap-3 text-base text-foreground">
                     <Check className="w-5 h-5 text-primary shrink-0" /> {t}
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-muted-foreground">
+              <p className="mt-3 text-muted-foreground">
                 Ob Büro, Praxis, Geschäft, Schaufenster oder Glasfassade – wir bieten Fensterreinigung Gewerbe in Chemnitz und ganz Sachsen, einmalig oder regelmäßig.
               </p>
             </div>
