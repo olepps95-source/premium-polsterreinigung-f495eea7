@@ -457,37 +457,37 @@ export default function Fensterreinigung() {
         </section>
 
         {/* CONTACT FORM */}
-        <section id="kontakt" className="py-6 bg-secondary/30">
+        <section id="kontakt" className="py-4 bg-secondary/30">
           <div className="container mx-auto max-w-2xl">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-3">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-2">
               Kostenloses Angebot für Ihre Fensterreinigung
             </h2>
-            <p className="text-center text-muted-foreground mb-8">
+            <p className="text-center text-muted-foreground mb-5">
               Antwort meist innerhalb weniger Minuten.
             </p>
-            <Card className="p-6 md:p-8 shadow-medium">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
+            <Card className="p-4 md:p-6 shadow-medium">
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <div className="grid sm:grid-cols-2 gap-3">
                   <div>
                     <Label htmlFor="vorname">Vorname *</Label>
-                    <Input id="vorname" value={form.vorname} onChange={(e) => setForm({ ...form, vorname: e.target.value })} className="mt-1.5" required />
+                    <Input id="vorname" value={form.vorname} onChange={(e) => setForm({ ...form, vorname: e.target.value })} className="mt-1" required />
                   </div>
                   <div>
                     <Label htmlFor="telefon">Telefonnummer *</Label>
-                    <Input id="telefon" type="tel" value={form.telefon} onChange={(e) => setForm({ ...form, telefon: e.target.value })} className="mt-1.5" required />
+                    <Input id="telefon" type="tel" value={form.telefon} onChange={(e) => setForm({ ...form, telefon: e.target.value })} className="mt-1" required />
                   </div>
                   <div>
                     <Label htmlFor="stadt">Stadt *</Label>
-                    <Input id="stadt" value={form.stadt} onChange={(e) => setForm({ ...form, stadt: e.target.value })} className="mt-1.5" required />
+                    <Input id="stadt" value={form.stadt} onChange={(e) => setForm({ ...form, stadt: e.target.value })} className="mt-1" required />
                   </div>
                   <div>
                     <Label htmlFor="fensterart">Fensterart *</Label>
-                    <Input id="fensterart" placeholder="z. B. Wohnung, Büro, Wintergarten" value={form.fensterart} onChange={(e) => setForm({ ...form, fensterart: e.target.value })} className="mt-1.5" required />
+                    <Input id="fensterart" placeholder="z. B. Wohnung, Büro, Wintergarten" value={form.fensterart} onChange={(e) => setForm({ ...form, fensterart: e.target.value })} className="mt-1" required />
                   </div>
                 </div>
                 <div>
                   <Label htmlFor="nachricht">Nachricht</Label>
-                  <textarea id="nachricht" rows={3} value={form.nachricht} onChange={(e) => setForm({ ...form, nachricht: e.target.value })} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm text-input-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+                  <textarea id="nachricht" rows={3} value={form.nachricht} onChange={(e) => setForm({ ...form, nachricht: e.target.value })} className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm text-input-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
                 </div>
                 <p className="text-[13px] text-muted-foreground text-left leading-relaxed">
                   Mit dem Absenden des Formulars erkläre ich mich damit einverstanden, dass meine angegebenen Daten zum Zweck der Kontaktaufnahme und Bearbeitung meiner Anfrage verarbeitet werden. Ich kann diese Einwilligung jederzeit mit Wirkung für die Zukunft per E-Mail an{" "}
