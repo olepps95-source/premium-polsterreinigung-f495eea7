@@ -445,8 +445,6 @@ export default function Fensterreinigung() {
         </section>
 
         <EinsatzgebietSachsen
-          heading="Unser Einsatzgebiet in Sachsen"
-          subtitle="Professionelle Fensterreinigung direkt bei Ihnen vor Ort"
           description="Wir sind in ganz Sachsen für Sie unterwegs. Professionelle Fensterreinigung für Privat- und Gewerbekunden – von Chemnitz über Dresden und Leipzig bis in kleinere Städte und Gemeinden."
         />
 
