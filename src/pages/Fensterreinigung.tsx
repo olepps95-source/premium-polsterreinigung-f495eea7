@@ -232,7 +232,7 @@ export default function Fensterreinigung() {
             role="img"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/25 md:from-background/95 md:via-background/75 md:to-background/30" />
-          <div className="container mx-auto relative z-10 px-4 pt-4 pb-10 md:py-14">
+          <div className="container mx-auto relative z-10 px-4 pt-3 pb-6 md:py-10">
             <div className="max-w-xl md:max-w-2xl">
               <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold md:font-bold tracking-tight leading-[1.05] md:leading-[1.1] text-left text-white md:text-foreground">
                 <span className="md:hidden">
