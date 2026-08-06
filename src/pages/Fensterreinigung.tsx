@@ -14,7 +14,7 @@ import { GoogleReviews } from '@/components/GoogleReviews';
 import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import heroDesktop from '@/assets/fenster-hero.jpg';
-import heroMobile from '@/assets/fensterreinigung-hero-mobile.png';
+import heroMobileAsset from '@/assets/fensterreinigung-hero-mobile-2026.png.asset.json';
 import privatImg from '@/assets/fenster-privat.webp';
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import gewerbeSectionImg from '@/assets/fenster-gewerbe-neu.jpg';
@@ -24,6 +24,7 @@ import warumImg from '@/assets/fenster-warum.webp';
 import schaufensterImg from '@/assets/fenster-schaufenster.jpg';
 
 const wintergartenImg = wintergartenImgAsset.url;
+const heroMobile = heroMobileAsset.url;
 
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
