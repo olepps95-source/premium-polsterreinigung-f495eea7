@@ -25,6 +25,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { EinsatzgebietSachsen } from '@/components/EinsatzgebietSachsen';
+import { GoogleReviews } from '@/components/GoogleReviews';
 
 
 import { toast } from '@/hooks/use-toast';
