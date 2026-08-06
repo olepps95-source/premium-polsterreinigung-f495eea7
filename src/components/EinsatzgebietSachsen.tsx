@@ -45,8 +45,13 @@ export function EinsatzgebietSachsen() {
         <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
           {/* Map */}
           <div className="flex justify-center">
-            <div className="w-[75%] md:w-full max-w-[380px]">
-              <GermanyMap />
+            <div className="w-[75%] md:w-full max-w-[380px] md:max-w-none">
+              <img
+                src={mapAsset.url}
+                alt="Karte von Deutschland mit hervorgehobenem Einsatzgebiet Sachsen"
+                className="w-full h-auto object-contain"
+                loading="lazy"
+              />
               <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
                 <span className="font-semibold text-primary">Chemnitz</span>
                 <span>Dresden</span>
