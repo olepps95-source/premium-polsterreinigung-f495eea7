@@ -444,6 +444,12 @@ export default function Fensterreinigung() {
           </div>
         </section>
 
+        <EinsatzgebietSachsen
+          heading="Unser Einsatzgebiet in Sachsen"
+          subtitle="Professionelle Fensterreinigung direkt bei Ihnen vor Ort"
+          description="Wir sind in ganz Sachsen für Sie unterwegs. Professionelle Fensterreinigung für Privat- und Gewerbekunden – von Chemnitz über Dresden und Leipzig bis in kleinere Städte und Gemeinden."
+        />
+
         {/* FINAL CTA */}
         <section className="relative py-8 md:py-10 overflow-hidden">
           <div className="absolute inset-0">
@@ -470,12 +476,6 @@ export default function Fensterreinigung() {
             </p>
           </div>
         </section>
-
-        <EinsatzgebietSachsen
-          heading="Unser Einsatzgebiet in Sachsen"
-          subtitle="Professionelle Fensterreinigung direkt bei Ihnen vor Ort"
-          description="Wir sind in ganz Sachsen für Sie unterwegs. Professionelle Fensterreinigung für Privat- und Gewerbekunden – von Chemnitz über Dresden und Leipzig bis in kleinere Städte und Gemeinden."
-        />
       </main>
 
       <Footer />
