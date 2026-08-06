@@ -28,7 +28,6 @@ const OG_IMAGE = 'https://reinwerk-service.de/og-image.png';
 
 const services = [
   {
-    icon: Home,
     title: 'Fensterreinigung Privat',
     desc: 'Wohnungen, Häuser, Wintergärten in Chemnitz & Sachsen',
     img: privatImg,
@@ -36,7 +35,6 @@ const services = [
     imgTitle: 'Fensterreinigung Privat Chemnitz',
   },
   {
-    icon: Building2,
     title: 'Fensterreinigung Gewerbe',
     desc: 'Büros, Praxen und Geschäfte in Chemnitz & Sachsen',
     img: gewerbeImg,
@@ -44,7 +42,6 @@ const services = [
     imgTitle: 'Fensterreinigung Gewerbe Chemnitz',
   },
   {
-    icon: Sparkles,
     title: 'Wintergartenreinigung',
     desc: 'Glasdächer, Rahmen und Glasflächen streifenfrei gereinigt',
     img: wintergartenImg,
@@ -52,7 +49,6 @@ const services = [
     imgTitle: 'Wintergarten Reinigung Sachsen',
   },
   {
-    icon: LayoutGrid,
     title: 'Glas- & Schaufensterreinigung',
     desc: 'Schaufenster, Glasfassaden und große Glasflächen in Chemnitz',
     img: schaufensterImg,
