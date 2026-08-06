@@ -381,7 +381,7 @@ export default function Fensterreinigung() {
                     <h3 className="text-[20px] font-bold tracking-tight text-white leading-tight">{s.title}</h3>
                     <p className="text-[13px] text-white/90 mt-[7px] leading-snug">{s.desc}</p>
                   </div>
-                  <div className="absolute bottom-0 left-0 bg-primary text-primary-foreground font-bold text-xs px-3 py-1.5 rounded-tr-[14px]">
+                  <div className="absolute bottom-0 left-0 bg-primary text-primary-foreground font-bold text-[15px] px-[14px] py-[7px] rounded-tr-[16px] whitespace-nowrap">
                     {s.price}
                   </div>
                 </div>
