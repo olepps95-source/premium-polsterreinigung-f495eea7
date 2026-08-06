@@ -116,8 +116,8 @@ export function GoogleReviews({ useMobileGoogleLogo = false }: GoogleReviewsProp
           ))}
         </div>
 
-        <div className="mt-2 md:mt-[15px] text-center">
-          <Button variant="outline" size="lg" className="font-semibold max-md:h-10 max-md:px-4 max-md:text-sm" asChild>
+        <div className="mt-2 md:mt-3 text-center">
+          <Button variant="outline" size="lg" className="font-semibold max-md:h-9 max-md:px-3 max-md:text-sm" asChild>
             <a href="https://maps.app.goo.gl/HeEVeeSDaEnruM2Z6" target="_blank" rel="noopener noreferrer">
               Alle Bewertungen auf Google ansehen
             </a>
