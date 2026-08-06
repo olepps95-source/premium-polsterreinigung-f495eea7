@@ -19,9 +19,12 @@ import privatImg from '@/assets/fenster-privat.webp';
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import gewerbeSectionImg from '@/assets/fenster-gewerbe-neu.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
-import wintergartenImg from '@/assets/wintergarten.jpg';
+import wintergartenImgAsset from '@/assets/Wintergartenreinigung_Dresden.png.asset.json';
 import warumImg from '@/assets/fenster-warum.webp';
 import schaufensterImg from '@/assets/fenster-schaufenster.jpg';
+
+const wintergartenImg = wintergartenImgAsset.url;
+
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 const PAGE_URL = 'https://reinwerk-service.de/fensterreinigung';
