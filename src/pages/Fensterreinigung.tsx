@@ -369,9 +369,9 @@ export default function Fensterreinigung() {
         </section>
 
         {/* SERVICES — 4 cards */}
-        <section className="py-6">
+        <section className="py-4">
           <div className="container mx-auto max-sm:px-3">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5">
               Unsere Leistungen der Fensterreinigung
             </h2>
             {/* Mobile: kompakte horizontale Servicekarten */}
@@ -391,15 +391,15 @@ export default function Fensterreinigung() {
               ))}
             </div>
 
-            <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {services.map((s) => (
                 <Card key={s.title} className="overflow-hidden hover:shadow-medium transition-shadow group">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img src={s.img} alt={s.alt} title={s.imgTitle} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                   </div>
-                  <div className="p-5">
+                  <div className="p-4">
                     <h3 className="text-base font-bold text-foreground">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1.5">{s.desc}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
                   </div>
                 </Card>
               ))}
