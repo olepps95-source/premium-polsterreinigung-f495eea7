@@ -374,9 +374,6 @@ export default function Fensterreinigung() {
                     <img src={s.img} alt={s.alt} title={s.imgTitle} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                   </div>
                   <div className="p-5">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3">
-                      <s.icon className="w-5 h-5" />
-                    </div>
                     <h3 className="text-base font-bold text-foreground">{s.title}</h3>
                     <p className="text-sm text-muted-foreground mt-1.5">{s.desc}</p>
                   </div>
