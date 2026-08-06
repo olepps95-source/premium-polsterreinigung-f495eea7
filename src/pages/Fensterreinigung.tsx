@@ -215,20 +215,22 @@ export default function Fensterreinigung() {
 
       <main>
         {/* HERO */}
-        <section className="relative min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
+        <section className="relative min-h-[100svh] md:min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
           <div className="absolute inset-0">
             <img src={heroImg} alt="Fensterreinigung Chemnitz – ReinWerk reinigt Fenster streifenfrei in Sachsen" title="Fensterreinigung Chemnitz – ReinWerk" className="w-full h-full object-cover object-top" width={1920} height={1080} />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/25 md:from-background/95 md:via-background/75 md:to-background/30" />
           </div>
-          <div className="container mx-auto relative z-10 pt-4 pb-10 md:py-14">
-            <div className="max-w-2xl">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1] text-center md:text-left">
-                <span className="text-primary">Fensterreinigung</span> in Chemnitz – streifenfrei & professionell
+          <div className="container mx-auto relative z-10 px-4 pt-4 pb-10 md:py-14">
+            <div className="max-w-xl md:max-w-2xl">
+              <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold md:font-bold text-white md:text-foreground tracking-tight leading-[1.05] md:leading-[1.1] text-left">
+                <span className="text-primary">Fensterreinigung</span> in Chemnitz – streifenfrei &amp; professionell
               </h1>
-              <p className="mt-4 text-base md:text-xl text-foreground font-bold">
+              <p className="mt-3 md:mt-4 text-base md:text-xl text-white md:text-foreground font-medium md:font-bold text-left max-w-[320px] sm:max-w-[380px] md:max-w-none leading-snug">
                 Streifenfreie Fenster, mehr Tageslicht und ein gepflegter Eindruck – professionelle Fensterreinigung direkt bei Ihnen vor Ort in Chemnitz, Dresden, Leipzig und ganz Sachsen.
               </p>
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+              {/* Desktop/Tablet USP cards */}
+              <div className="mt-6 hidden md:grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
                   { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
@@ -248,7 +250,31 @@ export default function Fensterreinigung() {
                   </div>
                 ))}
               </div>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+
+              {/* Mobile USP list */}
+              <div className="md:hidden mt-4 space-y-0">
+                {[
+                  { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
+                  { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
+                  { title: 'Privat & Gewerbe', sub: 'flexible Termine' },
+                ].map((badge, idx) => (
+                  <div
+                    key={badge.title}
+                    className={`flex items-center gap-3 py-2.5 ${idx < 2 ? 'border-b border-white/10' : ''}`}
+                  >
+                    <div className="w-8 h-8 rounded-full bg-slate-900/80 flex items-center justify-center shrink-0">
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-semibold text-white leading-tight">{badge.title}</span>
+                      <span className="text-xs text-gray-300 leading-tight">{badge.sub}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3">
+
                 <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Fensterreinigung Chemnitz per WhatsApp anfragen">
                     <MessageCircle className="w-5 h-5" />
