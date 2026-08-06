@@ -410,12 +410,12 @@ export default function Fensterreinigung() {
 
 
         {/* HOW IT WORKS */}
-        <section className="py-6 bg-secondary/30">
+        <section className="py-4 bg-secondary/30">
           <div className="container mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5">
               So funktioniert Ihre Fensterreinigung
             </h2>
-            <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto">
+            <div className="grid grid-cols-3 gap-3 md:gap-5 max-w-3xl mx-auto">
               {[
                 { icon: Camera, step: '1', title: 'Foto senden' },
                 { icon: FileText, step: '2', title: 'Preis erhalten' },
@@ -423,12 +423,12 @@ export default function Fensterreinigung() {
               ].map((s) => (
                 <div key={s.step} className="text-center">
                   <div className="relative inline-flex">
-                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
+                    <div className="w-13 h-13 md:w-16 md:h-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
                       <s.icon className="w-6 h-6 md:w-7 md:h-7" />
                     </div>
                     <span className="absolute -top-2 -right-2 w-6 h-6 md:w-7 md:h-7 rounded-full bg-foreground text-background text-xs font-bold flex items-center justify-center">{s.step}</span>
                   </div>
-                  <h3 className="mt-3 text-sm md:text-base font-bold text-foreground">{s.title}</h3>
+                  <h3 className="mt-2 text-sm md:text-base font-bold text-foreground">{s.title}</h3>
                 </div>
               ))}
             </div>
