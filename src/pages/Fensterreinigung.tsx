@@ -410,6 +410,11 @@ export default function Fensterreinigung() {
                 </div>
               ))}
             </div>
+            <div className="mt-5 flex justify-center">
+              <Button size="lg" onClick={scrollToContact}>
+                Jetzt kostenlose Preisanfrage senden
+              </Button>
+            </div>
           </div>
         </section>
         {/* FAQ */}
