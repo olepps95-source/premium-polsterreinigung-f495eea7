@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { MessageCircle, Check, Home, Building2, Sparkles, LayoutGrid, Camera, FileText, Calendar } from 'lucide-react';
+import { MessageCircle, Check, Camera, FileText, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -28,7 +28,6 @@ const OG_IMAGE = 'https://reinwerk-service.de/og-image.png';
 
 const services = [
   {
-    icon: Home,
     title: 'Fensterreinigung Privat',
     desc: 'Wohnungen, Häuser, Wintergärten in Chemnitz & Sachsen',
     img: privatImg,
@@ -36,7 +35,6 @@ const services = [
     imgTitle: 'Fensterreinigung Privat Chemnitz',
   },
   {
-    icon: Building2,
     title: 'Fensterreinigung Gewerbe',
     desc: 'Büros, Praxen und Geschäfte in Chemnitz & Sachsen',
     img: gewerbeImg,
@@ -44,7 +42,6 @@ const services = [
     imgTitle: 'Fensterreinigung Gewerbe Chemnitz',
   },
   {
-    icon: Sparkles,
     title: 'Wintergartenreinigung',
     desc: 'Glasdächer, Rahmen und Glasflächen streifenfrei gereinigt',
     img: wintergartenImg,
@@ -52,7 +49,6 @@ const services = [
     imgTitle: 'Wintergarten Reinigung Sachsen',
   },
   {
-    icon: LayoutGrid,
     title: 'Glas- & Schaufensterreinigung',
     desc: 'Schaufenster, Glasfassaden und große Glasflächen in Chemnitz',
     img: schaufensterImg,
@@ -378,9 +374,6 @@ export default function Fensterreinigung() {
                     <img src={s.img} alt={s.alt} title={s.imgTitle} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                   </div>
                   <div className="p-5">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3">
-                      <s.icon className="w-5 h-5" />
-                    </div>
                     <h3 className="text-base font-bold text-foreground">{s.title}</h3>
                     <p className="text-sm text-muted-foreground mt-1.5">{s.desc}</p>
                   </div>
