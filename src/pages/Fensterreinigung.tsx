@@ -29,6 +29,7 @@ const OG_IMAGE = 'https://reinwerk-service.de/og-image.png';
 const services = [
   {
     title: 'Fenster- & Glasreinigung',
+    price: 'ab 49 €',
     desc: 'Fenster und Glasflächen gründlich und streifenfrei gereinigt',
     img: privatImg,
     alt: 'Fensterreinigung Privat in Chemnitz – Wohnhaus mit klaren Fenstern',
@@ -36,6 +37,7 @@ const services = [
   },
   {
     title: 'Rahmen- & Falzreinigung',
+    price: 'ab 29 €',
     desc: 'Fensterrahmen, Falze und Fensterbänke gründlich von Schmutz befreit',
     img: gewerbeImg,
     alt: 'Fensterreinigung Gewerbe Chemnitz – Bürogebäude mit gereinigten Fenstern',
@@ -43,6 +45,7 @@ const services = [
   },
   {
     title: 'Wintergartenreinigung',
+    price: 'ab 99 €',
     desc: 'Fenster und Glasflächen gründlich und streifenfrei gereinigt',
     img: wintergartenImg,
     alt: 'Wintergarten Reinigung Sachsen – Glasdach und Rahmen professionell gereinigt',
@@ -50,6 +53,7 @@ const services = [
   },
   {
     title: 'Glasreinigung für Gewerbe',
+    price: 'Preis auf Anfrage',
     desc: 'Schaufenster, Büros, Praxen und andere Gewerbeflächen – flexibel nach Absprache',
     img: schaufensterImg,
     alt: 'Schaufensterreinigung Chemnitz – klares Schaufenster nach Glasreinigung',
