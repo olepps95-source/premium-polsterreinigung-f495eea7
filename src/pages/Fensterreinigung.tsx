@@ -10,6 +10,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { EinsatzgebietSachsen } from '@/components/EinsatzgebietSachsen';
+import { GoogleReviews } from '@/components/GoogleReviews';
 import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import heroDesktop from '@/assets/fenster-hero.jpg';
@@ -342,6 +343,8 @@ export default function Fensterreinigung() {
             </div>
           </div>
         </section>
+
+        <GoogleReviews />
 
         {/* PROBLEM / SOLUTION */}
         <section className="py-6 bg-secondary/30">
