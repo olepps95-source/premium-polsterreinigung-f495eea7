@@ -548,7 +548,7 @@ export default function Fensterreinigung() {
         />
 
         {/* FINAL CTA */}
-        <section className="relative py-8 md:py-10 overflow-hidden">
+        <section className="relative py-6 md:py-8 overflow-hidden">
           <div className="absolute inset-0">
             <img src={ctaImg} alt="Fensterreinigung Chemnitz – Panoramafenster mit streifenfreier Sicht" title="Fensterreinigung Chemnitz Panoramafenster" className="w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
@@ -557,10 +557,10 @@ export default function Fensterreinigung() {
             <h2 className="text-2xl md:text-5xl font-bold text-foreground tracking-tight">
               Jetzt Fensterreinigung in Chemnitz anfragen
             </h2>
-            <p className="mt-3 text-base md:text-lg text-foreground/80">
+            <p className="mt-2 text-base md:text-lg text-foreground/80">
               Schnelle Rückmeldung per WhatsApp.
             </p>
-            <div className="mt-6 flex justify-center">
+            <div className="mt-4 flex justify-center">
               <Button size="xl" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Fensterreinigung Chemnitz per WhatsApp anfragen">
                   <MessageCircle className="w-5 h-5" />
@@ -568,7 +568,7 @@ export default function Fensterreinigung() {
                 </a>
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-3 text-sm text-muted-foreground">
               Antwort meist innerhalb weniger Minuten.
             </p>
           </div>
