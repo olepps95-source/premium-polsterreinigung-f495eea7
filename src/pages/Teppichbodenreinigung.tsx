@@ -602,7 +602,7 @@ export default function Teppichbodenreinigung() {
               <Card className="overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
-                    src={gewerbeImg}
+                    src={gewerbeImg.url}
                     alt="Teppichbodenreinigung Büro und Gewerbe in Chemnitz"
                     className="w-full h-full object-cover"
                     loading="lazy"
