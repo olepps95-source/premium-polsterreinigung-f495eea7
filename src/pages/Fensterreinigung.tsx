@@ -412,10 +412,6 @@ export default function Fensterreinigung() {
             </div>
           </div>
         </section>
-
-
-
-
         {/* FAQ */}
         <section className="py-4">
           <div className="container mx-auto max-w-3xl">
