@@ -367,15 +367,32 @@ export default function Fensterreinigung() {
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
               Unsere Leistungen der Fensterreinigung
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-sm:gap-4">
+            {/* Mobile: kompakte horizontale Servicekarten */}
+            <div className="flex flex-col gap-3 sm:hidden">
+              {services.map((s) => (
+                <div key={s.title} className="relative w-full h-[200px] rounded-[22px] overflow-hidden shadow-soft">
+                  <img src={s.img} alt={s.alt} title={s.imgTitle} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent" />
+                  <div className="absolute top-[18px] left-[18px] right-[38%]">
+                    <h3 className="text-base font-bold text-foreground leading-tight">{s.title}</h3>
+                    <p className="text-[13px] text-muted-foreground mt-1 leading-snug">{s.desc}</p>
+                  </div>
+                  <div className="absolute bottom-0 left-0 bg-primary text-primary-foreground font-bold text-sm px-4 py-2 rounded-tr-[18px]">
+                    {s.price}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {services.map((s) => (
                 <Card key={s.title} className="overflow-hidden hover:shadow-medium transition-shadow group">
-                  <div className="aspect-[4/3] max-sm:aspect-video overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden">
                     <img src={s.img} alt={s.alt} title={s.imgTitle} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                   </div>
-                  <div className="p-5 max-sm:px-4 max-sm:pt-4 max-sm:pb-5">
+                  <div className="p-5">
                     <h3 className="text-base font-bold text-foreground">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1.5 max-sm:mt-2">{s.desc}</p>
+                    <p className="text-sm text-muted-foreground mt-1.5">{s.desc}</p>
                   </div>
                 </Card>
               ))}
