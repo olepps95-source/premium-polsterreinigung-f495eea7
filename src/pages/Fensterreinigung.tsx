@@ -351,7 +351,7 @@ export default function Fensterreinigung() {
             <img src={warumImg} alt="Fensterputzer Chemnitz reinigt Fenster mit Schlieren streifenfrei" title="Fensterputzer Chemnitz – ReinWerk" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Warum ReinWerk – Ihr Fensterputzer in Chemnitz
+                Warum ReinWerk – Ihr Fensterputzer in Sachsen
               </h2>
               <ul className="mt-5 space-y-2.5">
                 {['Schlieren und Flecken', 'Zeitaufwendiges Putzen', 'Schwer erreichbare Fenster'].map((t) => (
