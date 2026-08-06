@@ -367,7 +367,7 @@ export default function Fensterreinigung() {
 
         {/* SERVICES — 4 cards */}
         <section className="py-6">
-          <div className="container mx-auto max-sm:px-3.5">
+          <div className="container mx-auto max-sm:px-3">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
               Unsere Leistungen der Fensterreinigung
             </h2>
