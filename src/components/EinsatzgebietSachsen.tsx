@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import mapAsset from '@/assets/Teppichbodenreinigung_in_Leipzig.png.asset.json';
 
 const regions = [
   {
