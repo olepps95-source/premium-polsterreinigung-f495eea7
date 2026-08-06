@@ -295,7 +295,7 @@ export default function Fensterreinigung() {
               </div>
 
               {/* Desktop CTA buttons */}
-              <div className="hidden md:flex mt-6 md:mt-8 flex-row gap-3">
+              <div className="hidden md:flex mt-5 md:mt-6 flex-row gap-3">
                 <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Fensterreinigung Chemnitz per WhatsApp anfragen">
                     <MessageCircle className="w-5 h-5" />
@@ -308,11 +308,11 @@ export default function Fensterreinigung() {
               </div>
 
               {/* Mobile CTA buttons */}
-              <div className="md:hidden mt-6 flex flex-col gap-2">
+              <div className="md:hidden mt-4 flex flex-col gap-2">
                 <Button
                   size="lg"
                   onClick={scrollToContact}
-                  className="w-full min-h-[4rem] h-auto py-3.5 px-4 font-semibold justify-start gap-4 rounded-xl"
+                  className="w-full min-h-[3.5rem] h-auto py-3 px-4 font-semibold justify-start gap-4 rounded-xl"
                 >
                   <FileText className="w-6 h-6 text-white shrink-0" />
                   <div className="flex flex-col items-start text-left">
@@ -323,7 +323,7 @@ export default function Fensterreinigung() {
 
                 <Button
                   size="lg"
-                  className="w-full min-h-[4rem] h-auto py-3.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
+                  className="w-full min-h-[3.5rem] h-auto py-3 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
                   asChild
                 >
                   <a
