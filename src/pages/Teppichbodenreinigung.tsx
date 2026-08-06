@@ -34,8 +34,8 @@ import { trackLead, trackContact } from '@/lib/meta-pixel';
 import heroMobile from '@/assets/teppichreinigung-kita.png';
 import heroDesktop from '@/assets/teppichbodenreinigung-hero.jpg';
 import problemImg from '@/assets/teppichreinigung-problem.jpeg';
-import wohnraumImg from '@/assets/teppichreinigung-chemnitz.png.asset.json';
-import gewerbeImg from '@/assets/teppichreinigung-dresden.jpeg.asset.json';
+import wohnraumImg from '@/assets/teppichreinigung-chemnitz.png';
+import gewerbeImg from '@/assets/teppichreinigung-dresden.jpeg';
 import reinwerkLogo from '@/assets/reinwerk-logo.png';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
@@ -584,7 +584,7 @@ export default function Teppichbodenreinigung() {
               <Card className="overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
-                    src={wohnraumImg.url}
+                    src={wohnraumImg}
                     alt="Teppichbodenreinigung Privat – Wohnzimmer mit gereinigtem Teppichboden"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -602,7 +602,7 @@ export default function Teppichbodenreinigung() {
               <Card className="overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
-                    src={gewerbeImg.url}
+                    src={gewerbeImg}
                     alt="Teppichbodenreinigung Büro und Gewerbe in Chemnitz"
                     className="w-full h-full object-cover"
                     loading="lazy"
