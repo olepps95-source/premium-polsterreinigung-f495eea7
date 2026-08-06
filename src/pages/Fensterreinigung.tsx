@@ -19,11 +19,11 @@ import privatImg from '@/assets/fenster-privat.webp';
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import gewerbeSectionImg from '@/assets/fenster-gewerbe-neu.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
-import wintergartenImgAsset from '@/assets/wintergartenreinigung-leipzig.jpg.asset.json';
+import wintergartenImg from '@/assets/wintergartenreinigung-leipzig.jpg';
 import warumImg from '@/assets/fenster-warum.webp';
 import schaufensterImg from '@/assets/fenster-schaufenster.jpg';
 
-const wintergartenImg = wintergartenImgAsset.url;
+
 
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
@@ -359,29 +359,15 @@ export default function Fensterreinigung() {
             <div className="flex flex-col gap-3 sm:hidden">
               {services.map((s) => (
                 <div key={s.title} className="relative w-full h-[180px] rounded-[22px] overflow-hidden shadow-soft">
-                  {s.title === 'Wintergartenreinigung' ? (
-                    <picture className="absolute inset-0 block w-full h-full">
-                      <source media="(max-width: 767px)" srcSet={wintergartenImg} />
-                      <img
-                        src={wintergartenImg}
-                        alt={s.alt}
-                        title={s.imgTitle}
-                        className="absolute inset-0 w-full h-full object-cover object-[80%_25%]"
-                        loading="eager"
-                        fetchPriority="high"
-                        decoding="async"
-                      />
-                    </picture>
-                  ) : (
-                    <img
-                      src={s.img}
-                      alt={s.alt}
-                      title={s.imgTitle}
-                      className="absolute inset-0 w-full h-full object-cover object-[80%_25%]"
-                      loading="lazy"
-                      fetchPriority="auto"
-                    />
-                  )}
+                  <img
+                    src={s.img}
+                    alt={s.alt}
+                    title={s.imgTitle}
+                    className="absolute inset-0 w-full h-full object-cover object-[80%_25%]"
+                    loading="lazy"
+                    fetchPriority="auto"
+                  />
+
                   <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.55)_20%,rgba(0,0,0,0.4)_40%,rgba(0,0,0,0.2)_58%,transparent_75%)]" />
                   <div className="absolute top-0 left-0 right-[25%] pl-[18px] pr-[12px] pt-[12px]">
                     <h3 className="text-[20px] font-bold tracking-tight text-white leading-tight">{s.title}</h3>
