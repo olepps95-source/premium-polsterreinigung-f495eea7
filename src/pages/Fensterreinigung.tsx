@@ -273,7 +273,7 @@ export default function Fensterreinigung() {
               </div>
 
               {/* Mobile USP list */}
-              <div className="md:hidden mt-4 space-y-0">
+              <div className="md:hidden mt-3 space-y-0">
                 {[
                   { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
                   { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
@@ -281,7 +281,7 @@ export default function Fensterreinigung() {
                 ].map((badge, idx) => (
                   <div
                     key={badge.title}
-                    className={`flex items-center gap-3 py-2.5 ${idx < 2 ? 'border-b border-white/10' : ''}`}
+                    className={`flex items-center gap-3 py-2 ${idx < 2 ? 'border-b border-white/10' : ''}`}
                   >
                     <div className="w-8 h-8 rounded-full bg-slate-900/80 flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4 text-white" />
