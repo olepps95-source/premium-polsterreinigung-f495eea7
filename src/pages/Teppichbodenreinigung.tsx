@@ -15,7 +15,6 @@ import {
   UserCheck,
   Truck,
   Upload,
-  Star,
   FileText,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
