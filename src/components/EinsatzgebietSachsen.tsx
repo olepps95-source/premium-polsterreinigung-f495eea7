@@ -68,9 +68,8 @@ export function EinsatzgebietSachsen({ heading, subtitle, description }: Einsatz
               Rein<span className="text-rw-blue">Werk</span> in ganz Sachsen
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-5 text-sm md:text-base">
-              Wir sind in ganz Sachsen für Sie unterwegs. Professionelle Teppichbodenreinigung für
-              Privat- und Gewerbekunden – von Chemnitz über Dresden und Leipzig bis in kleinere
-              Städte und Gemeinden.
+              {description ??
+                'Wir sind in ganz Sachsen für Sie unterwegs. Professionelle Teppichbodenreinigung für Privat- und Gewerbekunden – von Chemnitz über Dresden und Leipzig bis in kleinere Städte und Gemeinden.'}
             </p>
 
             {/* Mobile short list */}
