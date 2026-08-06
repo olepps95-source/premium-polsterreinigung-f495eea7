@@ -367,21 +367,22 @@ export default function Fensterreinigung() {
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-8">
               Unsere Leistungen der Fensterreinigung
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-sm:gap-4">
               {services.map((s) => (
                 <Card key={s.title} className="overflow-hidden hover:shadow-medium transition-shadow group">
-                  <div className="aspect-[4/3] overflow-hidden">
+                  <div className="aspect-[4/3] max-sm:aspect-video overflow-hidden">
                     <img src={s.img} alt={s.alt} title={s.imgTitle} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                   </div>
-                  <div className="p-5">
+                  <div className="p-5 max-sm:px-4 max-sm:pt-4 max-sm:pb-5">
                     <h3 className="text-base font-bold text-foreground">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1.5">{s.desc}</p>
+                    <p className="text-sm text-muted-foreground mt-1.5 max-sm:mt-2">{s.desc}</p>
                   </div>
                 </Card>
               ))}
             </div>
           </div>
         </section>
+
 
 
         {/* HOW IT WORKS */}
