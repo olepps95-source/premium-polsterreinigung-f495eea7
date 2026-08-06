@@ -378,7 +378,7 @@ export default function Fensterreinigung() {
                 <img src={s.img} alt={s.alt} title={s.imgTitle} className="absolute inset-0 w-full h-full object-cover object-[center_top]" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-r from-background via-background via-[60%] to-transparent to-[75%]" />
                 <div className="absolute top-0 left-0 right-[40%] px-[18px] pt-[16px]">
-                  <h3 className="text-[20px] font-bold text-[#20242C] leading-tight line-clamp-2 hyphens-auto break-words">{s.title}</h3>
+                  <h3 className="text-[20px] font-bold text-[#20242C] leading-tight line-clamp-2 hyphens-auto">{s.title}</h3>
                   <p className="text-[13px] text-muted-foreground mt-[5px] leading-snug">{s.desc}</p>
                 </div>
                 <div className="absolute bottom-0 left-0 bg-primary text-primary-foreground font-bold text-xs px-3 py-1.5 rounded-tr-[14px]">
