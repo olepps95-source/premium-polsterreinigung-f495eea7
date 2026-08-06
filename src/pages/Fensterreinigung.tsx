@@ -19,7 +19,7 @@ import privatImg from '@/assets/fenster-privat.webp';
 import gewerbeImg from '@/assets/fenster-gewerbe.jpg';
 import gewerbeSectionImg from '@/assets/fenster-gewerbe-neu.jpg';
 import ctaImg from '@/assets/fenster-cta.jpg';
-import wintergartenImgAsset from '@/assets/Wintergartenreinigung_Dresden.jpg.asset.json';
+import wintergartenImgAsset from '@/assets/wintergarten-dresden.jpg.asset.json';
 import warumImg from '@/assets/fenster-warum.webp';
 import schaufensterImg from '@/assets/fenster-schaufenster.jpg';
 
@@ -360,7 +360,7 @@ export default function Fensterreinigung() {
               {services.map((s) => (
                 <div key={s.title} className="relative w-full h-[180px] rounded-[22px] overflow-hidden shadow-soft">
                   <img
-                    src={s.title === 'Wintergartenreinigung' ? wintergartenImg : s.img}
+                    src={s.img}
                     alt={s.alt}
                     title={s.imgTitle}
                     className="absolute inset-0 w-full h-full object-cover object-[80%_25%]"
