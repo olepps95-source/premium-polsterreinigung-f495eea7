@@ -49,7 +49,7 @@ export function EinsatzgebietSachsen() {
           {/* Text */}
           <div>
             <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
-              ReinWerk in ganz Sachsen
+              Rein<span className="text-rw-blue">Werk</span> in ganz Sachsen
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-5 text-sm md:text-base">
               Wir sind in ganz Sachsen für Sie unterwegs. Professionelle Teppichbodenreinigung für
