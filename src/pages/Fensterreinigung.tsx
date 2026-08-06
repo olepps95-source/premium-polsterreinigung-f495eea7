@@ -444,33 +444,6 @@ export default function Fensterreinigung() {
           </div>
         </section>
 
-        {/* FINAL CTA */}
-        <section className="relative py-8 md:py-10 overflow-hidden">
-          <div className="absolute inset-0">
-            <img src={ctaImg} alt="Fensterreinigung Chemnitz – Panoramafenster mit streifenfreier Sicht" title="Fensterreinigung Chemnitz Panoramafenster" className="w-full h-full object-cover" loading="lazy" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
-          </div>
-          <div className="container mx-auto relative z-10 text-center max-w-2xl">
-            <h2 className="text-2xl md:text-5xl font-bold text-foreground tracking-tight">
-              Jetzt Fensterreinigung in Chemnitz anfragen
-            </h2>
-            <p className="mt-3 text-base md:text-lg text-foreground/80">
-              Schnelle Rückmeldung per WhatsApp.
-            </p>
-            <div className="mt-6 flex justify-center">
-              <Button size="xl" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Fensterreinigung Chemnitz per WhatsApp anfragen">
-                  <MessageCircle className="w-5 h-5" />
-                  Foto senden — Preis in 15 Min
-                </a>
-              </Button>
-            </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Antwort meist innerhalb weniger Minuten.
-            </p>
-          </div>
-        </section>
-
         <EinsatzgebietSachsen
           heading="Unser Einsatzgebiet in Sachsen"
           subtitle="Professionelle Fensterreinigung direkt bei Ihnen vor Ort"
