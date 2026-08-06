@@ -833,16 +833,6 @@ export default function Teppichbodenreinigung() {
               <Button size="lg" onClick={scrollToContact} className="font-semibold">
                 Kostenloses Angebot erhalten
               </Button>
-              <Button
-                size="lg"
-                className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold"
-                asChild
-              >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackContact()}>
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp-Anfrage
-                </a>
-              </Button>
             </div>
           </div>
         </section>
