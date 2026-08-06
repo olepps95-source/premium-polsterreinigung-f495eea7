@@ -35,7 +35,7 @@ import heroMobile from '@/assets/teppichreinigung-kita.png';
 import heroDesktop from '@/assets/teppichbodenreinigung-hero.jpg';
 import problemImg from '@/assets/teppichreinigung-problem.jpeg';
 import wohnraumImg from '@/assets/teppichreinigung-chemnitz.png.asset.json';
-import gewerbeImg from '@/assets/teppichboden-buero.jpeg';
+import gewerbeImg from '@/assets/teppichreinigung-dresden.jpeg.asset.json';
 import reinwerkLogo from '@/assets/reinwerk-logo.png';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
