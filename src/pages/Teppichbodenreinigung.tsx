@@ -29,7 +29,6 @@ import { GoogleReviews } from '@/components/GoogleReviews';
 
 
 import { toast } from '@/hooks/use-toast';
-import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { trackLead, trackContact } from '@/lib/meta-pixel';
 import heroMobile from '@/assets/teppichreinigung-kita.png';
 import heroDesktop from '@/assets/teppichbodenreinigung-hero.jpg';
