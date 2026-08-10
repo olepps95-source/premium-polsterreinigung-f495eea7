@@ -453,17 +453,18 @@ export default function Fensterreinigung() {
             <img src={warumImg} alt="Fensterputzer Chemnitz reinigt Fenster mit Schlieren streifenfrei" title="Fensterputzer Chemnitz – ReinWerk" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Warum ReinWerk – Ihr Fensterputzer in Sachsen
+                Warum ReinWerk?<br />
+                Ihr zuverlässiger Partner für streifenfreie Fenster in Sachsen
               </h2>
               <ul className="mt-3 space-y-2">
-                {['Schlieren und Flecken', 'Zeitaufwendiges Putzen', 'Schwer erreichbare Fenster'].map((t) => (
+                {['Streifenfreies Ergebnis', 'Kostenlose Anfahrt', 'Privat & Gewerbe', 'Sorgfältige Rahmen- & Falzreinigung', 'Flexible Termine'].map((t) => (
                   <li key={t} className="flex items-center gap-3 text-base text-foreground">
                     <Check className="w-5 h-5 text-primary shrink-0" /> {t}
                   </li>
                 ))}
               </ul>
               <p className="mt-3 text-muted-foreground">
-                Als erfahrener Fensterputzer in Chemnitz übernehmen wir die Arbeit für Sie und sorgen für streifenfreie, klare Sicht – ohne Aufwand.
+                Wir reinigen Ihre Fenster gründlich, zuverlässig und direkt vor Ort. Ob Einfamilienhaus, Büro oder Gewerbeobjekt – mit ReinWerk erhalten Sie streifenfreie Glasflächen, saubere Rahmen und einen professionellen Service, auf den Sie sich verlassen können.
               </p>
             </div>
           </div>
