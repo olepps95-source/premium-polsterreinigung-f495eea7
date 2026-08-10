@@ -227,6 +227,18 @@ export default function Teppichbodenreinigung() {
         })),
       );
 
+      const or = (v: string) => (v && v.trim() ? v.trim() : '–');
+      const telegram_text = [
+        '🧼 Neue Anfrage Teppichbodenreinigung',
+        '',
+        `👤 Name: ${or(form.name)}`,
+        `📞 Telefonnummer: ${or(form.telefon)}`,
+        `📍 Ort / PLZ: ${or(form.ort)}`,
+        `🏢 Kunde: ${or(form.kundentyp)}`,
+        `📐 Fläche: ${form.flaeche && form.flaeche.trim() ? `${form.flaeche.trim()} m²` : '–'}`,
+        `💬 Nachricht: ${or(form.nachricht)}`,
+      ].join('\n');
+
       const payload = {
         source: 'teppichbodenreinigung',
         page: '/teppichbodenreinigung',
@@ -236,8 +248,10 @@ export default function Teppichbodenreinigung() {
         kundentyp: form.kundentyp,
         flaeche_qm: form.flaeche,
         nachricht: form.nachricht,
+        telegram_text,
         fotos,
       };
+
 
       const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
