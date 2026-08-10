@@ -454,7 +454,7 @@ export default function Fensterreinigung() {
               src={warumImg}
               alt="Fensterputzer Chemnitz reinigt Fenster mit Schlieren streifenfrei"
               title="Fensterputzer Chemnitz – ReinWerk"
-              className="rounded-2xl shadow-soft w-full md:max-w-[84%] aspect-[4/3] object-cover max-md:hidden"
+              className="rounded-2xl shadow-soft w-full md:max-w-[84%] aspect-[4/3] object-cover"
               loading="lazy"
             />
             <div>
