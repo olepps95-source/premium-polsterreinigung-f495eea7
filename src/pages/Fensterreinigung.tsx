@@ -448,24 +448,24 @@ export default function Fensterreinigung() {
         </section>
 
         {/* WARUM REINWERK */}
-        <section className="py-3 bg-secondary/30">
+        <section className="py-3 max-md:py-2 bg-secondary/30">
           <div className="container mx-auto grid md:grid-cols-2 gap-5 items-center">
             <img
               src={warumImg}
               alt="Fensterputzer Chemnitz reinigt Fenster mit Schlieren streifenfrei"
               title="Fensterputzer Chemnitz – ReinWerk"
-              className="rounded-2xl shadow-soft w-full md:max-w-[84%] aspect-[4/3] object-cover"
+              className="rounded-2xl shadow-soft w-full md:max-w-[84%] aspect-[4/3] object-cover max-md:hidden"
               loading="lazy"
             />
             <div>
-              <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-foreground">
+              <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-foreground max-md:text-[34px] max-md:leading-[1.1]">
                 <span className="text-foreground">Warum Rein</span>
                 <span className="text-primary">Werk</span>?
-                <span className="block mt-2 text-[60%] font-medium leading-[1.4]" style={{ color: '#667085' }}>
+                <span className="block mt-2 text-[60%] font-medium leading-[1.4] max-md:mt-2 max-md:text-[20px] max-md:leading-[1.35] max-md:mb-5" style={{ color: '#667085' }}>
                   Ihr zuverlässiger Partner für streifenfreie Fenster in Sachsen
                 </span>
               </h2>
-              <ul className="mt-4 space-y-3">
+              <ul className="mt-4 space-y-3 max-md:mt-0 max-md:space-y-3.5">
                 {[
                   { title: 'Streifenfreies Ergebnis', desc: 'Professionelle Reinigung mit hochwertigen Werkzeugen und bewährter Technik.' },
                   { title: 'Kostenlose Anfahrt', desc: 'Keine zusätzlichen Anfahrtskosten im gesamten Einsatzgebiet.' },
@@ -473,18 +473,18 @@ export default function Fensterreinigung() {
                   { title: 'Rahmen- & Falzreinigung', desc: 'Nicht nur das Glas – auch Rahmen, Falze und Fensterbänke werden gründlich gereinigt.' },
                   { title: 'Flexible Termine', desc: 'Auch morgens, abends oder am Wochenende nach Absprache.' },
                 ].map((item) => (
-                  <li key={item.title} className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <li key={item.title} className="flex items-start gap-2.5 max-md:gap-3">
+                    <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5 max-md:w-[22px] max-md:h-[22px] max-md:mt-0">
                       <Check className="w-3.5 h-3.5 text-primary-foreground" />
                     </div>
                     <div>
-                      <span className="font-bold text-foreground text-base">{item.title}</span>
-                      <p className="text-sm text-muted-foreground leading-[1.4] mt-0.5">{item.desc}</p>
+                      <span className="font-bold text-foreground text-base max-md:text-[20px] max-md:font-semibold">{item.title}</span>
+                      <p className="text-sm text-muted-foreground leading-[1.4] mt-0.5 max-md:text-base max-md:leading-[1.35]">{item.desc}</p>
                     </div>
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 max-w-[85%]" style={{ color: '#667085', lineHeight: 1.6 }}>
+              <p className="mt-4 max-w-[85%] max-md:hidden" style={{ color: '#667085', lineHeight: 1.6 }}>
                 Wir reinigen Ihre Fenster gründlich, zuverlässig und direkt vor Ort. Ob Einfamilienhaus, Büro oder Gewerbeobjekt – mit ReinWerk erhalten Sie streifenfreie Glasflächen, saubere Rahmen und einen professionellen Service, auf den Sie sich verlassen können.
               </p>
             </div>
