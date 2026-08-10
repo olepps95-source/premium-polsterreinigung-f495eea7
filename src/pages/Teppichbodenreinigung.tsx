@@ -29,7 +29,6 @@ import { GoogleReviews } from '@/components/GoogleReviews';
 
 
 import { toast } from '@/hooks/use-toast';
-import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { trackLead, trackContact } from '@/lib/meta-pixel';
 import heroMobile from '@/assets/teppichreinigung-kita.png';
 import heroDesktop from '@/assets/teppichbodenreinigung-hero.jpg';
@@ -260,7 +259,13 @@ export default function Teppichbodenreinigung() {
       });
       if (!response.ok) throw new Error('Request failed');
 
-      trackGoogleAdsConversion();
+      // Google Ads conversion – only after successful submit
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-18104648983/TzpxCOq1jd8cEJeK_LhD',
+        });
+      }
+
       trackLead();
 
       toast({ title: 'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.' });
