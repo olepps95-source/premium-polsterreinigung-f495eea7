@@ -447,16 +447,15 @@ export default function Fensterreinigung() {
           </div>
         </section>
 
-        {/* PROBLEM / SOLUTION */}
+        {/* WARUM REINWERK */}
         <section className="py-4 bg-secondary/30">
           <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center">
             <img src={warumImg} alt="Fensterputzer Chemnitz reinigt Fenster mit Schlieren streifenfrei" title="Fensterputzer Chemnitz – ReinWerk" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover" loading="lazy" />
             <div>
-              <h2 className="text-2xl md:text-4xl font-bold tracking-tight">
-                <span className="text-foreground">Warum </span>
-                <span className="text-foreground">Rein</span>
-                <span className="text-primary">Werk</span>?{' '}
-                <span className="block mt-3 md:mt-4 text-[60%] md:text-[65%] font-medium leading-[1.4]" style={{ color: '#5F6B7A' }}>
+              <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-foreground">
+                <span className="text-foreground">Warum Rein</span>
+                <span className="text-primary">Werk</span>?
+                <span className="block mt-3.5 text-[60%] font-medium leading-[1.4]" style={{ color: '#667085' }}>
                   Ihr zuverlässiger Partner für streifenfreie Fenster in Sachsen
                 </span>
               </h2>
@@ -464,20 +463,22 @@ export default function Fensterreinigung() {
                 {[
                   { title: 'Streifenfreies Ergebnis', desc: 'Professionelle Reinigung mit hochwertigen Werkzeugen und bewährter Technik.' },
                   { title: 'Kostenlose Anfahrt', desc: 'Keine zusätzlichen Anfahrtskosten im gesamten Einsatzgebiet.' },
-                  { title: 'Privat & Gewerbe', desc: 'Wohnhäuser, Büros, Praxen, Wintergärten und Schaufenster.' },
-                  { title: 'Rahmen- & Falzreinigung', desc: 'Nicht nur Glas – auch Rahmen, Falze und Fensterbänke werden gründlich gereinigt.' },
+                  { title: 'Privat & Gewerbe', desc: 'Für Wohnhäuser, Büros, Praxen, Wintergärten und Schaufenster.' },
+                  { title: 'Rahmen- & Falzreinigung', desc: 'Nicht nur das Glas – auch Rahmen, Falze und Fensterbänke werden gründlich gereinigt.' },
                   { title: 'Flexible Termine', desc: 'Auch morgens, abends oder am Wochenende nach Absprache.' },
                 ].map((item) => (
-                  <li key={item.title} className="flex items-start gap-3 text-base text-foreground">
-                    <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <li key={item.title} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-4 h-4 text-primary-foreground" />
+                    </div>
                     <div>
-                      <span className="font-bold">{item.title}</span>
+                      <span className="font-bold text-foreground text-base">{item.title}</span>
                       <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                     </div>
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-muted-foreground max-w-[85%]">
+              <p className="mt-7 max-w-[85%]" style={{ color: '#667085', lineHeight: 1.7 }}>
                 Wir reinigen Ihre Fenster gründlich, zuverlässig und direkt vor Ort. Ob Einfamilienhaus, Büro oder Gewerbeobjekt – mit ReinWerk erhalten Sie streifenfreie Glasflächen, saubere Rahmen und einen professionellen Service, auf den Sie sich verlassen können.
               </p>
             </div>
