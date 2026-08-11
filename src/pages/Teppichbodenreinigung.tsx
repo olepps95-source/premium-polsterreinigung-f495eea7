@@ -622,7 +622,7 @@ export default function Teppichbodenreinigung() {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="telefon">Telefonnummer *</Label>
+                    <Label htmlFor="telefon">Telefonnummer (oder E-Mail)</Label>
                     <Input
                       id="telefon"
                       type="tel"
