@@ -243,7 +243,7 @@ export default function Fensterreinigung() {
                   <br />
                   <span className="text-primary">Fensterreinigung</span>
                   <br />
-                  in Sachsen
+                  – streifenfrei & zuverlässig
                 </span>
                 <span className="hidden md:inline">
                   Professionelle <span className="text-primary">Fensterreinigung</span> – streifenfrei & zuverlässig
