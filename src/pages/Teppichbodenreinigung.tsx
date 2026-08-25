@@ -467,9 +467,6 @@ export default function Teppichbodenreinigung() {
                   <span className="text-xl md:text-2xl font-semibold text-foreground">ab</span>
                   <span className="text-4xl md:text-5xl font-bold text-primary">8 € / m²</span>
                 </div>
-                <p className="text-base md:text-lg font-semibold text-foreground">
-                  Mindestauftragswert 120 €
-                </p>
                 <p className="text-sm text-muted-foreground leading-snug text-balance max-w-sm">
                   Der endgültige Preis richtet sich nach Fläche, Verschmutzungsgrad und Aufwand.
                 </p>
