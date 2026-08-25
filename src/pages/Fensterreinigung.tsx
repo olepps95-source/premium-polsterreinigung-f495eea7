@@ -246,7 +246,7 @@ export default function Fensterreinigung() {
                   in Sachsen
                 </span>
                 <span className="hidden md:inline">
-                  <span className="text-primary">Fensterreinigung</span> in Chemnitz – streifenfrei &amp; professionell
+                  Professionelle <span className="text-primary">Fensterreinigung</span> – streifenfrei & zuverlässig
                 </span>
               </h1>
               <p className="mt-2 md:mt-3 text-base md:text-xl text-white md:text-foreground font-medium md:font-bold text-left max-w-[320px] sm:max-w-[380px] md:max-w-none leading-snug">
