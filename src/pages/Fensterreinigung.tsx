@@ -350,9 +350,9 @@ export default function Fensterreinigung() {
         <GoogleReviews useMobileGoogleLogo />
 
         {/* SERVICES — 4 cards */}
-        <section className="py-6">
+        <section className="pt-8 pb-6 md:pt-9 md:pb-10">
           <div className="container mx-auto max-sm:px-3">
-            <h2 className="hidden sm:block text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5">
+            <h2 className="hidden sm:block text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5 md:mb-8">
               Unsere Leistungen der Fensterreinigung
             </h2>
             {/* Mobile: kompakte horizontale Servicekarten */}
@@ -399,9 +399,9 @@ export default function Fensterreinigung() {
 
 
         {/* HOW IT WORKS */}
-        <section className="py-6 bg-secondary/30">
+        <section className="py-6 md:py-10 bg-secondary/30">
           <div className="container mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5 md:mb-8">
               So funktioniert Ihre Fensterreinigung
             </h2>
             <div className="grid grid-cols-3 gap-3 md:gap-5 max-w-3xl mx-auto">
@@ -429,9 +429,9 @@ export default function Fensterreinigung() {
           </div>
         </section>
         {/* FAQ */}
-        <section className="py-6">
+        <section className="py-6 md:py-10">
           <div className="container mx-auto max-w-3xl">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5 md:mb-8">
               Häufige Fragen zur Fensterreinigung
             </h2>
             <Accordion type="single" collapsible className="bg-background border border-border rounded-2xl px-4 md:px-6 shadow-soft">
@@ -448,7 +448,7 @@ export default function Fensterreinigung() {
         </section>
 
         {/* WARUM REINWERK */}
-        <section className="py-5 max-md:py-3 bg-secondary/30">
+        <section className="py-5 max-md:py-3 md:py-10 bg-secondary/30">
           <div className="container mx-auto grid md:grid-cols-2 gap-5 items-center">
             <img
               src={warumImg}
@@ -492,12 +492,12 @@ export default function Fensterreinigung() {
         </section>
 
         {/* CONTACT FORM */}
-        <section id="kontakt" className="py-6 bg-secondary/30">
+        <section id="kontakt" className="py-6 md:py-10 bg-secondary/30">
           <div className="container mx-auto max-w-2xl">
             <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-2">
               Kostenloses Angebot für Ihre Fensterreinigung
             </h2>
-            <p className="text-center text-muted-foreground mb-5">
+            <p className="text-center text-muted-foreground mb-5 md:mb-8">
               Antwort meist innerhalb weniger Minuten.
             </p>
             <Card className="p-4 md:p-6 shadow-medium">
@@ -540,7 +540,7 @@ export default function Fensterreinigung() {
         </section>
 
         {/* PRIVATE */}
-        <section className="py-6 bg-secondary/30">
+        <section className="py-6 md:py-10 bg-secondary/30">
           <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
@@ -557,7 +557,7 @@ export default function Fensterreinigung() {
         </section>
 
         {/* BUSINESS */}
-        <section className="py-6">
+        <section className="py-6 md:py-10">
           <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center">
             <img src={gewerbeSectionImg} alt="Glasreinigung Büro Chemnitz – Fensterreinigung Gewerbe für Unternehmen" title="Glasreinigung Büro Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
             <div className="order-1 md:order-2">
@@ -583,7 +583,7 @@ export default function Fensterreinigung() {
         />
 
         {/* FINAL CTA */}
-        <section className="relative py-6 md:py-8 overflow-hidden">
+        <section className="relative py-6 md:py-10 overflow-hidden">
           <div className="absolute inset-0">
             <img src={ctaImg} alt="Fensterreinigung Chemnitz – Panoramafenster mit streifenfreier Sicht" title="Fensterreinigung Chemnitz Panoramafenster" className="w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
