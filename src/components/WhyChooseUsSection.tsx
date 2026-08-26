@@ -23,7 +23,7 @@ export function WhyChooseUsSection() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="py-8 md:py-12 bg-background">
+    <section className="py-6 md:py-8 bg-background">
       <div className="container px-3 md:px-4">
         <div className="max-w-3xl mx-auto text-center mb-4 md:mb-8">
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground">

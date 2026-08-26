@@ -143,7 +143,7 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
   };
 
   return (
-    <section id="kontakt" className="py-16 bg-foreground text-primary-foreground">
+    <section id="kontakt" className="py-10 bg-foreground text-primary-foreground">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Bereit für saubere Polster?</h2>

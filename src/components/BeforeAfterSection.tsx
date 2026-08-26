@@ -116,7 +116,7 @@ export function BeforeAfterSection() {
 
   return (
     <>
-      <section id="vorher-nachher" className="py-16">
+      <section id="vorher-nachher" className="py-10">
         <div className="container max-w-6xl">
           <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-8 text-center">Vorher – Nachher</p>
 

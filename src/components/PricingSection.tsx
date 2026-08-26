@@ -210,7 +210,7 @@ export function PricingSection() {
   };
 
   return (
-    <section id="preise" className="pt-10 pb-6 bg-secondary/30">
+    <section id="preise" className="pt-6 pb-4 bg-secondary/30">
       <div className="container">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-6">

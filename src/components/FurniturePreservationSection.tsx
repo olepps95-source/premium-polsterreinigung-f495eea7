@@ -11,7 +11,7 @@ export function FurniturePreservationSection() {
   };
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-10 bg-background">
       <div className="container">
         <div className="max-w-6xl mx-auto">
           {/* Title above everything */}

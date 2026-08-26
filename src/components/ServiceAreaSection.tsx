@@ -11,7 +11,7 @@ const cities = [
 
 export function ServiceAreaSection() {
   return (
-    <section id="einsatzgebiet" className="py-16">
+    <section id="einsatzgebiet" className="py-10">
       <div className="container">
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-primary/10 via-accent to-primary/5 rounded-3xl p-10 md:p-16 text-center">

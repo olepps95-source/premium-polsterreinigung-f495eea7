@@ -80,7 +80,7 @@ export function ReviewsSection() {
   const visibleReviews = isMobile && !showAllReviews ? reviews.slice(0, 1) : reviews;
 
   return (
-    <section id="bewertungen" className="py-10 md:py-16 bg-secondary/50">
+    <section id="bewertungen" className="py-6 md:py-10 bg-secondary/50">
       <div className="container px-3 md:px-4">
         <div className="max-w-3xl mx-auto text-center mb-4 md:mb-8">
           <p className="text-primary font-semibold text-xs md:text-sm uppercase tracking-wider mb-2 md:mb-4">Kundenbewertungen</p>
