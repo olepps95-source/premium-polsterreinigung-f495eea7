@@ -24,6 +24,8 @@ import warumImg from '@/assets/fenster-warum-neu.jpg';
 import schaufensterImg from '@/assets/fenster-schaufenster.jpg';
 import rahmenImgAsset from '@/assets/rahmen-rollladen-jalousienreinigung.jpg.asset.json';
 const rahmenImg = rahmenImgAsset.url;
+import glasreinigungImgAsset from '@/assets/fenster-glasreinigung.jpg.asset.json';
+const glasreinigungImg = glasreinigungImgAsset.url;
 
 
 
@@ -37,9 +39,9 @@ const services = [
     title: 'Fenster- & Glasreinigung',
     price: 'ab 49 €',
     desc: 'Fenster und Glasflächen gründlich und streifenfrei gereinigt',
-    img: privatImg,
-    alt: 'Fensterreinigung Privat in Chemnitz – Wohnhaus mit klaren Fenstern',
-    imgTitle: 'Fensterreinigung Privat Chemnitz',
+    img: glasreinigungImg,
+    alt: 'Fenster- & Glasreinigung in Sachsen – streifenfreie und professionelle Fenstereinigung',
+    imgTitle: 'Fenster- & Glasreinigung Sachsen',
   },
   {
     title: 'Rahmen- Rollladen- & Jalousienreinigung',
