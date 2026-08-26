@@ -34,7 +34,7 @@ export function ServicesSection() {
   const isMobile = useIsMobile();
 
   return (
-    <section id="leistungen" className="py-10 md:py-16">
+    <section id="leistungen" className="py-6 md:py-10">
       <div className="container px-3 md:px-4">
         <div className="max-w-3xl mx-auto text-center mb-4 md:mb-10">
           <p className="text-primary font-semibold text-xs md:text-sm uppercase tracking-wider mb-2 md:mb-4">Unsere Leistungen</p>

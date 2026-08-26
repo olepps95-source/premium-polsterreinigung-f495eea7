@@ -23,7 +23,7 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="py-12 bg-muted/30">
+    <section className="py-8 bg-muted/30">
       <div className="container">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-8">

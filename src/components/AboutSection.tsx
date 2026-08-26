@@ -30,7 +30,7 @@ export function AboutSection() {
   const isMobile = useIsMobile();
 
   return (
-    <section id="ueber-uns" className="py-12 md:py-16 bg-secondary/50">
+    <section id="ueber-uns" className="py-8 md:py-10 bg-secondary/50">
       <div className="container px-3 md:px-4">
         {/* Mobile: Image on top, text below, centered */}
         {isMobile ? (
