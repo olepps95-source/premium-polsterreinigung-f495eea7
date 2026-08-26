@@ -22,6 +22,8 @@ import ctaImg from '@/assets/fenster-cta.jpg';
 import wintergartenImg from '@/assets/wintergartenreinigung-leipzig.jpg';
 import warumImg from '@/assets/fenster-warum-neu.jpg';
 import schaufensterImg from '@/assets/fenster-schaufenster.jpg';
+import rahmenImgAsset from '@/assets/rahmen-rollladen-jalousienreinigung.jpg.asset.json';
+const rahmenImg = rahmenImgAsset.url;
 
 
 
@@ -43,9 +45,9 @@ const services = [
     title: 'Rahmen- Rollladen- & Jalousienreinigung',
     price: 'ab 29 €',
     desc: 'Fensterrahmen, Rollläden und Außenjalousien gründlich von Staub, Schmutz und Ablagerungen befreit.',
-    img: gewerbeImg,
-    alt: 'Fensterreinigung Gewerbe Chemnitz – Bürogebäude mit gereinigten Fenstern',
-    imgTitle: 'Fensterreinigung Gewerbe Chemnitz',
+    img: rahmenImg,
+    alt: 'Rahmen- Rollladen- & Jalousienreinigung in Sachsen – Fensterrahmen und Rollläden professionell gereinigt',
+    imgTitle: 'Rahmen- Rollladen- & Jalousienreinigung Sachsen',
   },
   {
     title: 'Wintergartenreinigung',
