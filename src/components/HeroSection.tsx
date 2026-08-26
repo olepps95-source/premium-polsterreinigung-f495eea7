@@ -24,9 +24,29 @@ export function HeroSection() {
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-32 pb-12 px-4">
             {/* Buttons */}
             <div
-              className="flex flex-col items-center gap-3 w-full mb-4 animate-fade-up"
+              className="flex flex-col gap-2 w-full mb-4 animate-fade-up"
               style={{ animationDelay: "0.2s" }}
             >
+              <Button
+                size="lg"
+                className="w-full min-h-[3.5rem] h-auto py-3 px-4 font-semibold justify-start gap-4 rounded-xl"
+                asChild
+              >
+                <a
+                  href="tel:+491632373108"
+                  onClick={() => {
+                    if (typeof window !== "undefined" && (window as any).gtag) {
+                      (window as any).gtag("event", "click_call", {
+                        event_category: "contact",
+                        event_label: "phone_click",
+                      });
+                    }
+                  }}
+                >
+                  <Phone className="w-6 h-6 text-white shrink-0" />
+                  <span className="text-white font-bold text-base leading-tight">+49 163 237 3108</span>
+                </a>
+              </Button>
               <Button
                 size="lg"
                 className="w-full min-h-[3.5rem] h-auto py-3 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
@@ -42,22 +62,6 @@ export function HeroSection() {
                 >
                   <MessageCircle className="w-6 h-6 text-white shrink-0" />
                   <span className="text-white font-bold text-base leading-tight">WhatsApp schreiben</span>
-                </a>
-              </Button>
-              <Button variant="hero" size="lg" className="w-full active:scale-[0.97] transition-transform" asChild>
-                <a
-                  href="tel:+491632373108"
-                  onClick={() => {
-                    if (typeof window !== "undefined" && (window as any).gtag) {
-                      (window as any).gtag("event", "click_call", {
-                        event_category: "contact",
-                        event_label: "phone_click",
-                      });
-                    }
-                  }}
-                >
-                  <Phone className="w-6 h-6" />
-                  <span className="text-lg md:text-xl font-bold">+49 163 237 3108</span>
                 </a>
               </Button>
             </div>
