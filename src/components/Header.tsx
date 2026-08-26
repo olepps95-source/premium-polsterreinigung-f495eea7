@@ -223,7 +223,7 @@ export function Header() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs text-muted-foreground">E-Mail</span>
-                <span className="text-base font-semibold text-foreground">E-Mail senden</span>
+                <span className="text-base font-semibold text-foreground">{location.pathname === "/" ? "info@reinwerk-service.de" : "E-Mail senden"}</span>
               </div>
             </a>
 
