@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, FileText, MessageCircle } from "lucide-react";
 import heroImage from "@/assets/hero-living-room.jpg";
 import heroSofaMobile from "@/assets/hero-sofa-mobile.jpg";
 import { trackContact } from "@/lib/meta-pixel";
@@ -29,26 +29,6 @@ export function HeroSection() {
             >
               <Button
                 size="lg"
-                className="w-full min-h-[3.5rem] h-auto py-3 px-4 font-semibold justify-start gap-4 rounded-xl"
-                asChild
-              >
-                <a
-                  href="tel:+491632373108"
-                  onClick={() => {
-                    if (typeof window !== "undefined" && (window as any).gtag) {
-                      (window as any).gtag("event", "click_call", {
-                        event_category: "contact",
-                        event_label: "phone_click",
-                      });
-                    }
-                  }}
-                >
-                  <Phone className="w-6 h-6 text-white shrink-0" />
-                  <span className="text-white font-bold text-base leading-tight">+49 163 237 3108</span>
-                </a>
-              </Button>
-              <Button
-                size="lg"
                 className="w-full min-h-[3.5rem] h-auto py-3 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
                 asChild
               >
@@ -61,8 +41,22 @@ export function HeroSection() {
                   }}
                 >
                   <MessageCircle className="w-6 h-6 text-white shrink-0" />
-                  <span className="text-white font-bold text-base leading-tight">WhatsApp schreiben</span>
+                  <div className="flex flex-col items-start text-left">
+                    <span className="text-white font-bold text-base leading-tight">WhatsApp schreiben</span>
+                    <span className="text-white/80 text-xs leading-tight">Direkt & unkompliziert</span>
+                  </div>
                 </a>
+              </Button>
+              <Button
+                size="lg"
+                onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full min-h-[3.5rem] h-auto py-3 px-4 font-semibold justify-start gap-4 rounded-xl"
+              >
+                <FileText className="w-6 h-6 text-white shrink-0" />
+                <div className="flex flex-col items-start text-left">
+                  <span className="text-white font-bold text-base leading-tight">Kostenloses Angebot</span>
+                  <span className="text-white/80 text-xs leading-tight">Unverbindlich anfragen</span>
+                </div>
               </Button>
             </div>
 
