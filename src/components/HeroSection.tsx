@@ -29,7 +29,7 @@ export function HeroSection() {
             >
               <Button
                 size="lg"
-                className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold w-full"
+                className="w-full min-h-[3.5rem] h-auto py-3 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
                 asChild
               >
                 <a
@@ -40,8 +40,8 @@ export function HeroSection() {
                     trackContact();
                   }}
                 >
-                  <MessageCircle className="w-6 h-6" />
-                  <span className="text-lg md:text-xl font-bold">WhatsApp schreiben</span>
+                  <MessageCircle className="w-6 h-6 text-white shrink-0" />
+                  <span className="text-white font-bold text-base leading-tight">WhatsApp schreiben</span>
                 </a>
               </Button>
               <Button variant="hero" size="lg" className="w-full active:scale-[0.97] transition-transform" asChild>
