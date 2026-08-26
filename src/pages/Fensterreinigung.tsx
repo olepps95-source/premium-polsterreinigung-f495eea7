@@ -40,9 +40,9 @@ const services = [
     imgTitle: 'Fensterreinigung Privat Chemnitz',
   },
   {
-    title: 'Rahmen- & Rollladenreinigung',
+    title: 'Rahmen- Rollladen- & Jalousienreinigung',
     price: 'ab 29 €',
-    desc: 'Fensterrahmen und Rollläden gründlich von Staub, Schmutz und Ablagerungen befreit.',
+    desc: 'Fensterrahmen, Rollläden und Außenjalousien gründlich von Staub, Schmutz und Ablagerungen befreit.',
     img: gewerbeImg,
     alt: 'Fensterreinigung Gewerbe Chemnitz – Bürogebäude mit gereinigten Fenstern',
     imgTitle: 'Fensterreinigung Gewerbe Chemnitz',
