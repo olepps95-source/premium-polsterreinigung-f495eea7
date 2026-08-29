@@ -24,6 +24,8 @@ export function Header() {
   const navigate = useNavigate();
   const isTeppich = location.pathname === "/teppichbodenreinigung";
   const isFenster = location.pathname === "/fensterreinigung";
+  const isHome = location.pathname === "/";
+  const homeHero = isHome && !isScrolled && !isMobileMenuOpen;
 
   const isActive = (link: NavLink) => !link.action && link.href === location.pathname;
 
