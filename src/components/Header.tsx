@@ -9,7 +9,7 @@ import reinwerkLogo from "@/assets/reinwerk-logo.png";
 type NavLink = { label: string; href: string; action?: "contact-modal" };
 
 const navLinks: NavLink[] = [
-  { label: "Polsterreinigung", href: "/" },
+  { label: "Polsterreinigung", href: "/polsterreinigung" },
   { label: "Teppichbodenreinigung", href: "/teppichbodenreinigung" },
   { label: "Gewerbe", href: "/gewerbe" },
   { label: "Fensterreinigung", href: "/fensterreinigung" },
