@@ -26,7 +26,7 @@ import {
 } from '@/components/ui/accordion';
 import { trackContact } from '@/lib/meta-pixel';
 
-import heroImg from '@/assets/hero-living-room.jpg';
+import heroHome from '@/assets/reinwerk-hero-home.jpg';
 import fensterImg from '@/assets/fenster-hero.jpg';
 import polsterImg from '@/assets/polsterreinigung.jpeg';
 import teppichImg from '@/assets/teppichbodenreinigung-hero.jpg';
@@ -196,54 +196,87 @@ const Index = () => {
 
       <main>
         {/* 1. HERO */}
-        <section className="relative bg-background pt-24 md:pt-32 pb-10 md:pb-16">
-          <div className="container grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div>
-              <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-primary mb-3">
+        <section className="relative w-full min-h-[100svh] md:min-h-screen overflow-hidden flex items-center md:items-start pt-16 md:pt-32 md:pb-6">
+          {/* Hero-Hintergrundbild */}
+          <div
+            className="absolute inset-0 bg-cover bg-no-repeat bg-[position:62%_center] md:bg-center"
+            style={{ backgroundImage: `url(${heroHome})` }}
+            aria-label="ReinWerk Reinigungsservice für Privat- und Gewerbekunden in Sachsen"
+            role="img"
+          />
+          {/* Overlay: links hell für Lesbarkeit, rechts klar sichtbar */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/15 md:from-background md:from-[28%] md:via-background/60 md:via-[48%] md:to-transparent md:to-[72%]" />
+
+          <div className="container mx-auto relative z-10 px-4">
+            <div className="max-w-xl md:max-w-2xl w-full md:pt-16">
+              <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-primary mb-3 text-left">
                 ReinWerk · Professioneller Reinigungsservice
               </p>
-              <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-3">
-                Professionelle Reinigung für Privat &amp; Gewerbe
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.05] text-left text-white md:text-foreground mb-3">
+                Professionelle Reinigung
+                <br />
+                für Privat &amp; Gewerbe
               </h1>
-              <p className="text-base md:text-xl font-semibold text-foreground mb-3">
+              <p className="text-base md:text-xl font-medium md:font-semibold text-white md:text-foreground mb-3 text-left leading-snug">
                 Sauberkeit, die man sieht. Service, auf den man sich verlassen kann.
               </p>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 max-w-xl">
+              <p className="text-sm md:text-base text-gray-200 md:text-muted-foreground leading-relaxed mb-6 max-w-xl text-left">
                 Fensterreinigung, Polsterreinigung und Teppichbodenreinigung für Privathaushalte und
                 Unternehmen. Professionell vor Ort in Chemnitz, Dresden, Leipzig und Umgebung –
                 weitere Einsatzgebiete auf Anfrage.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 mb-6">
-                <Button
-                  onClick={openContact}
-                  className="w-full sm:w-auto min-h-[3.5rem] h-auto py-3 px-4 bg-primary hover:bg-primary text-primary-foreground justify-start gap-4 rounded-xl shadow-lg font-semibold"
-                >
-                  <FileText className="w-6 h-6 shrink-0" />
-                  <span className="flex flex-col items-start leading-tight">
-                    <span className="font-bold">Kostenloses Angebot erhalten</span>
-                    <span className="text-xs font-normal opacity-90">Unverbindlich anfragen</span>
-                  </span>
+              {/* Desktop/Tablet CTA-Buttons */}
+              <div className="hidden md:flex flex-row gap-3 mb-6">
+                <Button size="lg" onClick={openContact} className="font-semibold h-11 md:h-14">
+                  Kostenloses Angebot erhalten
                 </Button>
                 <Button
+                  size="lg"
+                  className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold h-11 md:h-14"
                   asChild
-                  className="w-full sm:w-auto min-h-[3.5rem] h-auto py-3 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
                 >
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackContact()}>
-                    <MessageCircle className="w-6 h-6 shrink-0" />
-                    <span className="flex flex-col items-start leading-tight">
-                      <span className="font-bold">WhatsApp schreiben</span>
-                      <span className="text-xs font-normal opacity-90">Direkt &amp; unkompliziert</span>
-                    </span>
+                    <MessageCircle className="w-5 h-5" />
+                    WhatsApp schreiben
                   </a>
                 </Button>
               </div>
 
+              {/* Mobile CTA-Buttons */}
+              <div className="md:hidden flex flex-col gap-2 mb-6">
+                <Button
+                  size="lg"
+                  onClick={openContact}
+                  className="w-full min-h-[4rem] h-auto py-3.5 px-4 font-semibold justify-start gap-4 rounded-xl"
+                >
+                  <FileText className="w-6 h-6 text-white shrink-0" />
+                  <div className="flex flex-col items-start text-left">
+                    <span className="text-white font-bold text-base leading-tight">Kostenloses Angebot erhalten</span>
+                    <span className="text-white/80 text-xs leading-tight">Unverbindlich anfragen</span>
+                  </div>
+                </Button>
+                <Button
+                  size="lg"
+                  className="w-full min-h-[4rem] h-auto py-3.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
+                  asChild
+                >
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackContact()}>
+                    <MessageCircle className="w-6 h-6 text-white shrink-0" />
+                    <div className="flex flex-col items-start text-left">
+                      <span className="text-white font-bold text-base leading-tight">WhatsApp schreiben</span>
+                      <span className="text-white/80 text-xs leading-tight">Direkt &amp; unkompliziert</span>
+                    </div>
+                  </a>
+                </Button>
+              </div>
+
+              {/* Trust-Punkte */}
               <ul className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-5">
                 {['Kostenlose Anfahrt im Einsatzgebiet', 'Privat & Gewerbe', 'Persönlicher Ansprechpartner'].map(
                   (t) => (
-                    <li key={t} className="flex items-center gap-2 text-sm text-foreground">
-                      <span className="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <li key={t} className="flex items-center gap-2 text-sm text-white md:text-foreground">
+                      <span className="w-5 h-5 rounded-full bg-slate-900/80 md:bg-primary/10 text-white md:text-primary flex items-center justify-center shrink-0">
                         <Check className="w-3.5 h-3.5" />
                       </span>
                       {t}
@@ -251,14 +284,6 @@ const Index = () => {
                   )
                 )}
               </ul>
-            </div>
-
-            <div className="rounded-2xl overflow-hidden shadow-soft">
-              <img
-                src={heroImg}
-                alt="ReinWerk Reinigungsservice für Privat- und Gewerbekunden in Sachsen"
-                className="w-full h-56 md:h-[420px] object-cover"
-              />
             </div>
           </div>
         </section>
