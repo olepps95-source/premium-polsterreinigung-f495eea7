@@ -49,9 +49,21 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-soft border-b border-border/50" : "bg-transparent"
+        isScrolled || (isHome && isMobileMenuOpen)
+          ? "bg-background/95 backdrop-blur-md shadow-soft border-b border-border/50"
+          : "bg-transparent"
       }`}
     >
+      {homeHero && (
+        <div
+          className="absolute inset-0 -z-10 backdrop-blur-[2px]"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(8,18,28,0.50) 0%, rgba(8,18,28,0.25) 70%, rgba(8,18,28,0) 100%), linear-gradient(90deg, rgba(8,18,28,0.28) 0%, rgba(8,18,28,0.10) 70%, rgba(8,18,28,0) 100%)',
+          }}
+          aria-hidden="true"
+        />
+      )}
       <div className={`container mx-auto flex items-center justify-between ${isTeppich ? "py-2 md:py-4" : "py-4"}`}>
         <a href="/" onClick={handleLogoClick} className={`flex items-center cursor-pointer ${isTeppich ? "gap-2 md:gap-3" : "gap-3"}`}>
           <img
