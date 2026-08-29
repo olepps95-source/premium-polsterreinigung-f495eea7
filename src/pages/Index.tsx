@@ -26,7 +26,7 @@ import {
 } from '@/components/ui/accordion';
 import { trackContact } from '@/lib/meta-pixel';
 
-import heroHomeAsset from '@/assets/reinwerk-hero-home.jpg.asset.json';
+import heroHome from '@/assets/reinwerk-hero-home.jpg';
 import fensterImg from '@/assets/fenster-hero.jpg';
 import polsterImg from '@/assets/polsterreinigung.jpeg';
 import teppichImg from '@/assets/teppichbodenreinigung-hero.jpg';
