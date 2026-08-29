@@ -72,7 +72,13 @@ export function Header() {
             className={`object-contain ${isTeppich ? "h-7 w-7 md:h-10 md:w-10" : "h-8 w-8 md:h-10 md:w-10"}`}
           />
           <span className={`font-bold tracking-tight text-2xl md:text-3xl whitespace-nowrap ${
-            isTeppich && isScrolled ? "text-black md:text-rw-dark" : isFenster && !isScrolled ? "text-white md:text-rw-dark" : "text-rw-dark"
+            homeHero
+              ? "text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]"
+              : isTeppich && isScrolled
+                ? "text-black md:text-rw-dark"
+                : isFenster && !isScrolled
+                  ? "text-white md:text-rw-dark"
+                  : "text-rw-dark"
           }`}>
             Rein<span className="text-rw-blue">Werk</span>
           </span>
