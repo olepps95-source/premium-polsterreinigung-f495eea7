@@ -22,10 +22,8 @@ import ctaImg from '@/assets/fenster-cta.jpg';
 import wintergartenImg from '@/assets/wintergartenreinigung-leipzig.jpg';
 import warumImg from '@/assets/fenster-warum-neu.jpg';
 import schaufensterImg from '@/assets/fenster-schaufenster.jpg';
-import rahmenImgAsset from '@/assets/rahmen-rollladen-jalousienreinigung.jpg.asset.json';
-const rahmenImg = rahmenImgAsset.url;
-import glasreinigungImgAsset from '@/assets/fenster-glasreinigung.jpg.asset.json';
-const glasreinigungImg = glasreinigungImgAsset.url;
+import rahmenImg from '@/assets/rahmen-rollladen-jalousien-neu.jpg';
+import glasreinigungImg from '@/assets/fenster-glasreinigung-neu.jpg';
 
 
 
