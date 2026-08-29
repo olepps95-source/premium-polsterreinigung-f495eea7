@@ -214,6 +214,14 @@ const Index = () => {
                 'linear-gradient(90deg, rgba(8,18,28,0.82) 0%, rgba(8,18,28,0.68) 28%, rgba(8,18,28,0.30) 48%, rgba(8,18,28,0.00) 65%)',
             }}
           />
+          {/* Mobile: zusätzlicher Verlauf für Lesbarkeit über dem Motiv */}
+          <div
+            className="absolute inset-0 md:hidden"
+            style={{
+              background:
+                'linear-gradient(90deg, rgba(8,18,28,0.88) 0%, rgba(8,18,28,0.72) 45%, rgba(8,18,28,0.45) 75%, rgba(8,18,28,0.30) 100%)',
+            }}
+          />
 
           <div className="container mx-auto relative z-10 px-4">
             <div className="max-w-xl md:max-w-2xl w-full md:pt-16">
