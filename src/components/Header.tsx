@@ -24,6 +24,8 @@ export function Header() {
   const navigate = useNavigate();
   const isTeppich = location.pathname === "/teppichbodenreinigung";
   const isFenster = location.pathname === "/fensterreinigung";
+  const isHome = location.pathname === "/";
+  const homeHero = isHome && !isScrolled && !isMobileMenuOpen;
 
   const isActive = (link: NavLink) => !link.action && link.href === location.pathname;
 
@@ -47,9 +49,21 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-soft border-b border-border/50" : "bg-transparent"
+        isScrolled || (isHome && isMobileMenuOpen)
+          ? "bg-background/95 backdrop-blur-md shadow-soft border-b border-border/50"
+          : "bg-transparent"
       }`}
     >
+      {homeHero && (
+        <div
+          className="absolute inset-0 -z-10 backdrop-blur-[2px]"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(8,18,28,0.50) 0%, rgba(8,18,28,0.25) 70%, rgba(8,18,28,0) 100%), linear-gradient(90deg, rgba(8,18,28,0.28) 0%, rgba(8,18,28,0.10) 70%, rgba(8,18,28,0) 100%)',
+          }}
+          aria-hidden="true"
+        />
+      )}
       <div className={`container mx-auto flex items-center justify-between ${isTeppich ? "py-2 md:py-4" : "py-4"}`}>
         <a href="/" onClick={handleLogoClick} className={`flex items-center cursor-pointer ${isTeppich ? "gap-2 md:gap-3" : "gap-3"}`}>
           <img
@@ -58,7 +72,13 @@ export function Header() {
             className={`object-contain ${isTeppich ? "h-7 w-7 md:h-10 md:w-10" : "h-8 w-8 md:h-10 md:w-10"}`}
           />
           <span className={`font-bold tracking-tight text-2xl md:text-3xl whitespace-nowrap ${
-            isTeppich && isScrolled ? "text-black md:text-rw-dark" : isFenster && !isScrolled ? "text-white md:text-rw-dark" : "text-rw-dark"
+            homeHero
+              ? "text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]"
+              : isTeppich && isScrolled
+                ? "text-black md:text-rw-dark"
+                : isFenster && !isScrolled
+                  ? "text-white md:text-rw-dark"
+                  : "text-rw-dark"
           }`}>
             Rein<span className="text-rw-blue">Werk</span>
           </span>
@@ -69,7 +89,11 @@ export function Header() {
           {navLinks.map((link) => {
             const active = isActive(link);
             const className = `text-xs lg:text-sm font-bold whitespace-nowrap transition-colors ${
-              active ? "text-primary font-bold" : "text-muted-foreground hover:text-foreground"
+              active
+                ? "text-primary"
+                : homeHero
+                  ? "text-white/95 hover:text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]"
+                  : "text-muted-foreground hover:text-foreground"
             }`;
             if (link.action === "contact-modal") {
               return (
@@ -112,7 +136,13 @@ export function Header() {
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className={`md:hidden flex items-center justify-center min-w-[44px] min-h-[44px] ${isTeppich ? "p-1.5" : "p-2"} ${
-            isTeppich && isScrolled ? "text-black" : isFenster && !isScrolled ? "text-white md:text-foreground" : "text-foreground"
+            homeHero
+              ? "text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]"
+              : isTeppich && isScrolled
+                ? "text-black"
+                : isFenster && !isScrolled
+                  ? "text-white md:text-foreground"
+                  : "text-foreground"
           }`}
           aria-label="Menü öffnen"
         >
