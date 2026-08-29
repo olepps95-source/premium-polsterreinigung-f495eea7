@@ -196,7 +196,7 @@ const Index = () => {
 
       <main>
         {/* 1. HERO */}
-        <section className="relative bg-background pt-6 pb-10 md:py-16">
+        <section className="relative bg-background pt-24 md:pt-32 pb-10 md:pb-16">
           <div className="container grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
               <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-primary mb-3">
