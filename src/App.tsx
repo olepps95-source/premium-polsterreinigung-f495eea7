@@ -31,6 +31,7 @@ const App = () => (
           <MetaPixelProvider />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/polsterreinigung" element={<Polsterreinigung />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/agb" element={<AGB />} />
