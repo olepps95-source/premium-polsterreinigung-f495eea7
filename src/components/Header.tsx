@@ -136,7 +136,13 @@ export function Header() {
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className={`md:hidden flex items-center justify-center min-w-[44px] min-h-[44px] ${isTeppich ? "p-1.5" : "p-2"} ${
-            isTeppich && isScrolled ? "text-black" : isFenster && !isScrolled ? "text-white md:text-foreground" : "text-foreground"
+            homeHero
+              ? "text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]"
+              : isTeppich && isScrolled
+                ? "text-black"
+                : isFenster && !isScrolled
+                  ? "text-white md:text-foreground"
+                  : "text-foreground"
           }`}
           aria-label="Menü öffnen"
         >
