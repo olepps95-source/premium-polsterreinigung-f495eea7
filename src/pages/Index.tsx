@@ -27,6 +27,7 @@ import {
 import { trackContact } from '@/lib/meta-pixel';
 
 import heroImg from '@/assets/hero-living-room.jpg';
+import heroHomeAsset from '@/assets/reinwerk-hero-home.jpg.asset.json';
 import fensterImg from '@/assets/fenster-hero.jpg';
 import polsterImg from '@/assets/polsterreinigung.jpeg';
 import teppichImg from '@/assets/teppichbodenreinigung-hero.jpg';
