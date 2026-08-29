@@ -200,7 +200,7 @@ const Index = () => {
           {/* Hero-Hintergrundbild */}
           <div
             className="absolute inset-0 bg-cover bg-no-repeat bg-[position:62%_center] md:bg-center"
-            style={{ backgroundImage: `url(${heroHomeAsset.url})` }}
+            style={{ backgroundImage: `url(${heroHome})` }}
             aria-label="ReinWerk Reinigungsservice für Privat- und Gewerbekunden in Sachsen"
             role="img"
           />
