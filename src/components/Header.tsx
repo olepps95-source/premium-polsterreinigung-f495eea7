@@ -89,7 +89,11 @@ export function Header() {
           {navLinks.map((link) => {
             const active = isActive(link);
             const className = `text-xs lg:text-sm font-bold whitespace-nowrap transition-colors ${
-              active ? "text-primary font-bold" : "text-muted-foreground hover:text-foreground"
+              active
+                ? "text-primary"
+                : homeHero
+                  ? "text-white/95 hover:text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]"
+                  : "text-muted-foreground hover:text-foreground"
             }`;
             if (link.action === "contact-modal") {
               return (
