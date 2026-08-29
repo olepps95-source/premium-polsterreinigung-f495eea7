@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Polsterreinigung from "./pages/Polsterreinigung";
 import Datenschutz from "./pages/Datenschutz";
 import Impressum from "./pages/Impressum";
 import AGB from "./pages/AGB";
