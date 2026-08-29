@@ -206,8 +206,14 @@ const Index = () => {
             aria-label="ReinWerk Reinigungsservice für Privat- und Gewerbekunden in Sachsen"
             role="img"
           />
-          {/* Overlay: links hell für Lesbarkeit, rechts klar sichtbar */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/15 md:from-background md:from-[28%] md:via-background/60 md:via-[48%] md:to-transparent md:to-[72%]" />
+          {/* Overlay: dunkler Verlauf nur links für Textlesbarkeit, rechts klar */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(90deg, rgba(8,18,28,0.82) 0%, rgba(8,18,28,0.68) 28%, rgba(8,18,28,0.30) 48%, rgba(8,18,28,0.00) 65%)',
+            }}
+          />
 
           <div className="container mx-auto relative z-10 px-4">
             <div className="max-w-xl md:max-w-2xl w-full md:pt-16">
