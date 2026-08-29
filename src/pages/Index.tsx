@@ -235,7 +235,7 @@ const Index = () => {
               </p>
 
               {/* Vorteile */}
-              <ul className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 mb-6">
+              <ul className="flex flex-col gap-3 md:gap-4 mb-6">
                 {[
                   { icon: Car, label: 'Kostenlose Anfahrt' },
                   { icon: Building2, label: 'Privat & Gewerbe' },
@@ -243,10 +243,10 @@ const Index = () => {
                 ].map(({ icon: Icon, label }) => (
                   <li
                     key={label}
-                    className="flex items-center gap-2 md:gap-3 text-sm md:text-[17px] text-white"
+                    className="flex items-center gap-2 md:gap-4 text-sm md:text-[19px] md:font-bold text-white"
                   >
-                    <span className="w-8 h-8 md:w-11 md:h-11 rounded-full border border-white/60 flex items-center justify-center shrink-0">
-                      <Icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                    <span className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/60 flex items-center justify-center shrink-0">
+                      <Icon className="w-4 h-4 md:w-6 md:h-6 text-white" />
                     </span>
                     {label}
                   </li>
