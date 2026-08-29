@@ -11,6 +11,8 @@ import {
   CalendarClock,
   Car,
   ArrowRight,
+  ShieldCheck,
+  Building2,
 } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -204,27 +206,52 @@ const Index = () => {
             aria-label="ReinWerk Reinigungsservice für Privat- und Gewerbekunden in Sachsen"
             role="img"
           />
-          {/* Overlay: links hell für Lesbarkeit, rechts klar sichtbar */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/15 md:from-background md:from-[28%] md:via-background/60 md:via-[48%] md:to-transparent md:to-[72%]" />
+          {/* Overlay: dunkler Verlauf nur links für Textlesbarkeit, rechts klar */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(90deg, rgba(8,18,28,0.82) 0%, rgba(8,18,28,0.68) 28%, rgba(8,18,28,0.30) 48%, rgba(8,18,28,0.00) 65%)',
+            }}
+          />
+          {/* Mobile: zusätzlicher Verlauf für Lesbarkeit über dem Motiv */}
+          <div
+            className="absolute inset-0 md:hidden"
+            style={{
+              background:
+                'linear-gradient(90deg, rgba(8,18,28,0.88) 0%, rgba(8,18,28,0.72) 45%, rgba(8,18,28,0.45) 75%, rgba(8,18,28,0.30) 100%)',
+            }}
+          />
 
           <div className="container mx-auto relative z-10 px-4">
             <div className="max-w-xl md:max-w-2xl w-full md:pt-16">
-              <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-primary mb-3 text-left">
-                ReinWerk · Professioneller Reinigungsservice
-              </p>
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.05] text-left text-white md:text-foreground mb-3">
-                Professionelle Reinigung
-                <br />
-                für Privat &amp; Gewerbe
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.05] text-left mb-4">
+                <span className="text-white block">Professionelle Reinigung</span>
+                <span className="text-primary block">für Privat & Gewerbe</span>
               </h1>
-              <p className="text-base md:text-xl font-medium md:font-semibold text-white md:text-foreground mb-3 text-left leading-snug">
-                Sauberkeit, die man sieht. Service, auf den man sich verlassen kann.
+              <p className="text-sm md:text-base text-white leading-relaxed mb-6 max-w-md text-left">
+                Fensterreinigung, Polsterreinigung und Teppichbodenreinigung – zuverlässig, gründlich
+                und professionell vor Ort.
               </p>
-              <p className="text-sm md:text-base text-gray-200 md:text-muted-foreground leading-relaxed mb-6 max-w-xl text-left">
-                Fensterreinigung, Polsterreinigung und Teppichbodenreinigung für Privathaushalte und
-                Unternehmen. Professionell vor Ort in Chemnitz, Dresden, Leipzig und Umgebung –
-                weitere Einsatzgebiete auf Anfrage.
-              </p>
+
+              {/* Vorteile */}
+              <ul className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 mb-6">
+                {[
+                  { icon: Car, label: 'Kostenlose Anfahrt' },
+                  { icon: Building2, label: 'Privat & Gewerbe' },
+                  { icon: ShieldCheck, label: 'Persönlicher Service' },
+                ].map(({ icon: Icon, label }) => (
+                  <li
+                    key={label}
+                    className="flex items-center gap-2 text-sm text-white"
+                  >
+                    <span className="w-8 h-8 rounded-full border border-white/60 flex items-center justify-center shrink-0">
+                      <Icon className="w-4 h-4 text-white" />
+                    </span>
+                    {label}
+                  </li>
+                ))}
+              </ul>
 
               {/* Desktop/Tablet CTA-Buttons */}
               <div className="hidden md:flex flex-row gap-3 mb-6">
@@ -271,19 +298,6 @@ const Index = () => {
                 </Button>
               </div>
 
-              {/* Trust-Punkte */}
-              <ul className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-5">
-                {['Kostenlose Anfahrt im Einsatzgebiet', 'Privat & Gewerbe', 'Persönlicher Ansprechpartner'].map(
-                  (t) => (
-                    <li key={t} className="flex items-center gap-2 text-sm text-white md:text-foreground">
-                      <span className="w-5 h-5 rounded-full bg-slate-900/80 md:bg-primary/10 text-white md:text-primary flex items-center justify-center shrink-0">
-                        <Check className="w-3.5 h-3.5" />
-                      </span>
-                      {t}
-                    </li>
-                  )
-                )}
-              </ul>
             </div>
           </div>
         </section>
