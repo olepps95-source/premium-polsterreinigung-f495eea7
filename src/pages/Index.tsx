@@ -229,7 +229,7 @@ const Index = () => {
                 <span className="text-white block">Professionelle Reinigung</span>
                 <span className="text-primary block">für Privat & Gewerbe</span>
               </h1>
-              <p className="text-sm md:text-base text-white leading-relaxed mb-6 max-w-md text-left">
+              <p className="text-sm md:text-[20px] text-white md:leading-[1.45] leading-relaxed mb-6 max-w-md text-left">
                 Fensterreinigung, Polsterreinigung und Teppichbodenreinigung – zuverlässig, gründlich
                 und professionell vor Ort.
               </p>
@@ -243,10 +243,10 @@ const Index = () => {
                 ].map(({ icon: Icon, label }) => (
                   <li
                     key={label}
-                    className="flex items-center gap-2 text-sm text-white"
+                    className="flex items-center gap-2 md:gap-3 text-sm md:text-[17px] text-white"
                   >
-                    <span className="w-8 h-8 rounded-full border border-white/60 flex items-center justify-center shrink-0">
-                      <Icon className="w-4 h-4 text-white" />
+                    <span className="w-8 h-8 md:w-11 md:h-11 rounded-full border border-white/60 flex items-center justify-center shrink-0">
+                      <Icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
                     </span>
                     {label}
                   </li>
