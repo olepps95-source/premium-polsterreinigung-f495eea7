@@ -98,7 +98,7 @@ const advantages = [
 ];
 
 const projects = [
-  { title: 'Fensterreinigung', before: fensterBeforeImg, after: fensterAfterImg },
+  { title: 'Fensterreinigung', img: fensterErgebnisImg.url },
   { img: polsterProjektImg, title: 'Polsterreinigung' },
   { img: wintergartenImg, title: 'Wintergartenreinigung' },
   { img: teppichBueroImg, title: 'Teppichbodenreinigung' },
