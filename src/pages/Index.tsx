@@ -29,6 +29,7 @@ import {
 import { trackContact } from '@/lib/meta-pixel';
 
 import heroHome from '@/assets/reinwerk-hero-home.jpg';
+import heroMobile from '@/assets/reinwerk-hero-mobile.jpg';
 import fensterImg from '@/assets/fenster-hero.jpg';
 import polsterImg from '@/assets/polsterreinigung.jpeg';
 import teppichImg from '@/assets/teppichbodenreinigung-hero.jpg';
@@ -205,6 +206,12 @@ const Index = () => {
             style={{ backgroundImage: `url(${heroHome})` }}
             aria-label="ReinWerk Reinigungsservice für Privat- und Gewerbekunden in Sachsen"
             role="img"
+          />
+          {/* Mobile: eigenes Hochformat-Hintergrundbild */}
+          <div
+            className="absolute inset-0 bg-cover bg-no-repeat bg-[position:center_30%] md:hidden"
+            style={{ backgroundImage: `url(${heroMobile})` }}
+            aria-hidden="true"
           />
           {/* Overlay: dunkler Verlauf nur links für Textlesbarkeit, rechts klar */}
           <div
