@@ -592,7 +592,7 @@ export default function Fensterreinigung() {
           </div>
           <div className="container mx-auto relative z-10 text-center max-w-2xl">
             <h2 className="text-2xl md:text-5xl font-bold text-foreground tracking-tight">
-              Jetzt Fensterreinigung in Chemnitz anfragen
+              Jetzt Reinigung anfragen & kostenloses Angebot erhalten
             </h2>
             <p className="mt-2 text-base md:text-lg text-foreground/80">
               Schnelle Rückmeldung per WhatsApp.
