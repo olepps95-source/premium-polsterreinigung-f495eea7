@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import {
@@ -170,6 +170,16 @@ const organizationSchema = {
 
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
+  const [whyActive, setWhyActive] = useState(0);
+  const whyScrollRef = useRef<HTMLDivElement>(null);
+
+  const handleWhyScroll = () => {
+    const el = whyScrollRef.current;
+    if (!el) return;
+    const cardWidth = el.scrollWidth / advantages.length;
+    const idx = Math.min(advantages.length - 1, Math.round(el.scrollLeft / cardWidth));
+    setWhyActive(idx);
+  };
 
   const openContact = () => {
     trackContact();
