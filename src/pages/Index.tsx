@@ -224,7 +224,7 @@ const Index = () => {
           />
 
           <div className="container mx-auto relative z-10 px-4">
-            <div className="max-w-xl md:max-w-2xl w-full pt-32 md:pt-16">
+            <div className="max-w-xl md:max-w-2xl w-full pt-24 md:pt-16">
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.05] text-left mb-4">
                 <span className="text-white block">Professionelle Reinigung</span>
                 <span className="text-primary block">für Privat & Gewerbe</span>
