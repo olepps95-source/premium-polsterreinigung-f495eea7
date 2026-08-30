@@ -229,7 +229,7 @@ const Index = () => {
                 <span className="text-white block">Professionelle Reinigung</span>
                 <span className="text-primary block">für Privat & Gewerbe</span>
               </h1>
-              <p className="text-sm md:text-[23px] text-white md:leading-[1.45] leading-relaxed mb-6 max-w-md text-left font-bold">
+              <p className="text-base md:text-[23px] text-white md:leading-[1.45] leading-relaxed mb-6 max-w-md text-left font-bold">
                 Fensterreinigung, Polsterreinigung und Teppichbodenreinigung – zuverlässig, gründlich
                 und professionell vor Ort.
               </p>
