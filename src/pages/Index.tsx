@@ -177,6 +177,8 @@ const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
   const [whyActive, setWhyActive] = useState(0);
   const whyScrollRef = useRef<HTMLDivElement>(null);
+  const [projActive, setProjActive] = useState(0);
+  const projScrollRef = useRef<HTMLDivElement>(null);
 
   const handleWhyScroll = () => {
     const el = whyScrollRef.current;
@@ -184,6 +186,21 @@ const Index = () => {
     const cardWidth = el.scrollWidth / advantages.length;
     const idx = Math.min(advantages.length - 1, Math.round(el.scrollLeft / cardWidth));
     setWhyActive(idx);
+  };
+
+  const handleProjScroll = () => {
+    const el = projScrollRef.current;
+    if (!el) return;
+    const cardWidth = el.scrollWidth / projects.length;
+    const idx = Math.min(projects.length - 1, Math.round(el.scrollLeft / cardWidth));
+    setProjActive(idx);
+  };
+
+  const scrollProj = (dir: 1 | -1) => {
+    const el = projScrollRef.current;
+    if (!el) return;
+    const cardWidth = el.scrollWidth / projects.length;
+    el.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
   };
 
   const openContact = () => {
