@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { ContactModal } from '@/components/ContactModal';
+import { HomepageInquiryModal } from '@/components/HomepageInquiryModal';
 import { GoogleReviews } from '@/components/GoogleReviews';
 import { EinsatzgebietSachsen } from '@/components/EinsatzgebietSachsen';
 import { Button } from '@/components/ui/button';
@@ -226,7 +226,7 @@ const Index = () => {
       </Helmet>
 
       <Header />
-      <ContactModal open={contactOpen} onOpenChange={setContactOpen} />
+      <HomepageInquiryModal open={contactOpen} onOpenChange={setContactOpen} />
 
       <main>
         {/* 1. HERO */}
