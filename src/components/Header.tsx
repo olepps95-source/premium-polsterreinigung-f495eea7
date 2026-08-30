@@ -1,25 +1,25 @@
-import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ContactModal } from "@/components/ContactModal";
-import { trackGoogleAdsConversion } from "@/lib/google-ads";
 import reinwerkLogo from "@/assets/reinwerk-logo.png";
 
-type NavLink = { label: string; href: string; action?: "contact-modal" };
+type ServiceLink = { label: string; description: string; href: string };
 
-const navLinks: NavLink[] = [
-  { label: "Polsterreinigung", href: "/polsterreinigung" },
-  { label: "Teppichbodenreinigung", href: "/teppichbodenreinigung" },
-  { label: "Gewerbe", href: "/gewerbe" },
-  { label: "Fensterreinigung", href: "/fensterreinigung" },
-  { label: "Kontakt", href: "#", action: "contact-modal" },
+const serviceLinks: ServiceLink[] = [
+  { label: "Polsterreinigung", description: "Sofas, Sessel & Polstermöbel", href: "/polsterreinigung" },
+  { label: "Teppichbodenreinigung", description: "Teppichböden für Privat & Gewerbe", href: "/teppichbodenreinigung" },
+  { label: "Fensterreinigung", description: "Fenster, Glas & Wintergärten", href: "/fensterreinigung" },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
   const isTeppich = location.pathname === "/teppichbodenreinigung";
@@ -27,7 +27,8 @@ export function Header() {
   const isHome = location.pathname === "/";
   const homeHero = isHome && !isScrolled && !isMobileMenuOpen;
 
-  const isActive = (link: NavLink) => !link.action && link.href === location.pathname;
+  const isServiceActive = serviceLinks.some((s) => s.href === location.pathname);
+  const isGewerbeActive = location.pathname === "/gewerbe";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,12 +38,61 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close dropdown on route change or outside click
+  useEffect(() => {
+    setIsServicesOpen(false);
+    setIsMobileMenuOpen(false);
+    setIsMobileServicesOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (location.pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       navigate("/");
+    }
+  };
+
+  const desktopLinkClass = (active: boolean) =>
+    `text-xs lg:text-sm font-bold whitespace-nowrap transition-colors ${
+      active
+        ? "text-primary"
+        : homeHero
+          ? "text-white/95 hover:text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]"
+          : "text-muted-foreground hover:text-foreground"
+    }`;
+
+  const mobileLinkClass = (active: boolean) =>
+    `text-base font-bold transition-colors py-2 ${
+      active
+        ? "text-primary font-bold"
+        : isTeppich && isScrolled
+          ? "text-rw-dark hover:text-black focus:text-black active:text-black"
+          : (isTeppich || (isFenster && !isScrolled))
+            ? "text-white hover:text-white focus:text-white active:text-white"
+            : "text-foreground hover:text-primary"
+    }`;
+
+  const phoneTracking = () => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "click_call", {
+        event_category: "contact",
+        event_label: "phone_click",
+      });
+      (window as any).gtag("event", "conversion", {
+        send_to: "AW-18104648983/Y5YPCM_pwZ8cEJeK_LhD",
+      });
     }
   };
 
@@ -86,46 +136,64 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-4 lg:gap-8">
-          {navLinks.map((link) => {
-            const active = isActive(link);
-            const className = `text-xs lg:text-sm font-bold whitespace-nowrap transition-colors ${
-              active
-                ? "text-primary"
-                : homeHero
-                  ? "text-white/95 hover:text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]"
-                  : "text-muted-foreground hover:text-foreground"
-            }`;
-            if (link.action === "contact-modal") {
-              return (
-                <button key={link.label} type="button" onClick={() => setIsContactOpen(true)} className={className}>
-                  {link.label}
-                </button>
-              );
-            }
-            return (
-              <Link key={link.label} to={link.href} aria-current={active ? "page" : undefined} className={className}>
-                {link.label}
-              </Link>
-            );
-          })}
+          {/* Leistungen Dropdown */}
+          <div
+            ref={dropdownRef}
+            className="relative"
+            onMouseEnter={() => setIsServicesOpen(true)}
+            onMouseLeave={() => setIsServicesOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setIsServicesOpen((v) => !v)}
+              aria-expanded={isServicesOpen}
+              aria-haspopup="true"
+              className={`${desktopLinkClass(isServiceActive)} flex items-center gap-1 py-2`}
+            >
+              Leistungen
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {isServicesOpen && (
+              <div className="absolute left-1/2 -translate-x-1/2 top-full pt-1 animate-fade-in">
+                <div className="w-72 rounded-xl bg-white/95 backdrop-blur-md shadow-medium border border-border/60 p-2">
+                  {serviceLinks.map((service) => {
+                    const active = location.pathname === service.href;
+                    return (
+                      <Link
+                        key={service.href}
+                        to={service.href}
+                        aria-current={active ? "page" : undefined}
+                        className={`block rounded-lg px-4 py-3 transition-colors ${
+                          active ? "bg-accent" : "hover:bg-accent"
+                        }`}
+                      >
+                        <span className={`block text-sm font-semibold ${active ? "text-primary" : "text-foreground"}`}>
+                          {service.label}
+                        </span>
+                        <span className="block text-xs text-muted-foreground mt-0.5">
+                          {service.description}
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <Link to="/gewerbe" aria-current={isGewerbeActive ? "page" : undefined} className={desktopLinkClass(isGewerbeActive)}>
+            Gewerbe
+          </Link>
+
+          <button type="button" onClick={() => setIsContactOpen(true)} className={desktopLinkClass(false)}>
+            Kontakt
+          </button>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
           <Button variant="hero" size="sm" asChild>
-            <a
-              href="tel:+491632373108"
-              onClick={() => {
-                if (typeof window !== "undefined" && (window as any).gtag) {
-                  (window as any).gtag("event", "click_call", {
-                    event_category: "contact",
-                    event_label: "phone_click",
-                  });
-                  (window as any).gtag("event", "conversion", {
-                    send_to: "AW-18104648983/Y5YPCM_pwZ8cEJeK_LhD",
-                  });
-                }
-              }}
-            >
+            <a href="tel:+491632373108" onClick={phoneTracking}>
               <Phone className="w-4 h-4" />
               +49 163 2373108
             </a>
@@ -158,44 +226,57 @@ export function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-background/98 backdrop-blur-lg border-t border-border animate-fade-in">
           <nav className="container mx-auto py-6 flex flex-col gap-4">
-            {navLinks.map((link) => {
-              const active = isActive(link);
-              const className = `text-base font-bold transition-colors py-2 ${
-                active
-                  ? "text-primary font-bold"
-                  : isTeppich && isScrolled
-                    ? "text-rw-dark hover:text-black focus:text-black active:text-black"
-                    : (isTeppich || (isFenster && !isScrolled))
-                      ? "text-white hover:text-white focus:text-white active:text-white"
-                      : "text-foreground hover:text-primary"
-              }`;
-              if (link.action === "contact-modal") {
-                return (
-                  <button
-                    key={link.label}
-                    type="button"
-                    onClick={() => {
-                      setIsContactOpen(true);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className={`${className} text-left`}
-                  >
-                    {link.label}
-                  </button>
-                );
-              }
-              return (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  aria-current={active ? "page" : undefined}
-                  className={className}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
+            {/* Leistungen Accordion */}
+            <div>
+              <button
+                type="button"
+                onClick={() => setIsMobileServicesOpen((v) => !v)}
+                aria-expanded={isMobileServicesOpen}
+                className={`${mobileLinkClass(isServiceActive)} w-full flex items-center justify-between text-left`}
+              >
+                Leistungen
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isMobileServicesOpen ? "rotate-180" : ""}`} />
+              </button>
+              {isMobileServicesOpen && (
+                <div className="flex flex-col gap-1 pl-4 mt-2 border-l-2 border-border animate-fade-in">
+                  {serviceLinks.map((service) => {
+                    const active = location.pathname === service.href;
+                    return (
+                      <Link
+                        key={service.href}
+                        to={service.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        aria-current={active ? "page" : undefined}
+                        className={`${mobileLinkClass(active)} block`}
+                      >
+                        {service.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            <Link
+              to="/gewerbe"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-current={isGewerbeActive ? "page" : undefined}
+              className={mobileLinkClass(isGewerbeActive)}
+            >
+              Gewerbe
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => {
+                setIsContactOpen(true);
+                setIsMobileMenuOpen(false);
+              }}
+              className={`${mobileLinkClass(false)} text-left`}
+            >
+              Kontakt
+            </button>
+
             <div className="pt-4 border-t border-border flex flex-col gap-3">
               <Button variant="hero" className="w-full" asChild>
                 <a
