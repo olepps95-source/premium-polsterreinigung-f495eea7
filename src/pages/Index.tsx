@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import {
@@ -170,6 +170,16 @@ const organizationSchema = {
 
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
+  const [whyActive, setWhyActive] = useState(0);
+  const whyScrollRef = useRef<HTMLDivElement>(null);
+
+  const handleWhyScroll = () => {
+    const el = whyScrollRef.current;
+    if (!el) return;
+    const cardWidth = el.scrollWidth / advantages.length;
+    const idx = Math.min(advantages.length - 1, Math.round(el.scrollLeft / cardWidth));
+    setWhyActive(idx);
+  };
 
   const openContact = () => {
     trackContact();
@@ -369,21 +379,57 @@ const Index = () => {
         </section>
 
         {/* 4. WARUM REINWERK */}
-        <section className="py-10 md:py-16 bg-background">
+        <section className="py-10 md:py-11" style={{ backgroundColor: '#0C1B2A' }}>
           <div className="container">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-8">
-              Warum Kunden ReinWerk wählen
+            <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-8 md:mb-10">
+              Warum ReinWerk?
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
-              {advantages.map((a) => (
-                <div key={a.title} className="bg-card p-5 rounded-2xl border border-border/60 shadow-soft">
-                  <div className="w-11 h-11 rounded-xl bg-accent flex items-center justify-center mb-3">
-                    <a.icon className="w-5 h-5 text-primary" />
+
+            {/* Desktop: 5 Vorteile in einer Reihe mit Trennlinien */}
+            <div className="hidden md:flex max-w-6xl mx-auto items-stretch justify-between">
+              {advantages.map((a, i) => (
+                <div key={a.title} className="flex items-stretch flex-1 min-w-0">
+                  {i > 0 && (
+                    <div className="self-center w-px h-20 shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.15)' }} />
+                  )}
+                  <div className="flex-1 px-5 text-center">
+                    <a.icon className="w-12 h-12 mx-auto mb-4 text-primary" strokeWidth={1.6} />
+                    <h3 className="font-bold text-white text-lg mb-2">{a.title}</h3>
+                    <p className="text-[15px] leading-[1.4] text-white/60">{a.text}</p>
                   </div>
-                  <h3 className="font-semibold text-foreground mb-1.5">{a.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{a.text}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Mobile: swipebares Carousel mit Punkten */}
+            <div className="md:hidden">
+              <div
+                ref={whyScrollRef}
+                onScroll={handleWhyScroll}
+                className="flex overflow-x-auto snap-x snap-mandatory -mx-4 px-4"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
+              >
+                {advantages.map((a) => (
+                  <div
+                    key={a.title}
+                    className="shrink-0 snap-center text-center px-3"
+                    style={{ width: '68%' }}
+                  >
+                    <a.icon className="w-12 h-12 mx-auto mb-4 text-primary" strokeWidth={1.6} />
+                    <h3 className="font-bold text-white text-lg mb-2">{a.title}</h3>
+                    <p className="text-[15px] leading-[1.4] text-white/60">{a.text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex justify-center gap-2 mt-5">
+                {advantages.map((a, i) => (
+                  <span
+                    key={a.title}
+                    className="w-1.5 h-1.5 rounded-full transition-colors"
+                    style={{ backgroundColor: i === whyActive ? '#1598D4' : 'rgba(255,255,255,0.25)' }}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </section>
