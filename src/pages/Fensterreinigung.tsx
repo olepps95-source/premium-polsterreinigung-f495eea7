@@ -546,7 +546,7 @@ export default function Fensterreinigung() {
           <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Fensterreinigung für Privatkunden in Chemnitz
+                Fensterreinigung für Privatkunden in Sachsen
               </h2>
               <div className="mt-3 space-y-2 text-base md:text-lg text-muted-foreground">
                 <p>Sie möchten Ihre Fenster reinigen lassen – ohne Aufwand und ohne Schlieren?</p>
