@@ -356,27 +356,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* 3. GEWERBE */}
-        <section className="py-10 md:py-16 bg-foreground">
-          <div className="container max-w-4xl text-center">
-            <h2 className="text-2xl md:text-4xl font-bold text-background mb-3">
-              Professionelle Reinigung für Unternehmen
-            </h2>
-            <p className="text-sm md:text-base text-background/80 leading-relaxed mb-4">
-              Zuverlässige Reinigungslösungen für Büros, Praxen, Hotels, Kitas und weitere
-              Gewerbeobjekte.
-            </p>
-            <p className="text-sm md:text-base font-semibold text-background/90 mb-6">
-              Büros · Arztpraxen · Hotels · Kitas · Fitnessstudios · Gewerbeflächen
-            </p>
-            <Button asChild size="lg" className="rounded-xl font-semibold">
-              <Link to="/gewerbe">
-                Reinigung für Gewerbe entdecken
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
-            </Button>
-          </div>
-        </section>
 
         {/* 4. WARUM REINWERK */}
         <section className="py-10 md:py-11" style={{ backgroundColor: '#0C1B2A' }}>
