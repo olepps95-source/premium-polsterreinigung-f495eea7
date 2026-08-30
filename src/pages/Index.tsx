@@ -235,15 +235,17 @@ const Index = () => {
               </p>
 
               {/* Vorteile */}
-              <ul className="flex flex-col gap-3 md:gap-4 mb-6">
+              <ul className="flex flex-col mb-6">
                 {[
                   { icon: Car, label: 'Kostenlose Anfahrt' },
                   { icon: Building2, label: 'Privat & Gewerbe' },
                   { icon: ShieldCheck, label: 'Persönlicher Service' },
-                ].map(({ icon: Icon, label }) => (
+                ].map(({ icon: Icon, label }, i) => (
                   <li
                     key={label}
-                    className="flex items-center gap-2 md:gap-4 text-base md:text-[21px] font-bold text-white"
+                    className={`flex items-center gap-2 md:gap-4 text-base md:text-[21px] font-bold text-white ${
+                      i > 0 ? 'pt-4 md:pt-5 border-t border-white/20' : ''
+                    } ${i < 2 ? 'pb-4 md:pb-5' : ''}`}
                   >
                     <span className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/60 flex items-center justify-center shrink-0">
                       <Icon className="w-4 h-4 md:w-6 md:h-6 text-white" />
