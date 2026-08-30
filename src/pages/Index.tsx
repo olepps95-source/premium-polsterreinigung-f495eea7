@@ -435,22 +435,85 @@ const Index = () => {
           </div>
         </section>
 
-        {/* 5. UNSERE ARBEIT */}
-        <section className="py-10 md:py-16 bg-muted/30">
-          <div className="container">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-8">
-              Unsere Arbeit spricht für sich
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
-              {projects.map((p) => (
-                <figure key={p.title} className="bg-card rounded-2xl border border-border overflow-hidden shadow-soft">
-                  <img src={p.img} alt={p.title} className="w-full h-44 md:h-52 object-cover" loading="lazy" />
-                  <figcaption className="p-4">
-                    <p className="font-semibold text-foreground text-sm md:text-base">{p.title}</p>
-                    <p className="text-sm text-muted-foreground mt-1">{p.text}</p>
-                  </figcaption>
-                </figure>
-              ))}
+        {/* 5. ERGEBNISSE */}
+        <section className="py-8 md:py-12 bg-muted/30">
+          <div className="container max-w-6xl">
+            <div className="flex items-end justify-between mb-6 md:mb-8">
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground">
+                Ergebnisse, die man sieht
+              </h2>
+              <Link
+                to="/polsterreinigung"
+                className="hidden sm:inline-flex items-center gap-1 text-primary font-semibold text-sm md:text-base hover:underline shrink-0"
+              >
+                Mehr ansehen <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="relative">
+              {/* Navigationsbuttons (Desktop) */}
+              <button
+                onClick={() => scrollProj(-1)}
+                className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-card border border-border shadow-soft items-center justify-center hover:bg-accent transition-colors"
+                aria-label="Vorheriges Ergebnis"
+              >
+                <ChevronLeft className="w-5 h-5 text-foreground" />
+              </button>
+              <button
+                onClick={() => scrollProj(1)}
+                className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-card border border-border shadow-soft items-center justify-center hover:bg-accent transition-colors"
+                aria-label="Nächstes Ergebnis"
+              >
+                <ChevronRight className="w-5 h-5 text-foreground" />
+              </button>
+
+              <div
+                ref={projScrollRef}
+                onScroll={handleProjScroll}
+                className="flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
+              >
+                {projects.map((p) => (
+                  <figure
+                    key={p.title}
+                    className="shrink-0 snap-center w-[86%] sm:w-[46%] md:w-[31.5%]"
+                  >
+                    {'before' in p && p.before && p.after ? (
+                      <div className="flex rounded-xl overflow-hidden h-52 md:h-60">
+                        <div className="relative w-1/2">
+                          <img src={p.before} alt={`${p.title} Vorher`} className="w-full h-full object-cover" loading="lazy" />
+                          <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded text-[10px] font-bold tracking-wider text-white bg-black/60">VORHER</span>
+                        </div>
+                        <div className="relative w-1/2">
+                          <img src={p.after} alt={`${p.title} Nachher`} className="w-full h-full object-cover" loading="lazy" />
+                          <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded text-[10px] font-bold tracking-wider text-white bg-black/60">NACHHER</span>
+                        </div>
+                      </div>
+                    ) : (
+                      <img
+                        src={p.img}
+                        alt={p.title}
+                        className="w-full h-52 md:h-60 object-cover rounded-xl"
+                        loading="lazy"
+                      />
+                    )}
+                    <figcaption className="pt-2.5 px-0.5">
+                      <p className="font-semibold text-foreground text-sm md:text-base">{p.title}</p>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+
+              {/* Pagination-Dots */}
+              <div className="flex justify-center gap-2 mt-5">
+                {projects.map((p, i) => (
+                  <span
+                    key={p.title}
+                    className="w-1.5 h-1.5 rounded-full transition-colors"
+                    style={{ backgroundColor: i === projActive ? '#1598D4' : 'rgba(0,0,0,0.15)' }}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </section>
