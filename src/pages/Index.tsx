@@ -33,7 +33,7 @@ import { trackContact } from '@/lib/meta-pixel';
 import heroHome from '@/assets/reinwerk-hero-home.jpg';
 import heroMobile from '@/assets/reinwerk-hero-mobile.jpg';
 import fensterImg from '@/assets/fenster-hero.jpg';
-import fensterErgebnisImg from '@/assets/fensterreinigung-ergebnis.jpg.asset.json';
+import fensterErgebnisImg from '@/assets/fensterreinigung-ergebnis.jpg';
 import polsterImg from '@/assets/polsterreinigung.jpeg';
 import teppichImg from '@/assets/teppichbodenreinigung-hero.jpg';
 import wintergartenImg from '@/assets/wintergartenreinigung-leipzig.jpg';
@@ -98,7 +98,7 @@ const advantages = [
 ];
 
 const projects = [
-  { title: 'Fensterreinigung', img: fensterErgebnisImg.url },
+  { title: 'Fensterreinigung', img: fensterErgebnisImg },
   { img: polsterProjektImg, title: 'Polsterreinigung' },
   { img: wintergartenImg, title: 'Wintergartenreinigung' },
   { img: teppichBueroImg, title: 'Teppichbodenreinigung' },
