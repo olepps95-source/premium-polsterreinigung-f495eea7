@@ -546,7 +546,7 @@ export default function Fensterreinigung() {
           <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Fensterreinigung für Privatkunden in Sachsen
+                Fensterreinigung für Privatkunden 
               </h2>
               <div className="mt-3 space-y-2 text-base md:text-lg text-muted-foreground">
                 <p>Sie möchten Ihre Fenster reinigen lassen – ohne Aufwand und ohne Schlieren?</p>
@@ -564,7 +564,7 @@ export default function Fensterreinigung() {
             <img src={gewerbeSectionImg} alt="Glasreinigung Büro Chemnitz – Fensterreinigung Gewerbe für Unternehmen" title="Glasreinigung Büro Chemnitz" className="rounded-2xl shadow-soft w-full aspect-[4/3] object-cover order-2 md:order-1" loading="lazy" />
             <div className="order-1 md:order-2">
               <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
-                Fensterreinigung für Unternehmen in Sachsen
+                Fensterreinigung für Unternehmen 
               </h2>
               <ul className="mt-3 space-y-2">
                 {['Regelmäßige Reinigung', 'Flexible Termine', 'Rechnung für Unternehmen', 'Zuverlässige Durchführung'].map((t) => (
