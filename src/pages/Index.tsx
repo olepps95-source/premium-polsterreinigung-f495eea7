@@ -13,6 +13,8 @@ import {
   ArrowRight,
   ShieldCheck,
   Building2,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -31,6 +33,8 @@ import { trackContact } from '@/lib/meta-pixel';
 import heroHome from '@/assets/reinwerk-hero-home.jpg';
 import heroMobile from '@/assets/reinwerk-hero-mobile.jpg';
 import fensterImg from '@/assets/fenster-hero.jpg';
+import fensterBeforeImg from '@/assets/fenster-before.jpg';
+import fensterAfterImg from '@/assets/fenster-after.jpg';
 import polsterImg from '@/assets/polsterreinigung.jpeg';
 import teppichImg from '@/assets/teppichbodenreinigung-hero.jpg';
 import wintergartenImg from '@/assets/wintergartenreinigung-leipzig.jpg';
@@ -95,12 +99,13 @@ const advantages = [
 ];
 
 const projects = [
-  { img: wintergartenImg, title: 'Wintergartenreinigung', text: 'Glasflächen streifenfrei gereinigt – Leipzig.' },
-  { img: teppichBueroImg, title: 'Teppichbodenreinigung Büro', text: 'Grundreinigung einer Büroetage.' },
-  { img: polsterProjektImg, title: 'Polsterreinigung Ecksofa', text: 'Tiefenreinigung direkt beim Kunden.' },
-  { img: rahmenImg, title: 'Rahmen- & Jalousienreinigung', text: 'Rollläden und Außenjalousien gereinigt.' },
-  { img: teppichGewerbeImg, title: 'Gewerbliche Teppichreinigung', text: 'Reinigung stark frequentierter Flächen.' },
-  { img: glasImg, title: 'Glas- & Fassadenreinigung', text: 'Große Glasflächen im Gewerbeobjekt.' },
+  { title: 'Fensterreinigung', before: fensterBeforeImg, after: fensterAfterImg },
+  { img: polsterProjektImg, title: 'Polsterreinigung' },
+  { img: wintergartenImg, title: 'Wintergartenreinigung' },
+  { img: teppichBueroImg, title: 'Teppichbodenreinigung' },
+  { img: rahmenImg, title: 'Rahmen- & Jalousienreinigung' },
+  { img: teppichGewerbeImg, title: 'Gewerbliche Teppichreinigung' },
+  { img: glasImg, title: 'Glas- & Fassadenreinigung' },
 ];
 
 const steps = [
