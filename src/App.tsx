@@ -17,8 +17,9 @@ import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
 import { CookieBanner } from "./components/CookieBanner";
 import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
-import { MetaPixelProvider } from "./components/MetaPixelProvider";
-import { SelectedServicesProvider } from "./contexts/SelectedServicesContext";
+import { MetaPixelProvider } from "@/components/MetaPixelProvider";
+import ScrollToTop from "@/components/ScrollToTop";
+import { SelectedServicesProvider } from "@/contexts/SelectedServicesContext";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <MetaPixelProvider />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/polsterreinigung" element={<Polsterreinigung />} />
