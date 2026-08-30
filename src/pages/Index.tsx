@@ -243,7 +243,7 @@ const Index = () => {
                 ].map(({ icon: Icon, label }) => (
                   <li
                     key={label}
-                    className="flex items-center gap-2 md:gap-4 text-sm md:text-[19px] md:font-bold text-white"
+                    className="flex items-center gap-2 md:gap-4 text-base md:text-[21px] font-bold text-white"
                   >
                     <span className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/60 flex items-center justify-center shrink-0">
                       <Icon className="w-4 h-4 md:w-6 md:h-6 text-white" />
