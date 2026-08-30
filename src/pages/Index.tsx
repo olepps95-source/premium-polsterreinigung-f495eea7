@@ -442,12 +442,6 @@ const Index = () => {
               <h2 className="text-2xl md:text-4xl font-bold text-foreground">
                 Ergebnisse, die man sieht
               </h2>
-              <Link
-                to="/polsterreinigung"
-                className="hidden sm:inline-flex items-center gap-1 text-primary font-semibold text-sm md:text-base hover:underline shrink-0"
-              >
-                Mehr ansehen <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
 
             <div className="relative">
