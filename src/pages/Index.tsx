@@ -33,8 +33,7 @@ import { trackContact } from '@/lib/meta-pixel';
 import heroHome from '@/assets/reinwerk-hero-home.jpg';
 import heroMobile from '@/assets/reinwerk-hero-mobile.jpg';
 import fensterImg from '@/assets/fenster-hero.jpg';
-import fensterBeforeImg from '@/assets/fenster-before.jpg';
-import fensterAfterImg from '@/assets/fenster-after.jpg';
+import fensterErgebnisImg from '@/assets/fensterreinigung-ergebnis.jpg.asset.json';
 import polsterImg from '@/assets/polsterreinigung.jpeg';
 import teppichImg from '@/assets/teppichbodenreinigung-hero.jpg';
 import wintergartenImg from '@/assets/wintergartenreinigung-leipzig.jpg';
@@ -99,7 +98,7 @@ const advantages = [
 ];
 
 const projects = [
-  { title: 'Fensterreinigung', before: fensterBeforeImg, after: fensterAfterImg },
+  { title: 'Fensterreinigung', img: fensterErgebnisImg.url },
   { img: polsterProjektImg, title: 'Polsterreinigung' },
   { img: wintergartenImg, title: 'Wintergartenreinigung' },
   { img: teppichBueroImg, title: 'Teppichbodenreinigung' },
@@ -472,25 +471,12 @@ const Index = () => {
                     key={p.title}
                     className="shrink-0 snap-center w-[86%] sm:w-[46%] md:w-[31.5%]"
                   >
-                    {'before' in p && p.before && p.after ? (
-                      <div className="flex rounded-xl overflow-hidden h-52 md:h-60">
-                        <div className="relative w-1/2">
-                          <img src={p.before} alt={`${p.title} Vorher`} className="w-full h-full object-cover" loading="lazy" />
-                          <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded text-[10px] font-bold tracking-wider text-white bg-black/60">VORHER</span>
-                        </div>
-                        <div className="relative w-1/2">
-                          <img src={p.after} alt={`${p.title} Nachher`} className="w-full h-full object-cover" loading="lazy" />
-                          <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded text-[10px] font-bold tracking-wider text-white bg-black/60">NACHHER</span>
-                        </div>
-                      </div>
-                    ) : (
-                      <img
-                        src={p.img}
-                        alt={p.title}
-                        className="w-full h-52 md:h-60 object-cover rounded-xl"
-                        loading="lazy"
-                      />
-                    )}
+                    <img
+                      src={p.img}
+                      alt={p.title}
+                      className="w-full h-52 md:h-60 object-cover rounded-xl"
+                      loading="lazy"
+                    />
                     <figcaption className="pt-2.5 px-0.5">
                       <p className="font-semibold text-foreground text-sm md:text-base">{p.title}</p>
                     </figcaption>
