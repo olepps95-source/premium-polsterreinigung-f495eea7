@@ -563,7 +563,7 @@ const Index = () => {
                 <div className="flex md:justify-end w-full md:w-auto md:shrink-0">
                   <Button
                     asChild
-                    className="bg-white text-[#041b37] hover:bg-white/90 rounded-xl font-semibold shadow-lg px-6 py-3 h-auto w-full md:w-auto md:min-w-[260px] justify-center"
+                    className="bg-white text-[#041b37] hover:bg-white/90 rounded-xl font-semibold shadow-lg px-6 py-3.5 h-auto w-full md:w-auto md:min-w-[270px] justify-center"
                   >
                     <Link to="/gewerbe">
                       Gewerbelösungen ansehen
