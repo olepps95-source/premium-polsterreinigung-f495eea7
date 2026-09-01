@@ -535,7 +535,7 @@ const Index = () => {
             />
 
             <div className="container relative z-10 mx-auto px-4 py-10 md:py-0">
-              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-14 w-full md:max-w-5xl">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-14 w-full">
                 {/* Links: Text */}
                 <div className="max-w-lg">
                   <h2 className="text-[27px] md:text-[35px] font-extrabold text-white tracking-tight leading-[1.12] mb-3 md:mb-4">
