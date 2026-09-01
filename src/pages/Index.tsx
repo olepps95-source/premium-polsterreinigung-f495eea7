@@ -530,7 +530,7 @@ const Index = () => {
               className="absolute inset-0 md:hidden"
               style={{
                 background:
-                  'linear-gradient(180deg, rgba(4,27,55,0.92) 0%, rgba(4,27,55,0.86) 100%)',
+                  'linear-gradient(180deg, rgba(4,27,55,0.93) 0%, rgba(4,27,55,0.87) 100%)',
               }}
             />
 
