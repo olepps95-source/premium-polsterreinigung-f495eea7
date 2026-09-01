@@ -535,7 +535,7 @@ const Index = () => {
             />
 
             <div className="container relative z-10 mx-auto px-4 py-10 md:py-0">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-14 w-full md:max-w-5xl">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-14 w-full md:max-w-5xl">
                 {/* Links: Text */}
                 <div className="max-w-lg">
                   <h2 className="text-[27px] md:text-[35px] font-extrabold text-white tracking-tight leading-[1.12] mb-3 md:mb-4">
@@ -547,11 +547,11 @@ const Index = () => {
                     Ort.
                   </p>
                   {/* Branchen-Pills */}
-                  <div className="flex flex-wrap gap-3 md:gap-[13px]">
+                  <div className="flex flex-wrap md:flex-nowrap gap-3 md:gap-[10px]">
                     {['Büros', 'Praxen', 'Hotels', 'Kitas', 'Fitnessstudios'].map((pill) => (
                       <span
                         key={pill}
-                        className="px-4 md:px-[24px] py-2 md:py-[10px] rounded-full text-[15px] md:text-[17px] font-medium md:font-semibold leading-none text-white border border-white/50 md:border-[1.5px] md:border-white/55 bg-white/5 backdrop-blur-sm h-[38px] md:h-[44px] inline-flex items-center"
+                        className="px-4 md:px-[18px] py-2 md:py-[9px] rounded-full text-[15px] md:text-[15px] font-medium md:font-semibold leading-none text-white border border-white/50 md:border-[1.5px] md:border-white/55 bg-white/5 backdrop-blur-sm h-[38px] md:h-[40px] inline-flex items-center whitespace-nowrap"
                       >
                         {pill}
                       </span>
@@ -560,14 +560,14 @@ const Index = () => {
                 </div>
 
                 {/* Rechts: CTA */}
-                <div className="flex md:justify-end w-full md:w-auto md:shrink-0">
+                <div className="flex md:justify-end w-full md:w-auto md:shrink-0 md:pb-1">
                   <Button
                     asChild
-                    className="bg-white text-[#041b37] hover:bg-white/90 rounded-xl font-semibold shadow-lg px-6 py-3.5 h-auto w-full md:w-auto md:min-w-[270px] justify-center"
+                    className="bg-white text-[#041b37] hover:bg-white/90 rounded-xl font-bold shadow-xl px-8 py-4 h-auto text-base md:text-lg w-full md:w-auto md:min-w-[290px] justify-center"
                   >
                     <Link to="/gewerbe">
                       Gewerbelösungen ansehen
-                      <ArrowRight className="w-4 h-4 ml-1.5" />
+                      <ArrowRight className="w-5 h-5 ml-2" />
                     </Link>
                   </Button>
                 </div>
