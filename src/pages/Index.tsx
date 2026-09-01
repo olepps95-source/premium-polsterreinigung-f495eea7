@@ -509,20 +509,20 @@ const Index = () => {
 
         {/* GEWERBE BANNER */}
         <section className="relative w-full">
-          <div className="relative w-full min-h-[260px] md:min-h-[300px] flex items-center overflow-hidden">
+          <div className="relative w-full min-h-[280px] md:min-h-[240px] flex items-center overflow-hidden">
             {/* Hintergrundbild */}
             <img
               src={gewerbeBannerImg}
               alt="Professionelle Gewerbereinigung für Büros, Praxen und Hotels in Sachsen"
               loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover object-center md:[object-position:right_center]"
             />
             {/* Dunkelblauer Verlauf — links stärker abdunkeln */}
             <div
               className="absolute inset-0"
               style={{
                 background:
-                  'linear-gradient(90deg, rgba(4,27,55,0.94) 0%, rgba(4,27,55,0.82) 45%, rgba(4,27,55,0.45) 100%)',
+                  'linear-gradient(90deg, rgba(4,27,55,0.94) 0%, rgba(4,27,55,0.80) 42%, rgba(4,27,55,0.40) 100%)',
               }}
             />
             {/* Mobile: stärkerer Overlay für Lesbarkeit */}
@@ -535,9 +535,9 @@ const Index = () => {
             />
 
             <div className="container relative z-10 mx-auto px-4 py-8 md:py-0">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-10 w-full">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-12 w-full md:max-w-5xl">
                 {/* Links: Text */}
-                <div className="max-w-xl">
+                <div className="max-w-md">
                   <h2 className="text-2xl md:text-[28px] font-bold text-white tracking-tight leading-tight mb-2 md:mb-3">
                     Auch für Unternehmen da
                   </h2>
