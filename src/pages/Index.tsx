@@ -547,11 +547,11 @@ const Index = () => {
                     Ort.
                   </p>
                   {/* Branchen-Pills */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3 md:gap-[13px]">
                     {['Büros', 'Praxen', 'Hotels', 'Kitas', 'Fitnessstudios'].map((pill) => (
                       <span
                         key={pill}
-                        className="px-3.5 py-1 rounded-full text-xs md:text-[13px] font-medium text-white border border-white/40 bg-white/5 backdrop-blur-sm"
+                        className="px-4 md:px-[24px] py-2 md:py-[10px] rounded-full text-[15px] md:text-[17px] font-medium md:font-semibold leading-none text-white border border-white/50 md:border-[1.5px] md:border-white/55 bg-white/5 backdrop-blur-sm h-[38px] md:h-[44px] inline-flex items-center"
                       >
                         {pill}
                       </span>
