@@ -30,7 +30,7 @@ export const FloatingWhatsApp = () => {
 
       {/* Button */}
       <a
-        href="https://api.whatsapp.com/message/5SVXIYHUNM7LN1?autoload=1&app_absent=0"
+        href="https://api.whatsapp.com/send/?phone=491636986317&text&type=phone_number&app_absent=0"
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setShowTooltip(true)}
