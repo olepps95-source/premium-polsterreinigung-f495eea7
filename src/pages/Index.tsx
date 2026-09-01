@@ -551,7 +551,7 @@ const Index = () => {
                     {['Büros', 'Praxen', 'Hotels', 'Kitas', 'Fitnessstudios'].map((pill) => (
                       <span
                         key={pill}
-                        className="px-3 py-1 rounded-full text-xs md:text-[13px] font-medium text-white border border-white/40 bg-white/5 backdrop-blur-sm"
+                        className="px-3.5 py-1 rounded-full text-xs md:text-[13px] font-medium text-white border border-white/40 bg-white/5 backdrop-blur-sm"
                       >
                         {pill}
                       </span>
