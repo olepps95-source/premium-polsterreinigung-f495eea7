@@ -537,11 +537,11 @@ const Index = () => {
             <div className="container relative z-10 mx-auto px-4 py-10 md:py-0">
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-14 w-full">
                 {/* Links: Text */}
-                <div className="max-w-lg">
+                <div className="max-w-xl">
                   <h2 className="text-[27px] md:text-[35px] font-extrabold text-white tracking-tight leading-[1.12] mb-3 md:mb-4">
                     Saubere Geschäftsräume. Ein professioneller Eindruck.
                   </h2>
-                  <p className="text-[16px] md:text-[17px] text-white/85 leading-[1.5] mb-4 md:mb-5 max-w-lg">
+                  <p className="text-[16px] md:text-[17px] text-white/85 leading-[1.5] mb-4 md:mb-5 max-w-[300px] md:max-w-[560px]">
                     Professionelle Reinigung für Büros, Praxen, Hotels, Kitas und
                     Gewerbeobjekte – zuverlässig, flexibel und direkt bei Ihnen vor
                     Ort.
