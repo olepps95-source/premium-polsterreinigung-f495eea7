@@ -507,25 +507,71 @@ const Index = () => {
           <GoogleReviews useMobileGoogleLogo />
         </section>
 
-        {/* GEWERBE */}
-        <section className="py-10 md:py-16 bg-foreground">
-          <div className="container max-w-4xl text-center">
-            <h2 className="text-2xl md:text-4xl font-bold text-background mb-3">
-              Professionelle Reinigung für Unternehmen
-            </h2>
-            <p className="text-sm md:text-base text-background/80 leading-relaxed mb-4">
-              Zuverlässige Reinigungslösungen für Büros, Praxen, Hotels, Kitas und weitere
-              Gewerbeobjekte.
-            </p>
-            <p className="text-sm md:text-base font-semibold text-background/90 mb-6">
-              Büros · Arztpraxen · Hotels · Kitas · Fitnessstudios · Gewerbeflächen
-            </p>
-            <Button asChild size="lg" className="rounded-xl font-semibold">
-              <Link to="/gewerbe">
-                Reinigung für Gewerbe entdecken
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
-            </Button>
+        {/* GEWERBE BANNER */}
+        <section className="relative w-full">
+          <div className="relative w-full min-h-[260px] md:min-h-[300px] flex items-center overflow-hidden">
+            {/* Hintergrundbild */}
+            <img
+              src={gewerbeBannerImg}
+              alt="Professionelle Gewerbereinigung für Büros, Praxen und Hotels in Sachsen"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Dunkelblauer Verlauf — links stärker abdunkeln */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(90deg, rgba(4,27,55,0.94) 0%, rgba(4,27,55,0.82) 45%, rgba(4,27,55,0.45) 100%)',
+              }}
+            />
+            {/* Mobile: stärkerer Overlay für Lesbarkeit */}
+            <div
+              className="absolute inset-0 md:hidden"
+              style={{
+                background:
+                  'linear-gradient(180deg, rgba(4,27,55,0.92) 0%, rgba(4,27,55,0.86) 100%)',
+              }}
+            />
+
+            <div className="container relative z-10 mx-auto px-4 py-8 md:py-0">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-10 w-full">
+                {/* Links: Text */}
+                <div className="max-w-xl">
+                  <h2 className="text-2xl md:text-[28px] font-bold text-white tracking-tight leading-tight mb-2 md:mb-3">
+                    Auch für Unternehmen da
+                  </h2>
+                  <p className="text-[15px] md:text-base text-white/85 leading-relaxed mb-3 md:mb-4 max-w-md">
+                    Professionelle Reinigung für Büros, Praxen, Hotels, Kitas und
+                    Gewerbeobjekte.
+                  </p>
+                  {/* Branchen-Pills */}
+                  <div className="flex flex-wrap gap-2">
+                    {['Büros', 'Praxen', 'Hotels', 'Kitas', 'Fitnessstudios'].map((pill) => (
+                      <span
+                        key={pill}
+                        className="px-3 py-1 rounded-full text-xs md:text-[13px] font-medium text-white border border-white/40 bg-white/5 backdrop-blur-sm"
+                      >
+                        {pill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Rechts: CTA */}
+                <div className="flex md:justify-end w-full md:w-auto md:shrink-0">
+                  <Button
+                    asChild
+                    className="bg-white text-[#041b37] hover:bg-white/90 rounded-xl font-semibold shadow-lg px-6 py-3 h-auto w-full md:w-auto md:min-w-[260px] justify-center"
+                  >
+                    <Link to="/gewerbe">
+                      Gewerbelösungen ansehen
+                      <ArrowRight className="w-4 h-4 ml-1.5" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
