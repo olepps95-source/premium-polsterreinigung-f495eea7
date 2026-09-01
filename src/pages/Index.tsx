@@ -534,8 +534,8 @@ const Index = () => {
               }}
             />
 
-            <div className="container relative z-10 mx-auto px-4 py-8 md:py-0">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-12 w-full md:max-w-5xl">
+            <div className="container relative z-10 mx-auto px-4 py-10 md:py-0">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-14 w-full md:max-w-5xl">
                 {/* Links: Text */}
                 <div className="max-w-md">
                   <h2 className="text-2xl md:text-[28px] font-bold text-white tracking-tight leading-tight mb-2 md:mb-3">
