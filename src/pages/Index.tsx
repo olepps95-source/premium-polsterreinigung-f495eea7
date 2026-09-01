@@ -42,6 +42,7 @@ import polsterProjektImg from '@/assets/polsterreinigung-ergebnis.jpg';
 import rahmenImg from '@/assets/rahmen-rollladen-jalousien-neu.jpg';
 import teppichGewerbeImg from '@/assets/teppichreinigung-buero.jpg';
 import glasImg from '@/assets/fenster-glasreinigung-neu.jpg';
+import gewerbeBannerImg from '@/assets/teppichboden-buero.jpeg';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
 
