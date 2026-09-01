@@ -39,7 +39,7 @@ import teppichImg from '@/assets/teppichbodenreinigung-hero.jpg';
 import wintergartenImg from '@/assets/wintergartenreinigung-leipzig.jpg';
 import teppichBueroAsset from '@/assets/teppichbodenreinigung-ergebnis.asset.json';
 const teppichBueroImg = teppichBueroAsset.url;
-import polsterProjektImg from '@/assets/before-after-13.jpg';
+import polsterProjektImg from '@/assets/polsterreinigung-ergebnis.jpg';
 import rahmenImg from '@/assets/rahmen-rollladen-jalousien-neu.jpg';
 import teppichGewerbeImg from '@/assets/teppichreinigung-buero.jpg';
 import glasImg from '@/assets/fenster-glasreinigung-neu.jpg';
