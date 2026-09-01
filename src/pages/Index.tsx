@@ -509,7 +509,7 @@ const Index = () => {
 
         {/* GEWERBE BANNER */}
         <section className="relative w-full">
-          <div className="relative w-full min-h-[280px] md:min-h-[240px] flex items-center overflow-hidden">
+          <div className="relative w-full min-h-[320px] md:min-h-[280px] flex items-center overflow-hidden">
             {/* Hintergrundbild */}
             <img
               src={gewerbeBannerImg}
@@ -522,7 +522,7 @@ const Index = () => {
               className="absolute inset-0"
               style={{
                 background:
-                  'linear-gradient(90deg, rgba(4,27,55,0.94) 0%, rgba(4,27,55,0.80) 42%, rgba(4,27,55,0.40) 100%)',
+                  'linear-gradient(90deg, rgba(4,27,55,0.95) 0%, rgba(4,27,55,0.82) 42%, rgba(4,27,55,0.42) 100%)',
               }}
             />
             {/* Mobile: stärkerer Overlay für Lesbarkeit */}
@@ -530,27 +530,28 @@ const Index = () => {
               className="absolute inset-0 md:hidden"
               style={{
                 background:
-                  'linear-gradient(180deg, rgba(4,27,55,0.92) 0%, rgba(4,27,55,0.86) 100%)',
+                  'linear-gradient(180deg, rgba(4,27,55,0.93) 0%, rgba(4,27,55,0.87) 100%)',
               }}
             />
 
-            <div className="container relative z-10 mx-auto px-4 py-8 md:py-0">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-12 w-full md:max-w-5xl">
+            <div className="container relative z-10 mx-auto px-4 py-10 md:py-0">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-14 w-full md:max-w-5xl">
                 {/* Links: Text */}
-                <div className="max-w-md">
-                  <h2 className="text-2xl md:text-[28px] font-bold text-white tracking-tight leading-tight mb-2 md:mb-3">
-                    Auch für Unternehmen da
+                <div className="max-w-lg">
+                  <h2 className="text-[27px] md:text-[35px] font-extrabold text-white tracking-tight leading-[1.12] mb-3 md:mb-4">
+                    Saubere Geschäftsräume. Ein professioneller Eindruck.
                   </h2>
-                  <p className="text-[15px] md:text-base text-white/85 leading-relaxed mb-3 md:mb-4 max-w-md">
+                  <p className="text-[16px] md:text-[17px] text-white/85 leading-[1.5] mb-4 md:mb-5 max-w-lg">
                     Professionelle Reinigung für Büros, Praxen, Hotels, Kitas und
-                    Gewerbeobjekte.
+                    Gewerbeobjekte – zuverlässig, flexibel und direkt bei Ihnen vor
+                    Ort.
                   </p>
                   {/* Branchen-Pills */}
                   <div className="flex flex-wrap gap-2">
                     {['Büros', 'Praxen', 'Hotels', 'Kitas', 'Fitnessstudios'].map((pill) => (
                       <span
                         key={pill}
-                        className="px-3 py-1 rounded-full text-xs md:text-[13px] font-medium text-white border border-white/40 bg-white/5 backdrop-blur-sm"
+                        className="px-3.5 py-1 rounded-full text-xs md:text-[13px] font-medium text-white border border-white/40 bg-white/5 backdrop-blur-sm"
                       >
                         {pill}
                       </span>
@@ -562,7 +563,7 @@ const Index = () => {
                 <div className="flex md:justify-end w-full md:w-auto md:shrink-0">
                   <Button
                     asChild
-                    className="bg-white text-[#041b37] hover:bg-white/90 rounded-xl font-semibold shadow-lg px-6 py-3 h-auto w-full md:w-auto md:min-w-[260px] justify-center"
+                    className="bg-white text-[#041b37] hover:bg-white/90 rounded-xl font-semibold shadow-lg px-6 py-3.5 h-auto w-full md:w-auto md:min-w-[270px] justify-center"
                   >
                     <Link to="/gewerbe">
                       Gewerbelösungen ansehen
