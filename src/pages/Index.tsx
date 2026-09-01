@@ -509,7 +509,7 @@ const Index = () => {
 
         {/* GEWERBE BANNER */}
         <section className="relative w-full">
-          <div className="relative w-full min-h-[280px] md:min-h-[240px] flex items-center overflow-hidden">
+          <div className="relative w-full min-h-[320px] md:min-h-[280px] flex items-center overflow-hidden">
             {/* Hintergrundbild */}
             <img
               src={gewerbeBannerImg}
