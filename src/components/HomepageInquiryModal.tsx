@@ -20,11 +20,7 @@ interface HomepageInquiryPayload {
   created_at: string;
 }
 
-// NOTE: Für die Startseite ist aktuell kein eigener Make.com-Webhook definiert.
-// Die Payload wird hier strukturiert vorbereitet und kann später problemlos
-// an einen eigenen Homepage-Webhook gesendet werden, ohne bestehende
-// Integrationen anderer Seiten zu verändern.
-const HOMEPAGE_WEBHOOK_URL: string | null = null;
+const HOMEPAGE_WEBHOOK_URL = "https://hook.eu1.make.com/81hzpicl2zd6d8qsoh5ki43wbw62if58";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_REGEX = /^[+()\-./\s\d]{5,}$/;
@@ -85,17 +81,19 @@ export function HomepageInquiryModal({ open, onOpenChange }: HomepageInquiryModa
 
     setSending(true);
     try {
-      if (HOMEPAGE_WEBHOOK_URL) {
-        await fetch(HOMEPAGE_WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-      } else {
-        // Kein eigener Homepage-Webhook definiert – Anfrage lokal bestätigen.
-        console.info("Homepage-Anfrage (Webhook noch nicht verbunden):", payload);
-      }
+      const res = await fetch(HOMEPAGE_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`Webhook antwortete mit ${res.status}`);
       setSubmitted(true);
+    } catch (err) {
+      console.error("Homepage-Anfrage konnte nicht gesendet werden:", err);
+      setErrors({
+        kontakt:
+          "Ihre Anfrage konnte leider nicht gesendet werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns per WhatsApp.",
+      });
     } finally {
       setSending(false);
     }
