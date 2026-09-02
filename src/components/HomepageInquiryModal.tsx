@@ -20,11 +20,7 @@ interface HomepageInquiryPayload {
   created_at: string;
 }
 
-// NOTE: Für die Startseite ist aktuell kein eigener Make.com-Webhook definiert.
-// Die Payload wird hier strukturiert vorbereitet und kann später problemlos
-// an einen eigenen Homepage-Webhook gesendet werden, ohne bestehende
-// Integrationen anderer Seiten zu verändern.
-const HOMEPAGE_WEBHOOK_URL: string | null = null;
+const HOMEPAGE_WEBHOOK_URL = "https://hook.eu1.make.com/81hzpicl2zd6d8qsoh5ki43wbw62if58";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_REGEX = /^[+()\-./\s\d]{5,}$/;
