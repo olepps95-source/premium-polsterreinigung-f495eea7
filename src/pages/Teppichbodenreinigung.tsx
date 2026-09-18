@@ -103,34 +103,6 @@ const faqs = [
   },
 ];
 
-const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': ['ProfessionalService', 'LocalBusiness'],
-  '@id': PAGE_URL,
-  name: 'ReinWerk – Teppichbodenreinigung Chemnitz',
-  description:
-    'Professionelle Teppichbodenreinigung in Chemnitz für Privat und Gewerbe. Tiefenreinigung fest verlegter Teppichböden direkt vor Ort.',
-  url: PAGE_URL,
-  telephone: PHONE,
-  email: 'info@reinwerk-service.de',
-  image: OG_IMAGE,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Matthesstraße 48',
-    addressLocality: 'Chemnitz',
-    postalCode: '09113',
-    addressRegion: 'Sachsen',
-    addressCountry: 'DE',
-  },
-  areaServed: [
-    { '@type': 'City', name: 'Chemnitz' },
-    { '@type': 'City', name: 'Dresden' },
-    { '@type': 'City', name: 'Leipzig' },
-    { '@type': 'State', name: 'Sachsen' },
-  ],
-  priceRange: '€€',
-};
-
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -138,10 +110,13 @@ const serviceSchema = {
   name: 'Teppichbodenreinigung Chemnitz – Privat & Gewerbe',
   description:
     'Tiefenreinigung fest verlegter Teppichböden in Wohnungen, Büros, Praxen und Gewerberäumen in Chemnitz und Sachsen.',
-  provider: { '@type': 'LocalBusiness', name: 'ReinWerk', '@id': PAGE_URL },
+  provider: { '@id': 'https://reinwerk-service.de/#organization' },
   areaServed: [
-    { '@type': 'City', name: 'Chemnitz' },
     { '@type': 'State', name: 'Sachsen' },
+    { '@type': 'City', name: 'Chemnitz' },
+    { '@type': 'City', name: 'Dresden' },
+    { '@type': 'City', name: 'Leipzig' },
+    { '@type': 'City', name: 'Zwickau' },
   ],
   url: PAGE_URL,
   offers: {
