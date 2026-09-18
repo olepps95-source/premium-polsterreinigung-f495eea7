@@ -2,7 +2,6 @@ import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
-import { LocalBusinessSchema } from '@/components/LocalBusinessSchema';
 import { AboutSection } from '@/components/AboutSection';
 import { ServicesSection } from '@/components/ServicesSection';
 import { PricingSection } from '@/components/PricingSection';
@@ -34,8 +33,23 @@ const Polsterreinigung = () => {
           content="Professionelle Tiefenreinigung Ihrer Polstermöbel & Matratzen direkt vor Ort. 0€ Anfahrt, Express-Trocknung & faire Preise."
         />
         <meta property="og:url" content="https://reinwerk-service.de/polsterreinigung" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Polsterreinigung",
+          "name": "Polsterreinigung in Sachsen",
+          "url": "https://reinwerk-service.de/polsterreinigung",
+          "description": "Professionelle Tiefenreinigung Ihrer Polstermöbel & Matratzen direkt vor Ort in Sachsen.",
+          "provider": { "@id": "https://reinwerk-service.de/#organization" },
+          "areaServed": [
+            { "@type": "State", "name": "Sachsen" },
+            { "@type": "City", "name": "Chemnitz" },
+            { "@type": "City", "name": "Dresden" },
+            { "@type": "City", "name": "Leipzig" },
+            { "@type": "City", "name": "Zwickau" }
+          ]
+        })}</script>
       </Helmet>
-      <LocalBusinessSchema />
       <Header />
       <main>
         <HeroSection />
