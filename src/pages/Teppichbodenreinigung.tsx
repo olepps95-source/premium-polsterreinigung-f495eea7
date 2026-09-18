@@ -278,7 +278,6 @@ export default function Teppichbodenreinigung() {
           content="Tiefenreinigung fest verlegter Teppichböden für Privat & Gewerbe in Sachsen."
         />
         <meta name="twitter:image" content={OG_IMAGE} />
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
