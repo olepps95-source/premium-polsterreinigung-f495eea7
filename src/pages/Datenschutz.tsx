@@ -1,9 +1,24 @@
+import { Helmet } from 'react-helmet-async';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
 export default function Datenschutz() {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Datenschutz | ReinWerk</title>
+        <meta
+          name="description"
+          content="Datenschutzerklärung von ReinWerk. Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO."
+        />
+        <link rel="canonical" href="https://reinwerk-service.de/datenschutz" />
+        <meta property="og:title" content="Datenschutz | ReinWerk" />
+        <meta
+          property="og:description"
+          content="Datenschutzerklärung von ReinWerk. Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO."
+        />
+        <meta property="og:url" content="https://reinwerk-service.de/datenschutz" />
+      </Helmet>
       <Header />
       <main className="pt-32 pb-24">
         <div className="container max-w-3xl">
