@@ -49,6 +49,14 @@ const Polsterreinigung = () => {
             { "@type": "City", "name": "Zwickau" }
           ]
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://reinwerk-service.de/" },
+            { "@type": "ListItem", "position": 2, "name": "Polsterreinigung in Sachsen", "item": "https://reinwerk-service.de/polsterreinigung" }
+          ]
+        })}</script>
       </Helmet>
       <Header />
       <main>
