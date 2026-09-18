@@ -76,56 +76,19 @@ const faqs = [
   { q: 'In welchen Städten arbeiten Sie?', a: 'Wir sind in ganz Sachsen tätig – schwerpunktmäßig Fensterreinigung in Chemnitz, Dresden, Leipzig, Zwickau und Umgebung.' },
 ];
 
-const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': ['ProfessionalService', 'LocalBusiness'],
-  '@id': PAGE_URL,
-  name: 'ReinWerk – Fensterreinigung Chemnitz',
-  description: 'Professionelle Fensterreinigung in Chemnitz und ganz Sachsen. Glasreinigung, Wintergartenreinigung und Schaufensterreinigung für Privat- und Gewerbekunden.',
-  url: PAGE_URL,
-  telephone: '+491632373108',
-  email: 'info@reinwerk-service.de',
-  image: OG_IMAGE,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Matthesstraße 48',
-    addressLocality: 'Chemnitz',
-    postalCode: '09113',
-    addressRegion: 'Sachsen',
-    addressCountry: 'DE',
-  },
-  areaServed: [
-    { '@type': 'State', name: 'Sachsen' },
-    { '@type': 'City', name: 'Chemnitz' },
-    { '@type': 'City', name: 'Dresden' },
-    { '@type': 'City', name: 'Leipzig' },
-    { '@type': 'City', name: 'Zwickau' },
-  ],
-  priceRange: '€€',
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Fensterreinigung Leistungen',
-    itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fensterreinigung Chemnitz' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glasreinigung Chemnitz' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Wintergartenreinigung' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Schaufensterreinigung Chemnitz' } },
-    ],
-  },
-};
-
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Fensterreinigung',
   name: 'Fensterreinigung Chemnitz – Privat & Gewerbe',
   description: 'Professionelle Fensterreinigung, Glasreinigung, Wintergartenreinigung und Schaufensterreinigung in Chemnitz und Sachsen.',
-  provider: { '@type': 'LocalBusiness', name: 'ReinWerk', '@id': PAGE_URL },
+  provider: { '@id': 'https://reinwerk-service.de/#organization' },
   areaServed: [
+    { '@type': 'State', name: 'Sachsen' },
     { '@type': 'City', name: 'Chemnitz' },
     { '@type': 'City', name: 'Dresden' },
     { '@type': 'City', name: 'Leipzig' },
-    { '@type': 'State', name: 'Sachsen' },
+    { '@type': 'City', name: 'Zwickau' },
   ],
   url: PAGE_URL,
 };
@@ -212,7 +175,6 @@ export default function Fensterreinigung() {
         <meta name="twitter:title" content="Fensterreinigung Chemnitz | ReinWerk – Privat & Gewerbe" />
         <meta name="twitter:description" content="Fensterreinigung Chemnitz von ReinWerk: streifenfreie Glasreinigung für Privat & Gewerbe in Sachsen." />
         <meta name="twitter:image" content={OG_IMAGE} />
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
