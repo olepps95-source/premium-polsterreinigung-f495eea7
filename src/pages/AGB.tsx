@@ -1,9 +1,24 @@
+import { Helmet } from 'react-helmet-async';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
 export default function AGB() {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>AGB | ReinWerk</title>
+        <meta
+          name="description"
+          content="Allgemeine Geschäftsbedingungen von ReinWerk für Polster-, Teppich- und Matratzenreinigung. Geltungsbereich, Vertragsschluss und Leistungen."
+        />
+        <link rel="canonical" href="https://reinwerk-service.de/agb" />
+        <meta property="og:title" content="AGB | ReinWerk" />
+        <meta
+          property="og:description"
+          content="Allgemeine Geschäftsbedingungen von ReinWerk für Polster-, Teppich- und Matratzenreinigung. Geltungsbereich, Vertragsschluss und Leistungen."
+        />
+        <meta property="og:url" content="https://reinwerk-service.de/agb" />
+      </Helmet>
       <Header />
       <main className="pt-32 pb-24">
         <div className="container max-w-3xl">
