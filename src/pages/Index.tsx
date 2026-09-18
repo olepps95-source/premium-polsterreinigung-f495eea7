@@ -29,6 +29,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { trackContact } from '@/lib/meta-pixel';
+import { organizationSchema } from '@/lib/organizationSchema';
 
 import heroHome from '@/assets/reinwerk-hero-home.jpg';
 import heroMobile from '@/assets/reinwerk-hero-mobile.jpg';
@@ -146,32 +147,6 @@ const faqs = [
   },
 ];
 
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'ReinWerk',
-  url: 'https://reinwerk-service.de/',
-  telephone: '+491632373108',
-  email: 'info@reinwerk-service.de',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Matthesstraße 48',
-    addressLocality: 'Chemnitz',
-    postalCode: '09113',
-    addressCountry: 'DE',
-  },
-  areaServed: [
-    { '@type': 'State', name: 'Sachsen' },
-    { '@type': 'City', name: 'Chemnitz' },
-    { '@type': 'City', name: 'Dresden' },
-    { '@type': 'City', name: 'Leipzig' },
-  ],
-  makesOffer: [
-    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fensterreinigung' } },
-    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Polsterreinigung' } },
-    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Teppichbodenreinigung' } },
-  ],
-};
 
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
