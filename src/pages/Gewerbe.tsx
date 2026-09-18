@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -84,38 +85,6 @@ function useGewerbeHead() {
       tags.push(canonical);
     }
     canonical.setAttribute("href", "https://reinwerk-service.de/gewerbe");
-
-    const ld = document.createElement("script");
-    ld.type = "application/ld+json";
-    ld.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": ["LocalBusiness", "CleaningService"],
-      name: "ReinWerk",
-      description: "Professionelle Teppich-, Polster- und Bodenreinigung für Gewerbekunden (B2B) in Sachsen.",
-      url: "https://reinwerk-service.de/gewerbe",
-      telephone: "+491632373108",
-      priceRange: "€€",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Matthesstraße 48",
-        addressLocality: "Chemnitz",
-        postalCode: "09113",
-        addressCountry: "DE",
-      },
-      areaServed: ["Chemnitz", "Dresden", "Leipzig", "Zwickau", "Sachsen"],
-      serviceType: [
-        "Gewerbliche Reinigung",
-        "Praxisreinigung",
-        "Büroreinigung",
-        "Teppichreinigung",
-        "Polsterreinigung",
-        "Matratzenreinigung",
-        "Hartbodenreinigung",
-        "Stuhlreinigung",
-      ],
-    });
-    document.head.appendChild(ld);
-    tags.push(ld);
 
     return () => {
       document.title = prevTitle;
@@ -259,6 +228,29 @@ const Gewerbe = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Gewerbliche Reinigung",
+            name: "Gewerbliche Reinigung in Sachsen",
+            description:
+              "Teppiche, Polster, Matratzen & Hartböden — professioneller Vor-Ort Service in ganz Sachsen.",
+            url: "https://reinwerk-service.de/gewerbe",
+            provider: {
+              "@id": "https://reinwerk-service.de/#organization",
+            },
+            areaServed: [
+              { "@type": "State", name: "Sachsen" },
+              { "@type": "City", name: "Chemnitz" },
+              { "@type": "City", name: "Dresden" },
+              { "@type": "City", name: "Leipzig" },
+              { "@type": "City", name: "Zwickau" },
+            ],
+          })}
+        </script>
+      </Helmet>
       <Header />
       <main>
         {/* HERO */}
