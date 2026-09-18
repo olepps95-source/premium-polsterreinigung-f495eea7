@@ -9,13 +9,13 @@ export default function Impressum() {
         <title>Impressum | ReinWerk</title>
         <meta
           name="description"
-          content="Impressum von ReinWerk – Oleh Pshenychnyi, Chemnitz. Anbieterkennzeichnung und Kontaktdaten gemäß § 5 TMG."
+          content="Impressum von ReinWerk – Angaben zum Unternehmen, Anbieterkennzeichnung und Kontaktdaten."
         />
         <link rel="canonical" href="https://reinwerk-service.de/impressum" />
         <meta property="og:title" content="Impressum | ReinWerk" />
         <meta
           property="og:description"
-          content="Impressum von ReinWerk – Oleh Pshenychnyi, Chemnitz. Anbieterkennzeichnung und Kontaktdaten gemäß § 5 TMG."
+          content="Impressum von ReinWerk – Angaben zum Unternehmen, Anbieterkennzeichnung und Kontaktdaten."
         />
         <meta property="og:url" content="https://reinwerk-service.de/impressum" />
       </Helmet>
