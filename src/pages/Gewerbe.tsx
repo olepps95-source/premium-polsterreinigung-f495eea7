@@ -250,6 +250,16 @@ const Gewerbe = () => {
             ],
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Startseite", item: "https://reinwerk-service.de/" },
+              { "@type": "ListItem", position: 2, name: "Gewerbliche Reinigung", item: "https://reinwerk-service.de/gewerbe" },
+            ],
+          })}
+        </script>
       </Helmet>
       <Header />
       <main>
