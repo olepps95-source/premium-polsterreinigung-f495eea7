@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/Header";
@@ -37,62 +37,6 @@ const SERVICES = [
   "Kombipaket",
 ];
 
-function useGewerbeHead() {
-  useEffect(() => {
-    const prevTitle = document.title;
-    document.title = "Professionelle Gewerbliche Reinigung in Chemnitz & Sachsen | ReinWerk";
-
-    const tags: HTMLElement[] = [];
-
-    const setMeta = (attr: "name" | "property", key: string, content: string) => {
-      let el = document.querySelector(`meta[${attr}="${key}"]`) as HTMLMetaElement | null;
-      const created = !el;
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute(attr, key);
-        document.head.appendChild(el);
-      }
-      const prev = el.getAttribute("content");
-      el.setAttribute("content", content);
-      if (created) tags.push(el);
-      else (el as any).__prev = prev;
-    };
-
-    setMeta(
-      "name",
-      "description",
-      "B2B Reinigungsservice für Arztpraxen, Büros & Hotels in Chemnitz, Leipzig & Dresden. Teppich-, Polster- und Hartbodenreinigung ohne Betriebsunterbrechung.",
-    );
-    setMeta(
-      "name",
-      "keywords",
-      "Gewerbliche Reinigung Chemnitz, Praxisreinigung Sachsen, Büroreinigung Chemnitz, Teppichreinigung Büro Leipzig, Polsterreinigung Dresden, Hartbodenreinigung Gewerbe, B2B Reinigung Sachsen, gewerbliche Reinigung Sachsen",
-    );
-    setMeta("property", "og:title", "Professionelle Gewerbliche Reinigung in Chemnitz & Sachsen | ReinWerk");
-    setMeta(
-      "property",
-      "og:description",
-      "B2B Reinigungsservice für Arztpraxen, Büros & Hotels in Chemnitz, Leipzig & Dresden. Teppich-, Polster- und Hartbodenreinigung ohne Betriebsunterbrechung.",
-    );
-    setMeta("property", "og:url", "https://reinwerk-service.de/gewerbe");
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    const prevCanonical = canonical?.getAttribute("href") ?? null;
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
-      tags.push(canonical);
-    }
-    canonical.setAttribute("href", "https://reinwerk-service.de/gewerbe");
-
-    return () => {
-      document.title = prevTitle;
-      tags.forEach((t) => t.remove());
-      if (canonical && prevCanonical !== null) canonical.setAttribute("href", prevCanonical);
-    };
-  }, []);
-}
 
 const ClientCard = ({
   photo,
@@ -151,7 +95,6 @@ const ServiceCard = ({
 );
 
 const Gewerbe = () => {
-  useGewerbeHead();
 
   const [form, setForm] = useState({
     firma: "",
@@ -229,6 +172,25 @@ const Gewerbe = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
+        <title>Professionelle Gewerbliche Reinigung in Chemnitz & Sachsen | ReinWerk</title>
+        <meta
+          name="description"
+          content="B2B Reinigungsservice für Arztpraxen, Büros & Hotels in Chemnitz, Leipzig & Dresden. Teppich-, Polster- und Hartbodenreinigung ohne Betriebsunterbrechung."
+        />
+        <meta
+          name="keywords"
+          content="Gewerbliche Reinigung Chemnitz, Praxisreinigung Sachsen, Büroreinigung Chemnitz, Teppichreinigung Büro Leipzig, Polsterreinigung Dresden, Hartbodenreinigung Gewerbe, B2B Reinigung Sachsen, gewerbliche Reinigung Sachsen"
+        />
+        <link rel="canonical" href="https://reinwerk-service.de/gewerbe" />
+        <meta
+          property="og:title"
+          content="Professionelle Gewerbliche Reinigung in Chemnitz & Sachsen | ReinWerk"
+        />
+        <meta
+          property="og:description"
+          content="B2B Reinigungsservice für Arztpraxen, Büros & Hotels in Chemnitz, Leipzig & Dresden. Teppich-, Polster- und Hartbodenreinigung ohne Betriebsunterbrechung."
+        />
+        <meta property="og:url" content="https://reinwerk-service.de/gewerbe" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
