@@ -175,7 +175,6 @@ export default function Fensterreinigung() {
         <meta name="twitter:title" content="Fensterreinigung Chemnitz | ReinWerk – Privat & Gewerbe" />
         <meta name="twitter:description" content="Fensterreinigung Chemnitz von ReinWerk: streifenfreie Glasreinigung für Privat & Gewerbe in Sachsen." />
         <meta name="twitter:image" content={OG_IMAGE} />
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
