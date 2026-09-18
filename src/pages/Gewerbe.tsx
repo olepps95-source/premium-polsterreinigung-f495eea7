@@ -228,6 +228,29 @@ const Gewerbe = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Gewerbliche Reinigung",
+            name: "Gewerbliche Reinigung in Sachsen",
+            description:
+              "Teppiche, Polster, Matratzen & Hartböden — professioneller Vor-Ort Service in ganz Sachsen.",
+            url: "https://reinwerk-service.de/gewerbe",
+            provider: {
+              "@id": "https://reinwerk-service.de/#organization",
+            },
+            areaServed: [
+              { "@type": "State", name: "Sachsen" },
+              { "@type": "City", name: "Chemnitz" },
+              { "@type": "City", name: "Dresden" },
+              { "@type": "City", name: "Leipzig" },
+              { "@type": "City", name: "Zwickau" },
+            ],
+          })}
+        </script>
+      </Helmet>
       <Header />
       <main>
         {/* HERO */}
