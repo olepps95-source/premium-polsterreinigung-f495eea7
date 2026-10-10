@@ -557,6 +557,14 @@ const Index = () => {
           subtitle="Chemnitz · Dresden · Leipzig · Weitere Einsatzgebiete"
           description="ReinWerk bietet professionelle Reinigungsleistungen für Privat- und Gewerbekunden in Chemnitz, Dresden, Leipzig und zahlreichen weiteren Regionen an. Für größere Aufträge sind nach Absprache auch weitere Einsatzgebiete möglich."
         />
+        <nav aria-label="Unsere Einsatzgebiete" className="pb-8 text-center text-sm">
+          <p className="text-muted-foreground mb-2">Unsere Einsatzgebiete:</p>
+          <div className="flex justify-center gap-4">
+            <Link to="/polsterreinigung-chemnitz" className="text-primary font-semibold hover:underline">Chemnitz</Link>
+            <Link to="/polsterreinigung-dresden" className="text-primary font-semibold hover:underline">Dresden</Link>
+            <Link to="/polsterreinigung-leipzig" className="text-primary font-semibold hover:underline">Leipzig</Link>
+          </div>
+        </nav>
 
         {/* 8. ABLAUF */}
         <section className="py-10 md:py-16 bg-muted/30">

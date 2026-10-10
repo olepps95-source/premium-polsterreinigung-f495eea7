@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { RegionalLinks } from '@/components/RegionalLinks';
 import { MessageCircle, Check, Camera, FileText, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -572,6 +573,7 @@ export default function Fensterreinigung() {
             </p>
           </div>
         </section>
+      <RegionalLinks service="fenster" />
       </main>
 
       <Footer />

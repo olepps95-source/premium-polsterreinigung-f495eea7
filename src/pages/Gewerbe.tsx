@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { RegionalLinks } from '@/components/RegionalLinks';
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -660,6 +661,7 @@ const Gewerbe = () => {
             </div>
           </div>
         </section>
+      <RegionalLinks service="gewerbe" />
       </main>
       <Footer />
     </div>

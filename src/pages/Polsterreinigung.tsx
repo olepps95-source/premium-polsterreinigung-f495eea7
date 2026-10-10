@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { RegionalLinks } from '@/components/RegionalLinks';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
@@ -71,6 +72,7 @@ const Polsterreinigung = () => {
         <ServiceAreaSection />
         <AboutSection />
         <CTASection ref={ctaFormRef} />
+      <RegionalLinks service="polster" />
       </main>
       <Footer />
       <StickyCtaButton />

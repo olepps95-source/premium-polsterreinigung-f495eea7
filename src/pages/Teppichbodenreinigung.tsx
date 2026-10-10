@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { RegionalLinks } from '@/components/RegionalLinks';
 import {
   MessageCircle,
   Check,
@@ -735,6 +736,7 @@ export default function Teppichbodenreinigung() {
         </section>
 
         <EinsatzgebietSachsen />
+      <RegionalLinks service="teppich" />
       </main>
 
 
