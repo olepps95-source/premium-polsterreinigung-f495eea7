@@ -16,7 +16,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         </DialogHeader>
         <div className="flex flex-col gap-3 pt-2">
           <a
-            href="tel:+491632373108"
+            href="tel:+491636986317"
             onClick={() => {
               trackContact();
             }}
@@ -27,7 +27,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
             </div>
             <div className="flex flex-col">
               <span className="text-xs text-muted-foreground">Telefon</span>
-              <span className="text-base font-semibold text-foreground">+49 163 237 3108</span>
+              <span className="text-base font-semibold text-foreground">+49 163 6986317</span>
             </div>
           </a>
 

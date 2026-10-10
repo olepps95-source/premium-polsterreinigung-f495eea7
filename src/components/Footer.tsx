@@ -22,7 +22,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <span className="flex items-center gap-3 text-muted-foreground">
-                  +49 163 2373108
+                  +49 163 6986317
                 </span>
               </li>
               <li>

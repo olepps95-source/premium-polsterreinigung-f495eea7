@@ -38,8 +38,8 @@ import gewerbeImg from '@/assets/teppichreinigung-dresden.jpeg';
 import reinwerkLogo from '@/assets/reinwerk-logo.png';
 
 const WHATSAPP_URL = 'https://wa.me/491636986317';
-const PHONE = '+491632373108';
-const PHONE_DISPLAY = '+49 163 237 3108';
+const PHONE = '+491636986317';
+const PHONE_DISPLAY = '+49 163 6986317';
 const PAGE_URL = 'https://reinwerk-service.de/teppichbodenreinigung';
 const OG_IMAGE = 'https://reinwerk-service.de/og-image.png';
 const WEBHOOK_URL = 'https://hook.eu1.make.com/81hzpicl2zd6d8qsoh5ki43wbw62if58';
