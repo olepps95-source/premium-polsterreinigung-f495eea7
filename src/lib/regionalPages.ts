@@ -163,7 +163,6 @@ export const services: Record<ServiceKey, ServiceConfig> = {
     faqs: [
       { q: 'Wie wird der Termin geplant?', a: 'Den Termin stimmen wir individuell mit Ihnen ab. Ob eine Reinigung außerhalb Ihrer Geschäftszeiten möglich ist, klären wir im Einzelfall vorab.' },
       { q: 'Für welche Branchen arbeiten Sie?', a: 'Unter anderem für Büros, Arztpraxen, Hotels, Kitas und Pflegeeinrichtungen.' },
-      { q: 'Bieten Sie regelmäßige Reinigungen an?', a: 'Wiederkehrende Termine können wir gerne individuell mit Ihnen vereinbaren.' },
     ],
   },
 };

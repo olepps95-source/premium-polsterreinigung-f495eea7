@@ -62,7 +62,7 @@ export const localContent: Record<ServiceKey, Record<CityKey, LocalContent>> = {
         },
       ],
       faqs: [
-        { q: 'Ist das Sofa nach der Reinigung sofort wieder nutzbar?', a: 'Das hängt von Stoff, Verschmutzung und Raumklima ab. Die kostenlose Express-Trocknung beschleunigt das Trocknen, eine feste Zeit können wir aber nicht zusagen.' },
+        { q: 'Reinigen Sie in Leipzig auch Sofas mit Tierhaaren?', a: 'Ja. Wir saugen Tierhaare vorab gründlich ab und reinigen das Polster anschließend. Wie vollständig sich Haare und Gerüche entfernen lassen, hängt vom Stoff ab.' },
         { q: 'Reinigen Sie auch in Markkleeberg oder Taucha?', a: 'Ja, ebenso in Markranstädt, Schkeuditz, Borsdorf, Delitzsch und Grimma.' },
       ],
     },
@@ -213,7 +213,7 @@ export const localContent: Record<ServiceKey, Record<CityKey, LocalContent>> = {
       ],
       faqs: [
         { q: 'Was gilt bei größeren Gewerbeflächen in Dresden?', a: 'Bei größeren Flächen besichtigen wir das Objekt nach Absprache oder lassen uns Fotos und Grundrisse schicken. Danach erhalten Sie ein individuelles Angebot.' },
-        { q: 'Können Sie außerhalb unserer Öffnungszeiten reinigen?', a: 'Das klären wir im Einzelfall. Eine pauschale Zusage für Abend- oder Wochenendtermine geben wir nicht.' },
+        { q: 'Kommen Sie auch zu Unternehmen in Radebeul oder Pirna?', a: 'Ja, ebenso nach Freital, Heidenau, Coswig, Radeberg und Meißen. Die Anfahrt ist grundsätzlich kostenlos.' },
       ],
     },
     leipzig: {
