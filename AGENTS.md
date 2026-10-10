@@ -1,2 +1,2 @@
 - Marketing scripts (Google Ads gtag, Meta Pixel) load only via src/lib/consent.ts / meta-pixel.ts after 'cookie-consent'='all'; never add them to index.html — keeps tracking consent-gated.
-- Regional service×city landing pages are generated from one config (src/lib/regionalPages.ts) rendered by a single RegionalServicePage; add cities/services there, not as new page files — avoids 12 duplicated files.
+- Regional service×city pages are configured in src/lib/regionalPages.ts (+ city texts in regionalDesignTexts.ts) and rendered via RegionalServicePage, which delegates to one per-service component in src/components/regional/ mirroring that original service page; add cities there, not new page files — keeps layouts identical to originals.
