@@ -1,0 +1,1 @@
+- Marketing scripts (Google Ads gtag, Meta Pixel) load only via src/lib/consent.ts / meta-pixel.ts after 'cookie-consent'='all'; never add them to index.html — keeps tracking consent-gated.
