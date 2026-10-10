@@ -89,13 +89,11 @@ export function PolsterRegionalHero({ serviceName, cityName, subtitle }: Regiona
   if (isMobile) {
     return (
       <section className="relative flex flex-col pt-16 overflow-hidden bg-background">
+        <h1 className="container pt-5 pb-4 text-3xl font-extrabold tracking-tight text-foreground leading-tight">
+          <span className="text-primary">{serviceName}</span> in {cityName}
+        </h1>
         <div className="relative w-full">
           <img src={polsterMobile} alt={`${serviceName} ${cityName} – ReinWerk`} className="w-full h-auto" loading="eager" />
-          <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent px-4 pt-4 pb-16">
-            <h1 className="text-3xl font-extrabold text-white leading-tight">
-              <span className="text-primary">{serviceName}</span> in {cityName}
-            </h1>
-          </div>
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-32 pb-12 px-4">
             <div className="mb-4"><MobileCtas offerLabel="Kostenloses Angebot" /></div>
             <div className="grid grid-cols-3 gap-3 w-full">
