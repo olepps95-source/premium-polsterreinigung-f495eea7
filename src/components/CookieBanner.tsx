@@ -1,28 +1,39 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { initializeMetaPixel } from '@/lib/meta-pixel';
+import { CONSENT_KEY, OPEN_SETTINGS_EVENT, getConsent, loadGoogleAds, revokeConsent } from '@/lib/consent';
 
 export function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem('cookie-consent');
+    const consent = getConsent();
     if (!consent) {
       setIsVisible(true);
+    } else if (consent === 'all') {
+      loadGoogleAds();
     }
+    const open = () => setIsVisible(true);
+    window.addEventListener(OPEN_SETTINGS_EVENT, open);
+    return () => window.removeEventListener(OPEN_SETTINGS_EVENT, open);
   }, []);
 
   const handleAcceptAll = () => {
-    localStorage.setItem('cookie-consent', 'all');
+    localStorage.setItem(CONSENT_KEY, 'all');
     setIsVisible(false);
-    // Initialize Meta Pixel after marketing consent is granted
+    loadGoogleAds();
     initializeMetaPixel();
   };
 
   const handleAcceptNecessary = () => {
-    localStorage.setItem('cookie-consent', 'necessary');
+    const previous = getConsent();
     setIsVisible(false);
-    // Do NOT initialize Meta Pixel - only necessary cookies allowed
+    if (previous === 'all') {
+      // Consent withdrawn: stop all further marketing processing
+      revokeConsent();
+      return;
+    }
+    localStorage.setItem(CONSENT_KEY, 'necessary');
   };
 
   if (!isVisible) return null;
