@@ -25,8 +25,8 @@ import polsterreinigung from "@/assets/polsterreinigung.jpeg";
 import pflegeheime from "@/assets/pflegeheime.jpg";
 
 const WHATSAPP_URL = "https://wa.me/491636986317";
-const TEL = "tel:+491632373108";
-const PHONE_DISPLAY = "+49 163 2373108";
+const TEL = "tel:+491636986317";
+const PHONE_DISPLAY = "+49 163 6986317";
 
 const SERVICES = [
   "Teppichreinigung",

@@ -19,7 +19,7 @@ export const organizationSchema = {
   '@id': 'https://reinwerk-service.de/#organization',
   name: 'ReinWerk',
   url: 'https://reinwerk-service.de/',
-  telephone: '+491632373108',
+  telephone: '+491636986317',
   email: 'info@reinwerk-service.de',
   address: {
     '@type': 'PostalAddress',
