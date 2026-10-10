@@ -6,12 +6,20 @@ import { trackContact } from "@/lib/meta-pixel";
 import { trackGoogleAdsConversion } from "@/lib/google-ads";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  /** Optional overrides used by regional pages; defaults keep /polsterreinigung unchanged. */
+  title?: React.ReactNode;
+  subtitle?: React.ReactNode;
+  plainTitle?: string;
+}
+
+export function HeroSection({ title, subtitle, plainTitle }: HeroSectionProps = {}) {
   const isMobile = useIsMobile();
 
   if (isMobile) {
     return (
       <section className="relative flex flex-col pt-16 pb-safe overflow-hidden bg-background">
+        {plainTitle && <h1 className="sr-only">{plainTitle}</h1>}
         {/* Mobile: Image with overlaid buttons and trust indicators */}
         <div className="relative w-full">
           <img
@@ -105,14 +113,18 @@ export function HeroSection() {
             className="text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 animate-fade-up"
             style={{ animationDelay: "0.1s" }}
           >
+            {title ?? (<>
             <span className="inline">Premium</span> <span className="text-primary inline">Polsterreinigung</span>{" "}
             <span className="inline">direkt bei Ihnen</span> <span className="inline">vor Ort</span>
+            </>)}
           </h1>
 
           <p className="text-xl text-black mb-10 max-w-xl animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            {subtitle ?? (<>
             Hygienisch sauber, schonend gereinigt und unbedenklich für Kinder & Haustiere.
             <br />
             Dank Express-Trocknung noch am selben Tag wieder nutzbar.
+            </>)}
           </p>
 
           {/* Trust Indicators */}
