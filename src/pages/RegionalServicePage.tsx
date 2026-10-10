@@ -101,6 +101,18 @@ export default function RegionalServicePage({ page }: { page: RegionalPage }) {
           </div>
         </section>
 
+        {/* Lokale Abschnitte */}
+        <section className="py-8 md:py-10">
+          <div className="container max-w-4xl grid md:grid-cols-2 gap-6">
+            {page.sections.map((sec) => (
+              <div key={sec.title}>
+                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">{sec.title}</h2>
+                <p className="text-muted-foreground leading-relaxed">{sec.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Leistungsumfang */}
         <section className="py-10 md:py-12 bg-secondary/50">
           <div className="container max-w-4xl">
