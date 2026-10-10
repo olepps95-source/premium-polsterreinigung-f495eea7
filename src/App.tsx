@@ -13,6 +13,8 @@ import Gewerbe from "./pages/Gewerbe";
 import Fensterreinigung from "./pages/Fensterreinigung";
 import Teppichbodenreinigung from "./pages/Teppichbodenreinigung";
 import NotFound from "./pages/NotFound";
+import RegionalServicePage from "./pages/RegionalServicePage";
+import { regionalPages } from "@/lib/regionalPages";
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
 import { CookieBanner } from "./components/CookieBanner";
@@ -42,6 +44,9 @@ const App = () => (
             <Route path="/gewerbe" element={<Gewerbe />} />
             <Route path="/fensterreinigung" element={<Fensterreinigung />} />
             <Route path="/teppichbodenreinigung" element={<Teppichbodenreinigung />} />
+            {regionalPages.map((p) => (
+              <Route key={p.path} path={p.path} element={<RegionalServicePage key={p.path} page={p} />} />
+            ))}
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
