@@ -27,14 +27,15 @@ const sections: Section[] = [
       'Wenn Sie uns über ein Formular auf dieser Website kontaktieren, verarbeiten wir die von Ihnen angegebenen Daten, z. B. Name, Telefonnummer und/oder E-Mail-Adresse, Ort, gewünschte Leistungen und Ihre Nachricht.',
       'Zweck ist die Bearbeitung Ihrer Anfrage und die Erstellung eines Angebots. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, im Übrigen Art. 6 Abs. 1 lit. f DSGVO (Interesse an der Beantwortung von Anfragen).',
       'Die Formulardaten werden technisch über einen Webhook der Celonis SE bzw. Make.com (Plattform „Make“, Rechenzentrumsregion EU) verarbeitet und als Nachricht über den Messenger-Dienst Telegram an uns weitergeleitet. Telegram (Telegram Messenger Inc.) hat seinen Sitz außerhalb der EU; eine Übermittlung in ein Drittland kann daher nicht ausgeschlossen werden.',
-      'Wir speichern Anfragedaten, solange dies zur Bearbeitung erforderlich ist. Kommt kein Auftrag zustande, löschen wir die Daten, sobald sie nicht mehr benötigt werden, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.',
+      'Die weitergeleiteten Anfragen verbleiben in unserem Telegram-Konto. Eine automatische oder regelmäßige Löschung ist derzeit nicht eingerichtet. Wir speichern Anfragedaten grundsätzlich nur so lange, wie es für die Bearbeitung der Anfrage, die Durchführung eines Auftrags oder die Erfüllung gesetzlicher Aufbewahrungspflichten erforderlich ist. Auf Ihren Wunsch löschen wir Ihre Daten, soweit keine gesetzlichen Pflichten entgegenstehen.',
     ],
   },
   {
     title: '5. Kontakt per Telefon, E-Mail und WhatsApp',
     paragraphs: [
       'Wenn Sie uns per Telefon oder E-Mail kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung Ihres Anliegens (Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO).',
-      'Auf dieser Website befinden sich Links zu WhatsApp. Beim Anklicken wird WhatsApp bzw. die WhatsApp-Webseite geöffnet; erst dann werden Daten an WhatsApp Ireland Limited (Meta) übermittelt. Wenn Sie uns über WhatsApp schreiben, nutzen wir WhatsApp Business. Dabei verarbeitet WhatsApp Ihre Telefonnummer, Nachrichten und ggf. übermittelte Fotos. Eine Übermittlung in die USA durch Meta ist möglich. Die Nutzung von WhatsApp ist freiwillig; Sie können uns alternativ per Telefon, E-Mail oder Formular erreichen.',
+      'Unser E-Mail-Postfach (info@reinwerk-service.de) wird von der IONOS SE, Elgendorfer Straße 57, 56410 Montabaur, Deutschland, bereitgestellt. Bei E-Mail-Kontakt werden Ihre E-Mail-Adresse, der Inhalt der Nachricht und ggf. Anhänge auf Servern von IONOS gespeichert.',
+      'Auf dieser Website befinden sich Links zu WhatsApp. Beim Anklicken wird WhatsApp bzw. die WhatsApp-Webseite geöffnet; erst dann werden Daten an WhatsApp Ireland Limited (Meta) übermittelt. Wenn Sie uns über WhatsApp schreiben, nutzen wir WhatsApp Business. Dabei verarbeitet WhatsApp Ihre Telefonnummer, Nachrichten und ggf. übermittelte Fotos. Eine Übermittlung in die USA durch Meta ist möglich. Nachrichten und Fotos verbleiben in unserem WhatsApp-Business-Konto; eine automatische oder regelmäßige Löschung ist derzeit nicht eingerichtet. Auf Ihren Wunsch löschen wir den Chatverlauf auf unserer Seite, soweit keine gesetzlichen Pflichten entgegenstehen. Die Nutzung von WhatsApp ist freiwillig; Sie können uns alternativ per Telefon, E-Mail oder Formular erreichen.',
     ],
   },
   {
