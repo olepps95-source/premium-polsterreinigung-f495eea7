@@ -21,7 +21,7 @@ const parseNumericPrice = (priceString: string): number => {
   return match ? parseInt(match[1], 10) : 0;
 };
 
-export const CTASection = forwardRef<CTAFormHandle, { heading?: string }>(({ heading }, ref) => {
+export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -146,7 +146,7 @@ export const CTASection = forwardRef<CTAFormHandle, { heading?: string }>(({ hea
     <section id="kontakt" className="py-10 bg-foreground text-primary-foreground">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">{heading ?? "Bereit für saubere Polster?"}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Bereit für saubere Polster?</h2>
           <p className="text-lg text-primary-foreground/80 mb-8 max-w-xl mx-auto">
             Kontaktieren Sie uns noch heute und sichern Sie sich Ihren Wunschtermin. Wir beraten Sie gerne
             unverbindlich.

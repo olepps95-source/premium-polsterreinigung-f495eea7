@@ -79,7 +79,7 @@ export const services: Record<ServiceKey, ServiceConfig> = {
     priceText:
       'Für die Polsterreinigung gelten feste Preise pro Möbelstück. Die aktuelle Preisliste finden Sie direkt unten auf dieser Seite.',
     faqs: [
-      { q: 'Wie lange braucht das Sofa zum Trocknen?', a: 'Die Trocknungszeit hängt von Stoff, Raumklima und Belüftung ab. Eine Einschätzung für Ihr Möbelstück geben wir Ihnen vor Ort.' },
+      { q: 'Wie lange braucht das Sofa zum Trocknen?', a: 'Je nach Stoff und Raumklima meist einige Stunden. Gutes Lüften verkürzt die Trocknungszeit.' },
       { q: 'Werden alle Flecken entfernt?', a: 'Viele Flecken lassen sich deutlich reduzieren oder entfernen. Bei alten oder eingetrockneten Flecken können wir kein vollständiges Ergebnis garantieren.' },
       { q: 'Muss ich die Möbel vorbereiten?', a: 'Bitte räumen Sie Kissen und Gegenstände vom Möbelstück. Alles Weitere übernehmen wir.' },
     ],
@@ -101,14 +101,14 @@ export const services: Record<ServiceKey, ServiceConfig> = {
     steps: [
       { title: 'Fotos senden', text: 'Ein paar Fotos Ihrer Fenster per WhatsApp reichen uns aus.' },
       { title: 'Preis erhalten', text: 'Sie erhalten einen festen Preis für den vereinbarten Umfang.' },
-      { title: 'Termin & Reinigung', text: 'Wir kommen zum vereinbarten Termin und reinigen gründlich.' },
+      { title: 'Termin & Reinigung', text: 'Wir kommen zum vereinbarten Termin und reinigen streifenfrei.' },
     ],
     priceText:
       'Der Preis richtet sich nach Anzahl und Größe der Fenster, Erreichbarkeit und gewünschtem Umfang (z. B. mit Rahmen). Nach Ihren Fotos nennen wir Ihnen einen festen Preis.',
     faqs: [
       { q: 'Reinigen Sie auch die Rahmen?', a: 'Ja, Rahmen und Fensterbänke können auf Wunsch mitgereinigt werden.' },
       { q: 'Bieten Sie Fensterreinigung für Geschäfte an?', a: 'Ja, wir reinigen auch Schaufenster und Glasflächen von Büros und Ladengeschäften.' },
-      { q: 'Muss ich zu Hause sein?', a: 'Bitte planen Sie für den Termin Ihre Anwesenheit ein. Einzelheiten zum Ablauf besprechen wir bei der Terminvereinbarung.' },
+      { q: 'Muss ich zu Hause sein?', a: 'Für die Innenreinigung ja. Reine Außenreinigung ist nach Absprache möglich, wenn die Fenster zugänglich sind.' },
     ],
   },
   teppich: {
@@ -133,8 +133,8 @@ export const services: Record<ServiceKey, ServiceConfig> = {
     priceText:
       'Teppichbodenreinigung ab 8 € pro m². Der endgültige Preis richtet sich nach Fläche, Verschmutzungsgrad und Aufwand und wird vorher fest vereinbart.',
     faqs: [
-      { q: 'Wann ist der Teppichboden wieder begehbar?', a: 'Das hängt von Fläche, Belüftung und Raumtemperatur ab. Eine Einschätzung geben wir Ihnen vor Ort.' },
-      { q: 'Reinigen Sie auch große Gewerbeflächen?', a: 'Ja, auch Teppichböden in Büros, Praxen und Kitas. Den passenden Termin stimmen wir individuell mit Ihnen ab.' },
+      { q: 'Wann ist der Teppichboden wieder begehbar?', a: 'In der Regel nach einigen Stunden, abhängig von Belüftung und Raumtemperatur.' },
+      { q: 'Reinigen Sie auch große Gewerbeflächen?', a: 'Ja, auch Büros, Praxen und Kitas. Termine außerhalb der Öffnungszeiten sind nach Absprache möglich.' },
       { q: 'Müssen Möbel ausgeräumt werden?', a: 'Kleine Gegenstände bitte entfernen. Größere Möbel besprechen wir vorab mit Ihnen.' },
     ],
   },
@@ -155,12 +155,12 @@ export const services: Record<ServiceKey, ServiceConfig> = {
     steps: [
       { title: 'Anfrage senden', text: 'Beschreiben Sie Objekt, Flächen und gewünschte Leistungen.' },
       { title: 'Angebot erhalten', text: 'Sie erhalten ein klares Angebot mit festem Preis.' },
-      { title: 'Reinigung nach Plan', text: 'Wir reinigen zum gemeinsam vereinbarten Termin.' },
+      { title: 'Reinigung nach Plan', text: 'Wir reinigen nach Absprache – auch außerhalb Ihrer Geschäftszeiten.' },
     ],
     priceText:
       'Gewerbliche Aufträge kalkulieren wir individuell nach Fläche, Möbelanzahl und Leistungsumfang. Sie erhalten vorab ein festes Angebot.',
     faqs: [
-      { q: 'Wie wird der Termin abgestimmt?', a: 'Sprechen Sie uns auf Ihre Wunschzeiten an. Welche Termine möglich sind, klären wir individuell mit Ihnen.' },
+      { q: 'Können Sie außerhalb der Geschäftszeiten reinigen?', a: 'Ja, Termine am frühen Morgen, abends oder am Wochenende sind nach Absprache möglich.' },
       { q: 'Für welche Branchen arbeiten Sie?', a: 'Unter anderem für Büros, Arztpraxen, Hotels, Kitas und Pflegeeinrichtungen.' },
       { q: 'Bieten Sie regelmäßige Reinigungen an?', a: 'Wiederkehrende Termine können wir gerne individuell mit Ihnen vereinbaren.' },
     ],
@@ -179,7 +179,7 @@ const intros: Record<ServiceKey, Record<CityKey, string>> = {
   },
   fenster: {
     chemnitz:
-      'Saubere Fenster für Wohnung, Haus oder Geschäft in Chemnitz: Wir reinigen Glasflächen, Rahmen und Fensterbänke gründlich und sorgfältig. Auch für Wintergärten und Schaufenster in Burgstädt, Frankenberg oder Glauchau sind wir die richtigen Ansprechpartner.',
+      'Streifenfreie Fenster für Wohnung, Haus oder Geschäft in Chemnitz: Wir reinigen Glasflächen, Rahmen und Fensterbänke gründlich und sorgfältig. Auch für Wintergärten und Schaufenster in Burgstädt, Frankenberg oder Glauchau sind wir die richtigen Ansprechpartner.',
     dresden:
       'Ob hohe Altbaufenster, moderne Glasfronten oder ein Wintergarten – für die Fensterreinigung in Dresden kommen wir mit passender Ausrüstung zu Ihnen. Auch in Radebeul, Coswig oder Heidenau reinigen wir Ihre Fenster.',
     leipzig:
@@ -195,7 +195,7 @@ const intros: Record<ServiceKey, Record<CityKey, string>> = {
   },
   gewerbe: {
     chemnitz:
-      'Gepflegte Geschäftsräume hinterlassen bei Kunden und Mitarbeitenden einen guten Eindruck. Für Unternehmen in Chemnitz reinigen wir Teppichböden, Polstermöbel, Matratzen, Hartböden und Fenster – abgestimmt auf Ihren Betriebsablauf.',
+      'Gepflegte Geschäftsräume hinterlassen bei Kunden und Mitarbeitenden einen guten Eindruck. Für Unternehmen in Chemnitz reinigen wir Teppichböden, Polstermöbel, Matratzen, Hartböden und Fenster – flexibel und ohne Ihren Betrieb zu unterbrechen.',
     dresden:
       'Für Büros, Praxen, Hotels und Kitas in Dresden bieten wir professionelle Reinigung von Teppichen, Polstern, Matratzen und Hartböden direkt vor Ort. Auch Betriebe in Radebeul, Pirna oder Heidenau betreuen wir.',
     leipzig:
