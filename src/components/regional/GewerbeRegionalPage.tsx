@@ -424,6 +424,14 @@ const GewerbeRegionalPage = ({ page }: { page: RegionalPage }) => {
                 </div>
               ))}
             </div>
+            <div className="grid md:grid-cols-2 gap-6 mt-10">
+              {page.sections.map((sec) => (
+                <div key={sec.title}>
+                  <h3 className="font-bold text-foreground mb-1">{sec.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{sec.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
