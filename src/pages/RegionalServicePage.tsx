@@ -195,7 +195,7 @@ export default function RegionalServicePage({ page }: { page: RegionalPage }) {
         </section>
 
         <div id="kontakt">
-          <CTASection ref={ctaRef} />
+          <CTASection ref={ctaRef} heading={service.key === 'polster' ? undefined : `Anfrage zur ${service.name} in ${city.name}`} />
         </div>
       </main>
       <Footer />
