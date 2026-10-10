@@ -21,7 +21,16 @@ const parseNumericPrice = (priceString: string): number => {
   return match ? parseInt(match[1], 10) : 0;
 };
 
-export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
+interface CTASectionProps {
+  /** Optional: Leistung + Stadt der regionalen Seite, wird an die Nachricht angehängt. */
+  contextLabel?: string;
+  /** Optional: eigene Überschrift. */
+  heading?: string;
+  /** Optional: Polster-Auswahl aus der Preisliste ignorieren (Nicht-Polster-Seiten). */
+  ignoreSelections?: boolean;
+}
+
+export const CTASection = forwardRef<CTAFormHandle, CTASectionProps>(({ contextLabel, heading, ignoreSelections }, ref) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -31,8 +40,8 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
   const { toast } = useToast();
   const { getSelectedServices, getTotalQuantity, clearSelections } = useSelectedServices();
 
-  const selectedServices = getSelectedServices();
-  const totalQuantity = getTotalQuantity();
+  const selectedServices = ignoreSelections ? [] : getSelectedServices();
+  const totalQuantity = ignoreSelections ? 0 : getTotalQuantity();
 
   // Calculate total price from selected services
   const totalPrice = selectedServices.reduce((sum, service) => {
@@ -82,7 +91,9 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
     const payload = {
       name: formData.name,
       phone: formData.phone,
-      message: formData.message,
+      message: contextLabel
+        ? `${formData.message}${formData.message.trim() ? "\n\n" : ""}Anfrage über Seite: ${contextLabel}`
+        : formData.message,
       selected_services: selectedServicesText,
       services: selectedServices.map((service) => {
         const numericPrice = parseNumericPrice(service.price);
@@ -125,7 +136,7 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
           phone: "",
           message: "",
         });
-        clearSelections();
+        if (!ignoreSelections) clearSelections();
       } else {
         toast({
           title: "Fehler beim Senden",
@@ -146,7 +157,7 @@ export const CTASection = forwardRef<CTAFormHandle>((_, ref) => {
     <section id="kontakt" className="py-10 bg-foreground text-primary-foreground">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Bereit für saubere Polster?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{heading ?? "Bereit für saubere Polster?"}</h2>
           <p className="text-lg text-primary-foreground/80 mb-8 max-w-xl mx-auto">
             Kontaktieren Sie uns noch heute und sichern Sie sich Ihren Wunschtermin. Wir beraten Sie gerne
             unverbindlich.

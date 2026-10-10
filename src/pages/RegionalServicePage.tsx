@@ -194,9 +194,12 @@ export default function RegionalServicePage({ page }: { page: RegionalPage }) {
           </div>
         </section>
 
-        <div id="kontakt">
-          <CTASection ref={ctaRef} />
-        </div>
+        <CTASection
+          ref={ctaRef}
+          contextLabel={page.h1}
+          heading={`Jetzt ${service.name} in ${city.name} anfragen`}
+          ignoreSelections={service.key !== 'polster'}
+        />
       </main>
       <Footer />
       <StickyCtaButton />
