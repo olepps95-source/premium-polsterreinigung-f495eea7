@@ -18,6 +18,7 @@ import { StickyCtaButton } from '@/components/StickyCtaButton';
 import {
   FensterRegionalHero, GewerbeRegionalHero, PolsterRegionalHero, TeppichRegionalHero,
 } from '@/components/regional/RegionalHeroes';
+import FensterRegionalPage from '@/components/regional/FensterRegionalPage';
 import { RegionalPage, regionalPagesForService, absoluteUrl } from '@/lib/regionalPages';
 
 const scrollToContact = () => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' });
@@ -29,6 +30,11 @@ const H2 = ({ children, dark = false }: { children: React.ReactNode; dark?: bool
 );
 
 export default function RegionalServicePage({ page }: { page: RegionalPage }) {
+  if (page.service.key === 'fenster') return <FensterRegionalPage key={page.path} page={page} />;
+  return <GenericRegionalPage page={page} />;
+}
+
+function GenericRegionalPage({ page }: { page: RegionalPage }) {
   const ctaRef = useRef<CTAFormHandle>(null);
   const { service, city } = page;
   const key = service.key;
