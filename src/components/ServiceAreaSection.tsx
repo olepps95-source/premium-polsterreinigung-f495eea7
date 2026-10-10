@@ -1,6 +1,6 @@
 import { MapPin } from 'lucide-react';
 
-const cities = [
+const defaultCities = [
   'Chemnitz',
   'Dresden',
   'Leipzig',
@@ -9,7 +9,7 @@ const cities = [
   'Freiberg',
 ];
 
-export function ServiceAreaSection() {
+export function ServiceAreaSection({ heading, description, cities = defaultCities }: { heading?: string; description?: string; cities?: string[] } = {}) {
   return (
     <section id="einsatzgebiet" className="py-10">
       <div className="container">
@@ -21,11 +21,10 @@ export function ServiceAreaSection() {
             
             <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Einsatzgebiet</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Wir kommen zu Ihnen
+              {heading ?? 'Wir kommen zu Ihnen'}
             </h2>
             <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-              Unser mobiler Reinigungsservice ist in ganz Sachsen für Sie unterwegs. 
-              Wir reinigen Ihre Polster direkt bei Ihnen zu Hause – bequem und ohne Transport.
+              {description ?? 'Unser mobiler Reinigungsservice ist in ganz Sachsen für Sie unterwegs. Wir reinigen Ihre Polster direkt bei Ihnen zu Hause – bequem und ohne Transport.'}
             </p>
             
             {/* Mobile: 2-column grid, Desktop: flex wrap */}

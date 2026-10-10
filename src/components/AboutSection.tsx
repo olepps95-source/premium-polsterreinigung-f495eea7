@@ -26,7 +26,7 @@ const benefits = [
   },
 ];
 
-export function AboutSection() {
+export function AboutSection({ text }: { text?: string } = {}) {
   const isMobile = useIsMobile();
 
   return (
@@ -40,9 +40,7 @@ export function AboutSection() {
               Ihr Partner für saubere Polster
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
-              Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel 
-              wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer 
-              Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.
+              {text ?? 'Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.'}
             </p>
             
             {/* Team member image below text on mobile */}
@@ -68,9 +66,7 @@ export function AboutSection() {
             </h2>
             
             <p className="text-lg text-muted-foreground">
-              Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel 
-              wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer 
-              Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.
+              {text ?? 'Mit viel Erfahrung und moderner Ausrüstung tragen wir dazu bei, dass Ihre Polstermöbel wieder frisch und gepflegt wirken. Unsere gründliche Reinigung unterstützt den Erhalt Ihrer Möbel und sorgt für ein angenehmes, hygienisches Wohngefühl.'}
             </p>
             
             {/* Team member image */}
