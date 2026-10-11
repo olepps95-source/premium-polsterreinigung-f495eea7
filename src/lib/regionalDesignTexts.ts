@@ -62,20 +62,23 @@ export const teppichTexts: Record<CityKey, RegionalDesignText> = {
   },
 };
 
-export const gewerbeTexts: Record<CityKey, { hero: string; clients: string; cta: string }> = {
+export const gewerbeTexts: Record<CityKey, { hero: string; clients: string; cta: string; einsatz: string }> = {
   chemnitz: {
     hero: 'Reinigung für Unternehmen in Chemnitz: Polstermöbel, Bürostühle, Teppichböden, Matratzen & Hartböden — vor Ort, von unserem Firmensitz aus.',
     clients: 'Für Büros, Praxen, Hotels und Kitas in Chemnitz und Umgebung – etwa in Limbach-Oberfrohna, Frankenberg, Flöha, Burgstädt und Glauchau.',
     cta: 'Bereit für saubere Geschäftsräume in Chemnitz?',
+    einsatz: 'Von unserem Unternehmenssitz in Chemnitz aus reinigen wir Polstermöbel, Bürostühle, Teppichböden und Matratzen für Unternehmen in der ganzen Stadt sowie in Limbach-Oberfrohna, Frankenberg, Flöha, Burgstädt und Glauchau.',
   },
   dresden: {
-    hero: 'Reinigung für Unternehmen in Dresden: Polstermöbel, Bürostühle, Teppichböden, Matratzen & Hartböden — mobiler Vor-Ort-Service ohne Niederlassung vor Ort.',
+    hero: 'Reinigung für Unternehmen in Dresden: Polstermöbel, Bürostühle, Teppichböden, Matratzen & Hartböden — mobiler Vor-Ort-Service direkt bei Ihnen.',
     clients: 'Für Büros, Praxen, Hotels und Kitas in Dresden – von der Neustadt und Pieschen bis Radebeul, Freital und Pirna.',
     cta: 'Bereit für saubere Geschäftsräume in Dresden?',
+    einsatz: 'Für Büros, Praxen, Hotels und Kitas in Dresden kommen wir direkt zu Ihnen – von der Neustadt, Striesen und Löbtau bis nach Radebeul, Freital, Coswig, Heidenau und Pirna.',
   },
   leipzig: {
-    hero: 'Reinigung für Unternehmen in Leipzig: Polstermöbel, Bürostühle, Teppichböden, Matratzen & Hartböden — mobiler Vor-Ort-Service ohne Niederlassung vor Ort.',
+    hero: 'Reinigung für Unternehmen in Leipzig: Polstermöbel, Bürostühle, Teppichböden, Matratzen & Hartböden — mobiler Vor-Ort-Service direkt bei Ihnen.',
     clients: 'Für Büros, Praxen, Hotels und Kitas in Leipzig – von Plagwitz und Gohlis bis Markkleeberg, Taucha und Schkeuditz.',
     cta: 'Bereit für saubere Geschäftsräume in Leipzig?',
+    einsatz: 'Für Büros, Praxen, Hotels und Kitas in Leipzig kommen wir direkt zu Ihnen – von Plagwitz, Gohlis und Reudnitz bis nach Markkleeberg, Taucha und Schkeuditz.',
   },
 };

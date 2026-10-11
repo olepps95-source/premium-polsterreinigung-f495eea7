@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/Header";
+import { EinsatzgebietSachsen } from "@/components/EinsatzgebietSachsen";
 import { InlineCityLinks } from "@/components/RegionalLinks";
 import { Footer } from "@/components/Footer";
 
@@ -618,6 +619,11 @@ const Gewerbe = () => {
             </form>
           </div>
         </section>
+
+        <EinsatzgebietSachsen
+          service="gewerbe"
+          description="Wir sind in ganz Sachsen für Unternehmen im Einsatz. Professionelle Reinigung von Polstermöbeln, Bürostühlen, Teppichböden, Matratzen und Hartböden für Büros, Praxen, Hotels und Kitas – von Chemnitz über Dresden und Leipzig bis in kleinere Städte und Gemeinden."
+        />
 
         {/* FOOTER CTA */}
         <section className="py-16 bg-[#0A1628] text-white">
