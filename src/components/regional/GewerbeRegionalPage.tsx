@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { RegionalLinks } from '@/components/RegionalLinks';
 import { RegionalPage } from '@/lib/regionalPages';
 import { absoluteUrl } from '@/lib/regionalPages';
 import { cityKeyFromPath, gewerbeTexts } from '@/lib/regionalDesignTexts';
@@ -594,7 +593,6 @@ const GewerbeRegionalPage = ({ page }: { page: RegionalPage }) => {
             </div>
           </div>
         </section>
-      <RegionalLinks service="gewerbe" />
       </main>
       <Footer />
     </div>

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { RegionalLinks } from '@/components/RegionalLinks';
+import { regionalPagesForService } from '@/lib/regionalPages';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
@@ -15,6 +15,8 @@ import { ServiceAreaSection } from '@/components/ServiceAreaSection';
 import { CTASection, CTAFormHandle } from '@/components/CTASection';
 import { Footer } from '@/components/Footer';
 import { StickyCtaButton } from '@/components/StickyCtaButton';
+
+const polsterCityLinks = Object.fromEntries(regionalPagesForService('polster').map((p) => [p.city.name, p.path]));
 
 const Polsterreinigung = () => {
   const ctaFormRef = useRef<CTAFormHandle>(null);
@@ -69,10 +71,9 @@ const Polsterreinigung = () => {
         <HowItWorksSection />
         <FurniturePreservationSection />
         <ServicesSection />
-        <ServiceAreaSection />
+        <ServiceAreaSection cityLinks={polsterCityLinks} />
         <AboutSection />
         <CTASection ref={ctaFormRef} />
-      <RegionalLinks service="polster" />
       </main>
       <Footer />
       <StickyCtaButton />

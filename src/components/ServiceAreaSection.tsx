@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { MapPin } from 'lucide-react';
 
 const defaultCities = [
@@ -9,7 +10,17 @@ const defaultCities = [
   'Freiberg',
 ];
 
-export function ServiceAreaSection({ heading, description, cities = defaultCities }: { heading?: string; description?: string; cities?: string[] } = {}) {
+export function ServiceAreaSection({ heading, description, cities = defaultCities, cityLinks = {}, currentPath }: { heading?: string; description?: string; cities?: string[]; cityLinks?: Record<string, string>; currentPath?: string } = {}) {
+  const pill = (city: string, base: string, inner: React.ReactNode) => {
+    const to = cityLinks[city];
+    if (!to) return <span key={city} className={base}>{inner}</span>;
+    const active = to === currentPath;
+    return (
+      <Link key={city} to={to} aria-current={active ? 'page' : undefined} className={`${base} transition-colors hover:text-primary hover:ring-1 hover:ring-primary/40 ${active ? 'ring-1 ring-primary/40 text-primary' : ''}`}>
+        {inner}
+      </Link>
+    );
+  };
   return (
     <section id="einsatzgebiet" className="py-10">
       <div className="container">
@@ -31,15 +42,11 @@ export function ServiceAreaSection({ heading, description, cities = defaultCitie
             <div className="max-w-2xl mx-auto">
               {/* Mobile grid */}
               <div className="grid grid-cols-2 gap-2.5 md:hidden">
-                {cities.map((city) => (
-                  <span
-                    key={city}
-                    className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-card shadow-soft text-foreground font-medium text-sm whitespace-nowrap"
-                  >
-                    <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span>{city}</span>
-                  </span>
-                ))}
+                {cities.map((city) =>
+                  pill(city, 'flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-card shadow-soft text-foreground font-medium text-sm whitespace-nowrap', (
+                    <><MapPin className="w-4 h-4 text-primary flex-shrink-0" /><span>{city}</span></>
+                  )),
+                )}
               </div>
               {/* "und Umgebung" centered below grid on mobile */}
               <div className="flex justify-center mt-2.5 md:hidden">
@@ -51,15 +58,11 @@ export function ServiceAreaSection({ heading, description, cities = defaultCitie
               
               {/* Desktop: flex layout */}
               <div className="hidden md:flex md:flex-wrap md:justify-center md:gap-3">
-                {cities.map((city) => (
-                  <span
-                    key={city}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card shadow-soft text-foreground font-medium"
-                  >
-                    <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                    {city}
-                  </span>
-                ))}
+                {cities.map((city) =>
+                  pill(city, 'inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card shadow-soft text-foreground font-medium', (
+                    <><MapPin className="w-4 h-4 text-primary flex-shrink-0" />{city}</>
+                  )),
+                )}
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card shadow-soft text-foreground font-medium">
                   <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                   und Umgebung

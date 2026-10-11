@@ -10,7 +10,6 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { EinsatzgebietSachsen } from '@/components/EinsatzgebietSachsen';
 import { GoogleReviews } from '@/components/GoogleReviews';
-import { RegionalLinks } from '@/components/RegionalLinks';
 import { toast } from '@/hooks/use-toast';
 import { trackGoogleAdsConversion } from '@/lib/google-ads';
 import { RegionalPage, absoluteUrl } from '@/lib/regionalPages';
@@ -496,7 +495,7 @@ export default function FensterRegionalPage({ page }: { page: RegionalPage }) {
           </div>
         </section>
 
-        <EinsatzgebietSachsen description={`${page.sections[1]?.text ?? ''} ${city.regionNote}`.trim()} />
+        <EinsatzgebietSachsen service="fenster" currentPath={page.path} description={`${page.sections[1]?.text ?? ''} ${city.regionNote}`.trim()} />
 
         {/* FINAL CTA */}
         <section className="relative py-6 md:py-10 overflow-hidden">
@@ -518,7 +517,6 @@ export default function FensterRegionalPage({ page }: { page: RegionalPage }) {
             <p className="mt-3 text-sm text-muted-foreground">Antwort meist innerhalb weniger Minuten.</p>
           </div>
         </section>
-        <RegionalLinks service="fenster" />
       </main>
 
       <Footer />

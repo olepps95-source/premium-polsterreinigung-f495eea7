@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { RegionalLinks } from '@/components/RegionalLinks';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
@@ -15,7 +14,7 @@ import { ServiceAreaSection } from '@/components/ServiceAreaSection';
 import { CTASection, CTAFormHandle } from '@/components/CTASection';
 import { Footer } from '@/components/Footer';
 import { StickyCtaButton } from '@/components/StickyCtaButton';
-import { RegionalPage, absoluteUrl } from '@/lib/regionalPages';
+import { RegionalPage, absoluteUrl, regionalPagesForService } from '@/lib/regionalPages';
 import { cityKeyFromPath, polsterTexts } from '@/lib/regionalDesignTexts';
 import { regionalSchemas } from './regionalSchemas';
 
@@ -56,11 +55,12 @@ export default function PolsterRegionalPage({ page }: { page: RegionalPage }) {
         <ServiceAreaSection
           heading={`Wir kommen zu Ihnen nach ${city.name}`}
           description={`${t.area} ${page.sections.map((s) => s.text).join(' ')}`}
-          cities={[city.name, ...city.surroundings.slice(0, 5)]}
+          cities={['Chemnitz', 'Dresden', 'Leipzig', ...city.surroundings.slice(0, 3)]}
+          cityLinks={Object.fromEntries(regionalPagesForService('polster').map((p) => [p.city.name, p.path]))}
+          currentPath={page.path}
         />
         <AboutSection text={t.about} />
         <CTASection ref={ctaFormRef} contextLabel={page.h1} heading={`Jetzt Polsterreinigung in ${city.name} anfragen`} />
-        <RegionalLinks service="polster" />
       </main>
       <Footer />
       <StickyCtaButton />
