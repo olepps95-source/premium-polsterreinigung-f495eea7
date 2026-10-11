@@ -6,6 +6,7 @@ import { absoluteUrl } from '@/lib/regionalPages';
 import { cityKeyFromPath, gewerbeTexts } from '@/lib/regionalDesignTexts';
 import { regionalSchemas } from '@/components/regional/regionalSchemas';
 import { Header } from "@/components/Header";
+import { EinsatzgebietSachsen } from "@/components/EinsatzgebietSachsen";
 import { InlineCityLinks } from "@/components/RegionalLinks";
 import { Footer } from "@/components/Footer";
 
@@ -551,6 +552,8 @@ const GewerbeRegionalPage = ({ page }: { page: RegionalPage }) => {
             </form>
           </div>
         </section>
+
+        <EinsatzgebietSachsen service="gewerbe" currentPath={page.path} description={t.einsatz} />
 
         {/* FOOTER CTA */}
         <section className="py-16 bg-[#0A1628] text-white">
