@@ -64,7 +64,7 @@ export const teppichTexts: Record<CityKey, RegionalDesignText> = {
 
 export const gewerbeTexts: Record<CityKey, { hero: string; clients: string; cta: string; einsatz: string }> = {
   chemnitz: {
-    hero: 'Reinigung für Unternehmen in Chemnitz: Polstermöbel, Bürostühle, Teppichböden, Matratzen & Hartböden — vor Ort, von unserem Firmensitz aus.',
+    hero: 'Reinigung für Unternehmen in Chemnitz: Polstermöbel, Bürostühle, Teppichboden, Matratzen & Hartböden — vor Ort, von unserem Firmensitz aus.',
     clients: 'Für Büros, Praxen, Hotels und Kitas in Chemnitz und Umgebung – etwa in Limbach-Oberfrohna, Frankenberg, Flöha, Burgstädt und Glauchau.',
     cta: 'Bereit für saubere Geschäftsräume in Chemnitz?',
     einsatz: 'Von unserem Unternehmenssitz in Chemnitz aus reinigen wir Polstermöbel, Bürostühle, Teppichböden und Matratzen für Unternehmen in der ganzen Stadt sowie in Limbach-Oberfrohna, Frankenberg, Flöha, Burgstädt und Glauchau.',
