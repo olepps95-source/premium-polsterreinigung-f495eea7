@@ -6,6 +6,7 @@ import { absoluteUrl } from '@/lib/regionalPages';
 import { cityKeyFromPath, gewerbeTexts } from '@/lib/regionalDesignTexts';
 import { regionalSchemas } from '@/components/regional/regionalSchemas';
 import { Header } from "@/components/Header";
+import { InlineCityLinks } from "@/components/RegionalLinks";
 import { Footer } from "@/components/Footer";
 
 import { Button } from "@/components/ui/button";
@@ -418,7 +419,7 @@ const GewerbeRegionalPage = ({ page }: { page: RegionalPage }) => {
                   </div>
                   <div>
                     <h3 className="font-bold text-foreground mb-1">{title}</h3>
-                    <p className="text-muted-foreground text-sm">{s}</p>
+                    <p className="text-muted-foreground text-sm">{title === "Mobil vor Ort" ? <InlineCityLinks service="gewerbe" currentPath={page.path} order={[city.name, ...["Chemnitz", "Dresden", "Leipzig"].filter((n) => n !== city.name)]} /> : s}</p>
                   </div>
                 </div>
               ))}
