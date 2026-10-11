@@ -37,9 +37,36 @@ interface EinsatzgebietSachsenProps {
   service?: ServiceKey;
   /** Path of the current page, marked as active. */
   currentPath?: string;
+  /** When true, each city region lists links to all four regional service pages. */
+  showServiceLinks?: boolean;
 }
 
-export function EinsatzgebietSachsen({ heading, subtitle, description, service, currentPath }: EinsatzgebietSachsenProps = {}) {
+const serviceLinkItems = [
+  { label: 'Polsterreinigung', slug: 'polsterreinigung' },
+  { label: 'Fensterreinigung', slug: 'fensterreinigung' },
+  { label: 'Teppichbodenreinigung', slug: 'teppichbodenreinigung' },
+  { label: 'Gewerbereinigung', slug: 'gewerbereinigung' },
+];
+
+const ServiceLinks = ({ title }: { title: string }) => {
+  const cityKey = title.split(' ')[0].toLowerCase();
+  return (
+    <ul className="flex flex-wrap gap-1.5 mt-2" aria-label={`Leistungen in ${title.split(' ')[0]}`}>
+      {serviceLinkItems.map((s) => (
+        <li key={s.slug}>
+          <Link
+            to={`/${s.slug}-${cityKey}`}
+            className="inline-block rounded-full border border-border px-2.5 py-0.5 text-xs font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          >
+            {s.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+export function EinsatzgebietSachsen({ heading, subtitle, description, service, currentPath, showServiceLinks }: EinsatzgebietSachsenProps = {}) {
   const [open, setOpen] = useState(false);
   const links = service ? regionalPagesForService(service) : [];
   const RegionTitle = ({ title }: { title: string }) => {
@@ -107,6 +134,7 @@ export function EinsatzgebietSachsen({ heading, subtitle, description, service, 
                 <div key={r.title} className="border-t border-border pt-3">
                   <RegionTitle title={r.title} />
                   <p className="text-sm text-muted-foreground leading-relaxed">{r.cities}</p>
+                  {showServiceLinks && <ServiceLinks title={r.title} />}
                 </div>
               ))}
             </div>
@@ -119,6 +147,7 @@ export function EinsatzgebietSachsen({ heading, subtitle, description, service, 
                     <div key={r.title} className="border-t border-border pt-3">
                       <RegionTitle title={r.title} />
                       <p className="text-sm text-muted-foreground leading-relaxed">{r.cities}</p>
+                      {showServiceLinks && <ServiceLinks title={r.title} />}
                     </div>
                   ))}
                 </div>
