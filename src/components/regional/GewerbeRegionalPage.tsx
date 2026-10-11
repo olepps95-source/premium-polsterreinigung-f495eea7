@@ -210,7 +210,7 @@ const GewerbeRegionalPage = ({ page }: { page: RegionalPage }) => {
               <p className="text-xs sm:text-sm font-bold tracking-[0.25em] text-primary uppercase mb-3 lg:mb-5">
                 Für Unternehmen in {city.name}
               </p>
-              <h1 className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-10 lg:mb-7">
+              <h1 className="text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-10 lg:mb-7">
                 <span className="text-primary">Gewerbereinigung</span>
                 <br />
                 in {city.name}
