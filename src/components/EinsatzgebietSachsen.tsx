@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ChevronDown, ArrowRight } from 'lucide-react';
+import { ServiceKey, regionalPagesForService } from '@/lib/regionalPages';
 import mapAsset from '@/assets/Teppichbodenreinigung_in_Leipzig.png';
 
 const regions = [
@@ -31,10 +33,32 @@ interface EinsatzgebietSachsenProps {
   heading?: string;
   subtitle?: string;
   description?: string;
+  /** When set, the three city region titles link to that service's regional pages. */
+  service?: ServiceKey;
+  /** Path of the current page, marked as active. */
+  currentPath?: string;
 }
 
-export function EinsatzgebietSachsen({ heading, subtitle, description }: EinsatzgebietSachsenProps = {}) {
+export function EinsatzgebietSachsen({ heading, subtitle, description, service, currentPath }: EinsatzgebietSachsenProps = {}) {
   const [open, setOpen] = useState(false);
+  const links = service ? regionalPagesForService(service) : [];
+  const RegionTitle = ({ title }: { title: string }) => {
+    const page = links.find((p) => title.startsWith(p.city.name));
+    if (!page) return <p className="font-semibold text-foreground text-sm mb-1">{title}</p>;
+    const active = page.path === currentPath;
+    return (
+      <p className="font-semibold text-sm mb-1">
+        <Link
+          to={page.path}
+          aria-current={active ? 'page' : undefined}
+          className={`group inline-flex items-center gap-1 transition-colors hover:text-primary ${active ? 'text-primary' : 'text-foreground'}`}
+        >
+          {title}
+          <ArrowRight className="w-3.5 h-3.5 text-primary transition-transform group-hover:translate-x-0.5" />
+        </Link>
+      </p>
+    );
+  };
 
   return (
     <section id="einsatzgebiet-sachsen" className="py-8 md:py-14 bg-background">
@@ -81,7 +105,7 @@ export function EinsatzgebietSachsen({ heading, subtitle, description }: Einsatz
             <div className="hidden md:block space-y-4">
               {regions.slice(0, 3).map((r) => (
                 <div key={r.title} className="border-t border-border pt-3">
-                  <p className="font-semibold text-foreground text-sm mb-1">{r.title}</p>
+                  <RegionTitle title={r.title} />
                   <p className="text-sm text-muted-foreground leading-relaxed">{r.cities}</p>
                 </div>
               ))}
@@ -93,7 +117,7 @@ export function EinsatzgebietSachsen({ heading, subtitle, description }: Einsatz
                 <div className="md:hidden space-y-4">
                   {regions.slice(0, 3).map((r) => (
                     <div key={r.title} className="border-t border-border pt-3">
-                      <p className="font-semibold text-foreground text-sm mb-1">{r.title}</p>
+                      <RegionTitle title={r.title} />
                       <p className="text-sm text-muted-foreground leading-relaxed">{r.cities}</p>
                     </div>
                   ))}

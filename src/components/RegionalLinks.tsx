@@ -1,21 +1,25 @@
 import { Link } from 'react-router-dom';
-import { MapPin } from 'lucide-react';
 import { ServiceKey, regionalPagesForService } from '@/lib/regionalPages';
 
-export function RegionalLinks({ service }: { service: ServiceKey }) {
+/** Inline, crawlable links to a service's regional pages, e.g. "Dresden, Leipzig, Chemnitz & Umgebung". */
+export function InlineCityLinks({ service, currentPath, order = ['Dresden', 'Leipzig', 'Chemnitz'] }: { service: ServiceKey; currentPath?: string; order?: string[] }) {
   const pages = regionalPagesForService(service);
+  const sorted = order.map((n) => pages.find((p) => p.city.name === n)).filter(Boolean) as typeof pages;
   return (
-    <section className="py-8 md:py-10 bg-background">
-      <div className="container max-w-3xl text-center">
-        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">Unsere Reinigungsleistungen in Ihrer Nähe</h2>
-        <div className="flex flex-wrap justify-center gap-3">
-          {pages.map((p) => (
-            <Link key={p.path} to={p.path} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card text-foreground font-medium hover:border-primary hover:text-primary transition-colors">
-              <MapPin className="w-4 h-4 text-primary" /> {p.service.name} {p.city.name}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
+    <>
+      {sorted.map((p, i) => (
+        <span key={p.path}>
+          <Link
+            to={p.path}
+            aria-current={p.path === currentPath ? 'page' : undefined}
+            className={`underline-offset-2 hover:underline hover:text-primary transition-colors ${p.path === currentPath ? 'text-primary font-medium' : ''}`}
+          >
+            {p.city.name}
+          </Link>
+          {i < sorted.length - 2 ? ', ' : i === sorted.length - 2 ? ', ' : ''}
+        </span>
+      ))}
+      {' '}& Umgebung
+    </>
   );
 }

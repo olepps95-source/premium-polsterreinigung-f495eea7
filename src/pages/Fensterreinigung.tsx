@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { RegionalLinks } from '@/components/RegionalLinks';
 import { MessageCircle, Check, Camera, FileText, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -544,6 +543,7 @@ export default function Fensterreinigung() {
         </section>
 
         <EinsatzgebietSachsen
+          service="fenster"
           description="Wir sind in ganz Sachsen für Sie unterwegs. Professionelle Fensterreinigung für Privat- und Gewerbekunden – von Chemnitz über Dresden und Leipzig bis in kleinere Städte und Gemeinden."
         />
 
@@ -573,7 +573,6 @@ export default function Fensterreinigung() {
             </p>
           </div>
         </section>
-      <RegionalLinks service="fenster" />
       </main>
 
       <Footer />

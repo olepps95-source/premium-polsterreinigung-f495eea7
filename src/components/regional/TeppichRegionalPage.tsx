@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { RegionalLinks } from '@/components/RegionalLinks';
 import { RegionalPage, absoluteUrl } from '@/lib/regionalPages';
 import { cityKeyFromPath, teppichTexts } from '@/lib/regionalDesignTexts';
 import { regionalSchemas } from '@/components/regional/regionalSchemas';
@@ -676,8 +675,7 @@ export default function TeppichRegionalPage({ page }: { page: RegionalPage }) {
           </div>
         </section>
 
-        <EinsatzgebietSachsen description={`${t.einsatz} ${city.regionNote}`} />
-      <RegionalLinks service="teppich" />
+        <EinsatzgebietSachsen service="teppich" currentPath={page.path} description={`${t.einsatz} ${city.regionNote}`} />
       </main>
 
 

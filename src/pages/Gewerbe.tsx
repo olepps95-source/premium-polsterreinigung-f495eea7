@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { RegionalLinks } from '@/components/RegionalLinks';
 import { Header } from "@/components/Header";
+import { InlineCityLinks } from "@/components/RegionalLinks";
 import { Footer } from "@/components/Footer";
 
 import { Button } from "@/components/ui/button";
@@ -494,7 +494,7 @@ const Gewerbe = () => {
                   </div>
                   <div>
                     <h3 className="font-bold text-foreground mb-1">{t}</h3>
-                    <p className="text-muted-foreground text-sm">{s}</p>
+                    <p className="text-muted-foreground text-sm">{t === "Sachsen-weit verfügbar" ? <InlineCityLinks service="gewerbe" /> : s}</p>
                   </div>
                 </div>
               ))}
@@ -661,7 +661,6 @@ const Gewerbe = () => {
             </div>
           </div>
         </section>
-      <RegionalLinks service="gewerbe" />
       </main>
       <Footer />
     </div>
