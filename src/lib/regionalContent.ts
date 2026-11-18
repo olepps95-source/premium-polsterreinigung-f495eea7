@@ -32,7 +32,7 @@ export const localContent: Record<ServiceKey, Record<CityKey, LocalContent>> = {
     },
     dresden: {
       intro:
-        'Für die Polsterreinigung in Dresden kommen wir mobil zu Ihnen – ob in die Altbauwohnung in Striesen, die Wohnung in der Neustadt oder das Haus in Blasewitz. Ihr Sofa wird direkt bei Ihnen gereinigt, ein Transport ist normalerweise nicht nötig.',
+        'Ob Couch, Ecksofa, Sessel oder Matratze – ReinWerk bietet eine gründliche Polsterreinigung direkt bei Ihnen zu Hause.\nMit professionellen Reinigungsgeräten entfernen wir Staub und Verschmutzungen aus Ihren Polstermöbeln. Dank unserer Schnelltrocknung wird die Trocknungszeit verkürzt.\nUnser mobiler Reinigungsservice ist in ganz Dresden sowie in Radebeul, Freital, Pirna und Umgebung für Sie im Einsatz. Sie müssen Ihre Möbel nicht transportieren – wir bringen die benötigte Ausrüstung mit.',
       sections: [
         {
           title: 'Sofareinigung in Dresden ohne Möbeltransport',
