@@ -58,9 +58,11 @@ export default function PolsterRegionalPage({ page }: { page: RegionalPage }) {
             : `${t.services} ${page.intro}`}
         />
         <ServiceAreaSection
-          heading={city.name === 'Dresden' ? 'Polsterreinigung vor Ort in Dresden' : `Wir kommen zu Ihnen nach ${city.name}`}
+          heading={city.name === 'Dresden' ? 'Polsterreinigung vor Ort in Dresden' : city.name === 'Leipzig' ? 'Polsterreinigung vor Ort in Leipzig' : `Wir kommen zu Ihnen nach ${city.name}`}
           description={city.name === 'Dresden'
             ? 'Wir reinigen Sofas, Sessel und Matratzen direkt bei Ihnen zu Hause – gründlich, bequem und mit moderner Reinigungstechnik. Unser mobiler Service ist in Dresden und Umgebung für Sie im Einsatz, auch in Radebeul, Freital und Pirna.'
+            : city.name === 'Leipzig'
+              ? 'Wir kommen direkt zu Ihnen nach Hause und reinigen Ihre Polstermöbel mit moderner Reinigungstechnik. Ob Sofa, Sessel oder Matratze – Sie müssen nichts transportieren.\nUnser mobiler Reinigungsservice ist in Leipzig und Umgebung für Sie verfügbar. Vereinbaren Sie einfach Ihren Wunschtermin.'
             : `${t.area} ${page.sections.map((s) => s.text).join(' ')}`}
           cities={['Chemnitz', 'Dresden', 'Leipzig', ...city.surroundings.slice(0, 3)]}
           cityLinks={Object.fromEntries(regionalPagesForService('polster').map((p) => [p.city.name, p.path]))}
