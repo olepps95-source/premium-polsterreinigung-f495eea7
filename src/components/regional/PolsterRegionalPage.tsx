@@ -51,7 +51,12 @@ export default function PolsterRegionalPage({ page }: { page: RegionalPage }) {
         <PricingSection />
         <HowItWorksSection />
         <FurniturePreservationSection />
-        <ServicesSection heading={`Polsterreinigung in ${city.name}: Was wir für Sie tun können`} intro={`${t.services} ${page.intro}`} />
+        <ServicesSection
+          heading={city.name === 'Leipzig' ? 'Polsterreinigung in Leipzig' : `Polsterreinigung in ${city.name}: Was wir für Sie tun können`}
+          intro={city.name === 'Leipzig'
+            ? 'Wir reinigen Sofas, Ecksofas, Sessel und Matratzen direkt bei Ihnen zu Hause – gründlich und mit moderner Reinigungstechnik. Dank Schnelltrocknung verkürzt sich die Trocknungszeit.\nUnser Service ist in ganz Leipzig sowie in Markkleeberg, Taucha, Schkeuditz und Umgebung verfügbar.'
+            : `${t.services} ${page.intro}`}
+        />
         <ServiceAreaSection
           heading={city.name === 'Dresden' ? 'Polsterreinigung vor Ort in Dresden' : `Wir kommen zu Ihnen nach ${city.name}`}
           description={city.name === 'Dresden'
