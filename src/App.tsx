@@ -15,6 +15,10 @@ import Teppichbodenreinigung from "./pages/Teppichbodenreinigung";
 import NotFound from "./pages/NotFound";
 import RegionalServicePage from "./pages/RegionalServicePage";
 import { regionalPages } from "@/lib/regionalPages";
+import { lazy, Suspense } from "react";
+import { GEBAEUDE_ENABLED } from "@/lib/gebaeudereinigung";
+// Draft page: only bundled/mounted in dev preview, never in production builds.
+const GebaeudereinigungDraft = GEBAEUDE_ENABLED ? lazy(() => import("./pages/drafts/Gebaeudereinigung")) : null;
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
 import { CookieBanner } from "./components/CookieBanner";
@@ -47,6 +51,9 @@ const App = () => (
             {regionalPages.map((p) => (
               <Route key={p.path} path={p.path} element={<RegionalServicePage key={p.path} page={p} />} />
             ))}
+            {GebaeudereinigungDraft && (
+              <Route path="/gebaeudereinigung" element={<Suspense fallback={null}><GebaeudereinigungDraft /></Suspense>} />
+            )}
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
