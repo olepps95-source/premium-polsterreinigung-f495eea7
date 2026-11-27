@@ -2,7 +2,7 @@
 import { useState, FormEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import {
-  Home, Building2, CalendarDays, ShieldCheck, ArrowRight, Send, Sparkles, Check, Plus, Minus, Star, Calendar,
+  Home, Building2, CalendarDays, ShieldCheck, ArrowRight, Sparkles, Check, Plus, Minus, Calendar, Brush, Droplets, Package, FileText,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -24,8 +24,12 @@ const benefits = [
   { icon: ShieldCheck, label: "Gründlich & schonend" },
 ];
 
+const serviceIcons: Record<string, typeof Home> = {
+  wohnung: Home, buero: Building2, grund: Sparkles, unterhalt: Brush, badkueche: Droplets, umzug: Package,
+};
+
 const steps = [
-  { icon: Send, title: "Anfrage senden", text: "Teilen Sie uns mit, welche Reinigung Sie benötigen." },
+  { icon: FileText, title: "Anfrage senden", text: "Teilen Sie uns mit, welche Reinigung Sie benötigen." },
   { icon: CalendarDays, title: "Termin vereinbaren", text: "Wir besprechen den Leistungsumfang und vereinbaren einen passenden Termin." },
   { icon: Sparkles, title: "Sauberkeit genießen", text: "Wir kümmern uns um die vereinbarte Reinigung Ihrer Räumlichkeiten." },
 ];
@@ -89,55 +93,56 @@ export default function Gebaeudereinigung() {
 
       <main>
         {/* Hero */}
-        <section className="py-8 md:py-14">
-          <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <p className="text-xs md:text-sm font-semibold tracking-widest text-primary mb-3">IHR REINIGUNGSSERVICE IN CHEMNITZ</p>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-accent-foreground leading-tight mb-4">
+        <section className="relative overflow-hidden bg-accent">
+          <img src={heroImg.url} alt="Freundliche Reinigungskraft mit Schürze, gelben Handschuhen und Reinigungsmitteln in einer hellen Wohnung" className="absolute inset-y-0 right-0 h-full w-[58%] md:w-[55%] object-cover object-[30%_center]" fetchPriority="high" />
+          <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent/90 to-transparent md:via-accent/80" aria-hidden />
+          <span className="absolute bottom-2 right-2 text-[10px] bg-background/80 text-muted-foreground px-2 py-0.5 rounded">Beispielbild</span>
+          <div className="relative container mx-auto px-4 py-8 md:py-20">
+            <div className="max-w-[60%] md:max-w-xl">
+              <p className="text-[11px] md:text-sm font-bold tracking-wide text-primary mb-2 md:mb-3">IHR REINIGUNGSSERVICE IN CHEMNITZ</p>
+              <h1 className="text-[1.55rem] leading-[1.08] break-words hyphens-auto sm:text-4xl lg:text-6xl font-extrabold text-accent-foreground mb-3 md:mb-5 tracking-tight">
                 Gebäudereinigung für Privat &amp; Gewerbe
               </h1>
-              <p className="text-base md:text-lg text-muted-foreground mb-6 max-w-lg">
+              <p className="text-sm md:text-lg text-foreground/80 mb-5 md:mb-8 max-w-md">
                 Professionelle Reinigung von Wohnungen, Häusern und Büros. Gründlich, zuverlässig und flexibel – in Chemnitz und Umgebung.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button size="lg" onClick={() => goToForm()}>Jetzt Angebot anfragen <ArrowRight className="ml-1 h-4 w-4" /></Button>
-                <Button size="lg" variant="outline" onClick={() => goToForm()}>Termin vereinbaren</Button>
+              <div className="flex flex-col sm:flex-row gap-3 max-w-xs sm:max-w-none">
+                <Button size="lg" className="h-12 rounded-xl text-base font-semibold shadow-[var(--shadow-medium)]" onClick={() => goToForm()}>Jetzt Angebot anfragen <ArrowRight className="ml-1 h-4 w-4" /></Button>
+                <Button size="lg" variant="outline" className="h-12 rounded-xl text-base font-semibold bg-background border-transparent shadow-[var(--shadow-soft)]" onClick={() => goToForm()}><Calendar className="mr-2 h-4 w-4 text-primary" />Termin vereinbaren</Button>
               </div>
-            </div>
-            <div className="relative">
-              <img src={heroImg.url} alt="Freundliche Reinigungskraft mit Schürze, gelben Handschuhen und Reinigungsmitteln in einer hellen Wohnung" className="w-full aspect-[4/3] object-cover rounded-2xl shadow-[var(--shadow-medium)]" fetchPriority="high" />
-              <span className="absolute bottom-2 right-2 text-[10px] bg-background/80 text-muted-foreground px-2 py-0.5 rounded">Beispielbild</span>
             </div>
           </div>
         </section>
 
         {/* Benefits */}
-        <section className="bg-accent py-6">
-          <ul className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <section className="bg-accent/60 border-y border-border">
+          <ul className="container mx-auto px-2 grid grid-cols-4 divide-x divide-border py-4 md:py-6">
             {benefits.map(({ icon: Icon, label }) => (
-              <li key={label} className="flex flex-col sm:flex-row items-center justify-center gap-2 text-center">
-                <Icon className="h-7 w-7 text-primary" strokeWidth={1.6} />
-                <span className="text-sm font-semibold text-accent-foreground">{label}</span>
+              <li key={label} className="flex flex-col md:flex-row items-center justify-center gap-1.5 md:gap-3 text-center px-1">
+                <Icon className="h-7 w-7 md:h-8 md:w-8 text-primary" strokeWidth={1.6} />
+                <span className="text-[11px] md:text-sm font-semibold text-accent-foreground leading-tight">{label}</span>
               </li>
             ))}
           </ul>
         </section>
 
         {/* Services */}
-        <section className="py-12 md:py-16">
+        <section className="py-8 md:py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-accent-foreground text-center mb-8">Unsere Reinigungsleistungen</h2>
+            <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight text-accent-foreground text-center mb-5 md:mb-10">Unsere Reinigungsleistungen</h2>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-              {gebaeudeServices.map((s) => (
-                <button key={s.id} type="button" onClick={() => setActive(s)} className="group text-left bg-card rounded-xl overflow-hidden border border-border shadow-[var(--shadow-soft)] flex flex-col">
-                  <img src={s.image} alt={s.alt} loading="lazy" className="w-full aspect-[4/3] object-cover" />
-                  <div className="flex items-center gap-2 p-3 md:p-4 flex-1">
-                    <Sparkles className="h-5 w-5 shrink-0 text-primary hidden sm:block" strokeWidth={1.6} />
-                    <h3 className="text-sm md:text-base font-semibold text-accent-foreground flex-1 leading-snug">{s.title}</h3>
-                    <ArrowRight className="h-4 w-4 shrink-0 text-primary" />
+              {gebaeudeServices.map((s) => {
+                const Icon = serviceIcons[s.id] ?? Sparkles;
+                return (
+                <button key={s.id} type="button" onClick={() => setActive(s)} className="group text-left bg-card rounded-xl overflow-hidden shadow-[var(--shadow-soft)] ring-1 ring-border/60 flex flex-col transition-transform active:scale-[0.98]">
+                  <img src={s.image} alt={s.alt} loading="lazy" className="w-full aspect-[16/9] object-cover" />
+                  <div className="flex items-center gap-2.5 p-3 md:p-4 flex-1">
+                    <Icon className="h-6 w-6 shrink-0 text-primary" strokeWidth={1.6} />
+                    <h3 className="text-[13px] md:text-base font-bold text-accent-foreground flex-1 leading-snug">{s.title}</h3>
+                    <span className="h-7 w-7 shrink-0 rounded-full border border-primary/40 flex items-center justify-center"><ArrowRight className="h-3.5 w-3.5 text-primary" /></span>
                   </div>
                 </button>
-              ))}
+              );})}
             </div>
           </div>
         </section>
@@ -158,13 +163,13 @@ export default function Gebaeudereinigung() {
         </Dialog>
 
         {/* Privat / Gewerbe */}
-        <section className="pb-12 md:pb-16">
+        <section className="pb-8 md:pb-16">
           <div className="container mx-auto px-4 grid md:grid-cols-2 gap-4 md:gap-6">
             {[
               { type: "privat" as const, icon: Home, title: "Für Privatkunden", lead: "Sauberkeit und mehr Zeit für Ihr Zuhause.", items: ["Wohnungen", "Einfamilienhäuser", "Badezimmer und Küchen", "Einmalige und regelmäßige Reinigung"] },
               { type: "gewerbe" as const, icon: Building2, title: "Für Gewerbekunden", lead: "Gepflegte Räumlichkeiten für Mitarbeiter und Kunden.", items: ["Büros und Arbeitsplätze", "Geschäftsräume", "Gewerbliche Innenbereiche", "Individuell abgestimmte Reinigungsintervalle"] },
             ].map(({ type, icon: Icon, title, lead, items }) => (
-              <div key={type} className="rounded-2xl border border-border p-6 shadow-[var(--shadow-soft)] flex flex-col">
+              <div key={type} className="rounded-2xl ring-1 ring-border/60 bg-card p-5 md:p-6 shadow-[var(--shadow-soft)] flex flex-col">
                 <div className="flex items-center gap-3 mb-2">
                   <Icon className="h-7 w-7 text-primary" strokeWidth={1.6} />
                   <h3 className="text-xl font-bold text-accent-foreground">{title}</h3>
@@ -175,28 +180,28 @@ export default function Gebaeudereinigung() {
                     <li key={i} className="flex items-center gap-2 text-sm text-foreground"><Check className="h-4 w-4 text-primary" />{i}</li>
                   ))}
                 </ul>
-                <Button variant="outline" onClick={() => goToForm(undefined, type)}>Unverbindlich anfragen</Button>
+                <Button variant="outline" className="rounded-xl h-11 font-semibold" onClick={() => goToForm(undefined, type)}>Unverbindlich anfragen</Button>
               </div>
             ))}
           </div>
         </section>
 
         {/* Steps */}
-        <section className="container mx-auto px-4 pb-12 md:pb-16">
-          <div className="bg-accent rounded-2xl p-6 md:p-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-accent-foreground text-center mb-8">So einfach funktioniert's</h2>
-            <ol className="grid md:grid-cols-3 gap-6 md:gap-4">
+        <section className="container mx-auto px-3 md:px-4 pb-8 md:pb-16">
+          <div className="bg-accent rounded-2xl p-4 py-6 md:p-10">
+            <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight text-accent-foreground text-center mb-5 md:mb-8">So einfach funktioniert's</h2>
+            <ol className="grid grid-cols-3 gap-2 md:gap-4">
               {steps.map(({ icon: Icon, title, text }, i) => (
                 <li key={title} className="relative flex flex-col items-center text-center">
                   <div className="relative mb-3">
-                    <div className="h-16 w-16 rounded-full bg-background flex items-center justify-center shadow-[var(--shadow-soft)]">
+                    <div className="h-14 w-14 md:h-16 md:w-16 rounded-full bg-background flex items-center justify-center shadow-[var(--shadow-soft)]">
                       <Icon className="h-7 w-7 text-primary" strokeWidth={1.6} />
                     </div>
-                    <span className="absolute -top-1 -left-1 h-6 w-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">{i + 1}</span>
+                    <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">{i + 1}</span>
                   </div>
-                  {i < steps.length - 1 && <ArrowRight className="hidden md:block absolute top-6 -right-4 h-6 w-6 text-primary/60" />}
-                  <h3 className="font-semibold text-accent-foreground mb-1">{title}</h3>
-                  <p className="text-sm text-muted-foreground max-w-xs">{text}</p>
+                  {i < steps.length - 1 && <ArrowRight className="absolute top-5 md:top-6 -right-3 md:-right-4 h-5 w-5 md:h-6 md:w-6 text-primary/60" />}
+                  <h3 className="text-sm md:text-base font-bold text-accent-foreground leading-tight mb-1">{title}</h3>
+                  <p className="hidden md:block text-sm text-muted-foreground max-w-xs">{text}</p>
                 </li>
               ))}
             </ol>
@@ -204,12 +209,12 @@ export default function Gebaeudereinigung() {
         </section>
 
         {/* Why + reviews */}
-        <section className="container mx-auto px-4 pb-12 md:pb-16 grid md:grid-cols-2 gap-6 items-start">
+        <section className="container mx-auto px-4 pb-8 md:pb-16 grid grid-cols-[1fr_auto] md:grid-cols-[1fr_360px] gap-3 md:gap-8 items-start">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-accent-foreground mb-5">Warum ReinWerk?</h2>
-            <ul className="space-y-3">
+            <h2 className="text-xl md:text-3xl font-extrabold tracking-tight text-accent-foreground mb-3 md:mb-5">Warum ReinWerk?</h2>
+            <ul className="space-y-1.5 md:space-y-3">
               {reasons.map((r) => (
-                <li key={r} className="flex items-start gap-3 text-foreground">
+                <li key={r} className="flex items-start gap-2 md:gap-3 text-[13px] md:text-base text-foreground">
                   <span className="mt-0.5 h-5 w-5 rounded-full bg-primary flex items-center justify-center shrink-0"><Check className="h-3 w-3 text-primary-foreground" /></span>
                   {r}
                 </li>
@@ -217,35 +222,35 @@ export default function Gebaeudereinigung() {
             </ul>
           </div>
           {/* Placeholder: overall rating + review count to be confirmed from the live Google profile before release */}
-          <div className="rounded-2xl border border-border p-6 shadow-[var(--shadow-soft)]">
-            <p className="font-semibold text-foreground mb-2">Google Bewertungen</p>
-            <div className="flex gap-0.5 mb-3" aria-hidden>
-              {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />)}
+          <div className="w-36 md:w-auto rounded-2xl bg-card ring-1 ring-border/60 p-3 md:p-6 shadow-[var(--shadow-medium)]">
+            <div className="flex items-center gap-2 mb-2 md:mb-3">
+              <span className="h-8 w-8 md:h-10 md:w-10 shrink-0 rounded-full bg-accent flex items-center justify-center text-base md:text-lg font-extrabold text-primary">G</span>
+              <p className="text-sm md:text-lg font-semibold text-foreground leading-tight">Google Bewertungen</p>
             </div>
-            <blockquote className="text-sm text-muted-foreground italic mb-2">„Absprachen im Vorfeld liefen super und die Reinigung selbst ist ebenfalls top. Gern wieder!"</blockquote>
-            <p className="text-sm font-medium text-foreground mb-3">– Uwe Fischer</p>
-            <p className="text-xs text-muted-foreground border-t border-border pt-3">Platzhalter: Gesamtbewertung und Anzahl werden vor der Freigabe aus dem Google-Profil übernommen.</p>
+            <blockquote className="text-xs md:text-sm text-muted-foreground italic mb-1.5">„Absprachen im Vorfeld liefen super und die Reinigung selbst ist ebenfalls top. Gern wieder!"</blockquote>
+            <p className="text-xs md:text-sm font-medium text-foreground mb-2">– Uwe Fischer</p>
+            <p className="text-[10px] md:text-xs text-muted-foreground border-t border-border pt-2">Platzhalter: Gesamtbewertung wird vor der Freigabe aus dem Google-Profil übernommen.</p>
           </div>
         </section>
 
         {/* Gallery */}
-        <section className="container mx-auto px-4 pb-12 md:pb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-accent-foreground text-center mb-2">Einblicke in unsere Arbeit</h2>
-          <p className="text-center text-xs text-muted-foreground mb-6">Beispielbilder – werden durch eigene ReinWerk-Fotos ersetzt.</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <section className="container mx-auto px-4 pb-8 md:pb-16">
+          <h2 className="text-xl md:text-3xl font-extrabold tracking-tight text-accent-foreground mb-1 md:mb-2">Einblicke in unsere Arbeit</h2>
+          <p className="text-[11px] md:text-xs text-muted-foreground mb-3 md:mb-6">Beispielbilder – werden durch eigene ReinWerk-Fotos ersetzt.</p>
+          <div className="flex md:grid md:grid-cols-6 gap-2 md:gap-3 overflow-x-auto snap-x -mx-4 px-4 md:mx-0 md:px-0 pb-1">
             {gallery.map((g) => (
-              <img key={g.alt} src={g.src} alt={g.alt} loading="lazy" className="w-full aspect-[4/3] object-cover rounded-xl" />
+              <img key={g.alt} src={g.src} alt={g.alt} loading="lazy" className="w-[23%] min-w-[23%] md:w-full md:min-w-0 snap-start aspect-[4/3] object-cover rounded-lg" />
             ))}
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="container mx-auto px-4 pb-12 md:pb-16 max-w-3xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-accent-foreground text-center mb-6">Häufig gestellte Fragen</h2>
-          <Accordion type="single" collapsible className="space-y-2">
+        <section className="container mx-auto px-4 pb-8 md:pb-16 max-w-3xl">
+          <h2 className="text-xl md:text-3xl font-extrabold tracking-tight text-accent-foreground mb-3 md:mb-6">Häufig gestellte Fragen</h2>
+          <Accordion type="single" collapsible className="space-y-2.5">
             {gebaeudeFaqs.map(([q, a], i) => (
-              <AccordionItem key={q} value={`f${i}`} className="border border-border rounded-xl px-4 group [&>h3>button>svg.lucide-chevron-down]:hidden">
-                <AccordionTrigger className="text-left font-semibold text-accent-foreground hover:no-underline">
+              <AccordionItem key={q} value={`f${i}`} className="bg-card ring-1 ring-border/60 border-0 rounded-lg px-4 shadow-[var(--shadow-soft)] group [&>h3>button>svg.lucide-chevron-down]:hidden">
+                <AccordionTrigger className="text-left text-sm md:text-base font-bold text-accent-foreground hover:no-underline py-3">
                   <span className="flex-1">{q}</span>
                   <Plus className="h-4 w-4 text-primary shrink-0 ml-2 group-data-[state=open]:hidden" />
                   <Minus className="h-4 w-4 text-primary shrink-0 ml-2 hidden group-data-[state=open]:block" />
@@ -257,12 +262,13 @@ export default function Gebaeudereinigung() {
         </section>
 
         {/* Final CTA */}
-        <section className="container mx-auto px-4 pb-12 md:pb-16">
-          <div className="relative overflow-hidden bg-primary text-primary-foreground rounded-2xl p-8 md:p-12 text-center">
-            <img src={logo} alt="" aria-hidden className="absolute -right-10 -bottom-10 w-64 opacity-10 pointer-events-none" />
-            <h2 className="relative text-2xl md:text-3xl font-bold mb-3">Bereit für saubere Räumlichkeiten?</h2>
-            <p className="relative max-w-xl mx-auto mb-6 opacity-90">Ob Zuhause, Büro oder Gewerbe – kontaktieren Sie uns jetzt und erhalten Sie ein individuelles, unverbindliches Angebot.</p>
-            <Button size="lg" variant="secondary" className="relative bg-background text-primary hover:bg-background/90" onClick={() => goToForm()}>
+        <section className="container mx-auto px-3 md:px-4 pb-8 md:pb-16">
+          <div className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 text-primary-foreground rounded-2xl p-6 md:p-12">
+            <img src={logo} alt="" aria-hidden className="absolute -right-6 -bottom-6 w-40 md:w-64 opacity-10 pointer-events-none" />
+            <Sparkles className="absolute top-5 right-5 h-7 w-7 opacity-60" aria-hidden />
+            <h2 className="relative text-2xl md:text-4xl font-extrabold tracking-tight mb-2 md:mb-3 pr-8">Bereit für saubere Räumlichkeiten?</h2>
+            <p className="relative max-w-xl mb-5 md:mb-7 opacity-90 text-sm md:text-base">Ob Zuhause, Büro oder Gewerbe – kontaktieren Sie uns jetzt und erhalten Sie ein individuelles, unverbindliches Angebot.</p>
+            <Button size="lg" variant="secondary" className="relative w-full md:w-auto md:px-10 h-12 rounded-xl text-base font-bold bg-background text-primary hover:bg-background/90" onClick={() => goToForm()}>
               <Calendar className="mr-2 h-4 w-4 text-primary" /> Jetzt Angebot anfragen
             </Button>
           </div>
