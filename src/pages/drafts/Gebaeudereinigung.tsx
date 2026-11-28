@@ -2,7 +2,7 @@
 import { useState, FormEvent, type CSSProperties } from "react";
 import { Helmet } from "react-helmet-async";
 import {
-  Home, Building2, CalendarDays, ShieldCheck, ArrowRight, Sparkles, Check, Plus, Minus, Calendar, Brush, Droplets, Package, FileText,
+  Home, Building2, MessageCircle, CalendarDays, ShieldCheck, ArrowRight, Sparkles, Check, Plus, Minus, Calendar, Brush, Droplets, Package, FileText,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -16,6 +16,9 @@ import heroImg from "@/assets/gebaeudereinigung/hero_reinwerk.jpg.asset.json";
 import logo from "@/assets/reinwerk-logo.png";
 import fensterImg from "@/assets/fenster-hero.jpg";
 import { gebaeudeServices, gebaeudeFormServices, gebaeudeFrequencies, gebaeudeFaqs, type GebaeudeService } from "@/lib/gebaeudereinigung";
+
+// Same direct WhatsApp link as the homepage; no tracking on this draft.
+const WHATSAPP_URL = "https://wa.me/491636986317";
 
 const benefits = [
   { icon: Home, label: "Privathaushalte" },
@@ -88,41 +91,59 @@ export default function Gebaeudereinigung() {
       </Helmet>
       <Header />
 
-      <div className="bg-muted text-foreground text-center text-xs font-medium py-1.5 mt-16 md:mt-20">
-        Entwurf – nur in der Vorschau sichtbar · Formular im Testmodus
-      </div>
-
       <main>
-        {/* Hero */}
-        <section className="relative flex flex-col overflow-hidden bg-accent md:block">
-          <div className="absolute inset-y-0 right-[52%] hidden w-[48%] bg-accent md:block" aria-hidden />
-          {/* Mobile: full-width photo band below the text so the whole scene is visible. Desktop: photo on the right, text on the left. */}
-          <img src={heroImg.url} alt="ReinWerk-Reinigungskraft in Uniform saugt einen Teppich in einem hellen Wohnzimmer" className="order-2 block h-60 w-full object-cover object-center saturate-[1.08] contrast-[1.04] md:absolute md:inset-y-0 md:right-0 md:h-full md:w-[52%] md:object-[58%_center] xl:object-[46%_center]" fetchPriority="high" />
-          <div className="absolute inset-y-0 left-[48%] hidden w-40 bg-gradient-to-r from-accent to-transparent md:block" aria-hidden />
-          <div className="relative order-1 container mx-auto px-4 py-8 md:py-20">
-            <div className="max-w-[54%] md:max-w-[44%]">
-              <p className="text-[11px] md:text-sm font-bold tracking-wide text-primary mb-2 md:mb-3">IHR REINIGUNGSSERVICE IN CHEMNITZ</p>
-              <h1 className="text-[1.55rem] leading-[1.08] break-words hyphens-auto sm:text-4xl lg:text-[3.4rem] font-extrabold text-[hsl(var(--gb-navy))] mb-3 md:mb-5 tracking-tight">
-                Gebäudereinigung für Privat &amp; Gewerbe
+        {/* Hero – mirrors homepage hero (full-screen photo, dark gradient, transparent header) */}
+        <section className="relative w-full min-h-[100svh] md:min-h-screen overflow-hidden flex flex-col pt-16 md:pt-32">
+          <img src={heroImg.url} alt="ReinWerk-Reinigungskraft in Uniform saugt einen Teppich in einem hellen Wohnzimmer" className="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-center" fetchPriority="high" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(8,18,28,0.82) 0%, rgba(8,18,28,0.68) 28%, rgba(8,18,28,0.30) 48%, rgba(8,18,28,0.00) 65%)" }} aria-hidden />
+          <div className="absolute inset-0 md:hidden" style={{ background: "linear-gradient(90deg, rgba(8,18,28,0.88) 0%, rgba(8,18,28,0.72) 45%, rgba(8,18,28,0.45) 75%, rgba(8,18,28,0.30) 100%)" }} aria-hidden />
+          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[rgba(8,18,28,0.8)] to-transparent" aria-hidden />
+
+          <div className="container mx-auto relative z-10 px-4 flex-1">
+            <div className="max-w-xl md:max-w-2xl w-full pt-10 md:pt-16">
+              <p className="inline-block mb-4 rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white">Entwurf – nur in der Vorschau sichtbar · Formular im Testmodus</p>
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.05] text-left mb-4">
+                <span className="text-white block">Gebäudereinigung</span>
+                <span className="text-primary block">für Privat &amp; Gewerbe</span>
               </h1>
-              <p className="text-sm md:text-lg text-[hsl(var(--gb-text))] mb-5 md:mb-8 max-w-md">
+              <p className="text-base md:text-[23px] text-white md:leading-[1.45] leading-relaxed mb-6 max-w-md text-left font-bold">
                 Professionelle Reinigung von Wohnungen, Häusern und Büros. Gründlich, zuverlässig und flexibel – in Chemnitz und Umgebung.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 max-w-xs sm:max-w-none">
-                <Button size="lg" className="h-12 rounded-xl px-4 md:px-8 text-sm md:text-base font-semibold shadow-[var(--shadow-medium)]" onClick={() => goToForm()}>Jetzt Angebot anfragen <ArrowRight className="ml-1 h-4 w-4" /></Button>
-                <Button size="lg" variant="outline" className="h-12 rounded-xl px-4 md:px-8 text-sm md:text-base font-semibold bg-background border-transparent shadow-[var(--shadow-soft)]" onClick={() => goToForm()}><Calendar className="mr-2 h-4 w-4 text-primary" />Termin vereinbaren</Button>
+              <div className="hidden md:flex flex-row gap-3 mb-6">
+                <Button size="lg" onClick={() => goToForm()} className="font-semibold h-11 md:h-14">Kostenloses Angebot erhalten</Button>
+                <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold h-11 md:h-14" asChild>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"><MessageCircle className="w-5 h-5" />WhatsApp schreiben</a>
+                </Button>
+              </div>
+              <div className="md:hidden flex flex-col gap-2 mb-6">
+                <Button size="lg" onClick={() => goToForm()} className="w-full min-h-[4rem] h-auto py-3.5 px-4 font-semibold justify-start gap-4 rounded-xl">
+                  <FileText className="w-6 h-6 text-white shrink-0" />
+                  <div className="flex flex-col items-start text-left">
+                    <span className="text-white font-bold text-base leading-tight">Kostenloses Angebot erhalten</span>
+                    <span className="text-white/80 text-xs leading-tight">Unverbindlich anfragen</span>
+                  </div>
+                </Button>
+                <Button size="lg" className="w-full min-h-[4rem] h-auto py-3.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold" asChild>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="w-6 h-6 text-white shrink-0" />
+                    <div className="flex flex-col items-start text-left">
+                      <span className="text-white font-bold text-base leading-tight">WhatsApp schreiben</span>
+                      <span className="text-white/80 text-xs leading-tight">Direkt &amp; unkompliziert</span>
+                    </div>
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
-        </section>
 
-        {/* Benefits */}
-        <section className="bg-accent/60 border-y border-border">
-          <ul className="container mx-auto px-2 grid grid-cols-4 divide-x divide-border py-4 md:py-6">
-            {benefits.map(({ icon: Icon, label }) => (
-              <li key={label} className="flex flex-col md:flex-row items-center justify-center gap-1.5 md:gap-3 text-center px-1">
-                <Icon className="h-7 w-7 md:h-8 md:w-8 text-primary" strokeWidth={1.6} />
-                <span className="text-[11px] md:text-sm font-semibold text-[hsl(var(--gb-navy))] leading-tight">{label}</span>
+          {/* Benefits over the photo */}
+          <ul className="container mx-auto relative z-10 px-4 grid grid-cols-2 md:grid-cols-4 pb-6 md:pb-10">
+            {benefits.map(({ icon: Icon, label }, i) => (
+              <li key={label} className={`flex items-center gap-2 md:gap-3 py-3 md:py-0 md:px-4 text-sm md:text-lg font-bold text-white ${i % 2 === 1 ? "pl-3 border-l border-white/20" : ""} ${i >= 2 ? "border-t border-white/20 md:border-t-0" : ""} ${i > 0 ? "md:border-l md:pl-4" : "md:pl-0"} ${i === 2 ? "md:border-white/20" : ""}`}>
+                <span className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/60 flex items-center justify-center shrink-0">
+                  <Icon className="w-4 h-4 md:w-6 md:h-6 text-white" />
+                </span>
+                <span className="leading-tight">{label}</span>
               </li>
             ))}
           </ul>
