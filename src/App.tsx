@@ -16,7 +16,7 @@ import NotFound from "./pages/NotFound";
 import RegionalServicePage from "./pages/RegionalServicePage";
 import { regionalPages } from "@/lib/regionalPages";
 import { lazy, Suspense } from "react";
-import { GEBAEUDE_ENABLED } from "@/lib/gebaeudereinigung";
+import { DRAFTS_ENABLED as GEBAEUDE_ENABLED } from "@/lib/draftAccess";
 // Draft page: only bundled/mounted in dev preview, never in production builds.
 const GebaeudereinigungDraft = GEBAEUDE_ENABLED ? lazy(() => import("./pages/drafts/Gebaeudereinigung")) : null;
 import Admin from "./pages/Admin";

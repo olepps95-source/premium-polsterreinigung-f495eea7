@@ -7,7 +7,7 @@ import unterhalt from "@/assets/gebaeudereinigung/unterhalt.webp.asset.json";
 import bad from "@/assets/gebaeudereinigung/bad.webp.asset.json";
 import umzug from "@/assets/gebaeudereinigung/umzug.webp.asset.json";
 
-export const GEBAEUDE_ENABLED = import.meta.env.DEV;
+export { DRAFTS_ENABLED as GEBAEUDE_ENABLED } from "@/lib/draftAccess";
 
 export type GebaeudeService = {
   id: string;
