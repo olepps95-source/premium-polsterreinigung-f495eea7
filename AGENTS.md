@@ -1,3 +1,4 @@
 - Marketing scripts (Google Ads gtag, Meta Pixel) load only via src/lib/consent.ts / meta-pixel.ts after 'cookie-consent'='all'; never add them to index.html — keeps tracking consent-gated.
 - Regional service×city pages are configured in src/lib/regionalPages.ts (+ city texts in regionalDesignTexts.ts) and rendered via RegionalServicePage, which delegates to one per-service component in src/components/regional/ mirroring that original service page; add cities there, not new page files — keeps layouts identical to originals.
 - Unreleased draft pages live in src/pages/drafts/ and are routed in App.tsx only behind DRAFTS_ENABLED (src/lib/draftAccess.ts: DEV or Lovable preview hostname allowlist, default deny) — the static preview build has DEV=false, so DEV alone hid drafts there; production hosts never match.
+- Every change to the Gebäudereinigung draft must also update docs/gebaeudereinigung-launch-checklist.md — keeps release blockers tracked in one place.
