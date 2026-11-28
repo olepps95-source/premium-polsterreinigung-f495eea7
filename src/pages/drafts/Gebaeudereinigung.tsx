@@ -100,22 +100,22 @@ export default function Gebaeudereinigung() {
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[rgba(8,18,28,0.8)] to-transparent" aria-hidden />
 
           <div className="container mx-auto relative z-10 px-4 flex-1">
-            <div className="max-w-xl md:max-w-2xl w-full pt-10 md:pt-16">
+            <div className="max-w-xl md:max-w-[680px] w-full pt-10 md:pt-16">
               <p className="inline-block mb-4 rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white">Entwurf – nur in der Vorschau sichtbar · Formular im Testmodus</p>
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.05] text-left mb-4">
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.15] text-left mb-6 md:mb-9">
                 <span className="text-white block">Gebäudereinigung</span>
                 <span className="text-primary block">für Privat &amp; Gewerbe</span>
               </h1>
-              <p className="text-base md:text-[23px] text-white md:leading-[1.45] leading-relaxed mb-6 max-w-md text-left font-bold">
+              <p className="text-base md:text-[23px] text-white md:leading-[1.45] leading-relaxed mb-8 md:mb-9 max-w-md md:max-w-[620px] text-left font-bold">
                 Professionelle Reinigung von Wohnungen, Häusern und Büros. Gründlich, zuverlässig und flexibel – in Chemnitz und Umgebung.
               </p>
-              <div className="hidden md:flex flex-row gap-3 mb-6">
-                <Button size="lg" onClick={() => goToForm()} className="font-semibold h-11 md:h-14">Kostenloses Angebot erhalten</Button>
-                <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold h-11 md:h-14" asChild>
+              <div className="hidden md:flex flex-row gap-5 mb-6">
+                <Button size="lg" onClick={() => goToForm()} className="font-semibold h-11 md:h-14 px-10">Kostenloses Angebot erhalten</Button>
+                <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold h-11 md:h-14 px-10" asChild>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"><MessageCircle className="w-5 h-5" />WhatsApp schreiben</a>
                 </Button>
               </div>
-              <div className="md:hidden flex flex-col gap-2 mb-6">
+              <div className="md:hidden flex flex-col gap-3 mb-6">
                 <Button size="lg" onClick={() => goToForm()} className="w-full min-h-[4rem] h-auto py-3.5 px-4 font-semibold justify-start gap-4 rounded-xl">
                   <FileText className="w-6 h-6 text-white shrink-0" />
                   <div className="flex flex-col items-start text-left">
