@@ -12,7 +12,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import heroImg from "@/assets/gebaeudereinigung/hero.webp.asset.json";
+import heroImg from "@/assets/gebaeudereinigung/hero_reinwerk.jpg.asset.json";
 import logo from "@/assets/reinwerk-logo.png";
 import fensterImg from "@/assets/fenster-hero.jpg";
 import { gebaeudeServices, gebaeudeFormServices, gebaeudeFrequencies, gebaeudeFaqs, type GebaeudeService } from "@/lib/gebaeudereinigung";
@@ -94,12 +94,12 @@ export default function Gebaeudereinigung() {
 
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden bg-accent">
-          <img src={heroImg.url} alt="Freundliche Reinigungskraft mit Schürze, gelben Handschuhen und Reinigungsmitteln in einer hellen Wohnung" className="absolute inset-y-0 right-0 h-full w-[48%] md:w-[52%] object-cover object-[30%_center] saturate-[1.08] contrast-[1.04]" fetchPriority="high" />
-          <div className="absolute inset-y-0 right-[48%] md:right-[52%] w-[52%] md:w-[48%] bg-accent" aria-hidden />
-          <div className="absolute inset-y-0 left-[52%] md:left-[48%] w-16 md:w-40 bg-gradient-to-r from-accent to-transparent" aria-hidden />
-          <span className="absolute bottom-2 right-2 text-[10px] bg-background/80 text-muted-foreground px-2 py-0.5 rounded">Beispielbild</span>
-          <div className="relative container mx-auto px-4 py-8 md:py-20">
+        <section className="relative flex flex-col overflow-hidden bg-accent md:block">
+          <div className="absolute inset-y-0 right-[52%] hidden w-[48%] bg-accent md:block" aria-hidden />
+          {/* Mobile: full-width photo band below the text so the whole scene is visible. Desktop: photo on the right, text on the left. */}
+          <img src={heroImg.url} alt="ReinWerk-Reinigungskraft in Uniform saugt einen Teppich in einem hellen Wohnzimmer" className="order-2 block h-60 w-full object-cover object-center saturate-[1.08] contrast-[1.04] md:absolute md:inset-y-0 md:right-0 md:h-full md:w-[52%] md:object-[58%_center] xl:object-[46%_center]" fetchPriority="high" />
+          <div className="absolute inset-y-0 left-[48%] hidden w-40 bg-gradient-to-r from-accent to-transparent md:block" aria-hidden />
+          <div className="relative order-1 container mx-auto px-4 py-8 md:py-20">
             <div className="max-w-[54%] md:max-w-[44%]">
               <p className="text-[11px] md:text-sm font-bold tracking-wide text-primary mb-2 md:mb-3">IHR REINIGUNGSSERVICE IN CHEMNITZ</p>
               <h1 className="text-[1.55rem] leading-[1.08] break-words hyphens-auto sm:text-4xl lg:text-[3.4rem] font-extrabold text-[hsl(var(--gb-navy))] mb-3 md:mb-5 tracking-tight">

@@ -17,7 +17,7 @@ Betroffene Dateien: `src/pages/drafts/Gebaeudereinigung.tsx`, `src/lib/gebaeuder
 | Formular-Testmodus: kein Webhook, Telegram, Google Ads, Meta Pixel; nur `console.info` + Test-Toast | `onSubmit` in `Gebaeudereinigung.tsx` |
 | Hinweis „Testmodus: Es werden keine Anfragen versendet.“ und Button „Anfrage senden (Test)“ | Formularbereich |
 | Google-Bewertungskarte ist Platzhalter (keine Sterne/Zahlen) | Abschnitt „Google Bewertungen“ |
-| Bilder überwiegend generierte Beispielbilder | `src/assets/gebaeudereinigung/` |
+| Hero-Foto ist ein echtes ReinWerk-Foto; Leistungs- und Galeriebilder sind weiterhin generierte Beispielbilder | `src/assets/gebaeudereinigung/` |
 | `plannedPath`-Unterseiten (/wohnungsreinigung, /bueroreinigung …) existieren nicht und dürfen nicht verlinkt sein | `src/lib/gebaeudereinigung.ts` |
 | Nicht in Sitemap, Navigation, Header, Footer oder internen Links | – |
 | Kein JSON-LD (Service/Breadcrumb/FAQ) | – |
@@ -69,3 +69,4 @@ Betroffene Dateien: `src/pages/drafts/Gebaeudereinigung.tsx`, `src/lib/gebaeuder
 - 2026-11-28: Checkliste angelegt. Zugriff über Host-Allowlist (`draftAccess.ts`) statt nur DEV, damit Preview zuverlässig funktioniert.
 - 2026-11-28: Ursache der sporadischen 404 in der Vorschau: gebaute Vorschau hat DEV=false; Host-Allowlist ergänzt um Entwurfs-Vorschauen `id-preview-N--`. Schutz, noindex/nofollow und Testmodus unverändert.
 - 2026-11-28: Allowlist um `preview--*.lovable.app` erweitert. Gehostete Vorschau erfordert Lovable-Login und konnte nicht automatisiert geprüft werden; lokale Reload-Tests OK.
+- 2026-11-28: Hero-Bild durch das echte ReinWerk-Foto ersetzt (`src/assets/gebaeudereinigung/hero_reinwerk.jpg.asset.json`, CDN). Das generierte Hero-Asset `hero.webp.asset.json` ist nicht mehr eingebunden (CDN-Objekt bewusst nicht gelöscht). Mobile: Foto jetzt als Band in voller Breite unter dem Text (`h-60`), ab `md` wie bisher rechts im Zweispalter; Ausschnitt `md:object-[58%_center]`, ab `xl` `object-[46%_center]`. „Beispielbild"-Badge im Hero entfernt, Alt-Text angepasst. Sonstige Inhalte, Formular-Testmodus, noindex/nofollow und Routing unverändert.
