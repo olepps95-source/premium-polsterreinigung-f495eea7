@@ -6,6 +6,7 @@ describe("isDraftHost", () => {
     expect(isDraftHost("id-preview--ce463d19-74b6-489d-a781-4be08845e5a1.lovable.app")).toBe(true);
     expect(isDraftHost("ce463d19-74b6-489d-a781-4be08845e5a1.lovableproject.com")).toBe(true);
     expect(isDraftHost("localhost")).toBe(true);
+    expect(isDraftHost("preview--polster-frische-glanz.lovable.app")).toBe(true);
     expect(isDraftHost("id-preview-3--ce463d19-74b6-489d-a781-4be08845e5a1.lovable.app")).toBe(true);
   });
   it("blocks production hosts", () => {

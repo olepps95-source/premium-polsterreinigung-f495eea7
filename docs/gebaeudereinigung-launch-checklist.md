@@ -9,7 +9,7 @@ Betroffene Dateien: `src/pages/drafts/Gebaeudereinigung.tsx`, `src/lib/gebaeuder
 | Einschränkung | Ort |
 |---|---|
 | Route nur bei `DRAFTS_ENABLED` (DEV oder Lovable-Preview-Host, sonst 404) | `src/App.tsx`, `src/lib/draftAccess.ts` |
-| Erlaubte Vorschau-Hosts: `localhost`, `*.lovableproject.com`, `id-preview--*.lovable.app`, `id-preview-N--*.lovable.app` (Entwürfe); alle anderen → 404 | `src/lib/draftAccess.ts` (+ Test `draftAccess.test.ts`) |
+| Erlaubte Vorschau-Hosts: `localhost`, `*.lovableproject.com`, `id-preview--*.lovable.app`, `id-preview-N--*.lovable.app` (Entwürfe), `preview--*.lovable.app`; alle anderen → 404 | `src/lib/draftAccess.ts` (+ Test `draftAccess.test.ts`) |
 | Seite per `lazy()` geladen und nur unter Preview-Hosts eingebunden | `src/App.tsx` |
 | `<meta name="robots" content="noindex, nofollow">` | Helmet in `Gebaeudereinigung.tsx` |
 | Kein Canonical (nur Kommentar) | Helmet in `Gebaeudereinigung.tsx` |
@@ -68,3 +68,4 @@ Betroffene Dateien: `src/pages/drafts/Gebaeudereinigung.tsx`, `src/lib/gebaeuder
 ## Änderungsprotokoll
 - 2026-11-28: Checkliste angelegt. Zugriff über Host-Allowlist (`draftAccess.ts`) statt nur DEV, damit Preview zuverlässig funktioniert.
 - 2026-11-28: Ursache der sporadischen 404 in der Vorschau: gebaute Vorschau hat DEV=false; Host-Allowlist ergänzt um Entwurfs-Vorschauen `id-preview-N--`. Schutz, noindex/nofollow und Testmodus unverändert.
+- 2026-11-28: Allowlist um `preview--*.lovable.app` erweitert. Gehostete Vorschau erfordert Lovable-Login und konnte nicht automatisiert geprüft werden; lokale Reload-Tests OK.

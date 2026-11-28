@@ -5,6 +5,7 @@ const PREVIEW_HOST_PATTERNS = [
   /^127\.0\.0\.1$/,
   /^id-preview(-\d+)?--[a-z0-9-]+\.lovable\.app$/,
   /^[a-z0-9-]+\.lovableproject\.com$/,
+  /^preview(-\d+)?--[a-z0-9-]+\.lovable\.app$/,
 ];
 
 export function isDraftHost(hostname: string): boolean {
