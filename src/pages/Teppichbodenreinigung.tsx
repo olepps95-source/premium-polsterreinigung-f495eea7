@@ -322,37 +322,19 @@ export default function Teppichbodenreinigung() {
                 Ort.
               </p>
 
-              {/* Desktop/Tablet USP cards */}
-              <div className="mt-3 md:mt-14 hidden md:grid grid-cols-2 gap-2 md:gap-2.5">
-                {heroBenefits.map((b) => (
+              {/* USP list – one vertical column, icon/typography values taken from /fensterreinigung */}
+              <div className="mt-4 md:mt-5 inline-flex max-w-full flex-col">
+                {heroBenefits.map((b, idx) => (
                   <div
                     key={b.title}
-                    className="flex items-center gap-2.5 px-2.5 py-1.5 md:px-4 md:py-3 border-b border-white/20"
+                    className={`flex items-center gap-3 py-2 ${idx < heroBenefits.length - 1 ? 'border-b border-white/20' : ''}`}
                   >
-                    <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border border-white/60 flex items-center justify-center shrink-0">
-                      <Check className="w-4 h-4 text-white" />
+                    <div className="w-10 h-10 rounded-full border border-white/60 flex items-center justify-center shrink-0">
+                      <Check className="w-5 h-5 text-white" />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-bold text-white leading-tight">{b.title}</span>
-                      <span className="text-xs text-white/75 leading-tight">{b.sub}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Mobile USP list */}
-              <div className="md:hidden mt-4 space-y-0">
-                {heroBenefits.slice(0, 3).map((b, idx) => (
-                  <div
-                    key={b.title}
-                    className={`flex items-center gap-3 py-2.5 ${idx < 2 ? 'border-b border-white/20' : ''}`}
-                  >
-                    <div className="w-8 h-8 rounded-full border border-white/60 flex items-center justify-center shrink-0">
-                      <Check className="w-4 h-4 text-white" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-semibold text-white leading-tight">{b.title}</span>
-                      <span className="text-xs text-white/75 leading-tight">{b.sub}</span>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-lg font-bold text-white leading-tight whitespace-nowrap">{b.title}</span>
+                      <span className="text-sm font-medium text-white/75 leading-snug">{b.sub}</span>
                     </div>
                   </div>
                 ))}
