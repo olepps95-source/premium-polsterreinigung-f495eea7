@@ -200,7 +200,7 @@ export default function Fensterreinigung() {
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(8,18,28,0.85) 0%, rgba(8,18,28,0.70) 30%, rgba(8,18,28,0.35) 55%, rgba(8,18,28,0.05) 75%)" }} aria-hidden="true" />
           <div className="absolute inset-0 md:hidden" style={{ background: "linear-gradient(90deg, rgba(8,18,28,0.88) 0%, rgba(8,18,28,0.72) 45%, rgba(8,18,28,0.45) 75%, rgba(8,18,28,0.30) 100%)" }} aria-hidden="true" />
-          <div className="container mx-auto relative z-10 px-4 pt-3 pb-6 md:py-10">
+          <div className="container mx-auto relative z-10 px-4 pt-3 pb-6 md:py-10 md:-translate-y-10">
             <div className="max-w-xl md:max-w-2xl">
               <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold md:font-bold tracking-tight leading-[1.05] md:leading-[1.1] text-left text-white">
                 <span className="md:hidden">
@@ -219,7 +219,7 @@ export default function Fensterreinigung() {
               </p>
 
               {/* Desktop/Tablet USP cards */}
-              <div className="mt-4 hidden md:grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="mt-5 hidden md:grid grid-cols-3 gap-x-6 md:w-[800px] max-w-[calc(100vw-2rem)]">
                 {[
                   { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
                   { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
@@ -227,14 +227,14 @@ export default function Fensterreinigung() {
                 ].map((badge) => (
                   <div
                     key={badge.title}
-                    className="flex items-center gap-3 px-4 py-2.5 border-b border-white/20"
+                    className="flex items-center gap-3 py-3 border-b border-white/20"
                   >
-                    <div className="w-8 h-8 rounded-full border border-white/60 flex items-center justify-center shrink-0">
-                      <Check className="w-4 h-4 text-white" />
+                    <div className="w-12 h-12 rounded-full border border-white/60 flex items-center justify-center shrink-0">
+                      <Check className="w-6 h-6 text-white" />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-bold text-white leading-tight">{badge.title}</span>
-                      <span className="text-xs text-white/75 leading-tight">{badge.sub}</span>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-lg font-bold text-white leading-tight whitespace-nowrap">{badge.title}</span>
+                      <span className="text-base font-bold text-white leading-snug">{badge.sub}</span>
                     </div>
                   </div>
                 ))}
@@ -255,8 +255,8 @@ export default function Fensterreinigung() {
                       <Check className="w-4 h-4 text-white" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-sm font-semibold text-white leading-tight">{badge.title}</span>
-                      <span className="text-xs text-white/75 leading-tight">{badge.sub}</span>
+                      <span className="text-base font-bold text-white leading-tight">{badge.title}</span>
+                      <span className="text-sm font-bold text-white leading-tight">{badge.sub}</span>
                     </div>
                   </div>
                 ))}
