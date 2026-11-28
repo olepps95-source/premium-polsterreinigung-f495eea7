@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 import { Header } from '@/components/Header';
+import { ServiceHero } from '@/components/ServiceHero';
 import { Footer } from '@/components/Footer';
 import { EinsatzgebietSachsen } from '@/components/EinsatzgebietSachsen';
 import { GoogleReviews } from '@/components/GoogleReviews';
@@ -184,132 +185,26 @@ export default function Fensterreinigung() {
 
       <main>
         {/* HERO */}
-        <section className="relative min-h-[100svh] md:min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
-          {/* Mobile hero background */}
-          <div
-            className="absolute inset-0 md:hidden bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroMobile})` }}
-            aria-hidden="true"
-          />
-          {/* Desktop/Tablet hero background */}
-          <div
-            className="absolute inset-0 hidden md:block bg-cover bg-no-repeat bg-top"
-            style={{ backgroundImage: `url(${heroDesktop})` }}
-            aria-label="Fensterreinigung Chemnitz – ReinWerk reinigt Fenster streifenfrei in Sachsen"
-            role="img"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/25 md:from-background/95 md:via-background/75 md:to-background/30" />
-          <div className="container mx-auto relative z-10 px-4 pt-3 pb-6 md:py-10">
-            <div className="max-w-xl md:max-w-2xl">
-              <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold md:font-bold tracking-tight leading-[1.05] md:leading-[1.1] text-left text-white md:text-foreground">
-                <span className="md:hidden">
-                  Professionelle
-                  <br />
-                  <span className="text-primary">Fensterreinigung</span>
-                  <br />
-                  – streifenfrei & zuverlässig
-                </span>
-                <span className="hidden md:inline">
-                  Professionelle <span className="text-primary">Fensterreinigung</span> – streifenfrei & zuverlässig
-                </span>
-              </h1>
-              <p className="mt-2 md:mt-3 text-base md:text-xl text-white md:text-foreground font-medium md:font-bold text-left max-w-[320px] sm:max-w-[380px] md:max-w-none leading-snug">
-                Für Privat & Gewerbe – in Chemnitz, Dresden, Leipzig und Umgebung. Weitere Einsatzgebiete auf Anfrage.
-              </p>
-
-              {/* Desktop/Tablet USP cards */}
-              <div className="mt-4 hidden md:grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {[
-                  { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
-                  { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
-                  { title: 'Privat & Gewerbe', sub: 'flexible Termine' },
-                ].map((badge) => (
-                  <div
-                    key={badge.title}
-                    className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/80 backdrop-blur-md border border-border/60 shadow-soft"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <Check className="w-4 h-4 text-primary" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-bold text-foreground leading-tight">{badge.title}</span>
-                      <span className="text-xs text-muted-foreground leading-tight">{badge.sub}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Mobile USP list */}
-              <div className="md:hidden mt-3 space-y-0">
-                {[
-                  { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
-                  { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
-                  { title: 'Privat & Gewerbe', sub: 'flexible Termine' },
-                ].map((badge, idx) => (
-                  <div
-                    key={badge.title}
-                    className={`flex items-center gap-3 py-2 ${idx < 2 ? 'border-b border-white/10' : ''}`}
-                  >
-                    <div className="w-8 h-8 rounded-full bg-slate-900/80 flex items-center justify-center shrink-0">
-                      <Check className="w-4 h-4 text-white" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-semibold text-white leading-tight">{badge.title}</span>
-                      <span className="text-xs text-gray-300 leading-tight">{badge.sub}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Desktop CTA buttons */}
-              <div className="hidden md:flex mt-5 md:mt-6 flex-row gap-3">
-                <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Fensterreinigung Chemnitz per WhatsApp anfragen">
-                    <MessageCircle className="w-5 h-5" />
-                    WhatsApp schreiben
-                  </a>
-                </Button>
-                <Button variant="heroOutline" size="lg" onClick={scrollToContact}>
-                  Kostenloses Angebot
-                </Button>
-              </div>
-
-              {/* Mobile CTA buttons */}
-              <div className="md:hidden mt-4 flex flex-col gap-2">
-                <Button
-                  size="lg"
-                  onClick={scrollToContact}
-                  className="w-full min-h-[3.5rem] h-auto py-3 px-4 font-semibold justify-start gap-4 rounded-xl"
-                >
-                  <FileText className="w-6 h-6 text-white shrink-0" />
-                  <div className="flex flex-col items-start text-left">
-                    <span className="text-white font-bold text-base leading-tight">Kostenloses Angebot</span>
-                    <span className="text-white/80 text-xs leading-tight">Unverbindlich anfragen</span>
-                  </div>
-                </Button>
-
-                <Button
-                  size="lg"
-                  className="w-full min-h-[3.5rem] h-auto py-3 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
-                  asChild
-                >
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Fensterreinigung Chemnitz per WhatsApp anfragen"
-                  >
-                    <MessageCircle className="w-6 h-6 text-white shrink-0" />
-                    <div className="flex flex-col items-start text-left">
-                      <span className="text-white font-bold text-base leading-tight">WhatsApp schreiben</span>
-                      <span className="text-white/80 text-xs leading-tight">Direkt & unkompliziert</span>
-                    </div>
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ServiceHero
+          desktopImage={heroDesktop}
+          mobileImage={heroMobile}
+          desktopPosition="bg-top"
+          imageLabel="Fensterreinigung Chemnitz – ReinWerk reinigt Fenster streifenfrei in Sachsen"
+          title={<>
+            <span className="block">Professionelle</span>
+            <span className="block text-primary">Fensterreinigung</span>
+            <span className="block">– streifenfrei &amp; zuverlässig</span>
+          </>}
+          description="Für Privat & Gewerbe – in Chemnitz, Dresden, Leipzig und Umgebung. Weitere Einsatzgebiete auf Anfrage."
+          benefits={[
+            { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
+            { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
+            { title: 'Privat & Gewerbe', sub: 'flexible Termine' },
+          ]}
+          onOffer={scrollToContact}
+          whatsappUrl={WHATSAPP_URL}
+          whatsappLabel="Fensterreinigung Chemnitz per WhatsApp anfragen"
+        />
 
         <GoogleReviews useMobileGoogleLogo />
 

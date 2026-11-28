@@ -22,11 +22,12 @@ export function Header() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
-  const isTeppich = location.pathname === "/teppichbodenreinigung";
-  const isFenster = location.pathname === "/fensterreinigung";
+  // Teppich/Fenster used to have page-specific header colours; they now share the homepage header states.
+  const isTeppich = false;
+  const isFenster = false;
   const isHome = location.pathname === "/";
   // Pages with a full-screen dark photo hero reuse the homepage header states (transparent dark → solid white).
-  const hasHomeStyleHero = isHome || location.pathname === "/gebaeudereinigung";
+  const hasHomeStyleHero = ["/", "/gebaeudereinigung", "/fensterreinigung", "/teppichbodenreinigung"].includes(location.pathname);
   const homeHero = hasHomeStyleHero && !isScrolled && !isMobileMenuOpen;
 
   const isServiceActive = serviceLinks.some((s) => s.href === location.pathname);
