@@ -24,7 +24,6 @@ import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
-import { ServiceHero } from '@/components/ServiceHero';
 import { EinsatzgebietSachsen } from '@/components/EinsatzgebietSachsen';
 import { GoogleReviews } from '@/components/GoogleReviews';
 
@@ -288,57 +287,142 @@ export default function Teppichbodenreinigung() {
 
       <main className="pb-20 md:pb-0">
         {/* HERO */}
-        <ServiceHero
-          desktopImage={heroDesktop}
-          mobileImage={heroMobile}
-          mobilePosition="bg-[position:72%_center]"
-          imageLabel="Teppichbodenreinigung Sachsen – Tiefenreinigung eines Teppichbodens im Büro"
-          title={<>
-            <span className="block">Professionelle</span>
-            <span className="block text-primary">
-              <span className="inline sm:hidden">Teppichboden-<br />reinigung</span>
-              <span className="hidden sm:inline">Teppichbodenreinigung</span>
-            </span>
-            <span className="block">in Sachsen</span>
-          </>}
-          description="Tiefenreinigung für Teppichböden in Wohnungen, Büros, Praxen und Gewerberäumen – direkt bei Ihnen vor Ort."
-          benefits={heroBenefits}
-          onOffer={scrollToContact}
-          whatsappUrl={WHATSAPP_URL}
-          whatsappLabel="Teppichbodenreinigung per WhatsApp anfragen"
-          onWhatsApp={() => trackContact()}
-          footer={
-            <p className="hidden md:block text-sm text-white/80 text-left">
-              Oder direkt anrufen:{' '}
-              <a href={`tel:${PHONE}`} className="font-semibold text-white hover:text-primary transition-colors">{PHONE_DISPLAY}</a>
-            </p>
-          }
-        />
+        <section className="relative w-full min-h-[100svh] md:min-h-screen overflow-hidden flex items-center md:items-start pt-16 md:pt-32 md:pb-6">
 
-        <GoogleReviews />
+          {/* Mobile hero background (new uploaded image) */}
+          <div
+            className="absolute inset-0 md:hidden bg-cover bg-no-repeat bg-[position:72%_center]"
+            style={{ backgroundImage: `url(${heroMobile})` }}
+            aria-hidden="true"
+          />
+          {/* Desktop/Tablet hero background (original image) */}
+          <div
+            className="absolute inset-0 hidden md:block bg-cover bg-no-repeat bg-center"
+            style={{ backgroundImage: `url(${heroDesktop})` }}
+            aria-label="Teppichbodenreinigung Sachsen – Tiefenreinigung eines Teppichbodens im Büro"
+            role="img"
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(8,18,28,0.85) 0%, rgba(8,18,28,0.70) 30%, rgba(8,18,28,0.35) 55%, rgba(8,18,28,0.05) 75%)" }} aria-hidden="true" />
+          <div className="absolute inset-0 md:hidden" style={{ background: "linear-gradient(90deg, rgba(8,18,28,0.88) 0%, rgba(8,18,28,0.72) 45%, rgba(8,18,28,0.45) 75%, rgba(8,18,28,0.30) 100%)" }} aria-hidden="true" />
 
-        {/* PREISE */}
-        <section className="py-4 md:py-6 bg-secondary/30">
-          <div className="container mx-auto max-w-3xl">
-            <Card className="p-6 md:p-8 text-center bg-gradient-to-b from-white to-blue-soft border border-border/50 shadow-soft rounded-2xl">
-              <div className="flex flex-col items-center justify-center gap-2 md:gap-3">
-                <h3 className="text-sm md:text-base font-bold text-foreground uppercase tracking-wide">
-                  Transparente Preise
-                </h3>
-                <div className="flex items-baseline justify-center gap-1.5">
-                  <span className="text-xl md:text-2xl font-semibold text-foreground">ab</span>
-                  <span className="text-4xl md:text-5xl font-bold text-primary">8 € / m²</span>
-                </div>
-                <p className="text-sm text-muted-foreground leading-snug text-balance max-w-sm">
-                  Der endgültige Preis richtet sich nach Fläche, Verschmutzungsgrad und Aufwand.
-                </p>
+          <div className="container mx-auto relative z-10 px-4">
+            <div className="max-w-xl md:max-w-2xl w-full md:pt-16">
+              <h1 className="text-4xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.05] text-left text-white">
+                Professionelle
+                <br />
+                <span className="text-primary">
+                  <span className="inline sm:hidden">Teppichboden-<br />reinigung</span>
+                  <span className="hidden sm:inline">Teppichbodenreinigung</span>
+                </span>
+                <br />
+                in Sachsen
+              </h1>
+              <p className="mt-3 md:mt-6 text-base sm:text-lg md:text-xl text-white font-medium md:font-semibold text-left max-w-[300px] sm:max-w-[360px] md:max-w-none leading-snug">
+                Tiefenreinigung für Teppichböden in Wohnungen, Büros, Praxen und Gewerberäumen – direkt bei Ihnen vor
+                Ort.
+              </p>
+
+              {/* Desktop/Tablet USP cards */}
+              <div className="mt-3 md:mt-14 hidden md:grid grid-cols-2 gap-2 md:gap-2.5">
+                {heroBenefits.map((b) => (
+                  <div
+                    key={b.title}
+                    className="flex items-center gap-2.5 px-2.5 py-1.5 md:px-4 md:py-3 border-b border-white/20"
+                  >
+                    <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border border-white/60 flex items-center justify-center shrink-0">
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-bold text-white leading-tight">{b.title}</span>
+                      <span className="text-xs text-white/75 leading-tight">{b.sub}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="mt-3 flex flex-col sm:flex-row justify-center gap-3">
-                <Button size="lg" onClick={scrollToContact} className="font-semibold">
+
+              {/* Mobile USP list */}
+              <div className="md:hidden mt-4 space-y-0">
+                {heroBenefits.slice(0, 3).map((b, idx) => (
+                  <div
+                    key={b.title}
+                    className={`flex items-center gap-3 py-2.5 ${idx < 2 ? 'border-b border-white/20' : ''}`}
+                  >
+                    <div className="w-8 h-8 rounded-full border border-white/60 flex items-center justify-center shrink-0">
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-semibold text-white leading-tight">{b.title}</span>
+                      <span className="text-xs text-white/75 leading-tight">{b.sub}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop CTA buttons */}
+              <div className="hidden md:flex mt-5 flex-row gap-3">
+                <Button size="lg" onClick={scrollToContact} className="font-semibold h-11 md:h-14">
                   Kostenloses Angebot erhalten
                 </Button>
+                <Button
+                  size="lg"
+                  className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold h-11 md:h-14"
+                  asChild
+                >
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackContact()}
+                    aria-label="Teppichbodenreinigung per WhatsApp anfragen"
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    WhatsApp schreiben
+                  </a>
+                </Button>
               </div>
-            </Card>
+
+              {/* Mobile CTA buttons */}
+              <div className="md:hidden mt-3 flex flex-col gap-2">
+                <Button
+                  size="lg"
+                  onClick={scrollToContact}
+                  className="w-full min-h-[4rem] h-auto py-3.5 px-4 font-semibold justify-start gap-4 rounded-xl"
+                >
+                  <FileText className="w-6 h-6 text-white shrink-0" />
+                  <div className="flex flex-col items-start text-left">
+                    <span className="text-white font-bold text-base leading-tight">Kostenloses Angebot erhalten</span>
+                    <span className="text-white/80 text-xs leading-tight">Unverbindlich anfragen</span>
+                  </div>
+                </Button>
+
+                <Button
+                  size="lg"
+                  className="w-full min-h-[4rem] h-auto py-3.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
+                  asChild
+                >
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackContact()}
+                    aria-label="Teppichbodenreinigung per WhatsApp anfragen"
+                  >
+                    <MessageCircle className="w-6 h-6 text-white shrink-0" />
+                    <div className="flex flex-col items-start text-left">
+                      <span className="text-white font-bold text-base leading-tight">WhatsApp schreiben</span>
+                      <span className="text-white/80 text-xs leading-tight">Direkt & unkompliziert</span>
+                    </div>
+                  </a>
+                </Button>
+              </div>
+
+              <p className="hidden md:block mt-4 text-sm text-white/80 text-left">
+                Oder direkt anrufen:{' '}
+                <a href={`tel:${PHONE}`} className="font-semibold text-white hover:text-primary transition-colors">
+                  {PHONE_DISPLAY}
+                </a>
+              </p>
+            </div>
           </div>
         </section>
 

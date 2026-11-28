@@ -8,7 +8,6 @@ import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 import { Header } from '@/components/Header';
-import { ServiceHero } from '@/components/ServiceHero';
 import { Footer } from '@/components/Footer';
 import { EinsatzgebietSachsen } from '@/components/EinsatzgebietSachsen';
 import { GoogleReviews } from '@/components/GoogleReviews';
@@ -185,72 +184,130 @@ export default function Fensterreinigung() {
 
       <main>
         {/* HERO */}
-        <ServiceHero
-          desktopImage={heroDesktop}
-          mobileImage={heroMobile}
-          desktopPosition="bg-top"
-          imageLabel="Fensterreinigung Chemnitz – ReinWerk reinigt Fenster streifenfrei in Sachsen"
-          title={<>
-            <span className="block">Professionelle</span>
-            <span className="block text-primary">Fensterreinigung</span>
-            <span className="block">– streifenfrei &amp; zuverlässig</span>
-          </>}
-          description="Für Privat & Gewerbe – in Chemnitz, Dresden, Leipzig und Umgebung. Weitere Einsatzgebiete auf Anfrage."
-          benefits={[
-            { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
-            { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
-            { title: 'Privat & Gewerbe', sub: 'flexible Termine' },
-          ]}
-          onOffer={scrollToContact}
-          whatsappUrl={WHATSAPP_URL}
-          whatsappLabel="Fensterreinigung Chemnitz per WhatsApp anfragen"
-        />
+        <section className="relative min-h-[100svh] md:min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
+          {/* Mobile hero background */}
+          <div
+            className="absolute inset-0 md:hidden bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${heroMobile})` }}
+            aria-hidden="true"
+          />
+          {/* Desktop/Tablet hero background */}
+          <div
+            className="absolute inset-0 hidden md:block bg-cover bg-no-repeat bg-top"
+            style={{ backgroundImage: `url(${heroDesktop})` }}
+            aria-label="Fensterreinigung Chemnitz – ReinWerk reinigt Fenster streifenfrei in Sachsen"
+            role="img"
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(8,18,28,0.85) 0%, rgba(8,18,28,0.70) 30%, rgba(8,18,28,0.35) 55%, rgba(8,18,28,0.05) 75%)" }} aria-hidden="true" />
+          <div className="absolute inset-0 md:hidden" style={{ background: "linear-gradient(90deg, rgba(8,18,28,0.88) 0%, rgba(8,18,28,0.72) 45%, rgba(8,18,28,0.45) 75%, rgba(8,18,28,0.30) 100%)" }} aria-hidden="true" />
+          <div className="container mx-auto relative z-10 px-4 pt-3 pb-6 md:py-10">
+            <div className="max-w-xl md:max-w-2xl">
+              <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold md:font-bold tracking-tight leading-[1.05] md:leading-[1.1] text-left text-white">
+                <span className="md:hidden">
+                  Professionelle
+                  <br />
+                  <span className="text-primary">Fensterreinigung</span>
+                  <br />
+                  – streifenfrei & zuverlässig
+                </span>
+                <span className="hidden md:inline">
+                  Professionelle <span className="text-primary">Fensterreinigung</span> – streifenfrei & zuverlässig
+                </span>
+              </h1>
+              <p className="mt-2 md:mt-3 text-base md:text-xl text-white font-medium md:font-bold text-left max-w-[320px] sm:max-w-[380px] md:max-w-none leading-snug">
+                Für Privat & Gewerbe – in Chemnitz, Dresden, Leipzig und Umgebung. Weitere Einsatzgebiete auf Anfrage.
+              </p>
 
-        <GoogleReviews useMobileGoogleLogo />
+              {/* Desktop/Tablet USP cards */}
+              <div className="mt-4 hidden md:grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {[
+                  { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
+                  { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
+                  { title: 'Privat & Gewerbe', sub: 'flexible Termine' },
+                ].map((badge) => (
+                  <div
+                    key={badge.title}
+                    className="flex items-center gap-3 px-4 py-2.5 border-b border-white/20"
+                  >
+                    <div className="w-8 h-8 rounded-full border border-white/60 flex items-center justify-center shrink-0">
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-bold text-white leading-tight">{badge.title}</span>
+                      <span className="text-xs text-white/75 leading-tight">{badge.sub}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-        {/* SERVICES — 4 cards */}
-        <section className="pt-8 pb-6 md:pt-9 md:pb-10">
-          <div className="container mx-auto max-sm:px-3">
-            <h2 className="hidden sm:block text-2xl md:text-4xl font-bold text-foreground tracking-tight text-center mb-5 md:mb-8">
-              Unsere Leistungen der Fensterreinigung
-            </h2>
-            {/* Mobile: kompakte horizontale Servicekarten */}
-            <div className="flex flex-col gap-3 sm:hidden">
-              {services.map((s) => (
-                <div key={s.title} className="relative w-full h-[180px] rounded-[22px] overflow-hidden shadow-soft">
-                  <img
-                    src={s.img}
-                    alt={s.alt}
-                    title={s.imgTitle}
-                    className="absolute inset-0 w-full h-full object-cover object-[80%_25%]"
-                    loading="lazy"
-                    fetchPriority="auto"
-                  />
+              {/* Mobile USP list */}
+              <div className="md:hidden mt-3 space-y-0">
+                {[
+                  { title: '0 € Anfahrt', sub: 'in ausgewählten Regionen' },
+                  { title: 'Festpreis möglich', sub: 'nach kurzer Einschätzung' },
+                  { title: 'Privat & Gewerbe', sub: 'flexible Termine' },
+                ].map((badge, idx) => (
+                  <div
+                    key={badge.title}
+                    className={`flex items-center gap-3 py-2 ${idx < 2 ? 'border-b border-white/20' : ''}`}
+                  >
+                    <div className="w-8 h-8 rounded-full border border-white/60 flex items-center justify-center shrink-0">
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-semibold text-white leading-tight">{badge.title}</span>
+                      <span className="text-xs text-white/75 leading-tight">{badge.sub}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.55)_20%,rgba(0,0,0,0.4)_40%,rgba(0,0,0,0.2)_58%,transparent_75%)]" />
-                  <div className="absolute top-0 left-0 right-[25%] pl-[18px] pr-[12px] pt-[12px]">
-                    <h3 className="text-[20px] font-bold tracking-tight text-white leading-tight">{s.title}</h3>
-                    <p className="text-[13px] text-white/90 mt-[7px] leading-snug">{s.desc}</p>
-                  </div>
-                  <div className="absolute bottom-0 left-0 bg-primary text-primary-foreground font-bold text-[15px] px-[14px] py-[7px] rounded-tr-[16px] whitespace-nowrap">
-                    {s.price}
-                  </div>
-                </div>
-              ))}
-            </div>
+              {/* Desktop CTA buttons */}
+              <div className="hidden md:flex mt-5 md:mt-6 flex-row gap-3">
+                <Button size="lg" onClick={scrollToContact} className="font-semibold">
+                  Kostenloses Angebot erhalten
+                </Button>
+                <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl shadow-lg font-semibold" asChild>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Fensterreinigung Chemnitz per WhatsApp anfragen">
+                    <MessageCircle className="w-5 h-5" />
+                    WhatsApp schreiben
+                  </a>
+                </Button>
+              </div>
 
-            <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {services.map((s) => (
-                <Card key={s.title} className="overflow-hidden hover:shadow-medium transition-shadow group">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img src={s.img} alt={s.alt} title={s.imgTitle} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+              {/* Mobile CTA buttons */}
+              <div className="md:hidden mt-4 flex flex-col gap-2">
+                <Button
+                  size="lg"
+                  onClick={scrollToContact}
+                  className="w-full min-h-[3.5rem] h-auto py-3 px-4 font-semibold justify-start gap-4 rounded-xl"
+                >
+                  <FileText className="w-6 h-6 text-white shrink-0" />
+                  <div className="flex flex-col items-start text-left">
+                    <span className="text-white font-bold text-base leading-tight">Kostenloses Angebot erhalten</span>
+                    <span className="text-white/80 text-xs leading-tight">Unverbindlich anfragen</span>
                   </div>
-                  <div className="p-4">
-                    <h3 className="text-base font-bold text-foreground">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
-                  </div>
-                </Card>
-              ))}
+                </Button>
+
+                <Button
+                  size="lg"
+                  className="w-full min-h-[3.5rem] h-auto py-3 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white justify-start gap-4 rounded-xl shadow-lg font-semibold"
+                  asChild
+                >
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Fensterreinigung Chemnitz per WhatsApp anfragen"
+                  >
+                    <MessageCircle className="w-6 h-6 text-white shrink-0" />
+                    <div className="flex flex-col items-start text-left">
+                      <span className="text-white font-bold text-base leading-tight">WhatsApp schreiben</span>
+                      <span className="text-white/80 text-xs leading-tight">Direkt & unkompliziert</span>
+                    </div>
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
